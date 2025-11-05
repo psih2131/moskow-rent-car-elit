@@ -1,0 +1,234 @@
+.footer {
+    background: $bgColor3;
+}
+
+.footer__top {
+    padding-top: 60px;
+    padding-bottom: 60px;
+
+    .container {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+}
+
+.footer__logo {
+    display: block;
+    width: 286px;
+}
+
+.footer__logo-img {
+    display: block;
+    width: 100%;
+}
+
+.footer__firm-text {
+    margin-top: 36px;
+    max-width: 450px;
+    color: #71777A;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 26px;
+}
+
+.footer__top-right {
+    display: flex;
+    align-items: flex-start;
+    padding-top: 20px;
+}
+
+.footer__col {
+    margin-left: 100px;
+
+    &:first-child {
+        margin-left: 0;
+    }
+}
+
+.footer__col-title {
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 1.8px;
+    color: $white;
+    margin-bottom: 24px;
+}
+
+.footer__nav-ul-element {
+    margin-bottom: 15px;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    .router-link-exact-active {
+        color: $white;
+    }
+}
+
+.footer__nav-link {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 1.68px;
+    color: $grey1;
+    transition: all ease 0.3s;
+
+    &:hover {
+        transition: all ease 0.3s;
+        color: $white;
+    }
+}
+
+.footer__contacts-element {
+    display: flex;
+    align-items: center;
+    max-width: 260px;
+    margin-bottom: 15px;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    .contact-link {
+        width: 40px;
+        height: 40px;
+
+        svg {
+            width: auto;
+            height: auto;
+            max-width: 14px;
+            max-height: 14px;
+        }
+    }
+}
+
+.footer__contacts-element-value {
+    width: calc(100% - 40px);
+    padding-left: 12px;
+}
+
+.footer__contacts-element-value-main {
+    color: $white;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+    display: block;
+    line-height: 1.2;
+}
+
+.footer__contacts-element-value-main-dop {
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.2;
+    /* 12px */
+
+    display: block;
+    color: $grey1;
+}
+
+.footer__col--help {
+    .footer__contacts-element {
+        .contact-link {
+
+
+            svg {
+                width: 19px;
+                height: auto;
+                max-width: 19px;
+                max-height: 19px;
+            }
+        }
+    }
+}
+
+.footer__social-wrapper {
+    margin-top: 30px;
+}
+
+.footer__social-title {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    color: $white;
+    letter-spacing: 1.4px;
+}
+
+.footer__social-row {
+    display: flex;
+    margin-top: 20px;
+
+    .contact-link {
+        margin-right: 15px;
+    }
+}
+
+.footer__down {
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 25px 0;
+        border-top: solid 1px $green1;
+    }
+}
+
+.footer__down-nav-ul {
+    display: flex;
+}
+
+.footer__down-nav-list-element {
+    margin-right: 30px;
+
+    &:last-child {
+        margin-right: 0;
+    }
+
+    .router-link-exact-active {
+        color: $white;
+    }
+}
+
+.footer__down-nav-link {
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 1.44px;
+    text-decoration-line: underline;
+    color: $grey1;
+    transition: all ease 0.3s;
+
+    &:hover {
+        color: $white;
+        transition: all ease 0.3s;
+    }
+}
+
+.footer__developer {
+    font-family: $titleFont;
+    color: $grey1;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 0.64px;
+
+    a {
+        color: $gold1;
+        text-decoration: underline;
+        transition: all ease 0.3s;
+
+        &:hover {
+            color: $white;
+            transition: all ease 0.3s;
+        }
+    }
+}

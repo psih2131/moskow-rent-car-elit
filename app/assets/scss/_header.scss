@@ -1,0 +1,162 @@
+.header {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+.header__container {
+    margin: 0 auto;
+    width: 1660px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.header__left {
+    position: relative;
+    margin-top: 22px;
+}
+
+.header__logo {
+    width: 286px;
+    display: block;
+
+}
+
+.header__logo-img {
+    width: 100%;
+    display: block;
+}
+
+.header__time-work {
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 1.44px;
+    color: $grey1;
+    position: absolute;
+    top: 65px;
+    right: 24px;
+}
+
+.header__nav-list {
+    display: flex;
+}
+
+.header__nav-list-element {
+    margin: 0 16px;
+
+    .router-link-exact-active {
+        color: $white;
+
+        &:before {
+            color: $white;
+            width: 100%;
+        }
+    }
+}
+
+.header__nav-list-link {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 1.68px;
+    color: $grey1;
+    transition: all ease 0.3s;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding-top: 42px;
+
+    &:hover {
+        color: $white;
+        transition: all ease 0.3s;
+    }
+
+    &:before {
+        width: 0;
+        height: 1px;
+        background: none;
+        transition: all ease 0.3s;
+        content: "";
+        background: $gold1;
+        position: absolute;
+        top: 0;
+    }
+}
+
+
+
+.header__right {
+    display: flex;
+    padding-top: 26px;
+    align-items: center;
+}
+
+.header__yandex-rait {
+    position: relative;
+
+    svg {
+        display: block;
+    }
+}
+
+.header__yandex-rait-value {
+    font-family: $subFont;
+    color: #141414;
+    position: absolute;
+    z-index: 5;
+    font-size: 12px;
+    top: 33px;
+    width: 100%;
+    text-align: center;
+    font-weight: 500;
+}
+
+.header__contacts {
+    display: flex;
+    margin-left: 45px;
+
+    .contact-link {
+        margin-left: 15px;
+
+        &:first-child {
+            margin-left: 0;
+        }
+    }
+}
+
+.contact-link {
+    width: 44px;
+    height: 44px;
+    display: block;
+    border-radius: 100px;
+    padding: 1px;
+    background: linear-gradient(180deg, #EEC681 0%, #7F5B37 100%);
+
+    // &:hover {
+    //     .contact-link__wrapper {
+    //         background: $white;
+    //     }
+    // }
+}
+
+.contact-link__wrapper {
+    background: $bgColor2;
+    border-radius: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+
+    svg {
+        display: block;
+        width: 19px;
+        height: auto;
+    }
+
+
+}
