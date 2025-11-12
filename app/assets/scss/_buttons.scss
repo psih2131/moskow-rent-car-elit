@@ -1,0 +1,128 @@
+.btnV1 {
+    width: 340px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    border: none;
+
+    position: relative;
+}
+
+.btnV1__title {
+    color: $gold1;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    font-family: $titleFont;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 100%;
+    /* 22px */
+    letter-spacing: 0.44px;
+    padding: 20px 0;
+    width: 100%;
+    transition: all ease 0.3s;
+
+}
+
+.btnV1__circle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 10px;
+    background: $white;
+    transition: all ease 0.3s;
+    z-index: 2;
+}
+
+.btnV1__circle-1 {
+    left: 0;
+    bottom: 0;
+}
+
+.btnV1__circle-2 {
+    right: 0;
+    top: 0;
+}
+
+.btnV1__line {
+    z-index: 2;
+    background: $white;
+    position: absolute;
+    transition: all ease 0.3s;
+}
+
+.btnV1__line-1 {
+    width: calc(100% - 15px);
+    height: 1px;
+    left: 0;
+    top: 0;
+
+}
+
+.btnV1__line-2 {
+    width: calc(100% - 15px);
+    height: 2px;
+    right: 0;
+    bottom: 0;
+
+}
+
+.btnV1__line-3 {
+    width: 1px;
+    height: calc(100% - 15px);
+    left: 0;
+    top: 0;
+
+}
+
+.btnV1__line-4 {
+    width: 2px;
+    height: calc(100% - 15px);
+    right: 0;
+    bottom: 0;
+
+}
+
+.btnV1 {
+    &:hover {
+        .btnV1__line-3 {
+            height: 100%;
+            transition: all ease 0.3s;
+
+        }
+
+        .btnV1__line-2 {
+            width: 100%;
+            transition: all ease 0.3s;
+
+        }
+
+        .btnV1__line-4 {
+            height: 100%;
+            transition: all ease 0.3s;
+
+        }
+
+        .btnV1__line-1 {
+            width: 100%;
+            transition: all ease 0.3s;
+
+        }
+
+        .btnV1__circle {
+            transition: all ease 0.3s;
+            opacity: 0;
+        }
+
+        .btnV1__title {
+            transition: all ease 0.3s;
+            background: $bgColor2;
+            color: $gold1;
+
+        }
+    }
+}

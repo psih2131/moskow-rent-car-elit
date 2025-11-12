@@ -16,7 +16,7 @@
                         </NuxtLink>
                     </li>
                     <li class="header__nav-list-element">
-                        <NuxtLink to="/about" class="header__nav-list-link">
+                        <NuxtLink to="/autopark" class="header__nav-list-link">
                             Автопарк
                         </NuxtLink>
                     </li>

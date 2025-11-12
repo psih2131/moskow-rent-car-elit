@@ -1,0 +1,278 @@
+.autopark-cars-sec {
+    padding-top: 210px;
+    padding-bottom: 150px;
+}
+
+.autopark-cars-sec__slider-naw-wrapper {
+    margin-top: 70px;
+    position: relative;
+
+    .swipe-home-cat__wrapper {
+        height: 193px;
+        padding: 20px 20px 40px 20px;
+
+
+        &:hover {
+            .swipe-home-cat__title-row {
+                &:before {
+                    width: 22px;
+
+                }
+
+                &:after {
+                    width: 22px;
+
+                }
+            }
+        }
+
+        &.active {
+            border: 1px solid rgba(243, 200, 132, 0.69);
+
+
+            .swipe-home-cat__title-row {
+                &:before {
+                    width: 22px;
+                    opacity: 1;
+
+                }
+
+                &:after {
+                    width: 22px;
+                    opacity: 1;
+
+                }
+            }
+        }
+
+    }
+
+    .swipe-home-cat__img-wprapper {
+        height: 100px;
+    }
+
+    .swipe-home-cat__title-row {
+        margin-top: 15px;
+
+        &:before {
+
+            right: calc(100% - 22px);
+        }
+
+        &:after {
+
+            left: calc(100% - 22px);
+        }
+    }
+
+    .swipe-home-cat__title {
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+
+
+    }
+
+    .home-news-sec__slider-row-control-wrapper {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 20px;
+    }
+
+    .swiper-def-ar {
+        width: 94px;
+        height: 50px;
+        right: 0px;
+        top: -70px;
+        position: absolute;
+
+        svg {
+            width: 70px;
+            height: auto;
+        }
+    }
+
+    .swiper-def-ar__circle {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+.autopark-cars-sec__filtrs-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 60px;
+    position: relative;
+    z-index: 20;
+}
+
+.autopark-cars-sec__filtr-wrapper {
+    margin-right: 20px;
+}
+
+.autopark-cars-sec__filtr-wrapper--power {
+    width: 244px;
+}
+
+.autopark-cars-sec__filtr-wrapper--price {
+    width: 270px;
+}
+
+.autopark-cars-sec__filtrs {
+    display: flex;
+    align-items: center;
+}
+
+.autopark-cars-sec__filtr-wrapper--seat-places {
+
+    width: 194px;
+}
+
+.autopark-cars-sec__filtr-clear {
+    width: 58px;
+    height: 58px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 58px;
+    border: 1px solid #707070;
+    cursor: pointer;
+    transition: all ease 0.3s;
+
+    &:hover {
+        transform: scale(1.1) rotate(90deg);
+        transition: all ease 0.3s;
+    }
+}
+
+.autopark-cars-sec__view-mod-row {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.autopark-cars-sec__view-btn {
+    border: 1px solid #151D24;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.10);
+    width: 58px;
+    height: 58px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 20px;
+    cursor: pointer;
+
+    svg {
+        display: block;
+
+        path {
+            transition: all ease 0.3s;
+        }
+    }
+
+    &.active {
+        border: solid 1px $green2s;
+
+        svg {
+            path {
+                fill: $gold1;
+            }
+        }
+    }
+}
+
+.autopark-cars-sec__cars {
+    margin-top: 120px;
+    padding-bottom: 20px;
+
+    .car-card {
+        margin-bottom: 70px;
+    }
+}
+
+.autopark-cars-sec__cars {
+    &.table-mod {
+        display: flex;
+        flex-wrap: wrap;
+        width: calc(100% + 44px);
+        margin-left: 22px;
+        padding-bottom: 44px;
+
+        .car-card {
+            margin: 0 22px 44px 22px;
+            width: calc(33.333% - 44px);
+        }
+    }
+}
+
+.autopark-cars-sec__load-more-row {
+    display: flex;
+    justify-content: center;
+}
+
+.autopark-seo-sec {
+    padding-bottom: 150px;
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+}
+
+.autopark-seo-sec__images-claster {
+    width: 740px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.autopark-seo-sec__images-claster-col {
+    width: calc(50% - 20px);
+}
+
+.autopark-seo-sec__images-element {
+    width: 100%;
+    display: block;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.30);
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.autopark-seo-sec__images-claster-col--left {
+    .autopark-seo-sec__images-element {
+        &:nth-child(1) {
+            height: 400px;
+        }
+
+        &:nth-child(2) {
+            height: 220px;
+        }
+    }
+}
+
+.autopark-seo-sec__images-claster-col--right {
+    .autopark-seo-sec__images-element {
+        &:nth-child(1) {
+            height: 355px;
+        }
+
+        &:nth-child(2) {
+            height: 268px;
+        }
+    }
+}
+
+.autopark-seo-sec__data {
+    width: calc(100% - 740px);
+    padding-left: 85px;
+}
+
+.autopark-seo-sec__text-wrapper {
+    padding-left: 80px;
+    margin-top: 45px;
+}
