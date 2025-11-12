@@ -222,7 +222,7 @@
                 <nav class="footer__down-nav">
                     <ul class="footer__down-nav-ul">
                         <li class="footer__down-nav-list-element">
-                            <NuxtLink to="" class="footer__down-nav-link">
+                            <NuxtLink to="/docs/privat-policy" class="footer__down-nav-link">
                                 Политика конфиденциальности
                             </NuxtLink>
                         </li>

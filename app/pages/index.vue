@@ -569,6 +569,7 @@
                 <div class="wp-editor seo-sec-type-1__editor" ref="editor">
                   <p><b>Мерседес</b> всегда был эталоном автомобилей класса премиум, а Мерседес Гелендваген особенно. Сила, мощь, агрессивный дизайн, черный цвет, грубые, но притягивающие черты, мощность в 571 л.с. и <b>разгон до 100 км за 5,4 секунды</b> – все это Гелендваген (или Гелик, как чаще всего его называют), чем все сказано. Любой праздник превратится в яркое событие, если вы возьмете в аренду Мерседес в Москве. Забудьте о серых и невзрачных праздниках без задора.</p>
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi quo ratione a adipisci reiciendis iste magni quasi ut sed accusantium est quam velit modi quaerat, unde hic consequuntur at libero.</p>
+                
                 </div>
               </div>
 

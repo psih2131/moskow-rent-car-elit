@@ -21,7 +21,7 @@
                         </NuxtLink>
                     </li>
                     <li class="header__nav-list-element">
-                        <NuxtLink to="/about" class="header__nav-list-link">
+                        <NuxtLink to="/rules" class="header__nav-list-link">
                             Условия
                         </NuxtLink>
                     </li>
