@@ -26,17 +26,17 @@
                         </NuxtLink>
                     </li>
                     <li class="header__nav-list-element">
-                        <NuxtLink to="/about" class="header__nav-list-link">
+                        <NuxtLink to="/contacts" class="header__nav-list-link">
                             Контакты
                         </NuxtLink>
                     </li>
                     <li class="header__nav-list-element">
-                        <NuxtLink to="/about" class="header__nav-list-link">
+                        <NuxtLink to="/certificates" class="header__nav-list-link">
                             Сертификаты
                         </NuxtLink>
                     </li>
                     <li class="header__nav-list-element">
-                        <NuxtLink to="/about" class="header__nav-list-link">
+                        <NuxtLink to="/partners" class="header__nav-list-link">
                             Зарабатывай с нами
                         </NuxtLink>
                     </li>

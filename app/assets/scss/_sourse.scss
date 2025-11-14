@@ -86,6 +86,10 @@ textarea {
 
 }
 
+svg {
+	shape-rendering: geometricPrecision;
+}
+
 body {
 	// overscroll-behavior-y: contain;
 	/* Для совместимости с большинством браузеров */

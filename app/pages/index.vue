@@ -48,7 +48,6 @@
         </div>
       </section>
 
-
       <section class="home-category-sec">
         <div class="container">
           <div class="header-row-sec">
@@ -159,7 +158,6 @@
           </div>
         </div>
       </section>
-
 
       <section class="home-cars-sec"> 
         <div class="container">

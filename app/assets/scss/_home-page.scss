@@ -988,7 +988,8 @@
 }
 
 .social-contact-def__info {
-    margin-left: 20px;
+    padding-left: 20px;
+    width: calc(100% - 70px);
 }
 
 .social-contact-def__value {
