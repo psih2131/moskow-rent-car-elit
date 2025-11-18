@@ -2,49 +2,44 @@ import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
 
 
+
 export const useCounterStore = defineStore('counter', () => {
-    const router = useRouter();
+    const serverUrlDomainRequest = ref('http://rent-car.gearsdpz.beget.tech')
 
-    const serverUrlDomainRequest = ref('https://backendinwyss.ru')
-    // const serverUrlDomainRequest = ref('https://panel.gift-siberia.com')
+    const domainUrlCurrent = ref('http://rent-car.gearsdpz.beget.tech')
 
+    const optionsData = ref(null)
 
-    // const domainUrlCurrent = ref('https://inwy.ru')
+    const popupCurrent = ref(null)
 
-    // const popupCurrent = ref(null)
+    const popupPayLoadData = ref(null)
 
-    // const trigerButtonForm = ref(null)
+    const changeOptionData = (newData) => {
+        optionsData.value = newData
+        console.log('new value store', optionsData.value)
+    }
 
-    // const serteficatCurrent = ref(null)
+    function changePopupCurrent(newValue, payloadData) {
+        popupCurrent.value = newValue
 
+        if (payloadData) {
+            popupPayLoadData.value = payloadData
+        }
 
-    // function changePopupCurrent(newValue) {
-    //     popupCurrent.value = newValue
-    //     console.log('popupCurrent', popupCurrent.value)
-    // }
-
-    // function changeTrigerButtonForm(newValue) {
-    //     trigerButtonForm.value = newValue
-    //     console.log('trigerButtonForm', trigerButtonForm.value)
-    // }
-
-
-    // function changeSerteficatCurrent(newValue) {
-    //     serteficatCurrent.value = newValue
-    //     console.log('changeSerteficatCurrent', serteficatCurrent.value)
-    // }
+        console.log('popupCurrent', popupCurrent.value)
+    }
 
 
 
-    // doubleCount, increment 
+
     return {
-        // serverUrlDomainRequest,
-        // domainUrlCurrent,
-        // popupCurrent,
-        // serteficatCurrent,
-        // trigerButtonForm,
-        // changePopupCurrent,
-        // changeSerteficatCurrent,
-        // changeTrigerButtonForm,
+        serverUrlDomainRequest,
+        optionsData,
+        popupCurrent,
+        popupPayLoadData,
+
+        changeOptionData,
+        changePopupCurrent,
+
     }
 })

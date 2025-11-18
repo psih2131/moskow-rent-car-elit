@@ -255,6 +255,11 @@
     &.active {
         color: $white;
     }
+
+    span {
+        display: inline-block;
+        margin-right: 7px;
+    }
 }
 
 .price-table__el-header {

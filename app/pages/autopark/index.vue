@@ -180,18 +180,12 @@
 
 
           <div class="autopark-cars-sec__cars" :class="{'table-mod': viewMod == false}">
+            
+            <template v-if="allCars?.length > 0">
 
-            <carCard />
+                <carCard v-for="(item, index) in allCars" :key="index" :carData="item" :allCats="carsCategoryes" />
 
-            <carCard />
-
-            <carCard />
-
-            <carCard />
-
-            <carCard />
-
-            <carCard />
+            </template>
 
           </div>
 
@@ -257,7 +251,8 @@
 <script setup>
     //IMPORT
 
-    import { useCounterStore } from '@/stores/counter'
+
+ 
 
     import { ref, onMounted, onBeforeUnmount, computed, watch  } from 'vue';
 
@@ -266,6 +261,21 @@
     import carCard from '@/components/carCard.vue'
 
     import formSec from '@/components/sections/formSec.vue'
+
+    import { useCounterStore } from '@/stores/counter'
+    import { useNuxtApp } from '#app'
+
+    const nuxtApp = useNuxtApp()
+    const store = useCounterStore(nuxtApp.$pinia)
+
+
+    const { data: allCars } = await useFetch(`${store.serverUrlDomainRequest}/wp-json/wp/v2/cars`)
+    const { data: carsCategoryes } = await useFetch(`${store.serverUrlDomainRequest}/wp-json/wp/v2/categories-cars`)
+
+    console.log('allCars',allCars)
+    console.log('carsCategoryes',carsCategoryes)
+
+    
 
     const catRefSlider = ref(null)
 
@@ -310,6 +320,8 @@
     },
 
     })
+
+   
 
 function onSlideChange(data){
   // console.log(catRefSliderGallery)

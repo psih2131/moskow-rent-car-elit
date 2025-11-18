@@ -964,6 +964,24 @@
     &:last-child {
         margin-right: 0;
     }
+
+    &:hover {
+        .social-contact-def__icon {
+            transform: scale(1.05);
+            transition: all ease 0.3s;
+        }
+
+        .social-contact-def__value {
+            color: $gold1;
+            transition: all ease 0.3s;
+        }
+
+        .social-contact-def__subvalue {
+            // color: $white;
+            // transition: all ease 0.3s;
+            // opacity: 0.7;
+        }
+    }
 }
 
 .social-contact-def__icon {
@@ -972,6 +990,7 @@
     width: 70px;
     height: 70px;
     border-radius: 100px;
+    transition: all ease 0.3s;
 }
 
 .social-contact-def__icon-wrapper {
@@ -1000,6 +1019,7 @@
     line-height: 100%;
     color: $white;
     margin-bottom: 12px;
+    transition: all ease 0.3s;
 }
 
 .social-contact-def__subvalue {
@@ -1008,6 +1028,7 @@
     font-weight: 400;
     line-height: 100%;
     color: $grey1;
+    transition: all ease 0.3s;
 }
 
 .social-contact-def__extream {

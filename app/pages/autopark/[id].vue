@@ -2,12 +2,12 @@
     <section class="car-hero-sec">
         <div class="container">
             <div class="header-row-sec">
-                <h2 class="car-hero-sec__title sec-title sec-title--left-mod"><b>ROLLS </b> ROYCE PHANTOM</h2>
+                <h2 class="car-hero-sec__title sec-title sec-title--left-mod" v-html="addGoldGlimer(currentCarData[0].title.rendered)"></h2>
 
-                <button class="home-hero-sec__btn btnV1 btnV1--big">
+                <button class="home-hero-sec__btn btnV1 btnV1--big" @click="openTargetPopupForm()">
                     <span class="btnV1__circle btnV1__circle-1"></span>
                     <span class="btnV1__circle btnV1__circle-2"></span>
-                    <span class="btnV1__title">ПЕРЕЙТИ В КАТАЛОГ</span>
+                    <span class="btnV1__title">ЗАКАЗАТЬ АВТО</span>
 
                     <div class="btnV1__line btnV1__line-1"></div>
                     <div class="btnV1__line btnV1__line-2"></div>
@@ -15,7 +15,6 @@
                     <div class="btnV1__line btnV1__line-4"></div>
                 </button>
           </div>
-
           
         </div>
 
@@ -30,68 +29,31 @@
               class="single-car-swiper"
               >
 
-                <swiper-slide class="single-car-swiper__slide" >
+                <swiper-slide class="single-car-swiper__slide" v-for="(item,index) in moveLastToFirst(currentCarData[0].acf.slajder_izobrazhenij)">
                     <div class="single-car-swiper__slide-wrapper">
-                      <img src="@/assets/images/img/car1-v2.jpg" alt="" class="single-car-swiper__slide-img">
+                      <img :src="item.izobrazhenie.url" :alt="item.izobrazhenie.alt" class="single-car-swiper__slide-img">
 
-                      <div class="single-car-swiper__slide-zoom">
-                        <svg width="33" height="34" viewBox="0 0 33 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M23.375 2.75391C22.6156 2.75391 22 3.37018 22 4.1304C22 4.89062 22.6156 5.5069 23.375 5.5069L25.5555 5.5069L19.6527 11.4161C19.1158 11.9536 19.1158 12.8252 19.6527 13.3627C20.1897 13.9003 21.0603 13.9003 21.5973 13.3627L27.5 7.45356L27.5 9.63639C27.5 10.3966 28.1156 11.0129 28.875 11.0129C29.6344 11.0129 30.25 10.3966 30.25 9.63639L30.25 4.1304C30.25 3.37018 29.6344 2.75391 28.875 2.75391H23.375ZM5.5 25.5842L5.5 23.4013C5.5 22.6411 4.88439 22.0248 4.125 22.0248C3.36561 22.0248 2.75 22.6411 2.75 23.4013L2.75 28.9073C2.75001 29.6676 3.36561 30.2838 4.125 30.2838H9.625C10.3844 30.2838 11 29.6676 11 28.9073C11 28.1471 10.3844 27.5308 9.625 27.5308H7.44454L13.3473 21.6217C13.8842 21.0841 13.8842 20.2126 13.3473 19.675C12.8103 19.1375 11.9397 19.1375 11.4027 19.675L5.5 25.5842Z" fill="#CFCFCF"/>
-                        </svg>
-                      </div>
-                        
-                    </div>
-                </swiper-slide>
-
-                <swiper-slide class="single-car-swiper__slide" >
-                    <div class="single-car-swiper__slide-wrapper">
-                        <img src="@/assets/images/img/single-car-1.jpg" alt="" class="single-car-swiper__slide-img">
-
-                        <div class="home-hero-sec__play">
+                      <div class="home-hero-sec__play" v-if="item.video_fajl" @click="openTargetPopupVider(item.video_fajl)">
                           <div class="home-hero-sec__play-wrapper">
                           </div>
                           <svg width="47" height="47" viewBox="0 0 47 47" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M5.875 23.5013V37.1452C5.875 41.6674 10.8381 44.526 14.8767 42.3297L21.1492 38.9187M5.875 15.668V9.8574C5.875 5.33517 10.8381 2.47667 14.8767 4.67287L39.9668 18.3168C44.1222 20.5765 44.1222 26.4261 39.9668 28.6858L27.4218 35.5078" stroke="white" stroke-width="3" stroke-linecap="round"/>
                             </svg>
-                        </div>
+                      </div>
 
+                      <div class="single-car-swiper__slide-zoom" @click="() => showImg(index)">
+                        <svg width="33" height="34" viewBox="0 0 33 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M23.375 2.75391C22.6156 2.75391 22 3.37018 22 4.1304C22 4.89062 22.6156 5.5069 23.375 5.5069L25.5555 5.5069L19.6527 11.4161C19.1158 11.9536 19.1158 12.8252 19.6527 13.3627C20.1897 13.9003 21.0603 13.9003 21.5973 13.3627L27.5 7.45356L27.5 9.63639C27.5 10.3966 28.1156 11.0129 28.875 11.0129C29.6344 11.0129 30.25 10.3966 30.25 9.63639L30.25 4.1304C30.25 3.37018 29.6344 2.75391 28.875 2.75391H23.375ZM5.5 25.5842L5.5 23.4013C5.5 22.6411 4.88439 22.0248 4.125 22.0248C3.36561 22.0248 2.75 22.6411 2.75 23.4013L2.75 28.9073C2.75001 29.6676 3.36561 30.2838 4.125 30.2838H9.625C10.3844 30.2838 11 29.6676 11 28.9073C11 28.1471 10.3844 27.5308 9.625 27.5308H7.44454L13.3473 21.6217C13.8842 21.0841 13.8842 20.2126 13.3473 19.675C12.8103 19.1375 11.9397 19.1375 11.4027 19.675L5.5 25.5842Z" fill="#CFCFCF"/>
+                        </svg>
+                      </div>
                         
-                        <div class="single-car-swiper__slide-zoom">
-                        <svg width="33" height="34" viewBox="0 0 33 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M23.375 2.75391C22.6156 2.75391 22 3.37018 22 4.1304C22 4.89062 22.6156 5.5069 23.375 5.5069L25.5555 5.5069L19.6527 11.4161C19.1158 11.9536 19.1158 12.8252 19.6527 13.3627C20.1897 13.9003 21.0603 13.9003 21.5973 13.3627L27.5 7.45356L27.5 9.63639C27.5 10.3966 28.1156 11.0129 28.875 11.0129C29.6344 11.0129 30.25 10.3966 30.25 9.63639L30.25 4.1304C30.25 3.37018 29.6344 2.75391 28.875 2.75391H23.375ZM5.5 25.5842L5.5 23.4013C5.5 22.6411 4.88439 22.0248 4.125 22.0248C3.36561 22.0248 2.75 22.6411 2.75 23.4013L2.75 28.9073C2.75001 29.6676 3.36561 30.2838 4.125 30.2838H9.625C10.3844 30.2838 11 29.6676 11 28.9073C11 28.1471 10.3844 27.5308 9.625 27.5308H7.44454L13.3473 21.6217C13.8842 21.0841 13.8842 20.2126 13.3473 19.675C12.8103 19.1375 11.9397 19.1375 11.4027 19.675L5.5 25.5842Z" fill="#CFCFCF"/>
-                        </svg>
-                      </div>
-
-                    </div>
-                </swiper-slide>
-
-                <swiper-slide class="single-car-swiper__slide" >
-                    <div class="single-car-swiper__slide-wrapper">
-                        <img src="@/assets/images/img/car1-v3.jpg" alt="" class="single-car-swiper__slide-img">
-
-                        <div class="single-car-swiper__slide-zoom">
-                        <svg width="33" height="34" viewBox="0 0 33 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M23.375 2.75391C22.6156 2.75391 22 3.37018 22 4.1304C22 4.89062 22.6156 5.5069 23.375 5.5069L25.5555 5.5069L19.6527 11.4161C19.1158 11.9536 19.1158 12.8252 19.6527 13.3627C20.1897 13.9003 21.0603 13.9003 21.5973 13.3627L27.5 7.45356L27.5 9.63639C27.5 10.3966 28.1156 11.0129 28.875 11.0129C29.6344 11.0129 30.25 10.3966 30.25 9.63639L30.25 4.1304C30.25 3.37018 29.6344 2.75391 28.875 2.75391H23.375ZM5.5 25.5842L5.5 23.4013C5.5 22.6411 4.88439 22.0248 4.125 22.0248C3.36561 22.0248 2.75 22.6411 2.75 23.4013L2.75 28.9073C2.75001 29.6676 3.36561 30.2838 4.125 30.2838H9.625C10.3844 30.2838 11 29.6676 11 28.9073C11 28.1471 10.3844 27.5308 9.625 27.5308H7.44454L13.3473 21.6217C13.8842 21.0841 13.8842 20.2126 13.3473 19.675C12.8103 19.1375 11.9397 19.1375 11.4027 19.675L5.5 25.5842Z" fill="#CFCFCF"/>
-                        </svg>
-                      </div>
-
-                    </div>
-                </swiper-slide>
-
-                <swiper-slide class="single-car-swiper__slide" >
-                    <div class="single-car-swiper__slide-wrapper">
-                        <img src="@/assets/images/img/car2.jpg" alt="" class="single-car-swiper__slide-img">
-
-                        <div class="single-car-swiper__slide-zoom">
-                        <svg width="33" height="34" viewBox="0 0 33 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M23.375 2.75391C22.6156 2.75391 22 3.37018 22 4.1304C22 4.89062 22.6156 5.5069 23.375 5.5069L25.5555 5.5069L19.6527 11.4161C19.1158 11.9536 19.1158 12.8252 19.6527 13.3627C20.1897 13.9003 21.0603 13.9003 21.5973 13.3627L27.5 7.45356L27.5 9.63639C27.5 10.3966 28.1156 11.0129 28.875 11.0129C29.6344 11.0129 30.25 10.3966 30.25 9.63639L30.25 4.1304C30.25 3.37018 29.6344 2.75391 28.875 2.75391H23.375ZM5.5 25.5842L5.5 23.4013C5.5 22.6411 4.88439 22.0248 4.125 22.0248C3.36561 22.0248 2.75 22.6411 2.75 23.4013L2.75 28.9073C2.75001 29.6676 3.36561 30.2838 4.125 30.2838H9.625C10.3844 30.2838 11 29.6676 11 28.9073C11 28.1471 10.3844 27.5308 9.625 27.5308H7.44454L13.3473 21.6217C13.8842 21.0841 13.8842 20.2126 13.3473 19.675C12.8103 19.1375 11.9397 19.1375 11.4027 19.675L5.5 25.5842Z" fill="#CFCFCF"/>
-                        </svg>
-                      </div>
-
                     </div>
                 </swiper-slide>
 
               </swiper-container>
+
+
+              
             </ClientOnly>
 
               <!-- <div class="home-cat-slider-swiper-button-prev swiper-def-ar swiper-def-ar--prev swiper-button" @click="swiperRecomend.prev()">
@@ -112,13 +74,21 @@
             </div>
 
           </div>
+          <VueEasyLightbox
+                :visible="visibleRef"
+                :imgs="getJustImgSrc(moveLastToFirst(currentCarData[0].acf.slajder_izobrazhenij))"
+                :index="indexRef"
+                @hide="onHide"
+              />
 
 
           </div>
+
+          
     </section>
 
 
-    <section class="car-char-sec">
+    <section class="car-char-sec" v-if="currentCarData[0].acf.harakteristiki">
       <div class="container">
 
         <div class="char-full">
@@ -130,7 +100,7 @@
           </div>
           <div class="char-full__data">
             <p class="char-full__title">Мощьность</p>
-            <p class="char-full__value">256 л.с</p>
+            <p class="char-full__value"><span v-html="currentCarData[0].acf.harakteristiki.moshhnost_ls"></span> л.с</p>
           </div>
         </div>
 
@@ -144,7 +114,7 @@
           </div>
           <div class="char-full__data">
             <p class="char-full__title">Трансмиссия</p>
-            <p class="char-full__value">Автомат</p>
+            <p class="char-full__value"><span v-html="currentCarData[0].acf.harakteristiki.transmissiya"></span></p>
           </div>
         </div>
 
@@ -158,7 +128,7 @@
           </div>
           <div class="char-full__data">
             <p class="char-full__title">К-во мест</p>
-            <p class="char-full__value">4 места</p>
+            <p class="char-full__value"><span v-html="currentCarData[0].acf.harakteristiki.kolichestvo_mest"></span> места</p>
           </div>
         </div>
 
@@ -170,7 +140,7 @@
           </div>
           <div class="char-full__data">
             <p class="char-full__title">Обьем двигателя</p>
-            <p class="char-full__value">4.5 литра</p>
+            <p class="char-full__value"><span v-html="currentCarData[0].acf.harakteristiki.obyom_dvigatelya"></span> литра</p>
           </div>
         </div>
 
@@ -182,7 +152,7 @@
           </div>
           <div class="char-full__data">
             <p class="char-full__title">Тип топлива</p>
-            <p class="char-full__value">Бензин</p>
+            <p class="char-full__value"><span v-html="currentCarData[0].acf.harakteristiki.tip_topliva"></span></p>
           </div>
         </div>
 
@@ -195,7 +165,7 @@
           </div>
           <div class="char-full__data">
             <p class="char-full__title">Разгон до 100</p>
-            <p class="char-full__value">6.2 секунды</p>
+            <p class="char-full__value"><span v-html="currentCarData[0].acf.harakteristiki.razgon_do_100"></span> секунды</p>
           </div>
         </div>
 
@@ -203,12 +173,14 @@
     </section>
 
 
-    <section class="car-price-sec">
+    <section class="car-price-sec" v-if="currentCarData[0].acf.zagolovok_stoimost_arendy">
       <div class="container">
         <div class="header-row-sec">
-                <h2 class="car-price-sec__title sec-title sec-title--left-mod"><b>СТОИМОСТЬ </b> АРЕНДЫ</h2>
+                <h2 class="car-price-sec__title sec-title sec-title--left-mod" v-html="currentCarData[0].acf.zagolovok_stoimost_arendy"></h2>
 
-                <button class="home-hero-sec__btn btnV1 btnV1--big">
+                <button class="home-hero-sec__btn btnV1 btnV1--big" 
+                v-if="currentCarData[0].acf?.gibkaya_stoimost_arendy?.length > 3"
+                @click="openTargetPopup('popup-price-table')">
                     <span class="btnV1__circle btnV1__circle-1"></span>
                     <span class="btnV1__circle btnV1__circle-2"></span>
                     <span class="btnV1__title">ПОСМОТРЕТЬ ВСЕ ЦЕНЫ</span>
@@ -223,79 +195,49 @@
           <div class="car-price-sec__table price-table">
             <div class="price-table__col">
               <div class="price-table__el price-table__el-header">1 день</div>
-              <div class="price-table__el price-table__el-value active">50000 руб./сутки</div>
+              <div class="price-table__el price-table__el-value active"><span v-html="currentCarData[0].acf.stoimost_arendy_v_sutki"></span> руб./сутки</div>
             </div>
 
-            <div class="price-table__col">
-              <div class="price-table__el price-table__el-header">2 - 3 дня</div>
-              <div class="price-table__el price-table__el-value">47000 руб./сутки</div>
-            </div>
-
-            <div class="price-table__col">
-              <div class="price-table__el price-table__el-header">4 - 6 дней</div>
-              <div class="price-table__el price-table__el-value">45000 руб./сутки</div>
-            </div>
-
-            <div class="price-table__col">
-              <div class="price-table__el price-table__el-header">7 - 15 дней</div>
-              <div class="price-table__el price-table__el-value">40000 руб./сутки</div>
+            <div class="price-table__col" v-for="item in currentCarData[0].acf.gibkaya_stoimost_arendy.slice(0, 3)">
+              <div class="price-table__el price-table__el-header" v-html="item.period"></div>
+              <div class="price-table__el price-table__el-value"><span v-html="item.czena"></span> руб./сутки</div>
             </div>
           </div>
 
-          <div class="car-price-sec__dop-services dop-services-price">
-            <div class="dop-services-price__row">
-              <p class="dop-services-price__name">Обязательный страховой взнос:</p>
-              <p class="dop-services-price__value">150 000 руб.</p>
-            </div>
-
-            <div class="dop-services-price__row">
-              <p class="dop-services-price__name">Личный водитель:</p>
-              <p class="dop-services-price__value">По запросу</p>
+          <div class="car-price-sec__dop-services dop-services-price" v-if="currentCarData[0].acf.dopolnitelnye_uslugi">
+            <div class="dop-services-price__row" v-for="item in currentCarData[0].acf.dopolnitelnye_uslugi">
+              <p class="dop-services-price__name"><span v-html="item.nazvanie_uslugi"></span>:</p>
+              <p class="dop-services-price__value" v-html="item.stoimost"></p>
             </div>
           </div>
       </div>
+     
     </section>
 
 
-    <section class="car-about-sec">
+    <section class="car-about-sec" v-if="currentCarData[0].acf.zagolovok_pro_avtomobil">
       <div class="container">
-        <h2 class="car-price-sec__title sec-title sec-title--left-mod"><b>ПРО </b> АВТОМОБИЛЬ</h2>
+        <h2 class="car-price-sec__title sec-title sec-title--left-mod" v-html="currentCarData[0].acf.zagolovok_pro_avtomobil"></h2>
 
         <div class="car-about-sec__info-wrapper">
-            <div class="info-data-row">
+
+          <div class="info-data-row" v-for="item in currentCarData[0].acf.o_avtomobile">
             <div class="info-data-row__data">
-              <div class="wp-editor">
-                <p><b>Мерседес</b> всегда был <b>эталоном</b> автомобилей класса премиум, а Мерседес Гелендваген особенно. Сила, мощь, агрессивный дизайн, черный цвет, грубые, но притягивающие черты, мощность в 571 л.с. и разгон до 100 км за 5,4 секунды – все это Гелендваген (или Гелик, как чаще всего его называют), чем все сказано. Любой праздник превратится в яркое событие, если вы возьмете в аренду Мерседес в Москве. Забудьте о серых и невзрачных праздниках без задора. Аренда Mercedes G63, автомобиля-внедорожника – это ваш шанс выйти за пределы шаблона и по-настоящему почувствовать себя живым ш шанс выйти за пределы шаблона и по-настоящему почувствовать себя живым</p>
-              </div>
+              <div class="wp-editor" v-html="item.tekstovyj_blok"></div>
             </div>
             <div class="info-data-row__img-wrapper">
-              <img src="@/assets/images/img/ab-car-1.jpg" alt="" class="info-data-row__img">
-              <img src="@/assets/images/img/ab-car-2.jpg" alt="" class="info-data-row__img">
-            </div>
-          </div>
-
-
-          <div class="info-data-row">
-            <div class="info-data-row__data">
-              <div class="wp-editor">
-              <p> Несмотря на грубые и даже брутальные черты, данный автомобиль является чрезвычайно популярным среди людей различных возрастов. Он станет полноценным атрибутом вашего праздника, а фото на его фоне не оставят равнодушными никого. Диски на 22 дюйма, изящный цвет с отливом и стильный вид будут смотреться на любой фотографии просто изумительно. </p>
-                <p>С данной машиной можно устроить праздник как себе, так и своим друзьям. Такой подарок по достоинству оценят виновники торжества.С данной машиной можно устроить праздник как себе, так и своим друзьям. Такой подарок по достоинству оценят виновники торжества.</p>
-              </div>
-            </div>
-            <div class="info-data-row__img-wrapper">
-              <img src="@/assets/images/img/ab-car-3.jpg" alt="" class="info-data-row__img">
-              <img src="@/assets/images/img/ab-car-4.jpg" alt="" class="info-data-row__img">
+              <img :src="item.izobrazhenie_1.url" :alt="item.izobrazhenie_1.alt" class="info-data-row__img">
+              <img :src="item.izobrazhenie_2.url" :alt="item.izobrazhenie_2.alt" class="info-data-row__img">
             </div>
           </div>
 
         </div>
         
-
       </div>
     </section>
 
 
-    <section class="car-char-full-sec">
+    <section class="car-char-full-sec" v-if="currentCarData[0].acf.zagolovok_harakteristiki_avto">
       <div class="container">
         <div class="header-row-sec-v2">
 
@@ -303,64 +245,25 @@
               <img src="@/assets/images/img/decor.png" alt="" class="header-row-sec-v2__decor"></img>
             </div>
             
-            <h2 class="car-char-full-sec__title sec-title sec-title--center-mod"><b>ХАРАКТЕРИСТИКИ </b> АВТО</h2>
+            <h2 class="car-char-full-sec__title sec-title sec-title--center-mod" v-html="currentCarData[0].acf.zagolovok_harakteristiki_avto"></h2>
           </div>
 
           <div class="car-char-full-sec__wrapper">
 
-            <div class="car-char-full-sec__row">
+            <div class="car-char-full-sec__row" v-for="(item, index) in currentCarData[0].acf.dopolnitelnye_polzovatelskie_harakteristiki">
               <div class="car-char-full-sec__row-name">
-                <span class="car-char-full-sec__row-counter">01</span>
-                <span class="car-char-full-sec__row-name-text">Страна производства</span>
+                <span class="car-char-full-sec__row-counter">{{'0'+(index + 1)}}</span>
+                <span class="car-char-full-sec__row-name-text" v-html="item.nazvanie_harakteristiki"></span>
               </div>
-              <div class="car-char-full-sec__value">Германия</div>
-            </div>
-
-            <div class="car-char-full-sec__row">
-              <div class="car-char-full-sec__row-name">
-                <span class="car-char-full-sec__row-counter">02</span>
-                <span class="car-char-full-sec__row-name-text">Тип привода</span>
-              </div>
-              <div class="car-char-full-sec__value">Полный привод</div>
-            </div>
-
-            <div class="car-char-full-sec__row">
-              <div class="car-char-full-sec__row-name">
-                <span class="car-char-full-sec__row-counter">03</span>
-                <span class="car-char-full-sec__row-name-text">Год производства</span>
-              </div>
-              <div class="car-char-full-sec__value">2019 год</div>
-            </div>
-
-            <div class="car-char-full-sec__row">
-              <div class="car-char-full-sec__row-name">
-                <span class="car-char-full-sec__row-counter">04</span>
-                <span class="car-char-full-sec__row-name-text">Пробег</span>
-              </div>
-              <div class="car-char-full-sec__value">55000 тыс./км</div>
-            </div>
-
-            <div class="car-char-full-sec__row">
-              <div class="car-char-full-sec__row-name">
-                <span class="car-char-full-sec__row-counter">05</span>
-                <span class="car-char-full-sec__row-name-text">Длинна корпуса</span>
-              </div>
-              <div class="car-char-full-sec__value">5.6 метра</div>
-            </div>
-
-            <div class="car-char-full-sec__row">
-              <div class="car-char-full-sec__row-name">
-                <span class="car-char-full-sec__row-counter">06</span>
-                <span class="car-char-full-sec__row-name-text">Запас хода </span>
-              </div>
-              <div class="car-char-full-sec__value">560 километров</div>
+              <div class="car-char-full-sec__value" v-html="item.znachenie"></div>
             </div>
 
           </div>
       </div>
     </section>
 
-    <section class="car-adv-sec">
+
+    <section class="car-adv-sec" v-if="currentCarData[0].acf.zagolovok_preimushhestva">
       <div class="container">
         <div class="header-row-sec-v2">
 
@@ -368,45 +271,29 @@
               <img src="@/assets/images/img/decor.png" alt="" class="header-row-sec-v2__decor"></img>
             </div>
             
-            <h2 class="car-adv-sec__title sec-title sec-title--center-mod"><b>НАШИ </b> ПРЕИМУЩЕСТВА</h2>
+            <h2 class="car-adv-sec__title sec-title sec-title--center-mod" v-html="currentCarData[0].acf.zagolovok_preimushhestva"></h2>
         </div>
 
-        <div class="car-adv-sec__wrapper adv-row-v2">
-          <div class="adv-element-v2">
+        <div class="car-adv-sec__wrapper adv-row-v2" v-if="currentCarData[0].acf.tip_preimushhestv == 'Стандартный как у всех авто'">
+          <div class="adv-element-v2" v-for="item in optionsData.preimushhestva_v_avto">
             <div class="adv-element__icon-wrapper-v2">
-              <img src="@/assets/images/img/ad1.svg" alt="" class="adv-element__icon-v2">
+              <img :src="item.ikonka.url" :alt="item.ikonka.alt" class="adv-element__icon-v2">
             </div>
 
-            <p class="dv-element-v2__title">КОМФОРТ</p>
-            <p class="dv-element-v2__subtitle">Оформление и доставка авто до нужного адреса за 3 часа.</p>
+            <p class="dv-element-v2__title" v-html="item.zagolovok"></p>
+            <p class="dv-element-v2__subtitle" v-html="item.tekst"></p>
           </div>
 
-          <div class="adv-element-v2">
+        </div>
+
+        <div class="car-adv-sec__wrapper adv-row-v2" v-else>
+          <div class="adv-element-v2" v-for="item in currentCarData[0].acf.preimushhestva">
             <div class="adv-element__icon-wrapper-v2">
-              <img src="@/assets/images/img/ad2.svg" alt="" class="adv-element__icon-v2">
+              <img :src="item.ikonka.url" :alt="item.ikonka.acf" class="adv-element__icon-v2">
             </div>
 
-            <p class="dv-element-v2__title">ПОДГОТОВКА</p>
-            <p class="dv-element-v2__subtitle">Каждый клиент получает чистый внутри и снаружи автомобиль.</p>
-          </div>
-
-
-          <div class="adv-element-v2">
-            <div class="adv-element__icon-wrapper-v2">
-              <img src="@/assets/images/img/ad3.svg" alt="" class="adv-element__icon-v2">
-            </div>
-
-            <p class="dv-element-v2__title">СТРАХОВКА</p>
-            <p class="dv-element-v2__subtitle">Не о чем волноваться: автомобиль застрахован по КАСКО и ОСАГО.</p>
-          </div>
-
-          <div class="adv-element-v2">
-            <div class="adv-element__icon-wrapper-v2">
-              <img src="@/assets/images/img/ad4.svg" alt="" class="adv-element__icon-v2">
-            </div>
-
-            <p class="dv-element-v2__title">БЕЗОПАСНОСТЬ</p>
-            <p class="dv-element-v2__subtitle">Предоставляем услуги сопровождения: охрана для важных и больших сделок.</p>
+            <p class="dv-element-v2__title" v-html="item.zagolovok"></p>
+            <p class="dv-element-v2__subtitle" v-html="item.tekst"></p>
           </div>
 
         </div>
@@ -414,12 +301,12 @@
     </section>
 
 
-    <section class="home-faq-sec car-faq-sec">
+    <section class="home-faq-sec car-faq-sec" v-if="currentCarData[0].acf.zagolovok_usloviya_arendy">
         <div class="container">
           <div class="header-row-sec">
-            <h2 class="header-row-sec__title sec-title sec-title--left-mod"><b>УСЛОВИЯ </b> АРЕНДЫ АВТО</h2>
+            <h2 class="header-row-sec__title sec-title sec-title--left-mod" v-html="currentCarData[0].acf.zagolovok_usloviya_arendy"></h2>
 
-            <button class="home-hero-sec__btn btnV1 btnV1--big">
+            <button class="home-hero-sec__btn btnV1 btnV1--big" @click="openTargetPopupForm()">
                 <span class="btnV1__circle btnV1__circle-1"></span>
                 <span class="btnV1__circle btnV1__circle-2"></span>
                 <span class="btnV1__title">ЗАДАТЬ СВОЙ ВОПРОС</span>
@@ -431,29 +318,36 @@
             </button>
           </div>
 
-          <div class="faq-wrapper">
+          <div class="faq-wrapper" v-if="currentCarData[0].acf.tip_uslovij_arendy == 'Стандартный как у всех авто'">
 
-            <faqElement :title="'Нужен ли для аренды страховой депозит?'" :counter="'01'"/>
+            <template v-for="(item, index) in optionsData.usloviya_arendy">
+              <faqElement :title="item.zagolovok" :description="item.opisanie" :counter="index+1"/>
+            </template>
 
-            <faqElement :title="'Где я могу эксплуатировать автомобиль?'" :counter="'02'"/>
-            
-            <faqElement :title="'Возможно ли оформить дополнительного водителя?'" :counter="'03'"/>
-            
-            <faqElement :title="'Как можно получить скидку на аренду автомобиля?'" :counter="'04'"/>
 
           </div>
+
+          <div class="faq-wrapper" v-else>
+
+            <template v-for="(item, index) in currentCarData[0].acf.usloviya_arendy">
+              <faqElement :title="item.zagolovok" :description="item.opisanie" :counter="index+1"/>
+            </template>
+
+
+          </div>
+
         </div>
     </section>
 
-    <formSec />
+    <formSec :formSecData="optionsData" />
 
 
-    <section class="car-simmilar-sec">
+    <section class="car-simmilar-sec" v-if="currentCarData[0].acf.zagolovok_pohozhie_avto">
       <div class="container">
         <div class="header-row-sec">
-            <h2 class="car-simmilar-sec__title sec-title sec-title--left-mod"><b>ПОХОЖИЕ </b> АВТОМОБИЛИ</h2>
+            <h2 class="car-simmilar-sec__title sec-title sec-title--left-mod" v-html="currentCarData[0].acf.zagolovok_pohozhie_avto"></h2>
 
-            <button class="home-hero-sec__btn btnV1 btnV1--big">
+            <NuxtLink to="/autopark" class="home-hero-sec__btn btnV1 btnV1--big">
                 <span class="btnV1__circle btnV1__circle-1"></span>
                 <span class="btnV1__circle btnV1__circle-2"></span>
                 <span class="btnV1__title">CМОТРЕТЬ ВСЕ АВТО</span>
@@ -462,14 +356,16 @@
                 <div class="btnV1__line btnV1__line-2"></div>
                 <div class="btnV1__line btnV1__line-3"></div>
                 <div class="btnV1__line btnV1__line-4"></div>
-            </button>
+            </NuxtLink>
           </div>
 
           <div class="car-simmilar-sec__cars-wrapper">
 
-            <carCard />
+            <template v-if="recomendCars?.length > 0">
 
-            <carCard />
+                <carCard v-for="(item, index) in recomendCars" :key="index" :carData="item" :allCats="carsCategoryes" />
+
+            </template>
 
         </div>
         
@@ -485,7 +381,7 @@
 
 //IMPORT
 
-import { useCounterStore } from '@/stores/counter'
+
 
 import { ref, onMounted, onBeforeUnmount, computed, watch  } from 'vue';
 
@@ -496,6 +392,76 @@ import carCard from '@/components/carCard.vue'
 import faqElement from '@/components/faqElement.vue'
 
 import formSec from '@/components/sections/formSec.vue'
+
+const route = useRoute()
+
+import { useCounterStore } from '@/stores/counter'
+import { useNuxtApp } from '#app'
+
+const nuxtApp = useNuxtApp()
+const store = useCounterStore(nuxtApp.$pinia)
+
+const recomendCars = ref(null)
+
+const allCats = ref(null)
+
+
+const { data: currentCarData } = await useFetch(`${store.serverUrlDomainRequest}/wp-json/wp/v2/cars?slug=${route.params.id}`)
+
+console.log('currentCarData',currentCarData)
+
+
+const { data: optionsData } = await useFetch(`${store.serverUrlDomainRequest}/wp-json/acf/v3/options`)
+
+console.log('optionsData', optionsData)
+
+
+const { data: carsCategoryes } = await useFetch(`${store.serverUrlDomainRequest}/wp-json/wp/v2/categories-cars`)
+console.log('carsCategoryes', carsCategoryes)
+
+
+const visibleRef = ref(false);
+const indexRef = ref(0);
+
+
+if(currentCarData.value[0].acf?.pohozhie_ili_rekomenduemye_avto?.length >0){
+
+
+
+// получаем рекомендованные посты
+try {
+  const mainPost = currentCarData.value?.[0]
+  const chitatTakzhe = mainPost?.acf?.pohozhie_ili_rekomenduemye_avto
+
+  if (Array.isArray(chitatTakzhe) && chitatTakzhe.length) {
+    const slugs = chitatTakzhe.map(obj => obj.post_name)
+
+    const promises = slugs.map(slug =>
+      fetch(`${store.serverUrlDomainRequest}/wp-json/wp/v2/cars?slug=${slug}`)
+        .then(res => res.json())
+        .then(data => data?.[0] || null)
+    )
+
+    recomendCars.value = await Promise.all(promises)
+  }
+} catch (error) {
+  console.error('Ошибка при загрузке рекомендованных постов:', error)
+}
+
+
+console.log('recomendCars', recomendCars)
+}
+
+// if(recomendCars.value.length >0){
+// const { data: carsCategoryes } = await useFetch(`${store.serverUrlDomainRequest}/wp-json/wp/v2/categories-cars`)
+// allCats.value = carsCategoryes.value
+// }
+
+// console.log('recomendCars', recomendCars)
+
+
+
+
 
 
 
@@ -534,11 +500,108 @@ const  swiperCarSingle  = useSwiper(singleCarSlider, {
 
 })
 
+function addGoldGlimer(str){
+   if (!str) return ''
+  const words = str.split(' ')
+  if (words.length === 0) return ''
+  words[0] = `<b>${words[0]}</b>`
+  return words.join(' ')
+}
 
 
+function moveLastToFirst(arr) {
+  if (!Array.isArray(arr) || arr.length === 0) return arr
+  const newArr = [...arr]
+  const last = newArr.pop()
+  newArr.unshift(last)
+  return newArr
+}
+
+
+const openTargetPopup = (data)=>{
+  const payloadData = {
+    'oneDay': currentCarData.value[0].acf.stoimost_arendy_v_sutki,
+    'list': currentCarData.value[0].acf.gibkaya_stoimost_arendy,
+    'dop': currentCarData.value[0].acf.dopolnitelnye_uslugi,
+    'title': currentCarData.value[0].acf.nazvanie_avto,
+  }
+  store.changePopupCurrent(data,payloadData)
+  
+}
+
+const openTargetPopupVider = (data) =>{
+  let payloadData = data.url
+    store.changePopupCurrent('popup-video',payloadData)
+}
+
+const openTargetPopupForm = ()=>{
+  store.changePopupCurrent('popup-form')
+}
+
+
+
+
+
+const showImg = (index) => {
+  indexRef.value = index;
+  visibleRef.value = true;
+};
+const onHide = () => (visibleRef.value = false);
+
+
+
+const getJustImgSrc = (data)=>{
+  let newArray = []
+  data.forEach(element => {
+    newArray.push(element.izobrazhenie.url)
+  });
+  return newArray
+}
 onMounted(() => {
 
 })
+
+
+
+//SEO
+useHead({
+    title: currentCarData.value[0].acf.seo_title || currentCarData.value[0].title.rendered,
+    meta: [
+        // Description
+        { name: 'description', content: currentCarData.value[0].acf.seo_description || 'Описание по умолчанию' },
+
+        // Keywords (опционально, не влияет сильно на SEO)
+        { name: 'keywords',  content: currentCarData.value[0].acf.klyuchevaya_fraza || 'Авто' },
+
+        // OpenGraph
+        { property: 'og:title', content: currentCarData.value[0].acf.seo_title },
+        { property: 'og:description', content: currentCarData.value[0].acf.seo_description },
+        { property: 'og:type', content: 'website' },
+        { property: 'og:url', content: `${store.domainUrlCurrent}${route.fullPath}` },
+        { property: 'og:image', content: currentCarData.value?.[0]?.acf?.og_image?.url || 'http://syberia.gearsdpz.beget.tech/wp-content/uploads/2025/07/87baa9efe5d849e4f8da67fe01f9e029.jpg' },
+
+        // Twitter Card (если используешь)
+        { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'twitter:title', content: currentCarData.value[0].acf.seo_title },
+        { name: 'twitter:description', content: currentCarData.value[0].acf.seo_description },
+        { name: 'twitter:image', content: currentCarData.value?.[0]?.acf?.og_image?.url || 'http://syberia.gearsdpz.beget.tech/wp-content/uploads/2025/07/87baa9efe5d849e4f8da67fe01f9e029.jpg' },
+
+        // Индексация / Деиндексация
+        // Например, noindex для черновика:
+        {
+        name: 'robots',
+        content:
+            currentCarData.value[0].acf.indeksacziya_v_poiskovyh_sistemah === 'index'
+            ? 'index, follow'
+            : 'noindex, nofollow'
+        }
+    ],
+    link: [
+        // Canonical (вручную или динамически)
+        { rel: 'canonical', href: `${store.domainUrlCurrent}/autopark/${currentCarData.value[0].acf.canonical || route.params.id}` }
+    ]
+})
+
 
 </script>
 

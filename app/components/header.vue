@@ -97,7 +97,7 @@
 
 <script setup>
     //IMPORT
-    import { useCounterStore } from '@/stores/counter'
+
 
 
 
