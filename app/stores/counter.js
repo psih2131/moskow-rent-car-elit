@@ -18,6 +18,8 @@ export const useCounterStore = defineStore('counter', () => {
 
     const clearFiltrStatus = ref(null)
 
+    const reviewTextPopup = ref(null)
+
     const changeOptionData = (newData) => {
         optionsData.value = newData
         console.log('new value store', optionsData.value)
@@ -48,6 +50,10 @@ export const useCounterStore = defineStore('counter', () => {
         }, 300)
     }
 
+    const changeReviewTextPopup = (newData) => {
+        reviewTextPopup.value = newData
+        console.log('new value store', reviewTextPopup.value)
+    }
 
 
     return {
@@ -57,11 +63,13 @@ export const useCounterStore = defineStore('counter', () => {
         popupPayLoadData,
         preloaderStatus,
         clearFiltrStatus,
+        reviewTextPopup,
 
         changeOptionData,
         changePopupCurrent,
         changePreloaderStatus,
         changeClearFiltrStatus,
+        changeReviewTextPopup,
 
     }
 })

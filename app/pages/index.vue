@@ -224,7 +224,9 @@
                         <div class="clients-about-us-slider__slide-text-wrapper">
                           <p class="clients-about-us-slider__slide-text" v-html="trimString(item.tekst_otzyva)"></p>
                         </div>
-                        <div class="clients-about-us-slider__slide-read-more-btn" v-if="item.tekst_otzyva.length > 350">
+                        <div class="clients-about-us-slider__slide-read-more-btn" 
+                        v-if="item.tekst_otzyva.length > 350" 
+                        @click="openTargetPopupFullReview(item.imya_avtora,item.tekst_otzyva)">
                           <span>читать полностью</span>
                           <svg width="11" height="6" viewBox="0 0 11 6" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path d="M0.23013 0.21967C0.536971 -0.0732233 1.03446 -0.0732233 1.3413 0.21967L5.5 4.18934L9.6587 0.21967C9.96554 -0.0732233 10.463 -0.0732233 10.7699 0.21967C11.0767 0.512563 11.0767 0.987437 10.7699 1.28033L6.05558 5.78033C5.74874 6.07322 5.25126 6.07322 4.94442 5.78033L0.23013 1.28033C-0.0767101 0.987437 -0.0767101 0.512563 0.23013 0.21967Z" fill="#707070"/>
@@ -358,7 +360,6 @@
 
       <formSec />
 
-
       <section class="home-seo-sec seo-sec-type-1" v-if="pageData[0].acf.sekcziya_10_seo_blok.zagolovok_h1">
         <div class="container">
           <div class="seo-sec-type-1__data">
@@ -379,7 +380,7 @@
                 :class="{'active': expanded}"
                 @click="toggleReadMore"
               >
-                <span class="seo-sec-type-1__read-more-text">
+                <span class="seo-sec-type-1__read-more-text" >
                   Читать полностью
                 </span>
                 <div class="seo-sec-type-1__read-more-icon">
@@ -618,6 +619,17 @@ function trimString(str) {
 //Open form popup
 const openTargetPopupForm = ()=>{
   store.changePopupCurrent('popup-form')
+}
+
+//Open review popup
+const openTargetPopupFullReview = (title,text)=>{
+  store.changePopupCurrent('popup-full-review')
+
+  let ojj = {
+    'title':title,
+    'text': text
+  }
+  store.changeReviewTextPopup(ojj)
 }
 
 onMounted(() => {

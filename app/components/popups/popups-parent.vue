@@ -12,6 +12,8 @@
         <popupForm v-if="store.popupCurrent == 'popup-form'" />
 
         <popupDone v-if="store.popupCurrent == 'popup-done'" />
+
+        <popupFullReview v-if="store.popupCurrent == 'popup-full-review'" />
         
     </div>
 </template>
@@ -29,6 +31,8 @@ import popupVideo from '@/components/popups/popupVideo.vue'
 import popupForm from '@/components/popups/popupForm.vue'
 
 import popupDone from '@/components/popups/popupDone.vue'
+
+import popupFullReview from '@/components/popups/popupFullReview.vue'
 
 //DATA
 const show = ref(false)
