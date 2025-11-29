@@ -362,7 +362,7 @@
         </div>
       </section>
 
-      <formSec />
+      <formSec :formSecData="optionsData" />
 
       <section class="home-seo-sec seo-sec-type-1" v-if="pageData[0].acf.sekcziya_10_seo_blok.zagolovok_h1">
         <div class="container">
@@ -474,6 +474,9 @@ try {
 
 console.log('recomendCars', recomendCars)
 }
+const { data: optionsData } = await useFetch(`${store.serverUrlDomainRequest}/wp-json/acf/v3/options`)
+
+console.log('optionsData', optionsData)
 
 console.log('pageData', pageData)
 
