@@ -1,8 +1,12 @@
 <template>
     <main class="main" v-if="pageData && pageData.length > 0">
-      <section class="home-hero-sec">
+
+      <section class="home-hero-sec"v-if="pageData[0].acf.sekcziya_1_hero.zagolovok">
         <div class="home-hero-sec__header-shadow"></div>
-        <img src="@/assets/images/img/home-hero-bg.jpg" alt="" class="home-hero-sec__bg-img">
+        <img 
+        :src="pageData[0].acf.sekcziya_1_hero.fonovoe_izobrazhenie.url"
+        :alt="pageData[0].acf.sekcziya_1_hero.fonovoe_izobrazhenie.alt" 
+        class="home-hero-sec__bg-img">
         <div class="home-hero-sec__content">
           <div class="container">
 
@@ -12,12 +16,14 @@
               </div>
               <div class="home-hero-sec__title-row">
                 <div class="home-hero-sec__decor-line"></div>
-                <h1 class="home-hero-sec__title">АРЕНДА <b>ЛЮКСОВЫХ</b> АВТО В <b>МОСКВЕ</b></h1>
+                <h1 class="home-hero-sec__title" v-html="pageData[0].acf.sekcziya_1_hero.zagolovok"></h1>
                 <div class="home-hero-sec__decor-line"></div>
               </div>
             </div>
 
-            <div class="home-hero-sec__play">
+            <div class="home-hero-sec__play"
+            v-if="pageData[0].acf.sekcziya_1_hero.video" 
+            @click="openTargetPopupVider(pageData[0].acf.sekcziya_1_hero.video)">
               <div class="home-hero-sec__play-wrapper">
               </div>
                <svg width="47" height="47" viewBox="0 0 47 47" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -26,21 +32,20 @@
             </div>
 
             <div class="home-hero-sec__text-wrapper">
-              <p class="home-hero-sec__text">
-                Высший уровень надёжности, безупречное качество сервиса и несравненный престиж на дороге.
-              </p>
 
-              <div class="home-hero-sec__btn-row">
-                <button class="home-hero-sec__btn btnV1">
+              <p class="home-hero-sec__text" v-html="pageData[0].acf.sekcziya_1_hero.podzagolovok"></p>
+
+              <div class="home-hero-sec__btn-row" v-if="pageData[0].acf.sekcziya_1_hero.tekst_knopki">
+                <NuxtLink to="/autopark" class="home-hero-sec__btn btnV1">
                   <span class="btnV1__circle btnV1__circle-1"></span>
                   <span class="btnV1__circle btnV1__circle-2"></span>
-                  <span class="btnV1__title">ВЫБРАТЬ АВТОМОБИЛЬ</span>
+                  <span class="btnV1__title">{{ pageData[0].acf.sekcziya_1_hero.tekst_knopki }}</span>
 
                   <div class="btnV1__line btnV1__line-1"></div>
                   <div class="btnV1__line btnV1__line-2"></div>
                   <div class="btnV1__line btnV1__line-3"></div>
                   <div class="btnV1__line btnV1__line-4"></div>
-                </button>
+                </NuxtLink>
               </div>
             </div>
 
@@ -69,7 +74,6 @@
            <ClientOnly>
               <swiper-container 
               ref="catRefSlider" 
-              @swiperslidechange="onSlideChange"
               class="home-cat-slider-swiper"
        
               >
@@ -408,10 +412,8 @@
 
 //IMPORT
 
-
 import { ref, onMounted, onBeforeUnmount, computed, watch  } from 'vue';
 
-// import productCard from '@/components/component__producr-card.vue'
 import carCard from '@/components/carCard.vue'
 
 import faqElement from '@/components/faqElement.vue'
@@ -431,8 +433,8 @@ const route = useRoute()
 
 
 //DATA
-const recomendCars = ref(null)
 
+const recomendCars = ref(null)
 
 const { data: pageData } = await useFetch(
   `${store.serverUrlDomainRequest}/wp-json/wp/v2/pages?slug=glavnaya`
@@ -449,8 +451,6 @@ const { data: carsCategoryes } = await useFetch(
 
 
 if(pageData.value[0].acf?.sekcziya_3_populyarnye_modeli?.modeli?.length >0){
-
-
 
 // получаем рекомендованные посты
 try {
@@ -472,7 +472,6 @@ try {
   console.error('Ошибка при загрузке рекомендованных постов:', error)
 }
 
-
 console.log('recomendCars', recomendCars)
 }
 
@@ -487,13 +486,19 @@ const ourClientsSlider = ref(null)
 
 const clientsAboutUsSlider = ref(null)
 
-
 const editor = ref(null)
+
 const wrapper = ref(null)
+
 const showReadMore = ref(false)
+
 const expanded = ref(false)
+
 const textHeight = ref(0)
 
+
+
+//METHODS
 
 //categoryes gallery
 const  catRefSliderGallery  = useSwiper(catRefSlider, {
@@ -522,12 +527,6 @@ const  catRefSliderGallery  = useSwiper(catRefSlider, {
 
 })
 
-function onSlideChange(data){
-  // console.log(catRefSliderGallery)
-}
-
-
-
 
 //clients gallery
 const  swiperClients  = useSwiper(ourClientsSlider, {
@@ -555,7 +554,6 @@ const  swiperClients  = useSwiper(ourClientsSlider, {
   },
 
 })
-
 
 
 //clients gallery
@@ -595,20 +593,11 @@ function getTotalSlides(data){
   return data.value.length
 }
 
-
-  // const currentSlideIndex = ref(2);
-  // const onIndexChange = () => {
-  //   console.log('index changed', e);
-  //   currentSlideIndex.value = e;
-  // };
-
-
-
 const toggleReadMore = () => {
   expanded.value = !expanded.value
 }
 
-//cut string for long review text
+//Cut string for long review text
 function trimString(str) {
   if (str.length > 350) {
     return str.slice(0, 347) + '...';
@@ -632,6 +621,12 @@ const openTargetPopupFullReview = (title,text)=>{
   store.changeReviewTextPopup(ojj)
 }
 
+//open video popup
+const openTargetPopupVider = (data) =>{
+  let payloadData = data.url
+    store.changePopupCurrent('popup-video',payloadData)
+}
+
 onMounted(() => {
  // Альтернативно, через DOM событие
   if (catRefSlider.value) {
@@ -640,9 +635,6 @@ onMounted(() => {
       console.log('Текущий индекс:', event.target.swiper.activeIndex)
     })
   }
-
-
-
   const editorHeight = editor.value.scrollHeight
   textHeight.value = editorHeight
 
@@ -691,8 +683,6 @@ useHead({
         { rel: 'canonical', href: `${store.domainUrlCurrent}/${pageData.value[0].acf.canonical || route.name}` }
     ]
 })
-
-
 
 </script>
 
