@@ -7,7 +7,7 @@
                 <img src="@/assets/images/img/decor.png" alt="" class="header-row-sec-v2__decor"></img>
                 </div>
                 
-                <h2 class="home-our-client-sec__title sec-title sec-title--center-mod"><b>НАШ </b> АВТОПАРК</h2>
+                <h2 class="home-our-client-sec__title sec-title sec-title--center-mod" v-if="pageData[0]?.acf?.zagolovok" v-html="pageData[0].acf.zagolovok"></h2>
             </div>
 
           <div class="autopark-cars-sec__nav">
@@ -20,92 +20,27 @@
         
                 >
 
-                    <swiper-slide class="swipe-home-cat" >
-                        <NuxtLink to="/about" class="swipe-home-cat__wrapper active">
-                        <div class="swipe-home-cat__img-wprapper">
-                            <img src="@/assets/images/img/catAll.png" alt="" class="swipe-home-cat__img">
+                    <swiper-slide class="swipe-home-cat" @click="loadCurrentCut('all',999)">
+                        <div class="swipe-home-cat__wrapper" :class="{'active': currentCutIndex == 999}">
+                            <div class="swipe-home-cat__img-wprapper">
+                                <img src="@/assets/images/img/catAll.png" alt="" class="swipe-home-cat__img">
+                            </div>
+                            <div class="swipe-home-cat__title-row">
+                                <p class="swipe-home-cat__title">Все авто</p>
+                            </div>
                         </div>
-                        <div class="swipe-home-cat__title-row">
-                            <p class="swipe-home-cat__title">Все авто</p>
-                        </div>
-                        </NuxtLink>
                     </swiper-slide>
 
-                    <swiper-slide class="swipe-home-cat" >
-                        <NuxtLink to="/about" class="swipe-home-cat__wrapper">
-                        <div class="swipe-home-cat__img-wprapper">
-                            <img src="@/assets/images/img/cat1.png" alt="" class="swipe-home-cat__img">
+                    <swiper-slide class="swipe-home-cat" v-for="(item,index) in carsCategoryes" @click="loadCurrentCut(item.id,index)">
+                        <div class="swipe-home-cat__wrapper" :class="{'active': currentCutIndex == index}">
+                            <div class="swipe-home-cat__img-wprapper">
+                                <img :src="item.acf.izobrazhenie_kategorii.url" :alt="item.acf.izobrazhenie_kategorii.alt" class="swipe-home-cat__img">
+                            </div>
+                            <div class="swipe-home-cat__title-row">
+                                <p class="swipe-home-cat__title">{{ item.name}}</p>
+                            </div>
                         </div>
-                        <div class="swipe-home-cat__title-row">
-                            <p class="swipe-home-cat__title">Премиум Купе</p>
-                        </div>
-                        </NuxtLink>
                     </swiper-slide>
-
-                    <swiper-slide class="swipe-home-cat" >
-                        <NuxtLink to="/about" class="swipe-home-cat__wrapper">
-                        <div class="swipe-home-cat__img-wprapper">
-                            <img src="@/assets/images/img/cat2.png" alt="" class="swipe-home-cat__img">
-                        </div>
-                        <div class="swipe-home-cat__title-row">
-                            <p class="swipe-home-cat__title">Кабриолет</p>
-                        </div>
-                        </NuxtLink>  
-                    </swiper-slide>
-
-                    <swiper-slide class="swipe-home-cat" >
-                    <NuxtLink to="/about" class="swipe-home-cat__wrapper">
-                        <div class="swipe-home-cat__img-wprapper">
-                            <img src="@/assets/images/img/cat3.png" alt="" class="swipe-home-cat__img">
-                        </div>
-                        <div class="swipe-home-cat__title-row">
-                            <p class="swipe-home-cat__title">Премиуи Седан</p>
-                        </div>
-                        </NuxtLink>  
-                    </swiper-slide>
-
-                    <swiper-slide class="swipe-home-cat" >
-                        <NuxtLink to="/about" class="swipe-home-cat__wrapper">
-                        <div class="swipe-home-cat__img-wprapper">
-                            <img src="@/assets/images/img/cat4.png" alt="" class="swipe-home-cat__img">
-                        </div>
-                        <div class="swipe-home-cat__title-row">
-                            <p class="swipe-home-cat__title">Внедорожник</p>
-                        </div>
-                        </NuxtLink>  
-                    </swiper-slide>
-
-                    <swiper-slide class="swipe-home-cat" >
-                        <NuxtLink to="/about" class="swipe-home-cat__wrapper">
-                        <div class="swipe-home-cat__img-wprapper">
-                            <img src="@/assets/images/img/cat5.png" alt="" class="swipe-home-cat__img">
-                        </div>
-                        <div class="swipe-home-cat__title-row">
-                            <p class="swipe-home-cat__title">V-class</p>
-                        </div>
-                        </NuxtLink>
-                    </swiper-slide>
-
-                    <swiper-slide class="swipe-home-cat" >
-                        <NuxtLink to="/about" class="swipe-home-cat__wrapper">
-                        <div class="swipe-home-cat__img-wprapper">
-                            <img src="@/assets/images/img/cat2.png" alt="" class="swipe-home-cat__img">
-                        </div>
-                        <div class="swipe-home-cat__title-row">
-                            <p class="swipe-home-cat__title">V-class</p>
-                        </div>
-                        </NuxtLink>
-                    </swiper-slide>
-
-                    <!-- <swiper-slide v-for="item in recomendDevelopersList" :key="item">
-
-                        <div class="recomend-slider-developers__wrapper" ref="itemWrappers">
-                            
-                            <componentDeveloperSmall :mainData="item" />
-                        </div>
-                        
-                    </swiper-slide> -->
-
 
                 </swiper-container>
                 </ClientOnly>
@@ -130,28 +65,26 @@
                 <div class="autopark-cars-sec__filtrs">
                     
                     <div class="autopark-cars-sec__filtr-wrapper autopark-cars-sec__filtr-wrapper--power">
-                        <customSelect :placeholder="'Мощьность'" :dopPlaceholder="'л.с'" :typeSelect="'two'"/>
+                        <customSelect :placeholder="'Мощьность'" :dopPlaceholder="'л.с'" :typeSelect="'two'" @sendData="getFiltrPover"/>
                     </div>
 
                     <div class="autopark-cars-sec__filtr-wrapper autopark-cars-sec__filtr-wrapper--power">
-                        <customSelect :placeholder="'Тип трансмиссии'" :typeSelect="'one'" :valuesVariants="filtrTransValues"/>
+                        <customSelect :placeholder="'Тип трансмиссии'" :typeSelect="'one'" :valuesVariants="filtrTransValues" @sendData="getFiltrTransmision"/>
                     </div>
 
                     <div class="autopark-cars-sec__filtr-wrapper autopark-cars-sec__filtr-wrapper--seat-places">
-                        <customSelect :placeholder="'К-во мест'" :typeSelect="'one'" :valuesVariants="filtrPlacesValues"/>
+                        <customSelect :placeholder="'К-во мест'" :typeSelect="'one'" :valuesVariants="filtrPlacesValues" @sendData="getFiltrPasangers"/>
                     </div>
 
                     <div class="autopark-cars-sec__filtr-wrapper autopark-cars-sec__filtr-wrapper--price">
-                        <customSelect :placeholder="'Стоимость'" :dopPlaceholder="'₽'" :typeSelect="'two'"/>
+                        <customSelect :placeholder="'Стоимость'" :dopPlaceholder="'₽'" :typeSelect="'two'" @sendData="getFiltrCost"/>
                     </div>
 
-                    <div class="autopark-cars-sec__filtr-clear">
+                    <div class="autopark-cars-sec__filtr-clear" @click="clearFiltr">
                         <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect x="17.5703" width="1.65714" height="24.8571" rx="0.828571" transform="rotate(44.6384 17.5703 0)" fill="#F3C884"/>
                         <rect y="1.28125" width="1.65714" height="24.8571" rx="0.828571" transform="rotate(-45.3616 0 1.28125)" fill="#F3C884"/>
                         </svg>
-
-
                     </div>
                     
                 </div>
@@ -181,15 +114,25 @@
 
           <div class="autopark-cars-sec__cars" :class="{'table-mod': viewMod == false}">
             
-            <template v-if="allCars?.length > 0">
+            <template v-if="allCarsSave?.length > 0">
 
-                <carCard v-for="(item, index) in allCars" :key="index" :carData="item" :allCats="carsCategoryes" />
+                <carCard v-for="(item, index) in allCarsSave" :key="index" :carData="item" :allCats="carsCategoryes" />
 
+            </template>
+
+            <template v-else>
+                <div class="autopark-cars-sec__cars-empty-search cars-empty-searc">
+                    <div class="cars-empty-searc__wrapper">
+                        <p class="cars-empty-searc__title"><b>АВТОМОБИЛЕЙ</b> НЕ НАЙДЕНО</p>
+                        <p class="cars-empty-searc__subtitle">Выберите другую категорию или попробуйте сбросить фильтр</p>
+                    </div>
+                    
+                </div>
             </template>
 
           </div>
 
-          <div class="autopark-cars-sec__load-more-row">
+          <!-- <div class="autopark-cars-sec__load-more-row">
             <button class="home-hero-sec__btn btnV1 btnV1--big">
                 <span class="btnV1__circle btnV1__circle-1"></span>
                 <span class="btnV1__circle btnV1__circle-2"></span>
@@ -200,7 +143,7 @@
                 <div class="btnV1__line btnV1__line-3"></div>
                 <div class="btnV1__line btnV1__line-4"></div>
             </button>
-          </div>
+          </div> -->
 
 
         </div>
@@ -209,36 +152,40 @@
 
     <formSec />
 
-    <section class="autopark-seo-sec">
+    <section class="autopark-seo-sec" v-if="pageData[0]?.acf?.seo_sekcziya?.zagolovok_h1">
         <div class="container">
             <div class="autopark-seo-sec__images-claster">
 
               <div class="autopark-seo-sec__images-claster-col  autopark-seo-sec__images-claster-col--left">
-                <img src="@/assets/images/img/seo-catalog-1.jpg" alt="" class="autopark-seo-sec__images-element">
-                <img src="@/assets/images/img/seo-catalog-2.jpg" alt="" class="autopark-seo-sec__images-element">
+
+                <template v-for="(item, index) in getCurrentImg(pageData[0].acf.seo_sekcziya.izobrazheniya, 1)">
+                    <img 
+                    :src="item.img.url" 
+                    :alt="item.img.alt" 
+                    class="autopark-seo-sec__images-element"
+                    >
+           
+                </template>
+                
               </div>
               
               <div class="autopark-seo-sec__images-claster-col autopark-seo-sec__images-claster-col--right">
-                <img src="@/assets/images/img/seo-catalog-3.jpg" alt="" class="autopark-seo-sec__images-element">
-                <img src="@/assets/images/img/seo-catalog-4.jpg" alt="" class="autopark-seo-sec__images-element">
+                <template v-for="(item, index) in getCurrentImg(pageData[0].acf.seo_sekcziya.izobrazheniya, 2)">
+                    <img 
+                    :src="item.img.url" 
+                    :alt="item.img.alt" 
+                    class="autopark-seo-sec__images-element"
+                    >
+           
+                </template>
               </div>
 
             </div>
 
             <div class="autopark-seo-sec__data">
-                <h2 class="clients-about-us__title sec-title sec-title--left-mod"><b>ЗАГОЛОВОК </b> СЕО ТЕКСТА ДЛЯ СТРАНИЦЫ КАТАЛОГА</h2>
-                <div class="autopark-seo-sec__text-wrapper">
-                    <div class="wp-editor">
-                        <p>В <b>Red Angels</b> мы верим, что роскошь — это не просто скорость и мощность. Это чувство свободы, уверенности и стиля, которое остаётся с вами даже после остановки двигателя.</p>
-
-                        <p>Мы создаём сервис, в котором каждый момент продуман до совершенства — от идеального состояния автомобилей до безупречного обслуживания. Наши клиенты выбирают не просто аренду, а опыт, где каждый выезд становится событием.</p>
-
-                        <p>Red Angels — это команда, объединённая страстью к автомобилям и вниманием к деталям. Мы стремимся превзойти ожидания, чтобы каждая поездка стала отражением вашего статуса и вкуса.</p>
-
-                        <p>В Red Angels мы верим, что роскошь — это не просто скорость и мощность. Это чувство свободы, уверенности и стиля, которое остаётся с вами даже после остановки двигателя.</p>
-
-                        <p>Мы создаём сервис, в котором каждый момент продуман до совершенства — от идеального состояния автомобилей до безупречного обслуживания. Наши клиенты выбирают не просто аренду, а опыт, где каждый выезд становится событием.</p>
-                    </div>
+                <h2 class="clients-about-us__title sec-title sec-title--left-mod" v-html="pageData[0].acf.seo_sekcziya.zagolovok_h1"></h2>
+                <div class="autopark-seo-sec__text-wrapper" v-if="pageData[0]?.acf?.seo_sekcziya.tekst">
+                    <div class="wp-editor" v-html="pageData[0].acf.seo_sekcziya.tekst"></div>
                 </div>
             </div>
         </div>
@@ -262,26 +209,40 @@
 
     import formSec from '@/components/sections/formSec.vue'
 
+    
     import { useCounterStore } from '@/stores/counter'
     import { useNuxtApp } from '#app'
 
     const nuxtApp = useNuxtApp()
     const store = useCounterStore(nuxtApp.$pinia)
 
+    const route = useRoute()
+
+    const currentCutIndex = ref(999)
+
+    const allCarsSave = ref(null)
+
 
     const { data: allCars } = await useFetch(`${store.serverUrlDomainRequest}/wp-json/wp/v2/cars`)
     const { data: carsCategoryes } = await useFetch(`${store.serverUrlDomainRequest}/wp-json/wp/v2/categories-cars`)
+    const { data: pageData } = await useFetch(`${store.serverUrlDomainRequest}/wp-json/wp/v2/pages?slug=avtopark`)
 
+    
+
+    allCarsSave.value = allCars.value
     console.log('allCars',allCars)
     console.log('carsCategoryes',carsCategoryes)
+    console.log('pageData', pageData)
 
     
 
     const catRefSlider = ref(null)
 
     const filtrTransValues = [
+        'Механика',
         'Автомат',
-        'Механика'
+        'Робот',
+        'Вариатор',
     ]
 
      const filtrPlacesValues = [
@@ -289,10 +250,27 @@
         '3',
         '4',
         '5',
-        'более 5'
+        '6',
+        '7',
+        '8',
+        '9',
+        '10',
     ]
 
     const viewMod = ref(true)
+
+    const filtrsObject = ref({
+        'power':{
+            'min':null,
+            'max':null
+        },
+        'transmission': null,
+        'passengers': null,
+        'cost': {
+            'min':null,
+            'max': null,
+        }
+    })
 
     //categoryes gallery
     const  catRefSliderGallery  = useSwiper(catRefSlider, {
@@ -326,5 +304,198 @@
 function onSlideChange(data){
   // console.log(catRefSliderGallery)
 }
+
+async function loadCurrentCut(id,index){
+
+    store.changePreloaderStatus(true)
+
+    if(index){
+        currentCutIndex.value = index
+    }
+    else{
+        currentCutIndex.value = carsCategoryes.value.findIndex(cat => +cat.id === +id)
+    }
+    console.log('currentCutIndex.value', currentCutIndex.value)
+
+    let url 
+
+    if(id != 'all'){
+        url = `${store.serverUrlDomainRequest}/wp-json/wp/v2/cars?categories-cars=${id}`
+    }
+    else{
+        url = `${store.serverUrlDomainRequest}/wp-json/wp/v2/cars`
+    }
+
+    
+
+    let res = await fetch(url)
+
+    let newDataCars = await res.json()
+
+    allCars.value = newDataCars
+    allCarsSave.value = newDataCars
+
+    console.log('newDataCars', newDataCars)
+
+    setTimeout(()=>{
+        store.changePreloaderStatus(false)
+    },500)
+
+    clearFiltr()
+
+}
+
+
+
+function getFiltrPover(data){
+    console.log('pover filtr data:', data)
+    filtrsObject.value.power.min = data.min
+    filtrsObject.value.power.max = data.max
+    applyFiltrs()
+}
+
+function getFiltrTransmision(data){
+    console.log('Transmision filtr data:', data)
+    filtrsObject.value.transmission = data
+    applyFiltrs()
+}
+
+function getFiltrPasangers(data){
+    console.log('Pasangers filtr data:', data)
+    filtrsObject.value.passengers = data
+    applyFiltrs()
+}
+
+function getFiltrCost(data){
+    console.log('Cost filtr data:', data)
+    filtrsObject.value.cost.min = data.min
+    filtrsObject.value.cost.max = data.max
+    applyFiltrs()
+}
+
+function applyFiltrs(){
+
+    console.log('filtrsObject.value',filtrsObject.value)
+
+    let newArray = allCars.value
+
+    let carsAfterFiltrs = newArray.filter(car => {
+    const f = filtrsObject.value
+    const char = car.acf.harakteristiki
+
+    // Фильтр по мощности
+    if (f.power.min !== null && +char.moshhnost_ls < +f.power.min) return false
+    if (f.power.max !== null && +char.moshhnost_ls > +f.power.max) return false
+
+    // Коробка передач
+    if (f.transmission !== null && char.transmissiya !== f.transmission) return false
+
+    // Кол-во пассажиров
+    if (f.passengers !== null && +char.kolichestvo_mest < +f.passengers){
+        return false
+    } 
+
+    // Цена
+    if (f.cost.min !== null && +car.acf.stoimost_avto_v_sutki < +f.cost.min) return false
+    if (f.cost.max !== null && +car.acf.stoimost_avto_v_sutki > +f.cost.max) return false
+
+    return true
+  })
+
+  console.log('carsAfterFiltrs', carsAfterFiltrs)
+
+  allCarsSave.value = [] 
+  allCarsSave.value = carsAfterFiltrs
+
+}
+
+const clearFiltr = () =>{
+    store.changeClearFiltrStatus(true)
+
+    filtrsObject.value = {
+        'power':{
+            'min':null,
+            'max':null
+        },
+        'transmission': null,
+        'passengers': null,
+        'cost': {
+            'min':null,
+            'max': null,
+        }
+    }
+    
+    allCarsSave.value = allCars.value
+    console.log('filtrsObject.value',filtrsObject.value)
+
+}
+
+function getCurrentImg(ar, indexList){
+    console.log(ar)
+
+    if(indexList == 1){
+        return ar.slice(0,2)
+    }
+
+    if(indexList == 2){
+        return ar.slice(2,4)
+    }
+    
+}
+
+
+function checkGetParametrs(){
+    let currentCut = route.query.id
+
+    if(currentCut){
+        loadCurrentCut(currentCut)
+    }
+}
+
+onMounted(()=>{
+    console.log('catRefSliderGallery', catRefSlider)
+    checkGetParametrs()
+})
+
+
+
+//SEO
+useHead({
+    title: pageData.value[0].acf.seo_title || pageData.value[0].title.rendered,
+    meta: [
+        // Description
+        { name: 'description', content: pageData.value[0].acf.seo_description || 'Описание по умолчанию' },
+
+        // Keywords (опционально, не влияет сильно на SEO)
+        { name: 'keywords',  content: pageData.value[0].acf.klyuchevaya_fraza || 'test' },
+
+        // OpenGraph
+        { property: 'og:title', content: pageData.value[0].acf.seo_title },
+        { property: 'og:description', content: pageData.value[0].acf.seo_description },
+        { property: 'og:type', content: 'website' },
+        { property: 'og:url', content: `${store.domainUrlCurrent}${route.fullPath}` },
+        { property: 'og:image', content: pageData.value?.[0]?.acf?.og_image?.url || 'http://syberia.gearsdpz.beget.tech/wp-content/uploads/2025/07/87baa9efe5d849e4f8da67fe01f9e029.jpg' },
+
+        // Twitter Card (если используешь)
+        { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'twitter:title', content: pageData.value[0].acf.seo_title },
+        { name: 'twitter:description', content: pageData.value[0].acf.seo_description },
+        { name: 'twitter:image', content: pageData.value?.[0]?.acf?.og_image?.url || 'http://syberia.gearsdpz.beget.tech/wp-content/uploads/2025/07/87baa9efe5d849e4f8da67fe01f9e029.jpg' },
+
+        // Индексация / Деиндексация
+        // Например, noindex для черновика:
+        {
+        name: 'robots',
+        content:
+            pageData.value[0].acf.indeksacziya_v_poiskovyh_sistemah === 'index'
+            ? 'index, follow'
+            : 'noindex, nofollow'
+        }
+    ],
+    link: [
+        // Canonical (вручную или динамически)
+        { rel: 'canonical', href: `${store.domainUrlCurrent}/${pageData.value[0].acf.canonical || route.name}` }
+    ]
+})
 
 </script>

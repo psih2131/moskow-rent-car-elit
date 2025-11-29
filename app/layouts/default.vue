@@ -9,6 +9,8 @@
 
          <popupsPlagin v-if="store.popupCurrent != null" />
 
+         <preloader v-if="store.preloaderStatus == true" />
+
     </div>
   
 </template>
@@ -21,6 +23,7 @@
     import componentHeader from '@/components/header.vue'
     import componentFooter from '@/components/footer.vue'
     import popupsPlagin from '@/components/popups/popups-parent.vue'
+    import preloader from '@/components/preloader.vue'
 
 
 
@@ -52,6 +55,13 @@
 
 //HOOKS
 watch(() => store.popupCurrent,  // отслеживаемое значение
+  (newVal, oldVal) => {
+    console.log('Значение изменилось:', oldVal, '→', newVal)
+  }
+)
+
+
+watch(() => store.preloaderStatus,  // отслеживаемое значение
   (newVal, oldVal) => {
     console.log('Значение изменилось:', oldVal, '→', newVal)
   }

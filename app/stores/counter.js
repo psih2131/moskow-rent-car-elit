@@ -14,6 +14,10 @@ export const useCounterStore = defineStore('counter', () => {
 
     const popupPayLoadData = ref(null)
 
+    const preloaderStatus = ref(null)
+
+    const clearFiltrStatus = ref(null)
+
     const changeOptionData = (newData) => {
         optionsData.value = newData
         console.log('new value store', optionsData.value)
@@ -30,6 +34,20 @@ export const useCounterStore = defineStore('counter', () => {
     }
 
 
+    const changePreloaderStatus = (newData) => {
+        preloaderStatus.value = newData
+        console.log('new value store', preloaderStatus.value)
+    }
+
+
+    const changeClearFiltrStatus = (newData) => {
+        clearFiltrStatus.value = newData
+        console.log('new value store', clearFiltrStatus.value)
+        setTimeout(() => {
+            clearFiltrStatus.value = false
+        }, 300)
+    }
+
 
 
     return {
@@ -37,9 +55,13 @@ export const useCounterStore = defineStore('counter', () => {
         optionsData,
         popupCurrent,
         popupPayLoadData,
+        preloaderStatus,
+        clearFiltrStatus,
 
         changeOptionData,
         changePopupCurrent,
+        changePreloaderStatus,
+        changeClearFiltrStatus,
 
     }
 })

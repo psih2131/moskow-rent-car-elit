@@ -691,6 +691,7 @@
     display: block;
     margin-bottom: 40px;
     box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.30);
+    object-fit: cover;
 
     &:last-child {
         margin-bottom: 0;
@@ -767,6 +768,12 @@
         svg {
             width: 24px;
             height: auto;
+        }
+
+        img {
+            width: 24px;
+            height: auto;
+            display: block;
         }
     }
 }

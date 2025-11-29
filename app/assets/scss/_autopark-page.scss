@@ -3,6 +3,10 @@
     padding-bottom: 150px;
 }
 
+.swipe-home-cat {
+    cursor: pointer;
+}
+
 .autopark-cars-sec__slider-naw-wrapper {
     margin-top: 70px;
     position: relative;
@@ -197,7 +201,7 @@
         display: flex;
         flex-wrap: wrap;
         width: calc(100% + 44px);
-        margin-left: 22px;
+        margin-left: -22px;
         padding-bottom: 44px;
 
         .car-card {
@@ -275,4 +279,35 @@
 .autopark-seo-sec__text-wrapper {
     padding-left: 80px;
     margin-top: 45px;
+}
+
+.cars-empty-searc {
+    width: 100%;
+    background: $bgColor2;
+    height: 600px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cars-empty-searc__title {
+    font-size: 32px;
+    text-align: center;
+    font-weight: 600;
+    color: $titleFont;
+    font-family: $titleFont;
+
+
+    b {
+        font-weight: 600;
+        color: $gold1;
+    }
+}
+
+.cars-empty-searc__subtitle {
+    text-align: center;
+    font-size: 18px;
+    color: $grey3;
+    margin-top: 15px;
 }

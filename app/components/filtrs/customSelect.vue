@@ -13,11 +13,11 @@
             <Vue3SlideUpDown v-model="show">
             <div class="custom-select__body-wrapper">
                 <div class="custom-select__inp-value">
-                    <input type="text" placeholder="От" v-model="value1" >
+                    <input type="text" placeholder="От" v-model="value1" @input="onInput">
                 </div>
                 <span>-</span>
                 <div class="custom-select__inp-value">
-                    <input type="text" placeholder="До" v-model="value2">
+                    <input type="text" placeholder="До" v-model="value2" @input="onInput2">
                 </div>
 
                 <div class="custom-select__aprove" @click="selectValue()">
@@ -49,11 +49,23 @@
 <script setup>
     //IMPORT
 
-    import { useCounterStore } from '@/stores/counter'
+
 
     import { ref, onMounted, onBeforeUnmount, computed, watch  } from 'vue';
 
     import { Vue3SlideUpDown } from "vue3-slide-up-down";
+
+    import { useCounterStore } from '@/stores/counter'
+
+    import { useNuxtApp } from '#app'
+
+
+    const nuxtApp = useNuxtApp()
+
+    const store = useCounterStore(nuxtApp.$pinia)
+
+
+    const emit = defineEmits(['sendData'])
 
     const props = defineProps({
         placeholder: String,
@@ -75,25 +87,55 @@
     const activeIndex = ref(null)
 
     
+    const onInput = (e) => {
+        value1.value = e.target.value.replace(/\D/g, '')
+    }
+
+    const onInput2 = (e) => {
+        value2.value = e.target.value.replace(/\D/g, '')
+    }
 
     function selectValue(){
         if(value1.value || value2.value){
             
             if(!value1.value && value2.value){
                 totalValue.value = `До ${value2.value} ${props.dopPlaceholder}`
+
+                emit('sendData', {
+                    'min': null,
+                    'max': value2.value
+                })
             }
 
             else if(value1.value && !value2.value){
-                totalValue.value = `До ${value1.value} ${props.dopPlaceholder}`
+                totalValue.value = `От ${value1.value} ${props.dopPlaceholder}`
+                emit('sendData', {
+                    'min': value1.value,
+                    'max': null
+                })
             }
             else{
                 totalValue.value = `${value1.value} ${props.dopPlaceholder} - ${value2.value} ${props.dopPlaceholder}`
+
+                emit('sendData', {
+                    'min': value1.value,
+                    'max': value2.value
+                })
             }
+
+            
 
         }
         else{
             totalValue.value = props.placeholder
+
+            emit('sendData', {
+                'min': null,
+                'max': null
+            })
         }
+
+        
 
         show.value = false
     }
@@ -108,9 +150,23 @@
             totalValue.value = props.placeholder
         }
 
+        emit('sendData', totalValue.value)
         console.log(index)
         show.value = false
     }
 
+   watch(() => store.clearFiltrStatus, (newValue, oldValue) => {
+    console.log('newValue', newValue)
+    if(newValue == true){
+        show.value = false
+        value1.value = null
+        value2.value = null
+        totalValue.value = null
+        activeIndex.value = null
+        totalValue.value = props.placeholder
+    }
+
+  }
+)
 
 </script>
