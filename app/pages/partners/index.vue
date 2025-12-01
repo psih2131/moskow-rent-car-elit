@@ -362,13 +362,13 @@
 
           <div class="faq-wrapper">
 
-            <faqElement :title="'Нужен ли для аренды страховой депозит?'" :counter="'01'"/>
+            <!-- <faqElement :title="'Нужен ли для аренды страховой депозит?'" :counter="'01'"/>
 
             <faqElement :title="'Где я могу эксплуатировать автомобиль?'" :counter="'02'"/>
             
             <faqElement :title="'Возможно ли оформить дополнительного водителя?'" :counter="'03'"/>
             
-            <faqElement :title="'Как можно получить скидку на аренду автомобиля?'" :counter="'04'"/>
+            <faqElement :title="'Как можно получить скидку на аренду автомобиля?'" :counter="'04'"/> -->
 
           </div>
         </div>
@@ -379,35 +379,80 @@
 </template>
 
 
-<script setup>
+<script >
 
 //IMPORT
 
-import { useCounterStore } from '@/stores/counter'
-
 import { ref, onMounted, onBeforeUnmount, computed, watch  } from 'vue';
-
-// import productCard from '@/components/component__producr-card.vue'
-
-import carCard from '@/components/carCard.vue'
 
 import faqElement from '@/components/faqElement.vue'
 
 import formSec from '@/components/sections/formSec.vue'
 
+import { useNuxtApp } from '#app'
 
+import { useCounterStore } from '@/stores/counter'
 
 
 //DATA
-// const store = useCounterStore()
 
-// const route = useRoute()
+const nuxtApp = useNuxtApp()
 
+const store = useCounterStore(nuxtApp.$pinia)
 
+const route = useRoute()
+
+const { data: pageData } = await useFetch(`${store.serverUrlDomainRequest}/wp-json/wp/v2/pages?slug=sertifikaty`)
+
+const { data: optionsData } = await useFetch(`${store.serverUrlDomainRequest}/wp-json/acf/v3/options`)
+
+console.log('pageData', pageData)
+
+console.log('optionsData', optionsData)
 
 
 onMounted(() => {
 
 })
+
+//SEO
+useHead({
+    title: pageData.value[0].acf.seo_title || pageData.value[0].title.rendered,
+    meta: [
+        // Description
+        { name: 'description', content: pageData.value[0].acf.seo_description || 'Описание по умолчанию' },
+
+        // Keywords (опционально, не влияет сильно на SEO)
+        { name: 'keywords',  content: pageData.value[0].acf.klyuchevaya_fraza || 'test' },
+
+        // OpenGraph
+        { property: 'og:title', content: pageData.value[0].acf.seo_title },
+        { property: 'og:description', content: pageData.value[0].acf.seo_description },
+        { property: 'og:type', content: 'website' },
+        { property: 'og:url', content: `${store.domainUrlCurrent}${route.fullPath}` },
+        { property: 'og:image', content: pageData.value?.[0]?.acf?.og_image?.url || 'http://syberia.gearsdpz.beget.tech/wp-content/uploads/2025/07/87baa9efe5d849e4f8da67fe01f9e029.jpg' },
+
+        // Twitter Card (если используешь)
+        { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'twitter:title', content: pageData.value[0].acf.seo_title },
+        { name: 'twitter:description', content: pageData.value[0].acf.seo_description },
+        { name: 'twitter:image', content: pageData.value?.[0]?.acf?.og_image?.url || 'http://syberia.gearsdpz.beget.tech/wp-content/uploads/2025/07/87baa9efe5d849e4f8da67fe01f9e029.jpg' },
+
+        // Индексация / Деиндексация
+        // Например, noindex для черновика:
+        {
+        name: 'robots',
+        content:
+            pageData.value[0].acf.indeksacziya_v_poiskovyh_sistemah === 'index'
+            ? 'index, follow'
+            : 'noindex, nofollow'
+        }
+    ],
+    link: [
+        // Canonical (вручную или динамически)
+        { rel: 'canonical', href: `${store.domainUrlCurrent}/${pageData.value[0].acf.canonical || route.name}` }
+    ]
+})
+
 
 </script>
