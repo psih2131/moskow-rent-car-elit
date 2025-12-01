@@ -1012,6 +1012,12 @@
     svg {
         display: block;
     }
+
+    img {
+        display: block;
+        max-width: 25px;
+        max-height: 25px;
+    }
 }
 
 .social-contact-def__info {

@@ -1,103 +1,73 @@
 <template>
-    <section class="contacts-sec">
+    <section class="contacts-sec" v-if="pageData && pageData.length > 0">
         <div class="container">
-            <div class="header-row-sec-v2">
+
+            <div class="header-row-sec-v2" v-if="pageData[0].acf.zagolovok">
                 <div class="header-row-sec-v2__decor-wrapper">
                     <img src="@/assets/images/img/decor.png" alt="" class="header-row-sec-v2__decor"></img>
                 </div>
-                <h2 class="contacts-sec__title sec-title sec-title--center-mod"><b>НАШИ </b> КОНТАКТЫ</h2>
+                <h2 class="contacts-sec__title sec-title sec-title--center-mod" v-html="pageData[0].acf.zagolovok"></h2>
             </div>
 
             <div class="contacts-sec__row">
 
-                <div class="contacts-sec__contact social-contact-def">
+                <a :href="pageData[0].acf.telefon.ssylka" class="contacts-sec__contact social-contact-def" v-if="pageData[0].acf?.telefon?.znachenie">
                     <div class="social-contact-def__icon">
                         <div class="social-contact-def__icon-wrapper">
-                            <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M2.75428 2.54508H8.49943L10.3512 7.14916L7.3764 9.12149C7.02043 9.3575 6.80662 9.75483 6.80662 10.1803C6.80986 10.2995 6.80662 10.1816 6.80662 10.1816L6.80662 10.1829L6.80663 10.1858L6.80666 10.1922L6.80685 10.2079C6.80704 10.2196 6.80736 10.2339 6.80791 10.2505C6.80899 10.2839 6.81095 10.327 6.81445 10.3793C6.82145 10.4838 6.83465 10.625 6.85946 10.7977C6.90905 11.1429 7.0053 11.6159 7.19217 12.1734C7.56738 13.2929 8.30463 14.7423 9.74051 16.1703C11.1764 17.5983 12.6338 18.3315 13.7594 18.7046C14.32 18.8905 14.7956 18.9862 15.1427 19.0355C15.3164 19.0602 15.4584 19.0733 15.5635 19.0803C15.616 19.0838 15.6594 19.0857 15.6929 19.0868C15.7097 19.0873 15.724 19.0877 15.7358 19.0878L15.7516 19.088L15.758 19.0881L15.7609 19.0881L15.7622 19.0881C15.7622 19.0881 15.9051 19.0803 15.7635 19.0881C16.2482 19.0881 16.6912 18.8158 16.908 18.3846L17.7649 16.6802L23.4409 17.621V23.1182C20.7396 23.5067 13.4442 23.8896 7.7114 18.1883C1.97859 12.4869 2.36363 5.23153 2.75428 2.54508ZM9.45997 10.7989L11.7708 9.26679C12.7777 8.59919 13.1768 7.32139 12.7273 6.20394L10.8755 1.59986C10.4869 0.633599 9.54587 0 8.49943 0H2.68743C1.52494 0 0.430684 0.803178 0.239845 2.05757C-0.194322 4.91136 -0.785283 13.3375 5.90183 19.9879C12.5889 26.6383 21.0615 26.0506 23.9311 25.6188C25.1924 25.429 26 24.3408 26 23.1847V17.621C26 16.3769 25.0956 15.3151 23.8616 15.1106L18.1856 14.1697C17.0775 13.9861 15.9784 14.5427 15.476 15.542L15.0326 16.4239C14.8933 16.3898 14.7377 16.3462 14.5687 16.2902C13.775 16.0271 12.6733 15.4877 11.5501 14.3706C10.4268 13.2536 9.88453 12.1579 9.61996 11.3686C9.54847 11.1553 9.497 10.9635 9.45997 10.7989Z" fill="#F1BD81"/>
-                            </svg>
+                            <img :src="pageData[0].acf.telefon.ikonka.url" :alt="pageData[0].acf.telefon.ikonka.alt">
                         </div>
                     </div>
 
                     <div class="social-contact-def__info">
-                        <p class="social-contact-def__value">+370(633)-760-82</p>
-                        <p class="social-contact-def__subvalue">telegram, whatshapp</p>
+                        <p class="social-contact-def__value" v-html="pageData[0].acf.telefon.znachenie"></p>
+                        <p class="social-contact-def__subvalue" 
+                        v-if="pageData[0].acf.telefon.podzagolovok"
+                        v-html="pageData[0].acf.telefon.podzagolovok"></p>
                     </div>
-                    
-                </div>
+                </a>
 
-
-                <div class="contacts-sec__contact social-contact-def">
+                <a :href="pageData[0].acf.pochta.ssylka" class="contacts-sec__contact social-contact-def" v-if="pageData[0].acf?.pochta?.znachenie">
                     <div class="social-contact-def__icon">
                         <div class="social-contact-def__icon-wrapper">
-                            <svg width="26" height="21" viewBox="0 0 26 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M0 2.6106C0 1.16881 1.16406 0 2.6 0H23.4C24.8359 0 26 1.1688 26 2.6106V18.2742C26 19.716 24.8359 20.8848 23.4 20.8848H2.6C1.16406 20.8848 0 19.716 0 18.2742V2.6106ZM4.57417 2.6106L13 10.0132L21.4258 2.6106H4.57417ZM23.4 4.34504L13.8561 12.73C13.3659 13.1606 12.6341 13.1606 12.1439 12.73L2.6 4.34504V18.2742H23.4V4.34504Z" fill="#F1BD81"/>
-                            </svg>
-
+                            <img :src="pageData[0].acf.pochta.ikonka.url" :alt="pageData[0].acf.pochta.ikonka.alt">
                         </div>
                     </div>
 
                     <div class="social-contact-def__info">
-                        <p class="social-contact-def__value">redangels@yandex.ru</p>
-                        <p class="social-contact-def__subvalue">по вопросам сотрудничества</p>
+                        <p class="social-contact-def__value" v-html="pageData[0].acf.pochta.znachenie"></p>
+                        <p class="social-contact-def__subvalue" 
+                        v-if="pageData[0].acf.pochta.podzagolovok"
+                        v-html="pageData[0].acf.pochta.podzagolovok"></p>
                     </div>
-                    
-                </div>
+                </a>
 
-                <div class="contacts-sec__contact social-contact-def social-contact-def--map">
+                <div :href="pageData[0].acf.adres.ssylka" class="contacts-sec__contact social-contact-def social-contact-def--map" 
+                v-if="pageData[0].acf?.adres?.znachenie">
                     <div class="social-contact-def__icon">
                         <div class="social-contact-def__icon-wrapper">
-                            <svg width="20" height="25" viewBox="0 0 20 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M10 0C4.5 0 0 4.47531 0 9.94513C0 16.6581 8.75 24.2413 9.125 24.6142C9.375 24.7385 9.75 24.8628 10 24.8628C10.25 24.8628 10.625 24.7385 10.875 24.6142C11.25 24.2413 20 16.6581 20 9.94513C20 4.47531 15.5 0 10 0ZM10 22.0036C7.375 19.5173 2.5 14.1718 2.5 9.94513C2.5 5.84276 5.875 2.48628 10 2.48628C14.125 2.48628 17.5 5.84276 17.5 9.94513C17.5 14.0475 12.625 19.5173 10 22.0036ZM10 4.97256C7.25 4.97256 5 7.21022 5 9.94513C5 12.68 7.25 14.9177 10 14.9177C12.75 14.9177 15 12.68 15 9.94513C15 7.21022 12.75 4.97256 10 4.97256ZM10 12.4314C8.625 12.4314 7.5 11.3126 7.5 9.94513C7.5 8.57767 8.625 7.45885 10 7.45885C11.375 7.45885 12.5 8.57767 12.5 9.94513C12.5 11.3126 11.375 12.4314 10 12.4314Z" fill="#F1BD81"/>
-                            </svg>
+                            <img :src="pageData[0].acf.adres.ikonka.url" :alt="pageData[0].acf.adres.ikonka.alt">
                         </div>
                     </div>
 
                     <div class="social-contact-def__info">
-                        <p class="social-contact-def__value">Москва, Нахимовский проспект 4</p>
+                        <p class="social-contact-def__value" v-html="pageData[0].acf.adres.znachenie"></p>
                     </div>
                     
                 </div>
 
-                <div class="contacts-sec__social-row">
+                <div class="contacts-sec__social-row" v-if="pageData[0].acf.socz_seti?.length > 0">
 
-                    <div class="contacts-sec__contact social-contact-def">
+                    <a :href="item.ssylka" class="contacts-sec__contact social-contact-def" v-for="item in pageData[0].acf.socz_seti">
                         <div class="social-contact-def__icon">
                             <div class="social-contact-def__icon-wrapper">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <g clip-path="url(#clip0_558_2407)">
-                                <path d="M12 0C18.6274 0 24 5.34352 24 11.9346C23.9998 18.5254 18.6273 23.8682 12 23.8682C5.37272 23.8682 0.000223882 18.5254 0 11.9346C0 5.34352 5.37258 0 12 0ZM16.9062 7.18457C16.4549 7.19252 15.7619 7.43216 12.4297 8.81055C11.2624 9.29341 8.9295 10.293 5.43164 11.8086C4.86383 12.0332 4.56615 12.2529 4.53906 12.4678C4.48741 12.8801 5.0847 13.0081 5.83594 13.251C6.44858 13.449 7.27268 13.6812 7.70117 13.6904C8.08983 13.6988 8.52402 13.539 9.00293 13.2119C12.2712 11.0179 13.9585 9.90867 14.0645 9.88477C14.1391 9.86792 14.2424 9.84735 14.3125 9.90918C14.3827 9.9712 14.3756 10.0886 14.3682 10.1201C14.3079 10.3727 11.2413 13.1477 11.0625 13.332C10.3873 14.0295 9.61901 14.456 10.8037 15.2324C11.8288 15.9042 12.4254 16.333 13.4814 17.0215C14.1564 17.4615 14.686 17.9837 15.3828 17.9199C15.7034 17.8905 16.0349 17.5904 16.2031 16.6963C16.6007 14.5828 17.3819 10.0033 17.5625 8.11621C17.5783 7.95095 17.558 7.73943 17.542 7.64648C17.526 7.5536 17.4925 7.42121 17.3711 7.32324C17.2273 7.2073 17.0055 7.18283 16.9062 7.18457Z" fill="#F1BD81"/>
-                                </g>
-                                <defs>
-                                <clipPath id="clip0_558_2407">
-                                <rect width="24" height="23.8683" fill="white"/>
-                                </clipPath>
-                                </defs>
-                                </svg>
-
-
+                                <img :src="item.ikonka.url" :alt="item.ikonka.alt">
                             </div>
                         </div>
-                    </div>
 
-
-                    <div class="contacts-sec__contact social-contact-def">
-                        <div class="social-contact-def__icon">
-                            <div class="social-contact-def__icon-wrapper">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12 2.14908C15.2063 2.14908 15.5859 2.16306 16.8469 2.21901C18.0188 2.27029 18.6516 2.46608 19.0734 2.62924C19.6313 2.84369 20.0344 3.10474 20.4516 3.51964C20.8734 3.9392 21.1313 4.33545 21.3469 4.89021C21.5109 5.30977 21.7078 5.94377 21.7594 7.10455C21.8156 8.36323 21.8297 8.74084 21.8297 11.9248C21.8297 15.1135 21.8156 15.4911 21.7594 16.7451C21.7078 17.9106 21.5109 18.5399 21.3469 18.9595C21.1313 19.5142 20.8687 19.9151 20.4516 20.33C20.0297 20.7496 19.6313 21.006 19.0734 21.2204C18.6516 21.3836 18.0141 21.5794 16.8469 21.6307C15.5813 21.6866 15.2016 21.7006 12 21.7006C8.79375 21.7006 8.41406 21.6866 7.15313 21.6307C5.98125 21.5794 5.34844 21.3836 4.92656 21.2204C4.36875 21.006 3.96563 20.7449 3.54844 20.33C3.12656 19.9105 2.86875 19.5142 2.65313 18.9595C2.48906 18.5399 2.29219 17.9059 2.24063 16.7451C2.18438 15.4864 2.17031 15.1088 2.17031 11.9248C2.17031 8.73617 2.18438 8.35857 2.24063 7.10455C2.29219 5.93911 2.48906 5.30977 2.65313 4.89021C2.86875 4.33545 3.13125 3.93454 3.54844 3.51964C3.97031 3.10008 4.36875 2.84369 4.92656 2.62924C5.34844 2.46608 5.98594 2.27029 7.15313 2.21901C8.41406 2.16306 8.79375 2.14908 12 2.14908ZM12 0C8.74219 0 8.33438 0.0139853 7.05469 0.0699267C5.77969 0.125868 4.90313 0.330986 4.14375 0.624678C3.35156 0.932356 2.68125 1.33793 2.01563 2.00456C1.34531 2.66654 0.9375 3.33317 0.628125 4.11635C0.332812 4.87622 0.126563 5.74331 0.0703125 7.01131C0.0140625 8.28864 0 8.69422 0 11.9342C0 15.1741 0.0140625 15.5797 0.0703125 16.8523C0.126563 18.1203 0.332812 18.9921 0.628125 19.7473C0.9375 20.5351 1.34531 21.2018 2.01563 21.8637C2.68125 22.5257 3.35156 22.9359 4.13906 23.239C4.90313 23.5327 5.775 23.7378 7.05 23.7937C8.32969 23.8497 8.7375 23.8636 11.9953 23.8636C15.2531 23.8636 15.6609 23.8497 16.9406 23.7937C18.2156 23.7378 19.0922 23.5327 19.8516 23.239C20.6391 22.9359 21.3094 22.5257 21.975 21.8637C22.6406 21.2018 23.0531 20.5351 23.3578 19.752C23.6531 18.9921 23.8594 18.125 23.9156 16.857C23.9719 15.5843 23.9859 15.1788 23.9859 11.9388C23.9859 8.69888 23.9719 8.2933 23.9156 7.02064C23.8594 5.75264 23.6531 4.88088 23.3578 4.12567C23.0625 3.33317 22.6547 2.66654 21.9844 2.00456C21.3188 1.34259 20.6484 0.932356 19.8609 0.62934C19.0969 0.335648 18.225 0.13053 16.95 0.0745885C15.6656 0.0139853 15.2578 0 12 0Z" fill="#F1BD81"/>
-                                <path d="M12 5.80469C8.59688 5.80469 5.83594 8.55048 5.83594 11.9349C5.83594 15.3194 8.59688 18.0652 12 18.0652C15.4031 18.0652 18.1641 15.3194 18.1641 11.9349C18.1641 8.55048 15.4031 5.80469 12 5.80469ZM12 15.9114C9.79219 15.9114 8.00156 14.1306 8.00156 11.9349C8.00156 9.73923 9.79219 7.95843 12 7.95843C14.2078 7.95843 15.9984 9.73923 15.9984 11.9349C15.9984 14.1306 14.2078 15.9114 12 15.9114Z" fill="#F1BD81"/>
-                                <path d="M19.8469 5.56007C19.8469 6.35258 19.2 6.99124 18.4078 6.99124C17.6109 6.99124 16.9688 6.34792 16.9688 5.56007C16.9688 4.76757 17.6156 4.12891 18.4078 4.12891C19.2 4.12891 19.8469 4.77223 19.8469 5.56007Z" fill="#F1BD81"/>
-                                </svg>
-                            </div>
-
-                             
+                        <div class="social-contact-def__info" v-if="item.snoska">
+                            <p class="social-contact-def__subvalue" v-html="item.snoska"></p>
                         </div>
-
-                        <div class="social-contact-def__info">
-                                <p class="social-contact-def__subvalue">*Компания Meta Platforms Inc признана экстремистской организацией, ее деятельность на территории России запрещена.</p>
-                            </div>
-                    </div>
+                    </a>
 
                 </div>
 
@@ -108,10 +78,11 @@
                     <div class="contacts-sec__map">
 
                         <yandex-map
+                        v-if="pageData[0].acf.karta_dolgota && pageData[0].acf.karta_shirota"
                         v-model="map"
                         :settings="{
                             location: {
-                            center: [37.617644, 55.755819],
+                            center: [pageData[0].acf.karta_dolgota, pageData[0].acf.karta_shirota],
                             zoom: 9,
                             },
                         }"
@@ -128,7 +99,7 @@
                         :grid-size="61"
                         zoom-on-cluster-click
                         >
-                        <yandex-map-marker :settings="{ coordinates: [37.617644, 55.755819] }">
+                        <yandex-map-marker :settings="{ coordinates: [pageData[0].acf.karta_dolgota, pageData[0].acf.karta_shirota] }">
 
                             <div class="y-map__marker-wrapper">
                                 <svg width="61" height="76" viewBox="0 0 61 76" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -181,8 +152,13 @@
 
                     <div class="contacts-sec__form">
                         <div class="contacts-sec__form-wrapper">
-                            <h2 class="contacts-sec__form-title sec-title "><b>EСТЬ </b> ВОПРОСЫ?</h2>
-                            <p class="contacts-sec__form-subtitle">Оставте заявку и наш менеджеры свяжутся с вами и ответят на все вопросы</p>
+                            <h2 class="contacts-sec__form-title sec-title" 
+                            v-if="pageData[0].acf.zagolovok_formy" 
+                            v-html="pageData[0].acf.zagolovok_formy"></h2>
+
+                            <p class="contacts-sec__form-subtitle" 
+                            v-if="pageData[0].acf.podzagolovok_formy"
+                            v-html="pageData[0].acf.podzagolovok_formy"></p>
 
                             <div class="contacts-sec__form-inp-wrapper">
                                 <input type="text" placeholder="Ваше имя">
@@ -214,7 +190,7 @@
 
 
 <script setup lang="ts">
-import { shallowRef } from 'vue';
+import { ref, onMounted, onBeforeUnmount, computed, watch, shallowRef } from 'vue';
 import type { YMap } from '@yandex/ymaps3-types';
 import {
   YandexMap,
@@ -228,6 +204,15 @@ import {
 //Можно использовать для различных преобразований
 const map = shallowRef<null | YMap>(null);
 
+//DATA
+
+const nuxtApp = useNuxtApp()
+
+const store = useCounterStore(nuxtApp.$pinia)
+
+const { data: pageData } = await useFetch(`${store.serverUrlDomainRequest}/wp-json/wp/v2/pages?slug=kontakty`)
+
+console.log('pageData', pageData)
 
 const customization = shallowRef([
     {
@@ -6854,5 +6839,16 @@ const customization = shallowRef([
         }
     }
 ])
+
+
+
+
+//IMPORT
+import { useNuxtApp } from '#app'
+
+
+
+
+
 
 </script>
