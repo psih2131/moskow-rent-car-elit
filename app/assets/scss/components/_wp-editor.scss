@@ -62,4 +62,32 @@
         }
     }
 
+    .wp-block-table {
+        width: 100%;
+        text-align: left;
+        margin-bottom: 30px;
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: sans-serif;
+            font-size: 14px;
+        }
+
+        table th,
+        table td {
+            padding: 12px 16px;
+            border: 1px solid $grey3;
+            text-align: left;
+            color: $grey2;
+        }
+
+        table th {
+            font-weight: 500;
+        }
+
+
+
+    }
+
 }

@@ -221,21 +221,9 @@
             <div class="container">
                 <nav class="footer__down-nav">
                     <ul class="footer__down-nav-ul">
-                        <li class="footer__down-nav-list-element">
-                            <NuxtLink to="/docs/privat-policy" class="footer__down-nav-link">
-                                Политика конфиденциальности
-                            </NuxtLink>
-                        </li>
-
-                        <li class="footer__down-nav-list-element">
-                            <NuxtLink to="" class="footer__down-nav-link">
-                                Обработка персонаьных данных
-                            </NuxtLink>
-                        </li>
-
-                        <li class="footer__down-nav-list-element">
-                            <NuxtLink to="" class="footer__down-nav-link">
-                                Пользовательское соглашение
+                        <li class="footer__down-nav-list-element" v-for="value in docsPageData">
+                            <NuxtLink :to="`/docs/${value.slug}`" class="footer__down-nav-link">
+                                {{ value.title.rendered }}
                             </NuxtLink>
                         </li>
                     </ul>
@@ -251,16 +239,29 @@
 </template>
 
 <script setup>
-    //IMPORT
 
-    import { useCounterStore } from '@/stores/counter'
+//IMPORT
 
-    import { ref, onMounted, onBeforeUnmount, computed, watch  } from 'vue';
+import { ref, onMounted, onBeforeUnmount, computed, watch  } from 'vue';
+
+import formSec from '@/components/sections/formSec.vue'
+
+import { useCounterStore } from '@/stores/counter';
+
+import { useNuxtApp } from '#app';
 
 
-    //DATA
 
+//DATA
 
+const nuxtApp = useNuxtApp();
 
+const store = useCounterStore(nuxtApp.$pinia);
+
+const route = useRoute()
+
+const { data: docsPageData } = await useFetch(`${store.serverUrlDomainRequest}/wp-json/wp/v2/docs`)
+
+console.log("docsPageData", docsPageData)
 
 </script>

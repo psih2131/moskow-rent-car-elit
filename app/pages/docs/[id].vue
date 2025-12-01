@@ -1,33 +1,89 @@
 <template>
-    <section class="doc-sec">
-        <div class="container">
-            <div class="header-row-sec-v2">
+    <main class="main" v-if="currentDocsData?.length > 0">
+        <section class="doc-sec">
+            <div class="container">
+                <div class="header-row-sec-v2">
 
-                <div class="header-row-sec-v2__decor-wrapper">
-                <img src="@/assets/images/img/decor.png" alt="" class="header-row-sec-v2__decor"></img>
+                    <div class="header-row-sec-v2__decor-wrapper">
+                    <img src="@/assets/images/img/decor.png" alt="" class="header-row-sec-v2__decor"></img>
+                    </div>
+                    
+                    <h2 class="doc-sec__title sec-title sec-title--center-mod" v-html="currentDocsData[0].title.rendered"></h2>
                 </div>
-                
-                <h2 class="doc-sec__title sec-title sec-title--center-mod"><b>ПОЛИТИКА </b> КОНФИДЕНЦИАЛЬНОСТИ</h2>
-            </div>
 
-            <div class="doc-sec__text-wrapper wp-editor">
-                <p><b>Мерседес</b> всегда был эталоном автомобилей класса премиум, а Мерседес Гелендваген особенно. Сила, мощь, агрессивный дизайн, черный цвет, грубые, но притягивающие черты, мощность в 571 л.с. и <b>разгон до 100 км за 5,4 секунды</b> – все это Гелендваген (или Гелик, как чаще всего его называют), чем все сказано. Любой праздник превратится в яркое событие, если вы возьмете в аренду Мерседес в Москве. Забудьте о серых и невзрачных праздниках без задора.</p>
-      
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi quo ratione a adipisci reiciendis iste magni quasi ut sed accusantium est quam velit modi quaerat, unde hic consequuntur at libero.</p>
-  
-                <p><b>Мерседес</b> всегда был эталоном автомобилей класса премиум, а Мерседес Гелендваген особенно. Сила, мощь, агрессивный дизайн, черный цвет, грубые, но притягивающие черты, мощность в 571 л.с. и <b>разгон до 100 км за 5,4 секунды</b> – все это Гелендваген (или Гелик, как чаще всего его называют), чем все сказано. Любой праздник превратится в яркое событие, если вы возьмете в аренду Мерседес в Москве. Забудьте о серых и невзрачных праздниках без задора.</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi quo ratione a adipisci reiciendis iste magni quasi ut sed accusantium est quam velit modi quaerat, unde hic consequuntur at libero.</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum soluta vel corrupti aut, nostrum error quibusdam aliquid amet doloremque cupiditate, suscipit architecto nobis? Ea cumque dolorem harum! Eligendi, voluptates assumenda?
-                Quas quasi doloremque omnis maxime ipsa exercitationem recusandae dolorum laboriosam veniam, molestiae necessitatibus non, expedita assumenda dignissimos eaque soluta atque nam, doloribus deleniti tempora magnam iure sapiente repudiandae voluptates. Nulla!
-                Illum veniam dolorem sed, repudiandae, voluptates a necessitatibus repellendus error non soluta explicabo odit ab alias aliquam quas quos cupiditate ea fugit magnam voluptatibus doloremque esse iusto! Exercitationem, rem suscipit!
-                Harum iusto officia, consequuntur, consequatur quia aspernatur nisi aliquam neque voluptatibus at commodi? Consectetur id perferendis labore quisquam quasi sapiente sint minus pariatur exercitationem voluptate. Ullam consectetur amet nulla itaque.</p>
-                <p><b>Мерседес</b> всегда был эталоном автомобилей класса премиум, а Мерседес Гелендваген особенно. Сила, мощь, агрессивный дизайн, черный цвет, грубые, но притягивающие черты, мощность в 571 л.с. и <b>разгон до 100 км за 5,4 секунды</b> – все это Гелендваген (или Гелик, как чаще всего его называют), чем все сказано. Любой праздник превратится в яркое событие, если вы возьмете в аренду Мерседес в Москве. Забудьте о серых и невзрачных праздниках без задора.</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi quo ratione a adipisci reiciendis iste magni quasi ut sed accusantium est quam velit modi quaerat, unde hic consequuntur at libero.</p>
-                
-                <p><b>Мерседес</b> всегда был эталоном автомобилей класса премиум, а Мерседес Гелендваген особенно. Сила, мощь, агрессивный дизайн, черный цвет, грубые, но притягивающие черты, мощность в 571 л.с. и <b>разгон до 100 км за 5,4 секунды</b> – все это Гелендваген (или Гелик, как чаще всего его называют), чем все сказано. Любой праздник превратится в яркое событие, если вы возьмете в аренду Мерседес в Москве. Забудьте о серых и невзрачных праздниках без задора.</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi quo ratione a adipisci reiciendis iste magni quasi ut sed accusantium est quam velit modi quaerat, unde hic consequuntur at libero.</p>
-                
+                <div class="doc-sec__text-wrapper wp-editor" v-html="currentDocsData[0].content.rendered"></div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 </template>
+
+<script setup>
+
+//IMPORT
+
+import { ref, onMounted, onBeforeUnmount, computed, watch  } from 'vue';
+
+import { useCounterStore } from '@/stores/counter';
+
+import { useNuxtApp } from '#app';
+
+
+
+//DATA
+
+const nuxtApp = useNuxtApp();
+
+const store = useCounterStore(nuxtApp.$pinia);
+
+const route = useRoute()
+
+const { data: currentDocsData } = await useFetch(`${store.serverUrlDomainRequest}/wp-json/wp/v2/docs?slug=${route.params.id}`)
+
+console.log('currentDocsData', currentDocsData)
+
+
+
+
+
+
+//SEO
+useHead({
+    title: currentDocsData.value[0].acf.seo_title || currentDocsData.value[0].title.rendered,
+    meta: [
+        // Description
+        { name: 'description', content: currentDocsData.value[0].acf.seo_description || 'Описание по умолчанию' },
+
+        // Keywords (опционально, не влияет сильно на SEO)
+        { name: 'keywords',  content: currentDocsData.value[0].acf.klyuchevaya_fraza || 'Авто' },
+
+        // OpenGraph
+        { property: 'og:title', content: currentDocsData.value[0].acf.seo_title },
+        { property: 'og:description', content: currentDocsData.value[0].acf.seo_description },
+        { property: 'og:type', content: 'website' },
+        { property: 'og:url', content: `${store.domainUrlCurrent}${route.fullPath}` },
+        { property: 'og:image', content: currentDocsData.value?.[0]?.acf?.og_image?.url || 'http://syberia.gearsdpz.beget.tech/wp-content/uploads/2025/07/87baa9efe5d849e4f8da67fe01f9e029.jpg' },
+
+        // Twitter Card (если используешь)
+        { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'twitter:title', content: currentDocsData.value[0].acf.seo_title },
+        { name: 'twitter:description', content: currentDocsData.value[0].acf.seo_description },
+        { name: 'twitter:image', content: currentDocsData.value?.[0]?.acf?.og_image?.url || 'http://syberia.gearsdpz.beget.tech/wp-content/uploads/2025/07/87baa9efe5d849e4f8da67fe01f9e029.jpg' },
+
+        // Индексация / Деиндексация
+        // Например, noindex для черновика:
+        {
+        name: 'robots',
+        content:
+            currentDocsData.value[0].acf.indeksacziya_v_poiskovyh_sistemah === 'index'
+            ? 'index, follow'
+            : 'noindex, nofollow'
+        }
+    ],
+    link: [
+        // Canonical (вручную или динамически)
+        { rel: 'canonical', href: `${store.domainUrlCurrent}/docs/${currentDocsData.value[0].acf.canonical || route.params.id}` }
+    ]
+})
+
+
+</script>
