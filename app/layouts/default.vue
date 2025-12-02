@@ -11,6 +11,8 @@
 
         <preloader v-if="store.preloaderStatus == true" />
 
+        <socialContactWidget />
+
     </div>
   
 </template>
@@ -27,6 +29,8 @@ import componentFooter from '@/components/footer.vue'
 import popupsPlagin from '@/components/popups/popups-parent.vue'
 
 import preloader from '@/components/preloader.vue'
+
+import socialContactWidget from '@/components/widgets/socialContactWidget.vue'
 
 import { useCounterStore } from '@/stores/counter'
 

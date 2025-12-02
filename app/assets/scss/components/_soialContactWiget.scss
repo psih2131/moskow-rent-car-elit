@@ -1,0 +1,109 @@
+.social-widget {
+    position: fixed;
+    right: 80px;
+    bottom: 80px;
+    z-index: 100;
+
+    .slide-up-down__container {
+        position: absolute;
+        bottom: 0;
+        z-index: 10;
+    }
+}
+
+.pulse {
+    position: relative; // Нужно будет в будущем, для позиционирования эффекта
+    text-align: center;
+    padding: 20px; // Отступ можете подобрать свой.
+    border-radius: 50%; // Делаем икноку круглой
+    background: $bgColor2;
+    width: 80px;
+    height: 80px;
+    z-index: 20;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.30);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    svg {
+        display: block;
+    }
+}
+
+.pulse-anim {
+    width: 80px;
+    height: 80px;
+    position: absolute; // Нужно будет в будущем, для позиционирования эффекта
+    text-align: center;
+    padding: 20px; // Отступ можете подобрать свой.
+    border-radius: 50%;
+    z-index: 5;
+    bottom: 0;
+    left: 0;
+}
+
+.pulse-anim::after,
+.pulse-anim::before {
+    content: '';
+    position: absolute;
+    border: 2px solid $gold1;
+    opacity: 0.8;
+    left: -20px;
+    opacity: 0;
+    right: -20px;
+    top: -20px;
+    bottom: -20px;
+    border-radius: 50%;
+    animation: pulse 3.5s linear infinite;
+}
+
+.pulse-anim::after {
+    animation-delay: 2.25s;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: scale(1.2);
+        opacity: 0;
+    }
+}
+
+.social-widget__list {
+    padding-bottom: 80px;
+    z-index: 10;
+}
+
+.social-widget__link {
+    background: $bgColor2;
+    width: 80px;
+    height: 80px;
+    border-radius: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+    border: solid 1px $bgColor2;
+    transition: all ease 0.3s;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.30);
+
+    img {
+        width: 25px;
+        display: block;
+    }
+
+    &:hover {
+        border: solid 1px $white;
+        transition: all ease 0.3s;
+        transform: scale(1.05);
+    }
+}
