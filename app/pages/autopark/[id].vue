@@ -558,7 +558,9 @@ const getJustImgSrc = (data)=>{
   return newArray
 }
 onMounted(() => {
-
+  setTimeout(()=>{
+    store.changeRouterChangeStatus(false)
+  },200)
 })
 
 

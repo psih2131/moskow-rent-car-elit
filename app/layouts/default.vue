@@ -13,6 +13,8 @@
 
         <socialContactWidget />
 
+        <routerAnim v-if="store.routerAnimStatus == true" />
+
     </div>
   
 </template>
@@ -32,6 +34,8 @@ import preloader from '@/components/preloader.vue'
 
 import socialContactWidget from '@/components/widgets/socialContactWidget.vue'
 
+import routerAnim from '@/components/routerAnim.vue'
+
 import { useCounterStore } from '@/stores/counter'
 
 import { useNuxtApp } from '#app'
@@ -42,6 +46,8 @@ import { useNuxtApp } from '#app'
 const nuxtApp = useNuxtApp()
 
 const store = useCounterStore(nuxtApp.$pinia)
+
+const router = useRouter()
 
 const { data: optionsData } = await useFetch(`${store.serverUrlDomainRequest}/wp-json/acf/v3/options`)
 
@@ -67,6 +73,22 @@ watch(() => store.preloaderStatus,
   }
 )
 
+
+router.beforeEach((to, from) => {
+  store.changeRouterChangeStatus(true)
+  store.changeRouterAnimStatus(true)
+  console.log('начало перехода к роуту')
+})
+
+router.afterEach((to, from) => {
+  // store.routerAnimStatus = false
+  
+  console.log('конец перехода к роуту')
+
+  setTimeout(()=>{
+    store.changeRouterChangeStatus(false)
+  },200)
+})
 
 onMounted(() => {
 

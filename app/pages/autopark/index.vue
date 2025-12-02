@@ -455,6 +455,10 @@ function checkGetParametrs(){
 onMounted(()=>{
     console.log('catRefSliderGallery', catRefSlider)
     checkGetParametrs()
+
+    setTimeout(()=>{
+        store.changeRouterChangeStatus(false)
+    },200)
 })
 
 

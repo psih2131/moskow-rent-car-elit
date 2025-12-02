@@ -148,7 +148,9 @@ const openTargetPopupForm = ()=>{
 
 
 onMounted(() => {
-
+setTimeout(()=>{
+    store.changeRouterChangeStatus(false)
+  },200)
 })
 
 

@@ -42,6 +42,11 @@ const { data: currentDocsData } = await useFetch(`${store.serverUrlDomainRequest
 console.log('currentDocsData', currentDocsData)
 
 
+onMounted(() => {
+setTimeout(()=>{
+    store.changeRouterChangeStatus(false)
+  },200)
+})
 
 
 //SEO

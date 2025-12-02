@@ -6848,6 +6848,12 @@ const customization = shallowRef([
 ])
 
 
+//HOOKS
+onMounted(() => {
+setTimeout(()=>{
+    store.changeRouterChangeStatus(false)
+  },200)
+})
 
 //SEO
 useHead({

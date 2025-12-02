@@ -1,8 +1,6 @@
 import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
 
-
-
 export const useCounterStore = defineStore('counter', () => {
     const serverUrlDomainRequest = ref('http://rent-car.gearsdpz.beget.tech')
 
@@ -11,6 +9,10 @@ export const useCounterStore = defineStore('counter', () => {
     const optionsData = ref(null)
 
     const popupCurrent = ref(null)
+
+    const routerAnimStatus = ref(false)
+
+    const routerChangeStatus = ref(false)
 
     const popupPayLoadData = ref(null)
 
@@ -25,6 +27,11 @@ export const useCounterStore = defineStore('counter', () => {
         console.log('new value store', optionsData.value)
     }
 
+    const changeRouterAnimStatus = (newData) => {
+        routerAnimStatus.value = newData
+        console.log('new value store', routerAnimStatus.value)
+    }
+
     function changePopupCurrent(newValue, payloadData) {
         popupCurrent.value = newValue
 
@@ -35,12 +42,10 @@ export const useCounterStore = defineStore('counter', () => {
         console.log('popupCurrent', popupCurrent.value)
     }
 
-
     const changePreloaderStatus = (newData) => {
         preloaderStatus.value = newData
         console.log('new value store', preloaderStatus.value)
     }
-
 
     const changeClearFiltrStatus = (newData) => {
         clearFiltrStatus.value = newData
@@ -55,6 +60,10 @@ export const useCounterStore = defineStore('counter', () => {
         console.log('new value store', reviewTextPopup.value)
     }
 
+    const changeRouterChangeStatus = (newData) => {
+        routerChangeStatus.value = newData
+        console.log('new value store', routerChangeStatus.value)
+    }
 
     return {
         serverUrlDomainRequest,
@@ -64,12 +73,16 @@ export const useCounterStore = defineStore('counter', () => {
         preloaderStatus,
         clearFiltrStatus,
         reviewTextPopup,
+        routerAnimStatus,
+        routerChangeStatus,
 
         changeOptionData,
         changePopupCurrent,
         changePreloaderStatus,
         changeClearFiltrStatus,
         changeReviewTextPopup,
+        changeRouterAnimStatus,
+        changeRouterChangeStatus,
 
     }
 })

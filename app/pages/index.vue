@@ -644,6 +644,11 @@ onMounted(() => {
   if (editorHeight > 215) {
     showReadMore.value = true
   }
+
+
+  setTimeout(()=>{
+    store.changeRouterChangeStatus(false)
+  },200)
 })
 
 
