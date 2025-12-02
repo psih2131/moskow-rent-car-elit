@@ -7,9 +7,9 @@
     
         <componentFooter />
 
-         <popupsPlagin v-if="store.popupCurrent != null" />
+        <popupsPlagin v-if="store.popupCurrent != null" />
 
-         <preloader v-if="store.preloaderStatus == true" />
+        <preloader v-if="store.preloaderStatus == true" />
 
     </div>
   
@@ -46,7 +46,6 @@ store.changeOptionData(optionsData.value)
 
 
 //METHODS 
-
 
 
 

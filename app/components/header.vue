@@ -93,5 +93,4 @@ const nuxtApp = useNuxtApp()
 const store = useCounterStore(nuxtApp.$pinia)
 
 
-
 </script>
