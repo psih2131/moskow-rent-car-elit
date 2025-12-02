@@ -16,35 +16,32 @@
 </template>
 
 <script setup>
+//IMPORT
 
-    import { ref, onMounted, onBeforeUnmount, computed, watch  } from 'vue';
+import { ref, onMounted, onBeforeUnmount, computed, watch  } from 'vue';
 
-    
-    import componentHeader from '@/components/header.vue'
-    import componentFooter from '@/components/footer.vue'
-    import popupsPlagin from '@/components/popups/popups-parent.vue'
-    import preloader from '@/components/preloader.vue'
+import componentHeader from '@/components/header.vue'
 
+import componentFooter from '@/components/footer.vue'
 
+import popupsPlagin from '@/components/popups/popups-parent.vue'
 
-    import { useCounterStore } from '@/stores/counter'
-    import { useNuxtApp } from '#app'
+import preloader from '@/components/preloader.vue'
 
-    const nuxtApp = useNuxtApp()
-    const store = useCounterStore(nuxtApp.$pinia)
+import { useCounterStore } from '@/stores/counter'
 
-    const { data: optionsData } = await useFetch(`${store.serverUrlDomainRequest}/wp-json/acf/v3/options`)
-
-    store.changeOptionData(optionsData.value)
-
-
-    // const { data: optionsData } = await useFetch(`${store.serverUrlDomainRequest}/wp-json/acf/v3/options`)
-    // console.log('optionsData', optionsData)
-    // store.changeOptionData(optionsData)
-
+import { useNuxtApp } from '#app'
 
 
 //DATA
+
+const nuxtApp = useNuxtApp()
+
+const store = useCounterStore(nuxtApp.$pinia)
+
+const { data: optionsData } = await useFetch(`${store.serverUrlDomainRequest}/wp-json/acf/v3/options`)
+
+store.changeOptionData(optionsData.value)
 
 
 
@@ -54,14 +51,14 @@
 
 
 //HOOKS
-watch(() => store.popupCurrent,  // отслеживаемое значение
+watch(() => store.popupCurrent,  
   (newVal, oldVal) => {
     console.log('Значение изменилось:', oldVal, '→', newVal)
   }
 )
 
 
-watch(() => store.preloaderStatus,  // отслеживаемое значение
+watch(() => store.preloaderStatus, 
   (newVal, oldVal) => {
     console.log('Значение изменилось:', oldVal, '→', newVal)
   }

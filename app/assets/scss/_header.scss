@@ -135,12 +135,17 @@
     border-radius: 100px;
     padding: 1px;
     background: linear-gradient(180deg, #EEC681 0%, #7F5B37 100%);
-
+    transition: all ease 0.3s;
     // &:hover {
     //     .contact-link__wrapper {
     //         background: $white;
     //     }
     // }
+
+    &:hover {
+        transform: scale(1.1);
+        transition: all ease 0.3s;
+    }
 }
 
 .contact-link__wrapper {
@@ -153,6 +158,12 @@
     width: 100%;
 
     svg {
+        display: block;
+        width: 19px;
+        height: auto;
+    }
+
+    img {
         display: block;
         width: 19px;
         height: auto;

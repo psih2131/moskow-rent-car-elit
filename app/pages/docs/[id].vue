@@ -44,8 +44,6 @@ console.log('currentDocsData', currentDocsData)
 
 
 
-
-
 //SEO
 useHead({
     title: currentDocsData.value[0].acf.seo_title || currentDocsData.value[0].title.rendered,
