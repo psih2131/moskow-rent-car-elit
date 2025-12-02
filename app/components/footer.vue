@@ -20,39 +20,35 @@
                         <p class="footer__col-title">Навигация</p>
                         <nav class="footer__nav">
                             <ul class="footer__nav-ul">
+
                                 <li class="footer__nav-ul-element">
                                     <NuxtLink to="/" class="footer__nav-link">
                                         Главная
                                     </NuxtLink>
                                 </li>
-
                                 <li class="footer__nav-ul-element">
-                                    <NuxtLink to="/about" class="footer__nav-link">
+                                    <NuxtLink to="/autopark" class="footer__nav-link">
                                         Автопарк
                                     </NuxtLink>
                                 </li>
-
                                 <li class="footer__nav-ul-element">
-                                    <NuxtLink to="/about" class="footer__nav-link">
+                                    <NuxtLink to="/rules" class="footer__nav-link">
                                         Условия
                                     </NuxtLink>
                                 </li>
-
                                 <li class="footer__nav-ul-element">
-                                    <NuxtLink to="/about" class="footer__nav-link">
+                                    <NuxtLink to="/contacts" class="footer__nav-link">
                                         Контакты
                                     </NuxtLink>
                                 </li>
-
                                 <li class="footer__nav-ul-element">
-                                    <NuxtLink to="/about" class="footer__nav-link">
+                                    <NuxtLink to="/certificates" class="footer__nav-link">
                                         Сертификаты
                                     </NuxtLink>
                                 </li>
-
                                 <li class="footer__nav-ul-element">
-                                    <NuxtLink to="/about" class="footer__nav-link">
-                                        Заработай с нами
+                                    <NuxtLink to="/partners" class="footer__nav-link">
+                                        Зарабатывай с нами
                                     </NuxtLink>
                                 </li>
 
