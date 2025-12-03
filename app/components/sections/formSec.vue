@@ -4,13 +4,40 @@
         <div class="container">
 
             <div class="form-sec__data">
-                <h2 class="form-sec__title sec-title sec-title--left-mod" v-html="formSecData.sekcziya_obratnoj_svyazi.zagolovok"></h2>
+                <h2 class="form-sec__title sec-title sec-title--left-mod" 
+                v-html="formSecData.sekcziya_obratnoj_svyazi.zagolovok"
+                v-gsap.whenVisible.once.from='{
+                autoAlpha: 0,
+                y: 50,
+                duration: 0.5,
+                delay: 0,
+                start: "top 70%",
+                }'
+                ></h2>
                 <div class="form-sec__body">
-                <p class="form-sec__subtitle" v-html="formSecData.sekcziya_obratnoj_svyazi.podzagolovok"></p>
+                <p 
+                class="form-sec__subtitle" 
+                v-html="formSecData.sekcziya_obratnoj_svyazi.podzagolovok"
+                v-gsap.whenVisible.once.from='{
+                autoAlpha: 0,
+                y: 50,
+                duration: 0.5,
+                delay: 0,
+                start: "top 70%",
+                }'></p>
                 
                 <div class="form-sec__contacts">
 
-                    <a class="form-sec__contact social-contact-def" v-for="item in formSecData.sekcziya_obratnoj_svyazi.kontakty" :href="item.ssylka">
+                    <a class="form-sec__contact social-contact-def" 
+                    v-for="(item,index) in formSecData.sekcziya_obratnoj_svyazi.kontakty" 
+                    :href="item.ssylka"
+                        v-gsap.whenVisible.once.from='{
+                        autoAlpha: 0,
+                        y: 200,
+                        duration: 1,
+                        delay: (0.2 * (+index + 1)),
+                        start: "top 70%",
+                    }'>
                         <div class="social-contact-def__icon">
                             <div class="social-contact-def__icon-wrapper">
                                 <img :src="item.ikonka.url" :alt="item.ikonka.alt">
@@ -32,7 +59,15 @@
                 </div>
             </div>
 
-            <div class="form-sec__img-wrapper">
+            <div class="form-sec__img-wrapper"
+            v-gsap.whenVisible.once.from='{
+            autoAlpha: 0,
+            y: 50,
+            duration: 0.5,
+            delay: 0.6,
+            start: "top 70%",
+            }'
+            >
             <img :src="formSecData.sekcziya_obratnoj_svyazi.izobrazhenie.url" :alt="formSecData.sekcziya_obratnoj_svyazi.izobrazhenie.alt" class="form-sec__img">
             </div>
         </div>

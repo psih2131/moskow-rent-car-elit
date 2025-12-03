@@ -11,19 +11,54 @@
           <div class="container">
 
             <div class="home-hero-sec__title-wrapper">
-              <div class="home-hero-sec__decor">
+              <div class="home-hero-sec__decor"
+              v-gsap.whenVisible.once.from='{
+                  autoAlpha: 0,
+                  y: 100,
+                  delay: 1.9,
+                  duration: 0.5,
+              
+                }'>
                 <img src="@/assets/images/img/decor.png" alt="" class="home-hero-sec__decor-img">
               </div>
               <div class="home-hero-sec__title-row">
-                <div class="home-hero-sec__decor-line"></div>
-                <h1 class="home-hero-sec__title" v-html="pageData[0].acf.sekcziya_1_hero.zagolovok"></h1>
-                <div class="home-hero-sec__decor-line"></div>
+                <div 
+                class="home-hero-sec__decor-line"
+                v-gsap.whenVisible.once.from='{
+                  autoAlpha: 0,
+                  x: -50,
+                  duration: 0.5,
+                  delay: 2,
+            
+                }'></div>
+
+                <h1 class="home-hero-sec__title" 
+                v-html="pageData[0].acf.sekcziya_1_hero.zagolovok"
+                v-gsap.whenVisible.once.from='{
+                  autoAlpha: 0,
+                  y: 100,
+                  delay: 2,
+                  duration: 0.5,
+              
+                }'
+                ></h1>
+
+                <div 
+                class="home-hero-sec__decor-line"
+                v-gsap.whenVisible.once.from='{
+                  autoAlpha: 0,
+                  x: 50,
+                  duration: 0.5,
+                  delay: 2,
+            
+                }'></div>
               </div>
             </div>
 
             <div class="home-hero-sec__play"
             v-if="pageData[0].acf.sekcziya_1_hero.video" 
-            @click="openTargetPopupVider(pageData[0].acf.sekcziya_1_hero.video)">
+            @click="openTargetPopupVider(pageData[0].acf.sekcziya_1_hero.video)"
+            >
               <div class="home-hero-sec__play-wrapper">
               </div>
                <svg width="47" height="47" viewBox="0 0 47 47" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -33,10 +68,35 @@
 
             <div class="home-hero-sec__text-wrapper">
 
-              <p class="home-hero-sec__text" v-html="pageData[0].acf.sekcziya_1_hero.podzagolovok"></p>
+              <p class="home-hero-sec__text" 
+              v-html="pageData[0].acf.sekcziya_1_hero.podzagolovok"
+              v-gsap.whenVisible.once.from='{
+                  autoAlpha: 0,
+                  y: 100,
+                  delay: 2.2,
+                  duration: 0.5,
+            
+                }'
+              ></p>
 
-              <div class="home-hero-sec__btn-row" v-if="pageData[0].acf.sekcziya_1_hero.tekst_knopki">
-                <NuxtLink to="/autopark" class="home-hero-sec__btn btnV1">
+              <div class="home-hero-sec__btn-row" 
+              v-if="pageData[0].acf.sekcziya_1_hero.tekst_knopki"
+              v-gsap.whenVisible.once.from='{
+                  autoAlpha: 0,
+                  y: 100,
+                  delay: 2.3,
+                  duration: 0.5,
+                 
+                }'
+              >
+                <NuxtLink to="/autopark" class="home-hero-sec__btn btnV1"
+                v-gsap.whenVisible.once.from='{
+                  autoAlpha: 0,
+                  y: 100,
+                  delay: 2.4,
+                  duration: 0.5,
+                
+                }'>
                   <span class="btnV1__circle btnV1__circle-1"></span>
                   <span class="btnV1__circle btnV1__circle-2"></span>
                   <span class="btnV1__title">{{ pageData[0].acf.sekcziya_1_hero.tekst_knopki }}</span>
@@ -53,12 +113,29 @@
         </div>
       </section>
 
-      <section class="home-category-sec" v-if="pageData[0].acf.sekcziya_2_kategorii.zagolovok">
+      <section class="home-category-sec"  v-if="pageData[0].acf.sekcziya_2_kategorii.zagolovok" >
         <div class="container">
           <div class="header-row-sec">
-            <h2 class="home-category-sec__title sec-title sec-title--left-mod" v-html="pageData[0].acf.sekcziya_2_kategorii.zagolovok"></h2>
+            <h2
+             v-gsap.whenVisible.once.from='{
+              autoAlpha: 0,
+              y: 100,
+              duration: 0.5,
+              start: "top 70%",
+            }' 
+            class="home-category-sec__title sec-title sec-title--left-mod" 
+            v-html="pageData[0].acf.sekcziya_2_kategorii.zagolovok"></h2>
 
-            <NuxtLink to="/autopark" class="home-hero-sec__btn btnV1 btnV1--big">
+            <NuxtLink
+            v-gsap.whenVisible.once.from='{
+              autoAlpha: 0,
+              y: 100,
+              duration: 0.5,
+              delay: 0.2,
+              start: "top 70%",
+            }' 
+            to="/autopark" 
+            class="home-hero-sec__btn btnV1 btnV1--big">
                 <span class="btnV1__circle btnV1__circle-1"></span>
                 <span class="btnV1__circle btnV1__circle-2"></span>
                 <span class="btnV1__title">ПЕРЕЙТИ В КАТАЛОГ</span>
@@ -75,11 +152,21 @@
               <swiper-container 
               ref="catRefSlider" 
               class="home-cat-slider-swiper"
-       
               >
-                  <swiper-slide class="swipe-home-cat" v-for="item in carsCategoryes">
-                     <NuxtLink :to="`/autopark?id=${item.id}`" class="swipe-home-cat__wrapper">
-                      <div class="swipe-home-cat__img-wprapper">
+                  <swiper-slide 
+                  class="swipe-home-cat" v-for="(item, index) in carsCategoryes"
+                  v-gsap.whenVisible.once.from='{
+                    autoAlpha: 0,
+                    y: 200,
+                    duration: 1,
+                    delay: (0.1 * (+index + 1)),
+                    start: "top 70%",
+                  }' 
+                  >
+                     <NuxtLink 
+                     :to="`/autopark?id=${item.id}`" 
+                     class="swipe-home-cat__wrapper" >
+                      <div  class="swipe-home-cat__img-wprapper">
                         <img 
                         :src="item.acf.izobrazhenie_kategorii.url" 
                         :alt="item.acf.izobrazhenie_kategorii.alt" 
@@ -101,13 +188,27 @@
               </div> -->
               <div class="home-news-sec__slider-row-control-wrapper">
 
-                <div class="slider-counter">
+                <div class="slider-counter"
+                  v-gsap.whenVisible.once.from='{
+                  autoAlpha: 0,
+                  y: 100,
+                  duration: 0.5,
+                  start: "top 70%",
+                }' >
                   <span class="slider-counter__current">{{ getRealIndex(catRefSliderGallery.realIndex) }}</span>
                   <span class="slider-counter__total">/{{ getTotalSlides(catRefSliderGallery.slides) }}</span>
           
                 </div>
                
-                <div class="home-cat-slider-swiper-button-next swiper-def-ar swiper-def-ar--next swiper-button" @click="catRefSliderGallery.next()">
+                <div 
+                class="home-cat-slider-swiper-button-next swiper-def-ar swiper-def-ar--next swiper-button" 
+                @click="catRefSliderGallery.next()"
+                v-gsap.whenVisible.once.from='{
+                autoAlpha: 0,
+                y: 100,
+                duration: 0.5,
+                start: "top 70%",
+                }' >
                     <svg width="153" height="15" viewBox="0 0 153 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M152.71 8.07039C153.101 7.67986 153.101 7.0467 152.71 6.65617L146.346 0.292213C145.956 -0.0983109 145.323 -0.0983109 144.932 0.292213C144.542 0.682738 144.542 1.3159 144.932 1.70643L150.589 7.36328L144.932 13.0201C144.542 13.4107 144.542 14.0438 144.932 14.4343C145.323 14.8249 145.956 14.8249 146.346 14.4343L152.71 8.07039ZM0 7.36328V8.36328H152.003V7.36328V6.36328H0V7.36328Z" fill="#F1BD81"/>
                     </svg>
@@ -123,9 +224,28 @@
       <section class="home-cars-sec" v-if="pageData[0].acf.sekcziya_3_populyarnye_modeli.zagolovok"> 
         <div class="container">
           <div class="header-row-sec">
-            <h2 class="header-row-sec__title sec-title sec-title--left-mod" v-html="pageData[0].acf.sekcziya_3_populyarnye_modeli.zagolovok"></h2>
 
-            <NuxtLink to="/autopark" class="home-hero-sec__btn btnV1 btnV1--big">
+            <h2 
+            class="header-row-sec__title sec-title sec-title--left-mod"
+            v-gsap.whenVisible.once.from='{
+              autoAlpha: 0,
+              y: 100,
+              duration: 0.5,
+              delay: 0,
+              start: "top 70%",
+            }' 
+            v-html="pageData[0].acf.sekcziya_3_populyarnye_modeli.zagolovok"></h2>
+
+            <NuxtLink
+            v-gsap.whenVisible.once.from='{
+              autoAlpha: 0,
+              y: 100,
+              duration: 0.5,
+              delay: 0.2,
+              start: "top 70%",
+            }' 
+            to="/autopark" 
+            class="home-hero-sec__btn btnV1 btnV1--big">
                 <span class="btnV1__circle btnV1__circle-1"></span>
                 <span class="btnV1__circle btnV1__circle-2"></span>
                 <span class="btnV1__title">CМОТРЕТЬ ВСЕ АВТО</span>
@@ -137,11 +257,11 @@
             </NuxtLink>
           </div>
 
-          <div class="header-row-sec__cars-wrapper">
+          <div class="header-row-sec__cars-wrapper" >
             
-            <template v-if="recomendCars?.length > 0">
+            <template v-if="recomendCars?.length > 0" >
 
-                <carCard v-for="(item, index) in recomendCars" :key="index" :carData="item" :allCats="carsCategoryes" />
+                <carCard v-for="(item, index) in recomendCars" :key="index" :carData="item" :allCats="carsCategoryes" v-gsap.preset="'stagger-up-800'" />
 
             </template>
             
@@ -153,11 +273,28 @@
         <div class="container">
           <div class="header-row-sec-v2">
 
-            <div class="header-row-sec-v2__decor-wrapper">
+            <div 
+            class="header-row-sec-v2__decor-wrapper"
+             v-gsap.whenVisible.once.from='{
+              autoAlpha: 0,
+              y: 100,
+              duration: 0.5,
+              delay: 0,
+              start: "top 70%",
+            }' >
               <img src="@/assets/images/img/decor.png" alt="" class="header-row-sec-v2__decor"></img>
             </div>
             
-            <h2 class="home-our-client-sec__title sec-title sec-title--center-mod" v-html="pageData[0].acf.sekcziya_4_nashi_klienty.zagolovok"></h2>
+            <h2 
+            class="home-our-client-sec__title sec-title sec-title--center-mod"
+             v-gsap.whenVisible.once.from='{
+              autoAlpha: 0,
+              y: 100,
+              duration: 0.5,
+              delay: 0,
+              start: "top 70%",
+            }'  
+            v-html="pageData[0].acf.sekcziya_4_nashi_klienty.zagolovok"></h2>
           </div>
 
           <div class="home-our-client-sec__slider-wrapper" v-if="pageData[0].acf.sekcziya_4_nashi_klienty.klienty?.length > 0">
@@ -166,7 +303,17 @@
               ref="ourClientsSlider" 
               class="our-client-slider"
               >
-                  <swiper-slide class="our-client-slider__slide" v-for="item in pageData[0].acf.sekcziya_4_nashi_klienty.klienty">
+                  <swiper-slide 
+                  class="our-client-slider__slide" 
+                  v-for="(item, index) in pageData[0].acf.sekcziya_4_nashi_klienty.klienty"
+                  v-gsap.whenVisible.once.from='{
+                    autoAlpha: 0,
+                    y: 200,
+                    duration: 1,
+                    delay: (0.1 * (+index + 1)),
+                    start: "top 70%",
+                  }' 
+                  >
                     <div class="our-client-slider__slide-wrapper">
                       <img :src="item.foto.url" :alt="item.foto.alt" class="our-client-slider__slide-img">
                       <div class="our-client-slider__slide-data">
@@ -186,13 +333,30 @@
               </div> -->
               <div class="home-news-sec__slider-row-control-wrapper">
 
-                <div class="slider-counter">
+                <div class="slider-counter" 
+                v-gsap.whenVisible.once.from='{
+                  autoAlpha: 0,
+                  y: 100,
+                  duration: 0.5,
+                  delay: 0,
+                  start: "top 70%",
+                }'>
                   <span class="slider-counter__current">{{ getRealIndex(swiperClients.realIndex) }}</span>
                   <span class="slider-counter__total">/{{ getTotalSlides(swiperClients.slides) }}</span>
           
                 </div>
                
-                <div class="home-cat-slider-swiper-button-next swiper-def-ar swiper-def-ar--next swiper-button" @click="swiperClients.next()">
+                <div 
+                class="home-cat-slider-swiper-button-next swiper-def-ar swiper-def-ar--next swiper-button" 
+                @click="swiperClients.next()"
+                v-gsap.whenVisible.once.from='{
+                  autoAlpha: 0,
+                  y: 100,
+                  duration: 0.5,
+                  delay: 0.3,
+                  start: "top 70%",
+                }'
+                >
                     <svg width="153" height="15" viewBox="0 0 153 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M152.71 8.07039C153.101 7.67986 153.101 7.0467 152.71 6.65617L146.346 0.292213C145.956 -0.0983109 145.323 -0.0983109 144.932 0.292213C144.542 0.682738 144.542 1.3159 144.932 1.70643L150.589 7.36328L144.932 13.0201C144.542 13.4107 144.542 14.0438 144.932 14.4343C145.323 14.8249 145.956 14.8249 146.346 14.4343L152.71 8.07039ZM0 7.36328V8.36328H152.003V7.36328V6.36328H0V7.36328Z" fill="#F1BD81"/>
                     </svg>
@@ -208,11 +372,28 @@
         <div class="container">
           <div class="header-row-sec-v2">
 
-            <div class="header-row-sec-v2__decor-wrapper">
+            <div 
+            class="header-row-sec-v2__decor-wrapper"
+            v-gsap.whenVisible.once.from='{
+              autoAlpha: 0,
+              y: 100,
+              duration: 0.5,
+              delay: 0,
+              start: "top 70%",
+            }'>
               <img src="@/assets/images/img/decor.png" alt="" class="header-row-sec-v2__decor"></img>
             </div>
             
-            <h2 class="clients-about-us__title sec-title sec-title--center-mod" v-html="pageData[0].acf.sekcziya_5_otzyvy.zagolovok"></h2>
+            <h2 
+            class="clients-about-us__title sec-title sec-title--center-mod" 
+            v-html="pageData[0].acf.sekcziya_5_otzyvy.zagolovok"
+            v-gsap.whenVisible.once.from='{
+              autoAlpha: 0,
+              y: 100,
+              duration: 0.5,
+              delay: 0,
+              start: "top 70%",
+            }'></h2>
           </div>
 
           <div class="clients-about-us__slider-wrapper">
@@ -221,7 +402,15 @@
               ref="clientsAboutUsSlider" 
               class="clients-about-us-slider"
               >
-                  <swiper-slide class="clients-about-us-slider__slide" v-for="(item, index) in pageData[0].acf.sekcziya_5_otzyvy.otzyvy">
+                  <swiper-slide class="clients-about-us-slider__slide" 
+                  v-for="(item, index) in pageData[0].acf.sekcziya_5_otzyvy.otzyvy"
+                  v-gsap.whenVisible.once.from='{
+                    autoAlpha: 0,
+                    y: 200,
+                    duration: 1,
+                    delay: (0.1 * (+index + 1)),
+                    start: "top 70%",
+                  }'>
                     <div class="clients-about-us-slider__slide-wrapper">
                       <img :src="item.foto_klienta.url" :alt="item.foto_klienta.alt" class="clients-about-us-slider__slide-photo">
                       <div class="clients-about-us-slider__slide-data">
@@ -256,13 +445,30 @@
               </div> -->
               <div class="home-news-sec__slider-row-control-wrapper">
 
-                <div class="slider-counter">
+                <div 
+                class="slider-counter"
+                v-gsap.whenVisible.once.from='{
+                  autoAlpha: 0,
+                  y: 100,
+                  duration: 0.5,
+                  delay: 0,
+                  start: "top 70%",
+                }'>
                   <span class="slider-counter__current">{{ getRealIndex(swiperClientsAbout.realIndex) }}</span>
                   <span class="slider-counter__total">/{{ getTotalSlides(swiperClientsAbout.slides) }}</span>
           
                 </div>
                
-                <div class="home-cat-slider-swiper-button-next swiper-def-ar swiper-def-ar--next swiper-button" @click="swiperClientsAbout.next()">
+                <div 
+                class="home-cat-slider-swiper-button-next swiper-def-ar swiper-def-ar--next swiper-button" 
+                @click="swiperClientsAbout.next()"
+                v-gsap.whenVisible.once.from='{
+                  autoAlpha: 0,
+                  y: 100,
+                  duration: 0.5,
+                  delay: 0.3,
+                  start: "top 70%",
+                }'>
                     <svg width="153" height="15" viewBox="0 0 153 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M152.71 8.07039C153.101 7.67986 153.101 7.0467 152.71 6.65617L146.346 0.292213C145.956 -0.0983109 145.323 -0.0983109 144.932 0.292213C144.542 0.682738 144.542 1.3159 144.932 1.70643L150.589 7.36328L144.932 13.0201C144.542 13.4107 144.542 14.0438 144.932 14.4343C145.323 14.8249 145.956 14.8249 146.346 14.4343L152.71 8.07039ZM0 7.36328V8.36328H152.003V7.36328V6.36328H0V7.36328Z" fill="#F1BD81"/>
                     </svg>
@@ -277,10 +483,27 @@
       <section class="home-about-sec" v-if="pageData[0].acf.sekcziya_6_o_kompanii.zagolovok">
         <div class="container">
           <div class="home-about-sec__info">
-             <h2 class="clients-about-us__title sec-title sec-title--left-mod" v-html="pageData[0].acf.sekcziya_6_o_kompanii.zagolovok"></h2>
+             <h2 
+             class="clients-about-us__title sec-title sec-title--left-mod" 
+             v-html="pageData[0].acf.sekcziya_6_o_kompanii.zagolovok"
+             v-gsap.whenVisible.once.from='{
+                autoAlpha: 0,
+                y: 100,
+                duration: 0.5,
+                delay: 0,
+                start: "top 70%",
+              }'></h2>
              <div class="home-about-sec__adv-wrapper">
 
-              <div class="home-about-sec__adv adv-element" v-for="item in pageData[0].acf.sekcziya_6_o_kompanii.tezisy">
+              <div class="home-about-sec__adv adv-element" 
+              v-for="(item,index) in pageData[0].acf.sekcziya_6_o_kompanii.tezisy"
+              v-gsap.whenVisible.once.from='{
+                  autoAlpha: 0,
+                  y: 100,
+                  duration: 0.5,
+                  delay: 0,
+                  start: "top 70%",
+                }'>
                 <div class="adv-element__icon-wrapper">
                   <div class="adv-element__icon-wrapper-contaier">
                   <img :src="item.ikonka.url" :alt="item.ikonka.alt" class="adv-element__icon">
@@ -299,14 +522,28 @@
             <div class="home-about-sec__images-claster">
 
               <div class="home-about-sec__images-claster-col  home-about-sec__images-claster-col--left">
-                <img v-for="item in pageData[0].acf.sekcziya_6_o_kompanii.izobrazheniya.slice(0,2)" 
+                <img v-for="item in pageData[0].acf.sekcziya_6_o_kompanii.izobrazheniya.slice(0,2)"
+                 v-gsap.whenVisible.once.from='{
+                  autoAlpha: 0,
+                  y: 100,
+                  duration: 0.5,
+                  delay: 0,
+                  start: "top 70%",
+                }'
                 :src="item.kartinka.url" 
                 :alt="item.kartinka.alt" class="home-about-sec__images-element">
 
               </div>
               
               <div class="home-about-sec__images-claster-col home-about-sec__images-claster-col--right">
-                 <img v-for="item in pageData[0].acf.sekcziya_6_o_kompanii.izobrazheniya.slice(2,4)" 
+                 <img v-for="item in pageData[0].acf.sekcziya_6_o_kompanii.izobrazheniya.slice(2,4)"
+                 v-gsap.whenVisible.once.from='{
+                  autoAlpha: 0,
+                  y: 100,
+                  duration: 0.5,
+                  delay: 0.2,
+                  start: "top 70%",
+                }' 
                 :src="item.kartinka.url" 
                 :alt="item.kartinka.alt" class="home-about-sec__images-element">
 
@@ -314,7 +551,16 @@
 
             </div>
 
-            <div class="home-about-sec__images-contacts-row">
+            <div class="home-about-sec__images-contacts-row"
+            
+            v-gsap.whenVisible.once.from='{
+                autoAlpha: 0,
+                y: 100,
+                duration: 0.5,
+                delay: 0,
+                start: "top 70%",
+              }'
+              >
 
               <template v-if="pageData[0].acf.sekcziya_6_o_kompanii.kontakty?.length > 0">
                 <a v-for="item in pageData[0].acf.sekcziya_6_o_kompanii.kontakty" 
@@ -338,9 +584,26 @@
       <section class="home-faq-sec" v-if="pageData[0].acf.sekcziya_7_chastye_voprosy.zagolovok">
         <div class="container">
           <div class="header-row-sec">
-            <h2 class="header-row-sec__title sec-title sec-title--left-mod" v-html="pageData[0].acf.sekcziya_7_chastye_voprosy.zagolovok"></h2>
+            <h2 class="header-row-sec__title sec-title sec-title--left-mod" 
+            v-html="pageData[0].acf.sekcziya_7_chastye_voprosy.zagolovok"
+            v-gsap.whenVisible.once.from='{
+              autoAlpha: 0,
+              y: 100,
+              duration: 0.5,
+              delay: 0,
+              start: "top 70%",
+            }'
+            ></h2>
 
-            <button class="home-hero-sec__btn btnV1 btnV1--big" @click="openTargetPopupForm()">
+            <button class="home-hero-sec__btn btnV1 btnV1--big" 
+            @click="openTargetPopupForm()"
+            v-gsap.whenVisible.once.from='{
+              autoAlpha: 0,
+              y: 100,
+              duration: 0.5,
+              delay: 0.3,
+              start: "top 70%",
+            }'>
                 <span class="btnV1__circle btnV1__circle-1"></span>
                 <span class="btnV1__circle btnV1__circle-2"></span>
                 <span class="btnV1__title">ЗАДАТЬ СВОЙ ВОПРОС</span>
@@ -355,7 +618,7 @@
           <div class="faq-wrapper">
 
             <template v-for="(item,index) in pageData[0].acf.sekcziya_7_chastye_voprosy.voprosy">
-              <faqElement :title="item.vopros" :counter="+index+1" :description="item.otvet"/>
+              <faqElement :title="item.vopros" :counter="+index+1" :description="item.otvet" v-gsap.preset="'stagger-up'"/>
             </template>
 
           </div>
@@ -367,9 +630,26 @@
       <section class="home-seo-sec seo-sec-type-1" v-if="pageData[0].acf.sekcziya_10_seo_blok.zagolovok_h1">
         <div class="container">
           <div class="seo-sec-type-1__data">
-             <h1 class="seo-sec-type-1__title sec-title sec-title--left-mod" v-html="pageData[0].acf.sekcziya_10_seo_blok.zagolovok_h1"></h1>
+             <h1 
+             class="seo-sec-type-1__title sec-title sec-title--left-mod" 
+             v-html="pageData[0].acf.sekcziya_10_seo_blok.zagolovok_h1"
+             v-gsap.whenVisible.once.from='{
+              autoAlpha: 0,
+              y: 50,
+              duration: 0.5,
+              delay: 0,
+              start: "top 70%",
+              }'
+              ></h1>
 
-             <div class="seo-sec-type-1__text-container">
+             <div class="seo-sec-type-1__text-container" 
+              v-gsap.whenVisible.once.from='{
+              autoAlpha: 0,
+              y: 100,
+              duration: 0.5,
+              delay: 0,
+              start: "top 70%",
+              }'>
               <div
                 class="seo-sec-type-1__text-wrapper"
                 :style="{ maxHeight: expanded ? `${textHeight}px` : '215px', overflow: 'hidden',  }"
@@ -396,9 +676,17 @@
             
           </div>
           <div class="seo-sec-type-1__images">
-            <img v-for="item in pageData[0].acf.sekcziya_10_seo_blok.izobrazheniya"
+            <img v-for="(item,index) in pageData[0].acf.sekcziya_10_seo_blok.izobrazheniya"
             :src="item.kartirka.url" 
             :alt="item.kartirka.alt" 
+            v-gsap.whenVisible.once.from='{
+              autoAlpha: 0,
+              y: 200,
+              duration: 1,
+              delay: (0.2 * (+index + 1)),
+              start: "top 70%",
+            }'
+            
             class="seo-sec-type-1__img">
           </div>
         </div>
@@ -649,6 +937,7 @@ onMounted(() => {
   setTimeout(()=>{
     store.changeRouterChangeStatus(false)
   },200)
+
 })
 
 

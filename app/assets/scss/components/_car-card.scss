@@ -1,5 +1,15 @@
 .car-card {
     width: 100%;
+    position: relative;
+}
+
+.car-card__container {
+    width: 100%;
+    position: relative;
+}
+
+.car-card__border {
+    width: 100%;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.30);
     padding: 1px;
     transition: all ease 0.5s;

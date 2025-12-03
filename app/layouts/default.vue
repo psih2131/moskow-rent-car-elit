@@ -81,13 +81,9 @@ router.beforeEach((to, from) => {
 })
 
 router.afterEach((to, from) => {
-  // store.routerAnimStatus = false
   
   console.log('конец перехода к роуту')
 
-  setTimeout(()=>{
-    store.changeRouterChangeStatus(false)
-  },200)
 })
 
 onMounted(() => {
