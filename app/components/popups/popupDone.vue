@@ -11,9 +11,13 @@
 
             <div class="popup-done__wrapper">
                 <div class="header-row-sec-v2">            
-                    <h2 class="home-our-client-sec__title sec-title sec-title--center-mod"><b>Заявка </b> отправленна</h2>
+                    <h2 class="home-our-client-sec__title sec-title sec-title--center-mod"
+                    v-if="store.optionsData.uspeshnaya_otpravka_formy_zagolovok"
+                    v-html="store.optionsData.uspeshnaya_otpravka_formy_zagolovok"></h2>
                 </div>
-                <p class="contacts-sec__form-subtitle">Наши менеджеры свяжутся с вами в ближайшее время и ответят на все вопросы</p>
+                <p class="contacts-sec__form-subtitle"
+                v-if="store.optionsData.uspeshnaya_otpravka_formy_podzagolovok"
+                    v-html="store.optionsData.uspeshnaya_otpravka_formy_podzagolovok"></p>
             </div>
         
 
