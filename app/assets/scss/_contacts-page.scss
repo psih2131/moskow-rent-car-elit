@@ -115,7 +115,7 @@
 }
 
 .contacts-sec__form-btn-wrapper {
-    margin-top: 50px;
+    margin-top: 30px;
 }
 
 .y-map__marker-wrapper {
@@ -131,6 +131,16 @@
         bottom: 0;
         display: block;
 
+    }
+}
+
+.contacts-sec__form-cont {
+    .contacts-sec__form-inp-wrapper {
+        position: relative;
+    }
+
+    .form-valid-error {
+        text-align: left;
     }
 }
 

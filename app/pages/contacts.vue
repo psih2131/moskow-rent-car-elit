@@ -214,25 +214,8 @@
                             v-if="pageData[0].acf.podzagolovok_formy"
                             v-html="pageData[0].acf.podzagolovok_formy"></p>
 
-                            <div class="contacts-sec__form-inp-wrapper">
-                                <input type="text" placeholder="Ваше имя">
-                            </div>
-
-                            <div class="contacts-sec__form-inp-wrapper">
-                                <input type="text" placeholder="Номер телефона или telegram">
-                            </div>
-
-                            <div class="contacts-sec__form-inp-wrapper">
-                                <input type="text" placeholder="Что вас интересует?">
-                            </div>
-
-                            <div class="contacts-sec__form-btn-wrapper">
-                                <button class="btnV2">
-                                    <div class="btnV2__wrapper">
-                                        Отправить заявку
-                                    </div>
-                                </button>
-                            </div>
+                            <formSecContacts />
+                            
                         </div>
                     </div>
                 </div>
@@ -245,6 +228,7 @@
 
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount, computed, watch, shallowRef } from 'vue';
+import formSecContacts from '@/components/forms/formContacts.vue'
 import type { YMap } from '@yandex/ymaps3-types';
 import {
   YandexMap,
