@@ -4,7 +4,7 @@
             <div class="header-row-sec">
                 <h2 class="car-hero-sec__title sec-title sec-title--left-mod" v-html="addGoldGlimer(currentCarData[0].title.rendered)"></h2>
 
-                <button class="home-hero-sec__btn btnV1 btnV1--big" @click="openTargetPopupForm()">
+                <button class="home-hero-sec__btn btnV1 btnV1--big" @click="openTargetPopupForm('Кнопка Забронирывать авто на странице авто')">
                     <span class="btnV1__circle btnV1__circle-1"></span>
                     <span class="btnV1__circle btnV1__circle-2"></span>
                     <span class="btnV1__title">ЗАКАЗАТЬ АВТО</span>
@@ -470,7 +470,7 @@
             }'></h2>
 
             <button class="home-hero-sec__btn btnV1 btnV1--big" 
-            @click="openTargetPopupForm()"
+            @click="openTargetPopupForm('Секция вопрос - ответ | Кнопка Задать вопрос')"
             v-gsap.whenVisible.once.from='{
             autoAlpha: 0,
             y: 50,
@@ -718,8 +718,9 @@ const openTargetPopupVider = (data) =>{
     store.changePopupCurrent('popup-video',payloadData)
 }
 
-const openTargetPopupForm = ()=>{
+const openTargetPopupForm = (data = null)=>{
   store.changePopupCurrent('popup-form')
+  store.changeTrigerButtonForm(data)
 }
 
 

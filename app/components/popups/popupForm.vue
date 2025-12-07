@@ -17,17 +17,20 @@
 
                 <div class="popup-form__fields-wrapper">
 
-                    <div class="contacts-sec__form-inp-wrapper">
-                        <input type="text" placeholder="Ваше имя">
+                    <div class="contacts-sec__form-inp-wrapper" :class="{'form-error-field': formNameValidStatus == false}">
+                        <input v-model="formName" type="text" placeholder="Ваше имя">
+                        <p v-if="formNameValidStatus == false" class="form-valid-error">Проверьте правильность введенных данных</p>
                     </div>
 
-                    <div class="contacts-sec__form-inp-wrapper">
-                        <input type="text" placeholder="Номер телефона или telegram">
+                    <div class="contacts-sec__form-inp-wrapper" :class="{'form-error-field': formPhoneValidStatus == false}">
+                        <input v-model="formPhone" type="text" placeholder="Номер телефона" >
+                        <p v-if="formPhoneValidStatus == false" class="form-valid-error">Проверьте правильность введенных данных</p>
                     </div>
 
-                    <div class="contacts-sec__form-inp-wrapper">
-                        <input type="text" placeholder="Что вас интересует?">
+                    <div class="contacts-sec__form-inp-wrapper" >
+                        <input v-model="fotmText" type="text" placeholder="Что вас интересует?">
                     </div>
+
 
                     <div class="form-popup__checkbox-wrapper">
 
@@ -38,28 +41,17 @@
                             <span class="checkbox-item-custom__box"></span>
                         </label>
 
-                        <p class="checkbox-item-custom__text">Я согласен на <NuxtLink to="/system/soglasie-na-obrabotku-personalnyh-dannyh">обработку персональных данных</NuxtLink> ,
-                            <NuxtLink to="/system/soglashenie">пользовательское соглашение</NuxtLink> и <NuxtLink to="/system/privacy-policy">политику конфиденциальности</NuxtLink> </p> 
+                        <p class="checkbox-item-custom__text">Я согласен на <NuxtLink to="/docs/soglasie-na-obrabotku-personalnyh-dannyh">обработку персональных данных</NuxtLink> ,
+                            <NuxtLink to="/system/soglashenie">пользовательское соглашение</NuxtLink> и <NuxtLink to="/docs/politika-konfidenczialnosti">политику конфиденциальности</NuxtLink> </p> 
 
                         <p v-if="formPolitCheckbox == false && sendStatus == false" class="form-valid-error">Подтвердите согласие</p>
-                    </div>
-
-
-                    <div class="checkbox-item-custom">
-                        
-                        <label class="checkbox-item-custom__wrapper">
-                            <input type="checkbox" v-model="formSpamCheckbox">
-                            <span class="checkbox-item-custom__box"></span>
-                        </label>
-
-                        <p class="checkbox-item-custom__text">Я согласен на рекламную рассылку</p>
                     </div>
 
                     </div>
 
 
                     <div class="contacts-sec__form-btn-wrapper">
-                        <button class="btnV2" @click="openTargetPopupDone()">
+                        <button class="btnV2" @click="validationForm()">
                             <div class="btnV2__wrapper">
                                 Отправить заявку
                             </div>
@@ -101,17 +93,20 @@
 
 
 <script setup>
+
+//IMPORT
 import { useCounterStore } from '@/stores/counter'
+
 import { ref, onMounted, onBeforeUnmount, computed, watch  } from 'vue';
-// import popupForm from '@/components/popups/popup__form.vue'
+
 
 
 //DATA
 const show = ref(false)
+
 const store = useCounterStore()
 
 const formSecData = ref(null)
-
 
 const formName = ref(null)
 
@@ -119,9 +114,11 @@ const formEmail = ref(null)
 
 const formPhone = ref(null)
 
+const fotmText = ref(null)
+
 const formPolitCheckbox = ref(false)
 
-const formSpamCheckbox = ref(false)
+// const formSpamCheckbox = ref(false)
 
 const route = useRoute()
 
@@ -135,7 +132,6 @@ const sendStatus = ref(null)
 
 
 
-
 //METHODS 
 function closePopup(){
     show.value = false
@@ -145,22 +141,16 @@ function closePopup(){
 
 }
 
-const openTargetPopupDone = ()=>{
-  store.changePopupCurrent('popup-done')
-}
-
-
-
 function validationForm(){
     console.log(formName.value, formEmail.value, formPhone.value)
 
     validName(formName.value)
 
-    validEmail(formEmail.value)
+    // validEmail(formEmail.value)
 
     validPhone(formPhone.value)
 
-    if(formNameValidStatus.value == true && formEmailValidStatus.value == true && formPhoneValidStatus.value == true && formPolitCheckbox.value == true){
+    if(formNameValidStatus.value == true && formPhoneValidStatus.value == true && formPolitCheckbox.value == true){
         sendStatus.value = true
         
         sendForm()
@@ -179,15 +169,6 @@ function validName(element) {
   }
 }
 
-
-function validEmail(email) {
-  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-  if (email && re.test(email)) {
-    formEmailValidStatus.value = true
-  } else {
-    formEmailValidStatus.value = false
-  }
-}
 
 
 function validPhone(phone) {
@@ -209,10 +190,10 @@ const sendForm = async () => {
       method: 'POST',
       body: {
         name: formName.value,
-        email: formEmail.value,
+        text: fotmText.value,
         phone: formPhone.value,
         politConfirm: formPolitCheckbox.value,
-        spamConfirm: formSpamCheckbox.value,
+        // spamConfirm: formSpamCheckbox.value,
         currentUrl: store.domainUrlCurrent + route.fullPath,
         currentPlase: store.trigerButtonForm || 'Не получилось оприделить точное положение'
       },
@@ -233,47 +214,10 @@ const sendForm = async () => {
 
 
 
-// const sendFormAmmo = async () => {
-//   try {
-//     const response = await $fetch('/api/send-form-data-ammo', {
-//       method: 'POST',
-//       body: {
-//         name: formName.value,
-//         email: formEmail.value,
-//         phone: formPhone.value,
-//         politConfirm: formPolitCheckbox.value,
-//         spamConfirm: formSpamCheckbox.value,
-//         currentUrl: store.domainUrlCurrent + route.fullPath,
-//         currentPlase: store.trigerButtonForm || 'Не получилось оприделить точное положение',
-//         utm_source: localStorage.getItem('utm_source'),
-//         utm_medium: localStorage.getItem('utm_medium'),
-//         utm_campaign: localStorage.getItem('utm_campaign'),
-//         utm_term: localStorage.getItem('utm_term'),
-//         utm_content: localStorage.getItem('utm_content'),
-//       },
-//     })
-
-//     // Теперь response содержит ответ с сервера
-//     console.log('Ответ от сервера:', response)
-
-//     openFormDonePopup()
-
-
-//   } catch (error) {
-//     console.error('Ошибка при отправке формы:', error)
-//     alert('Произошла ошибка при отправке заявки')
-//   }
-// }
-
-
-
-
-
-
-
 //open form popup 
 function openFormDonePopup(){
     store.changePopupCurrent('popup-done')
+    store.changeTrigerButtonForm(null)
 }
 
 
@@ -284,9 +228,6 @@ onMounted(() => {
     show.value = true
     formSecData.value = store.optionsData
 
-   
-  
-  
 });
 
 

@@ -11,7 +11,7 @@ export default defineEventHandler(async (event) => {
 
 👤 Имя: ${body.name}
 📱 Телефон: ${body.phone}
-📧 Email: ${body.email}
+📧 Текст: ${body.text}
 
 Согласие на обработку политики конфиденциальности: ${body.politConfirm}
 Согласие на рассылку: ${body.spamConfirm}

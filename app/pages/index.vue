@@ -899,6 +899,7 @@ function trimString(str) {
 //Open form popup
 const openTargetPopupForm = ()=>{
   store.changePopupCurrent('popup-form')
+  store.changeTrigerButtonForm('Секция вопрос - ответ | Кнопка "Задать вопрос"')
 }
 
 //Open review popup

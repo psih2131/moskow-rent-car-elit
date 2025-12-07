@@ -17,7 +17,7 @@
 
                     <button 
                     class="home-hero-sec__btn btnV1 btnV1--big" 
-                    @click="openTargetPopupForm()"
+                    @click="openTargetPopupForm(`Страница:${currentPartnershipData[0].acf.sekcziya_1_opisanie.zagolovok} | Кнопка оставить заявку`)"
                     v-gsap.whenVisible.once.from='{
                     autoAlpha: 0,
                     y: 50,
@@ -122,7 +122,7 @@
                     }'></h2>
 
                     <button class="home-hero-sec__btn btnV1 btnV1--big" 
-                    @click="openTargetPopupForm()"
+                    @click="openTargetPopupForm(`Страница:${currentPartnershipData[0].acf.sekcziya_1_opisanie.zagolovok} | Кнопка оставить заявку`)"
                     v-gsap.whenVisible.once.from='{
                     autoAlpha: 0,
                     y: 50,
@@ -177,7 +177,7 @@
                     }'></h2>
 
                     <button class="home-hero-sec__btn btnV1 btnV1--big" 
-                    @click="openTargetPopupForm()"
+                    @click="openTargetPopupForm(`Страница:${currentPartnershipData[0].acf.sekcziya_1_opisanie.zagolovok} | Кнопка оставить заявку`)"
                     v-gsap.whenVisible.once.from='{
                     autoAlpha: 0,
                     y: 50,
@@ -263,9 +263,11 @@ console.log('optionsData', optionsData)
 //METHODS
 
 //Open form popup
-const openTargetPopupForm = ()=>{
+const openTargetPopupForm = (data = null)=>{
   store.changePopupCurrent('popup-form')
+  store.changeTrigerButtonForm(data)
 }
+
 
 
 onMounted(() => {

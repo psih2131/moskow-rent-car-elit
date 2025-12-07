@@ -4,7 +4,7 @@ import { defineStore } from 'pinia'
 export const useCounterStore = defineStore('counter', () => {
     const serverUrlDomainRequest = ref('http://rent-car.gearsdpz.beget.tech')
 
-    const domainUrlCurrent = ref('http://rent-car.gearsdpz.beget.tech')
+    const domainUrlCurrent = ref('https://psih2131-moskow-rent-car-elit-5dfc.twc1.net')
 
     const optionsData = ref(null)
 
@@ -21,6 +21,8 @@ export const useCounterStore = defineStore('counter', () => {
     const clearFiltrStatus = ref(null)
 
     const reviewTextPopup = ref(null)
+
+    const trigerButtonForm = ref(null)
 
     const changeOptionData = (newData) => {
         optionsData.value = newData
@@ -65,8 +67,14 @@ export const useCounterStore = defineStore('counter', () => {
         console.log('new value store', routerChangeStatus.value)
     }
 
+    const changeTrigerButtonForm = (newData) => {
+        trigerButtonForm.value = newData
+        console.log('new value store', trigerButtonForm.value)
+    }
+
     return {
         serverUrlDomainRequest,
+        domainUrlCurrent,
         optionsData,
         popupCurrent,
         popupPayLoadData,
@@ -75,6 +83,8 @@ export const useCounterStore = defineStore('counter', () => {
         reviewTextPopup,
         routerAnimStatus,
         routerChangeStatus,
+        trigerButtonForm,
+
 
         changeOptionData,
         changePopupCurrent,
@@ -83,6 +93,7 @@ export const useCounterStore = defineStore('counter', () => {
         changeReviewTextPopup,
         changeRouterAnimStatus,
         changeRouterChangeStatus,
+        changeTrigerButtonForm,
 
     }
 })

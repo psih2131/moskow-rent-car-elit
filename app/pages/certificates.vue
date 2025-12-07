@@ -71,7 +71,7 @@
                 delay: 0.2,
                 start: "top 70%",
                 }'
-                @click="openTargetPopupForm">
+                @click="openTargetPopupForm('Кнопка заказать сертификат')">
                     <span class="btnV1__circle btnV1__circle-1"></span>
                     <span class="btnV1__circle btnV1__circle-2"></span>
                     <span class="btnV1__title">ЗАКАЗАТЬ СЕРТИФИКАТ</span>
@@ -104,7 +104,7 @@
                         <p class="certeficat-card__title" v-if="value.podpis" v-html="value.podpis"></p>
                     </div>
 
-                    <div class="certeficat-card__btn-wrapper" @click="openTargetPopupForm">
+                    <div class="certeficat-card__btn-wrapper" @click="openTargetPopupForm(`Кнопка заказать сертификат ${value.znachenie}`)">
                         <button class="certeficat-card__btn btnV1 btnV1--big">
                             <span class="btnV1__circle btnV1__circle-1"></span>
                             <span class="btnV1__circle btnV1__circle-2"></span>
@@ -176,7 +176,7 @@
                     delay: 0.2,
                         start: "top 70%",
                 }'
-                @click="openTargetPopupForm">
+                @click="openTargetPopupForm('Кнопка заказать сертификат')">
 
                     
                     <span class="btnV1__circle btnV1__circle-1"></span>
@@ -228,7 +228,7 @@
             ></h2>
 
             <button class="home-hero-sec__btn btnV1 btnV1--big" 
-            @click="openTargetPopupForm"
+            @click="openTargetPopupForm('Секция вопрос - ответ | Кнопка задать вопрос')"
             v-gsap.whenVisible.once.from='{
                 autoAlpha: 0,
                 y: 50,
@@ -299,9 +299,11 @@ console.log('optionsData', optionsData)
 //METHODS
 
 //Open form popup
-const openTargetPopupForm = ()=>{
+const openTargetPopupForm = (data = null)=>{
   store.changePopupCurrent('popup-form')
+  store.changeTrigerButtonForm(data)
 }
+
 
 
 

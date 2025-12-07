@@ -160,7 +160,7 @@
 
                     <button 
                     class="home-hero-sec__btn btnV1 btnV1--big" 
-                    @click="openTargetPopupForm"
+                    @click="openTargetPopupForm('Страница партнерства кнопка Расчитать доход')"
                     v-gsap.whenVisible.once.from='{
                     autoAlpha: 0,
                     y: 50,
@@ -230,7 +230,7 @@
                     }'></h2>
 
                     <button class="home-hero-sec__btn btnV1 btnV1--big" 
-                    @click="openTargetPopupForm()"
+                    @click="openTargetPopupForm('Страница партнерства кнопка оставить заявку')"
                     v-gsap.whenVisible.once.from='{
                     autoAlpha: 0,
                     y: 50,
@@ -335,7 +335,7 @@
 
                     <button 
                     class="home-hero-sec__btn btnV1 btnV1--big" 
-                    @click="openTargetPopupForm()"
+                    @click="openTargetPopupForm('Страница партнерства кнопка оставить заявку')"
                     v-gsap.whenVisible.once.from='{
                     autoAlpha: 0,
                     y: 50,
@@ -394,7 +394,7 @@
 
                 <button 
                 class="home-hero-sec__btn btnV1 btnV1--big" 
-                @click="openTargetPopupForm()"
+                @click="openTargetPopupForm('Страница партнерства кнопка задать вопрос')"
                 v-gsap.whenVisible.once.from='{
                 autoAlpha: 0,
                 y: 50,
@@ -494,9 +494,9 @@ console.log('optionsData', optionsData)
 
 //METHODS
 
-//Open form popup
-const openTargetPopupForm = ()=>{
+const openTargetPopupForm = (data = null)=>{
   store.changePopupCurrent('popup-form')
+  store.changeTrigerButtonForm(data)
 }
 
 
