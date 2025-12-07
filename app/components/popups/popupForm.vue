@@ -29,6 +29,35 @@
                         <input type="text" placeholder="Что вас интересует?">
                     </div>
 
+                    <div class="form-popup__checkbox-wrapper">
+
+                    <div class="checkbox-item-custom">
+
+                        <label class="checkbox-item-custom__wrapper">
+                            <input type="checkbox" v-model="formPolitCheckbox">
+                            <span class="checkbox-item-custom__box"></span>
+                        </label>
+
+                        <p class="checkbox-item-custom__text">Я согласен на <NuxtLink to="/system/soglasie-na-obrabotku-personalnyh-dannyh">обработку персональных данных</NuxtLink> ,
+                            <NuxtLink to="/system/soglashenie">пользовательское соглашение</NuxtLink> и <NuxtLink to="/system/privacy-policy">политику конфиденциальности</NuxtLink> </p> 
+
+                        <p v-if="formPolitCheckbox == false && sendStatus == false" class="form-valid-error">Подтвердите согласие</p>
+                    </div>
+
+
+                    <div class="checkbox-item-custom">
+                        
+                        <label class="checkbox-item-custom__wrapper">
+                            <input type="checkbox" v-model="formSpamCheckbox">
+                            <span class="checkbox-item-custom__box"></span>
+                        </label>
+
+                        <p class="checkbox-item-custom__text">Я согласен на рекламную рассылку</p>
+                    </div>
+
+                    </div>
+
+
                     <div class="contacts-sec__form-btn-wrapper">
                         <button class="btnV2" @click="openTargetPopupDone()">
                             <div class="btnV2__wrapper">
@@ -36,6 +65,8 @@
                             </div>
                         </button>
                     </div>
+
+                    <p v-if="sendStatus == false" class="form-valid-error-main">Ошибка, проверьте правильность введенных данных</p>
 
                 </div>
 
@@ -82,6 +113,29 @@ const store = useCounterStore()
 const formSecData = ref(null)
 
 
+const formName = ref(null)
+
+const formEmail = ref(null)
+
+const formPhone = ref(null)
+
+const formPolitCheckbox = ref(false)
+
+const formSpamCheckbox = ref(false)
+
+const route = useRoute()
+
+const formNameValidStatus = ref(null)
+
+const formEmailValidStatus = ref(null)
+
+const formPhoneValidStatus = ref(null)
+
+const sendStatus = ref(null)
+
+
+
+
 //METHODS 
 function closePopup(){
     show.value = false
@@ -95,6 +149,135 @@ const openTargetPopupDone = ()=>{
   store.changePopupCurrent('popup-done')
 }
 
+
+
+function validationForm(){
+    console.log(formName.value, formEmail.value, formPhone.value)
+
+    validName(formName.value)
+
+    validEmail(formEmail.value)
+
+    validPhone(formPhone.value)
+
+    if(formNameValidStatus.value == true && formEmailValidStatus.value == true && formPhoneValidStatus.value == true && formPolitCheckbox.value == true){
+        sendStatus.value = true
+        
+        sendForm()
+    }
+    else{
+         sendStatus.value = false
+    }
+    
+}
+
+function validName(element) {
+  if (element && element.length >= 3) {
+    formNameValidStatus.value = true
+  } else {
+    formNameValidStatus.value = false
+  }
+}
+
+
+function validEmail(email) {
+  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+  if (email && re.test(email)) {
+    formEmailValidStatus.value = true
+  } else {
+    formEmailValidStatus.value = false
+  }
+}
+
+
+function validPhone(phone) {
+  // пример простой регулярки: только цифры, может начинаться с +, длина 10-15 символов
+  const re = /^\+?\d{10,15}$/
+  if (phone && re.test(phone)) {
+    formPhoneValidStatus.value = true
+  } else {
+    formPhoneValidStatus.value = false
+  }
+}
+
+
+
+//send request to telegram
+const sendForm = async () => {
+  try {
+    const response = await $fetch('/api/send-form', {
+      method: 'POST',
+      body: {
+        name: formName.value,
+        email: formEmail.value,
+        phone: formPhone.value,
+        politConfirm: formPolitCheckbox.value,
+        spamConfirm: formSpamCheckbox.value,
+        currentUrl: store.domainUrlCurrent + route.fullPath,
+        currentPlase: store.trigerButtonForm || 'Не получилось оприделить точное положение'
+      },
+    })
+
+    // Теперь response содержит ответ с сервера
+    console.log('Ответ от сервера:', response)
+
+    // sendFormAmmo()
+    openFormDonePopup()
+
+
+  } catch (error) {
+    console.error('Ошибка при отправке формы:', error)
+    alert('Произошла ошибка при отправке заявки')
+  }
+}
+
+
+
+// const sendFormAmmo = async () => {
+//   try {
+//     const response = await $fetch('/api/send-form-data-ammo', {
+//       method: 'POST',
+//       body: {
+//         name: formName.value,
+//         email: formEmail.value,
+//         phone: formPhone.value,
+//         politConfirm: formPolitCheckbox.value,
+//         spamConfirm: formSpamCheckbox.value,
+//         currentUrl: store.domainUrlCurrent + route.fullPath,
+//         currentPlase: store.trigerButtonForm || 'Не получилось оприделить точное положение',
+//         utm_source: localStorage.getItem('utm_source'),
+//         utm_medium: localStorage.getItem('utm_medium'),
+//         utm_campaign: localStorage.getItem('utm_campaign'),
+//         utm_term: localStorage.getItem('utm_term'),
+//         utm_content: localStorage.getItem('utm_content'),
+//       },
+//     })
+
+//     // Теперь response содержит ответ с сервера
+//     console.log('Ответ от сервера:', response)
+
+//     openFormDonePopup()
+
+
+//   } catch (error) {
+//     console.error('Ошибка при отправке формы:', error)
+//     alert('Произошла ошибка при отправке заявки')
+//   }
+// }
+
+
+
+
+
+
+
+//open form popup 
+function openFormDonePopup(){
+    store.changePopupCurrent('popup-done')
+}
+
+
+
 //HOOKS
 onMounted(() => {
   // Добавляем обработчик события scroll
@@ -106,8 +289,6 @@ onMounted(() => {
   
 });
 
-onBeforeUnmount(() => {
 
-})
 
 </script>
