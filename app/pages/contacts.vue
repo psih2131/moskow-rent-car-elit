@@ -3,15 +3,39 @@
         <div class="container">
 
             <div class="header-row-sec-v2" v-if="pageData[0].acf.zagolovok">
-                <div class="header-row-sec-v2__decor-wrapper">
+                <div class="header-row-sec-v2__decor-wrapper"
+                v-gsap.whenVisible.once.from='{
+                  autoAlpha: 0,
+                  y: 50,
+                  duration: 0.5,
+                  delay: 2,
+            
+                }'
+                >
                     <img src="@/assets/images/img/decor.png" alt="" class="header-row-sec-v2__decor"></img>
                 </div>
-                <h2 class="contacts-sec__title sec-title sec-title--center-mod" v-html="pageData[0].acf.zagolovok"></h2>
+                <h2 
+                v-gsap.whenVisible.once.from='{
+                  autoAlpha: 0,
+                  y: 50,
+                  duration: 0.5,
+                  delay: 2.2,
+            
+                }'
+                class="contacts-sec__title sec-title sec-title--center-mod" v-html="pageData[0].acf.zagolovok"></h2>
             </div>
 
             <div class="contacts-sec__row">
 
-                <a :href="pageData[0].acf.telefon.ssylka" class="contacts-sec__contact social-contact-def" v-if="pageData[0].acf?.telefon?.znachenie">
+                <a 
+                v-gsap.whenVisible.once.from='{
+                  autoAlpha: 0,
+                  y: 50,
+                  duration: 0.5,
+                  delay: 2.3,
+            
+                }'
+                :href="pageData[0].acf.telefon.ssylka" class="contacts-sec__contact social-contact-def" v-if="pageData[0].acf?.telefon?.znachenie">
                     <div class="social-contact-def__icon">
                         <div class="social-contact-def__icon-wrapper">
                             <img :src="pageData[0].acf.telefon.ikonka.url" :alt="pageData[0].acf.telefon.ikonka.alt">
@@ -26,7 +50,15 @@
                     </div>
                 </a>
 
-                <a :href="pageData[0].acf.pochta.ssylka" class="contacts-sec__contact social-contact-def" v-if="pageData[0].acf?.pochta?.znachenie">
+                <a 
+                v-gsap.whenVisible.once.from='{
+                  autoAlpha: 0,
+                  y: 50,
+                  duration: 0.5,
+                  delay: 2.4,
+            
+                }'
+                :href="pageData[0].acf.pochta.ssylka" class="contacts-sec__contact social-contact-def" v-if="pageData[0].acf?.pochta?.znachenie">
                     <div class="social-contact-def__icon">
                         <div class="social-contact-def__icon-wrapper">
                             <img :src="pageData[0].acf.pochta.ikonka.url" :alt="pageData[0].acf.pochta.ikonka.alt">
@@ -41,7 +73,15 @@
                     </div>
                 </a>
 
-                <div :href="pageData[0].acf.adres.ssylka" class="contacts-sec__contact social-contact-def social-contact-def--map" 
+                <div 
+                v-gsap.whenVisible.once.from='{
+                  autoAlpha: 0,
+                  y: 50,
+                  duration: 0.5,
+                  delay: 2.5,
+            
+                }'
+                :href="pageData[0].acf.adres.ssylka" class="contacts-sec__contact social-contact-def social-contact-def--map" 
                 v-if="pageData[0].acf?.adres?.znachenie">
                     <div class="social-contact-def__icon">
                         <div class="social-contact-def__icon-wrapper">
@@ -57,7 +97,15 @@
 
                 <div class="contacts-sec__social-row" v-if="pageData[0].acf.socz_seti?.length > 0">
 
-                    <a :href="item.ssylka" class="contacts-sec__contact social-contact-def" v-for="item in pageData[0].acf.socz_seti">
+                    <a 
+                    v-gsap.whenVisible.once.from='{
+                  autoAlpha: 0,
+                  y: 50,
+                  duration: 0.5,
+                  delay: 2.5 + ((index + 1) / 10),
+            
+                }'
+                    :href="item.ssylka" class="contacts-sec__contact social-contact-def" v-for="(item, index) in pageData[0].acf.socz_seti">
                         <div class="social-contact-def__icon">
                             <div class="social-contact-def__icon-wrapper">
                                 <img :src="item.ikonka.url" :alt="item.ikonka.alt">
@@ -73,9 +121,15 @@
 
             </div>
 
-            <div class="contacts-sec__map-wrapper">
+            <div class="contacts-sec__map-wrapper" v-gsap.whenVisible.once.from='{
+                  autoAlpha: 0,
+                  y: 50,
+                  duration: 0.5,
+                  delay: 2.8,
+            
+                }'>
                 <div class="contacts-sec__map-wrapper-box">
-                    <div class="contacts-sec__map">
+                    <div class="contacts-sec__map" >
 
                         <yandex-map
                         v-if="pageData[0].acf.karta_dolgota && pageData[0].acf.karta_shirota"

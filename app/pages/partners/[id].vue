@@ -4,9 +4,27 @@
         <section class="singl-partner-about-sec" v-if="currentPartnershipData[0].acf.sekcziya_1_opisanie?.zagolovok">
             <div class="container">
                 <div class="header-row-sec">
-                    <h2 class="singl-partner-about-sec__title sec-title sec-title--left-mod" v-html="currentPartnershipData[0].acf.sekcziya_1_opisanie.zagolovok"></h2>
+                    <h2 
+                    class="singl-partner-about-sec__title sec-title sec-title--left-mod"
+                    v-html="currentPartnershipData[0].acf.sekcziya_1_opisanie.zagolovok"
+                    v-gsap.whenVisible.once.from='{
+                    autoAlpha: 0,
+                    y: 50,
+                    duration: 0.5,
+                    delay: 2,
+                    start: "top 70%",
+                    }'></h2>
 
-                    <button class="home-hero-sec__btn btnV1 btnV1--big" @click="openTargetPopupForm()">
+                    <button 
+                    class="home-hero-sec__btn btnV1 btnV1--big" 
+                    @click="openTargetPopupForm()"
+                    v-gsap.whenVisible.once.from='{
+                    autoAlpha: 0,
+                    y: 50,
+                    duration: 0.5,
+                    delay: 2.1,
+                    start: "top 70%",
+                    }'>
                         <span class="btnV1__circle btnV1__circle-1"></span>
                         <span class="btnV1__circle btnV1__circle-2"></span>
                         <span class="btnV1__title">ОСТАВИТЬ ЗАЯВКУ</span>
@@ -20,16 +38,71 @@
 
                 <div class="singl-partner-about-sec__wrapper">
 
-                    <div class="info-data-row" v-for="value in currentPartnershipData[0].acf.sekcziya_1_opisanie.tekstovye_bloki">
-                        <div class="info-data-row__data">
-                        <div class="wp-editor" v-html="value.tekst"></div>
+                    <template v-for="(value, index) in currentPartnershipData[0].acf.sekcziya_1_opisanie.tekstovye_bloki">
+                        <div 
+                        class="info-data-row" 
+                        v-if="index == 0" >
+                            <div class="info-data-row__data">
+                            <div class="wp-editor" 
+                            v-html="value.tekst"
+                            v-gsap.whenVisible.once.from='{
+                            autoAlpha: 0,
+                            y: 50,
+                            duration: 0.5,
+                            delay: 2.4,
+                            start: "top 80%",
+                            }'></div>
+                            </div>
+                            <div class="info-data-row__img-wrapper">
+                            <img 
+                            v-for="(item, inx) in value.kartinki"
+                            :src="item.kartinka.url" 
+                            :alt="item.kartinka.alt" 
+                            class="info-data-row__img"
+                            v-gsap.whenVisible.once.from='{
+                            autoAlpha: 0,
+                            y: 100,
+                            duration: 0.5,
+                            delay: 2.1 + ((inx + 1) / 10),
+                            start: "top 80%",
+                            }'>
+                            </div>
                         </div>
-                        <div class="info-data-row__img-wrapper">
-                        <img 
-                        v-for="item in value.kartinki"
-                        :src="item.kartinka.url" :alt="item.kartinka.alt" class="info-data-row__img">
+
+
+                        <div 
+                        class="info-data-row" 
+                        v-else >
+                            <div class="info-data-row__data">
+                            <div class="wp-editor" 
+                            v-html="value.tekst"
+                            v-gsap.whenVisible.once.from='{
+                            autoAlpha: 0,
+                            y: 50,
+                            duration: 0.5,
+                            delay: 0.4,
+                            start: "top 80%",
+                            }'></div>
+                            </div>
+                            <div class="info-data-row__img-wrapper">
+                            <img 
+                            v-for="(item, inx) in value.kartinki"
+                            :src="item.kartinka.url" 
+                            :alt="item.kartinka.alt" 
+                            class="info-data-row__img"
+                            v-gsap.whenVisible.once.from='{
+                            autoAlpha: 0,
+                            y: 100,
+                            duration: 0.5,
+                            delay: 0.1 + ((inx + 1) / 10),
+                            start: "top 80%",
+                            }'>
+                            </div>
                         </div>
-                    </div>
+
+                        
+                    </template>
+                    
 
                 </div>
             </div>
@@ -38,9 +111,25 @@
         <section class="singl-partner-how-it-work-sec" v-if="currentPartnershipData[0].acf['sekcziya_2_kak_eto_rabotaet']?.zagolovok">
             <div class="container">
                 <div class="header-row-sec">
-                    <h2 class="partners-how-it-work-sec__title sec-title sec-title--left-mod" v-html="currentPartnershipData[0].acf['sekcziya_2_kak_eto_rabotaet'].zagolovok"></h2>
+                    <h2 class="partners-how-it-work-sec__title sec-title sec-title--left-mod" 
+                    v-html="currentPartnershipData[0].acf['sekcziya_2_kak_eto_rabotaet'].zagolovok"
+                    v-gsap.whenVisible.once.from='{
+                    autoAlpha: 0,
+                    y: 50,
+                    duration: 0.5,
+                    delay: 0.1,
+                    start: "top 80%",
+                    }'></h2>
 
-                    <button class="home-hero-sec__btn btnV1 btnV1--big" @click="openTargetPopupForm()">
+                    <button class="home-hero-sec__btn btnV1 btnV1--big" 
+                    @click="openTargetPopupForm()"
+                    v-gsap.whenVisible.once.from='{
+                    autoAlpha: 0,
+                    y: 50,
+                    duration: 0.5,
+                    delay: 0.2,
+                    start: "top 80%",
+                    }'>
                         <span class="btnV1__circle btnV1__circle-1"></span>
                         <span class="btnV1__circle btnV1__circle-2"></span>
                         <span class="btnV1__title">ОСТАВИТЬ ЗАЯВКУ</span>
@@ -54,7 +143,15 @@
 
                 <div class="partners-how-it-work-sec__row">
 
-                    <div class="partners-how-it-work-sec__element" v-for="(value, index) in currentPartnershipData[0].acf['sekcziya_2_kak_eto_rabotaet'].shagi">
+                    <div class="partners-how-it-work-sec__element" 
+                    v-for="(value, index) in currentPartnershipData[0].acf['sekcziya_2_kak_eto_rabotaet'].shagi"
+                    v-gsap.whenVisible.once.from='{
+                    autoAlpha: 0,
+                    y: 50,
+                    duration: 0.5,
+                    delay: 0.1 + ((index + 1) / 10),
+                    start: "top 80%",
+                    }'>
                         <div class="partners-how-it-work-sec__element-counter">
                             0{{ index + 1 }}
                         </div>
@@ -69,9 +166,25 @@
         <section class="singl-partner-how-start-sec" v-if="currentPartnershipData[0].acf.sekcziya_3_kak_nachat?.zagolovok">
             <div class="container">
                 <div class="header-row-sec">
-                    <h2 class="partners-how-start-sec__title sec-title sec-title--left-mod" v-html="currentPartnershipData[0].acf.sekcziya_3_kak_nachat.zagolovok"></h2>
+                    <h2 class="partners-how-start-sec__title sec-title sec-title--left-mod" 
+                    v-html="currentPartnershipData[0].acf.sekcziya_3_kak_nachat.zagolovok"
+                    v-gsap.whenVisible.once.from='{
+                    autoAlpha: 0,
+                    y: 50,
+                    duration: 0.5,
+                    delay: 0.1,
+                    start: "top 80%",
+                    }'></h2>
 
-                    <button class="home-hero-sec__btn btnV1 btnV1--big" @click="openTargetPopupForm()">
+                    <button class="home-hero-sec__btn btnV1 btnV1--big" 
+                    @click="openTargetPopupForm()"
+                    v-gsap.whenVisible.once.from='{
+                    autoAlpha: 0,
+                    y: 50,
+                    duration: 0.5,
+                    delay: 0.2,
+                    start: "top 80%",
+                    }'>
                         <span class="btnV1__circle btnV1__circle-1"></span>
                         <span class="btnV1__circle btnV1__circle-2"></span>
                         <span class="btnV1__title">ОСТАВИТЬ ЗАЯВКУ</span>
@@ -85,7 +198,15 @@
                 </div>
 
                 <div class="partners-how-start-sec__row">
-                    <div class="partners-how-start-sec__element" v-for="(value,index) in currentPartnershipData[0].acf.sekcziya_3_kak_nachat.shagi">
+                    <div class="partners-how-start-sec__element" 
+                    v-for="(value,index) in currentPartnershipData[0].acf.sekcziya_3_kak_nachat.shagi"
+                    v-gsap.whenVisible.once.from='{
+                    autoAlpha: 0,
+                    y: 50,
+                    duration: 0.5,
+                    delay: 0.1 + ((index + 1) / 10),
+                    start: "top 80%",
+                    }'>
                         <div class="partners-how-start-sec__element-header">
                             <div class="partners-how-start-sec__element-header-counter">0{{ index + 1 }}</div>
                             <p class="partners-how-start-sec__element-header-title" v-html="value.zagolovok"></p>

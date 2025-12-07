@@ -33,9 +33,9 @@
                     :href="item.ssylka"
                         v-gsap.whenVisible.once.from='{
                         autoAlpha: 0,
-                        y: 200,
+                        y: 50,
                         duration: 1,
-                        delay: (0.2 * (+index + 1)),
+                        delay: (0.1 * (+index + 1)),
                         start: "top 70%",
                     }'>
                         <div class="social-contact-def__icon">
@@ -64,7 +64,7 @@
             autoAlpha: 0,
             y: 50,
             duration: 0.5,
-            delay: 0.6,
+            delay: 0.4,
             start: "top 70%",
             }'
             >

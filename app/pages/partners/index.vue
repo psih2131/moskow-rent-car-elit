@@ -4,25 +4,127 @@
         <section class="hero-partners-sec" v-if="partnersChield?.length > 0">
             <div class="container">
 
-                <div class="hero-partners-sec__row" v-for="value in partnersChield">
+                <div class="hero-partners-sec__row" v-for="(value, index) in partnersChield">
                     
-                    <div class="seo-sec-type-1__images">
-                        <img v-for="item in value.acf.izobrazheniya_kartochki"
-                        :src="item.kartinka.url" :alt="item.kartinka.alt" class="seo-sec-type-1__img" >
+                    <div class="seo-sec-type-1__images" v-if="index == 0">
+                        <img v-for="(item,inx) in value.acf.izobrazheniya_kartochki"
+                        
+                        :src="item.kartinka.url" :alt="item.kartinka.alt" 
+                        v-gsap.whenVisible.once.from='{
+                        autoAlpha: 0,
+                        y: 50,
+                        duration: 0.5,
+                        delay: 2 + ((inx + 1) / 10),
+                        start: "top 70%",
+                        }'
+                        class="seo-sec-type-1__img" >
                     </div>
 
-                    <div class="seo-sec-type-1__data">
-                        <h1 class="hero-partners-sec__title sec-title sec-title--left-mod sec-title--capitalize-mod" v-if="value.acf.zagolovok" v-html="value.acf.zagolovok"></h1>
+                    <div class="seo-sec-type-1__images" v-else>
+                        <img v-for="(item,inx) in value.acf.izobrazheniya_kartochki"
+                        
+                        :src="item.kartinka.url" :alt="item.kartinka.alt" 
+                        v-gsap.whenVisible.once.from='{
+                        autoAlpha: 0,
+                        y: 50,
+                        duration: 0.5,
+                        delay: 0.1 + ((inx + 1) / 10),
+                        start: "top 70%",
+                        }'
+                        class="seo-sec-type-1__img" >
+                    </div>
+
+                    <div class="seo-sec-type-1__data" v-if="index == 0">
+                        <h1 
+                        class="hero-partners-sec__title sec-title sec-title--left-mod sec-title--capitalize-mod" 
+                        v-if="value.acf.zagolovok" v-html="value.acf.zagolovok"
+                        v-gsap.whenVisible.once.from='{
+                        autoAlpha: 0,
+                        y: 50,
+                        duration: 0.5,
+                        delay: 2.3,
+                        start: "top 70%",
+                        }'></h1>
 
                         <div class="seo-sec-type-1__text-container">
                         <div v-if="value.acf.korotkoe_opisanie"
                             class="seo-sec-type-1__text-wrapper">
-                            <div class="wp-editor seo-sec-type-1__editor" ref="editor">
+                            <div class="wp-editor seo-sec-type-1__editor" 
+                            ref="editor"
+                            v-gsap.whenVisible.once.from='{
+                            autoAlpha: 0,
+                            y: 50,
+                            duration: 0.5,
+                            delay: 2.4,
+                            start: "top 70%",
+                            }'>
                                 <p v-html="value.acf.korotkoe_opisanie"></p>
                             </div>
                         </div>
 
-                        <NuxtLink :to="`/partners/${value.slug}`" class="hero-partners-sec__btn btnV1 btnV1--big">
+                        <NuxtLink 
+                        :to="`/partners/${value.slug}`" 
+                        class="hero-partners-sec__btn btnV1 btnV1--big"
+                        v-gsap.whenVisible.once.from='{
+                        autoAlpha: 0,
+                        y: 50,
+                        duration: 0.5,
+                        delay: 2.5,
+                        start: "top 70%",
+                        }'>
+                            <span class="btnV1__circle btnV1__circle-1"></span>
+                            <span class="btnV1__circle btnV1__circle-2"></span>
+                            <span class="btnV1__title">{{ value.acf.tekst_knopki }}</span>
+
+                            <div class="btnV1__line btnV1__line-1"></div>
+                            <div class="btnV1__line btnV1__line-2"></div>
+                            <div class="btnV1__line btnV1__line-3"></div>
+                            <div class="btnV1__line btnV1__line-4"></div>
+                        </NuxtLink>
+
+                        </div>
+                        
+                    </div>
+
+                    <div class="seo-sec-type-1__data" v-else>
+                        <h1 
+                        class="hero-partners-sec__title sec-title sec-title--left-mod sec-title--capitalize-mod" 
+                        v-if="value.acf.zagolovok" v-html="value.acf.zagolovok"
+                        v-gsap.whenVisible.once.from='{
+                        autoAlpha: 0,
+                        y: 50,
+                        duration: 0.5,
+                        delay: 0.3,
+                        start: "top 70%",
+                        }'></h1>
+
+                        <div class="seo-sec-type-1__text-container">
+                        <div v-if="value.acf.korotkoe_opisanie"
+                            class="seo-sec-type-1__text-wrapper">
+                            <div class="wp-editor seo-sec-type-1__editor" 
+                            ref="editor"
+                            v-gsap.whenVisible.once.from='{
+                            autoAlpha: 0,
+                            y: 50,
+                            duration: 0.5,
+                            delay: 0.4,
+                            start: "top 70%",
+                            }'
+                            >
+                                <p v-html="value.acf.korotkoe_opisanie"></p>
+                            </div>
+                        </div>
+
+                        <NuxtLink 
+                        :to="`/partners/${value.slug}`" 
+                        class="hero-partners-sec__btn btnV1 btnV1--big"
+                        v-gsap.whenVisible.once.from='{
+                        autoAlpha: 0,
+                        y: 50,
+                        duration: 0.5,
+                        delay: 0.5,
+                        start: "top 70%",
+                        }'>
                             <span class="btnV1__circle btnV1__circle-1"></span>
                             <span class="btnV1__circle btnV1__circle-2"></span>
                             <span class="btnV1__title">{{ value.acf.tekst_knopki }}</span>
@@ -45,9 +147,27 @@
         <section class="partners-exm-sec" v-if="pageData[0].acf['sekcziya_2_-_primery_zarabotka'].zagolovok" >
             <div class="container">
                 <div class="header-row-sec">
-                    <h2 class="partners-exm-sec__title sec-title sec-title--left-mod" v-html="pageData[0].acf['sekcziya_2_-_primery_zarabotka'].zagolovok"></h2>
+                    <h2 
+                    class="partners-exm-sec__title sec-title sec-title--left-mod" 
+                    v-html="pageData[0].acf['sekcziya_2_-_primery_zarabotka'].zagolovok"
+                    v-gsap.whenVisible.once.from='{
+                    autoAlpha: 0,
+                    y: 50,
+                    duration: 0.5,
+                    delay: 0.1,
+                    start: "top 70%",
+                    }'></h2>
 
-                    <button class="home-hero-sec__btn btnV1 btnV1--big" @click="openTargetPopupForm">
+                    <button 
+                    class="home-hero-sec__btn btnV1 btnV1--big" 
+                    @click="openTargetPopupForm"
+                    v-gsap.whenVisible.once.from='{
+                    autoAlpha: 0,
+                    y: 50,
+                    duration: 0.5,
+                    delay: 0.2,
+                    start: "top 70%",
+                    }'>
                         <span class="btnV1__circle btnV1__circle-1"></span>
                         <span class="btnV1__circle btnV1__circle-2"></span>
                         <span class="btnV1__title">РАСЧИТАТЬ ДОХОД</span>
@@ -61,7 +181,16 @@
 
                 <div class="partners-exm-sec__row">
 
-                    <div class="partners-exm-sec__element" v-for="value in pageData[0].acf['sekcziya_2_-_primery_zarabotka'].primery">
+                    <div 
+                    class="partners-exm-sec__element" 
+                    v-for="(value,index) in pageData[0].acf['sekcziya_2_-_primery_zarabotka'].primery"
+                    v-gsap.whenVisible.once.from='{
+                    autoAlpha: 0,
+                    y: 100,
+                    duration: 0.5,
+                    delay: 0.1 + ((index + 1) / 10),
+                    start: "top 70%",
+                    }'>
                         <div class="partners-exm-sec__element-wrapper">
                         <img 
                         :src="value.kartinka.url" 
@@ -89,9 +218,26 @@
         <section class="partners-how-it-work-sec" v-if="pageData[0].acf['sekcziya_3_-_kak_eto_rabotaet'].zagolovok">
             <div class="container">
                 <div class="header-row-sec">
-                    <h2 class="partners-how-it-work-sec__title sec-title sec-title--left-mod" v-html="pageData[0].acf['sekcziya_3_-_kak_eto_rabotaet'].zagolovok"></h2>
+                    <h2 
+                    class="partners-how-it-work-sec__title sec-title sec-title--left-mod" 
+                    v-html="pageData[0].acf['sekcziya_3_-_kak_eto_rabotaet'].zagolovok"
+                    v-gsap.whenVisible.once.from='{
+                    autoAlpha: 0,
+                    y: 50,
+                    duration: 0.5,
+                    delay: 0.1,
+                    start: "top 70%",
+                    }'></h2>
 
-                    <button class="home-hero-sec__btn btnV1 btnV1--big" @click="openTargetPopupForm()">
+                    <button class="home-hero-sec__btn btnV1 btnV1--big" 
+                    @click="openTargetPopupForm()"
+                    v-gsap.whenVisible.once.from='{
+                    autoAlpha: 0,
+                    y: 50,
+                    duration: 0.5,
+                    delay: 0.2,
+                    start: "top 70%",
+                    }'>
                         <span class="btnV1__circle btnV1__circle-1"></span>
                         <span class="btnV1__circle btnV1__circle-2"></span>
                         <span class="btnV1__title">ОСТАВИТЬ ЗАЯВКУ</span>
@@ -105,7 +251,16 @@
 
                 <div class="partners-how-it-work-sec__row">
 
-                    <div class="partners-how-it-work-sec__element" v-for="(value, index) in pageData[0].acf['sekcziya_3_-_kak_eto_rabotaet'].shagi">
+                    <div class="partners-how-it-work-sec__element" 
+                    v-for="(value, index) in pageData[0].acf['sekcziya_3_-_kak_eto_rabotaet'].shagi"
+                    v-gsap.whenVisible.once.from='{
+                    autoAlpha: 0,
+                    y: 50,
+                    duration: 0.5,
+                    delay: 0.1 + ((index + 1) / 10),
+                    start: "top 70%",
+                    }'
+                    >
                         <div class="partners-how-it-work-sec__element-counter">
                             0{{ index + 1 }}
                         </div>
@@ -120,15 +275,39 @@
         <section class="partners-adv-sec" v-if="pageData[0].acf['sekcziya_4_preimushhestva'].zagolovok">
             <div class="container">
                 <div class="header-row-sec-v2">
-                    <div class="header-row-sec-v2__decor-wrapper">
+                    <div class="header-row-sec-v2__decor-wrapper"
+                    v-gsap.whenVisible.once.from='{
+                    autoAlpha: 0,
+                    y: 50,
+                    duration: 0.5,
+                    delay: 0.1,
+                    start: "top 70%",
+                    }'>
                     <img src="@/assets/images/img/decor.png" alt="" class="header-row-sec-v2__decor"></img>
                     </div>
                     
-                    <h2 class="car-adv-sec__title sec-title sec-title--center-mod" v-html="pageData[0].acf['sekcziya_4_preimushhestva'].zagolovok"></h2>
+                    <h2 class="car-adv-sec__title sec-title sec-title--center-mod" 
+                    v-html="pageData[0].acf['sekcziya_4_preimushhestva'].zagolovok"
+                    v-gsap.whenVisible.once.from='{
+                    autoAlpha: 0,
+                    y: 50,
+                    duration: 0.5,
+                    delay: 0.1,
+                    start: "top 70%",
+                    }'></h2>
                 </div>
 
                 <div class="car-adv-sec__wrapper adv-row-v2">
-                    <div class="adv-element-v2" v-for="value in pageData[0].acf['sekcziya_4_preimushhestva'].preimushhestva">
+                    <div 
+                    class="adv-element-v2" 
+                    v-for="(value, index) in pageData[0].acf['sekcziya_4_preimushhestva'].preimushhestva"
+                    v-gsap.whenVisible.once.from='{
+                    autoAlpha: 0,
+                    y: 100,
+                    duration: 0.5,
+                    delay: 0.1 + ((index + 1) / 10),
+                    start: "top 70%",
+                    }'>
                         <div class="adv-element__icon-wrapper-v2">
                             <img :src="value.ikonka.url" :alt="value.ikonka.alt" class="adv-element__icon-v2">
                         </div>
@@ -143,9 +322,27 @@
         <section class="partners-how-start-sec" v-if="pageData[0].acf.sekcziya_5_kak_nachat.zagolovok">
             <div class="container">
                 <div class="header-row-sec">
-                    <h2 class="partners-how-start-sec__title sec-title sec-title--left-mod" v-html="pageData[0].acf.sekcziya_5_kak_nachat.zagolovok"></h2>
+                    <h2 
+                    class="partners-how-start-sec__title sec-title sec-title--left-mod" 
+                    v-html="pageData[0].acf.sekcziya_5_kak_nachat.zagolovok"
+                    v-gsap.whenVisible.once.from='{
+                    autoAlpha: 0,
+                    y: 50,
+                    duration: 0.5,
+                    delay: 0.1,
+                    start: "top 70%",
+                    }'></h2>
 
-                    <button class="home-hero-sec__btn btnV1 btnV1--big" @click="openTargetPopupForm()">
+                    <button 
+                    class="home-hero-sec__btn btnV1 btnV1--big" 
+                    @click="openTargetPopupForm()"
+                    v-gsap.whenVisible.once.from='{
+                    autoAlpha: 0,
+                    y: 50,
+                    duration: 0.5,
+                    delay: 0.2,
+                    start: "top 70%",
+                    }'>
                         <span class="btnV1__circle btnV1__circle-1"></span>
                         <span class="btnV1__circle btnV1__circle-2"></span>
                         <span class="btnV1__title">ОСТАВИТЬ ЗАЯВКУ</span>
@@ -159,7 +356,15 @@
                 </div>
 
                 <div class="partners-how-start-sec__row">
-                    <div class="partners-how-start-sec__element" v-for="(value,index) in pageData[0].acf.sekcziya_5_kak_nachat.shagi">
+                    <div class="partners-how-start-sec__element" 
+                    v-for="(value,index) in pageData[0].acf.sekcziya_5_kak_nachat.shagi"
+                    v-gsap.whenVisible.once.from='{
+                    autoAlpha: 0,
+                    y: 100,
+                    duration: 0.5,
+                    delay: 0.1 + ((index + 1) / 10),
+                    start: "top 70%",
+                    }'>
                         <div class="partners-how-start-sec__element-header">
                             <div class="partners-how-start-sec__element-header-counter">0{{ index + 1 }}</div>
                             <p class="partners-how-start-sec__element-header-title" v-html="value.zagolovok"></p>
@@ -176,9 +381,27 @@
         <section class="partners-faq-sec car-faq-sec" v-if="pageData[0].acf.sekcziya_6_voprosy.zagolovok">
             <div class="container">
             <div class="header-row-sec">
-                <h2 class="header-row-sec__title sec-title sec-title--left-mod" v-html="pageData[0].acf.sekcziya_6_voprosy.zagolovok"></h2>
+                <h2 
+                class="header-row-sec__title sec-title sec-title--left-mod" 
+                v-html="pageData[0].acf.sekcziya_6_voprosy.zagolovok"
+                v-gsap.whenVisible.once.from='{
+                autoAlpha: 0,
+                y: 50,
+                duration: 0.5,
+                delay: 0.1,
+                start: "top 70%",
+                }'></h2>
 
-                <button class="home-hero-sec__btn btnV1 btnV1--big" @click="openTargetPopupForm()">
+                <button 
+                class="home-hero-sec__btn btnV1 btnV1--big" 
+                @click="openTargetPopupForm()"
+                v-gsap.whenVisible.once.from='{
+                autoAlpha: 0,
+                y: 50,
+                duration: 0.5,
+                delay: 0.2,
+                start: "top 70%",
+                }'>
                     <span class="btnV1__circle btnV1__circle-1"></span>
                     <span class="btnV1__circle btnV1__circle-2"></span>
                     <span class="btnV1__title">ЗАДАТЬ СВОЙ ВОПРОС</span>
@@ -193,7 +416,7 @@
             <div class="faq-wrapper">
 
                 <template v-for="(item,index) in pageData[0].acf.sekcziya_6_voprosy.voprosy">
-                    <faqElement :title="item.vopros" :counter="+index+1" :description="item.otvet"/>
+                    <faqElement :title="item.vopros" :counter="+index+1" :description="item.otvet" v-gsap.preset="'stagger-up'"/>
                 </template>
 
             </div>
