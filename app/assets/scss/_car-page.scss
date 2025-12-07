@@ -484,3 +484,58 @@
         }
     }
 }
+
+
+@media only screen and (max-width: 1750px) {}
+
+@media only screen and (max-width: 1580px) {
+    .car-hero-sec__slider-row {
+        transform: translateX(-80px);
+    }
+
+    .car-hero-sec__title {
+        font-size: 45px;
+    }
+
+    .car-hero-sec__slider-wrapper {
+        margin-top: 60px;
+    }
+
+    .car-char-sec {
+        padding-bottom: 130px;
+    }
+
+    .car-price-sec {
+        padding-bottom: 130px;
+    }
+
+    .info-data-row__img-wrapper {
+        width: 45%;
+    }
+
+    .info-data-row__img {
+        height: 280px;
+    }
+
+    .info-data-row__data {
+        width: 55%;
+    }
+
+    .car-about-sec {
+        padding-bottom: 130px;
+    }
+
+    .car-char-full-sec {
+        padding-bottom: 130px;
+    }
+
+    .car-adv-sec {
+        padding-bottom: 130px;
+    }
+
+    .car-simmilar-sec {
+        padding-bottom: 130px;
+    }
+}
+
+@media only screen and (max-width: 1380px) {}

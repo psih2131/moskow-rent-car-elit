@@ -193,6 +193,10 @@
 
     .car-card {
         margin-bottom: 70px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
     }
 }
 
@@ -311,3 +315,53 @@
     color: $grey3;
     margin-top: 15px;
 }
+
+
+@media only screen and (max-width: 1750px) {}
+
+@media only screen and (max-width: 1580px) {
+    .autopark-cars-sec {
+        padding-bottom: 130px;
+    }
+
+    .autopark-seo-sec__images-claster {
+        width: 45%;
+    }
+
+    .autopark-seo-sec__data {
+        width: 55%;
+        padding-left: 30px;
+    }
+
+    .autopark-seo-sec__images-claster-col--left .autopark-seo-sec__images-element:nth-child(1) {
+        height: 350px;
+    }
+
+    .autopark-seo-sec__images-claster-col--right .autopark-seo-sec__images-element:nth-child(1) {
+        height: 305px;
+    }
+
+    .autopark-seo-sec {
+        padding-bottom: 130px;
+    }
+
+    .cars-empty-searc {
+        height: 500px;
+    }
+
+    .table-mod {
+        .car-card__title {
+            font-size: 23px;
+        }
+    }
+
+    .autopark-cars-sec__cars.table-mod {
+        padding-bottom: 0;
+    }
+
+    .autopark-cars-sec__cars {
+        margin-top: 90px;
+    }
+}
+
+@media only screen and (max-width: 1380px) {}

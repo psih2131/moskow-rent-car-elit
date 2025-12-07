@@ -6,3 +6,17 @@
 .rules-faq-sec {
     padding-bottom: 150px;
 }
+
+@media only screen and (max-width: 1750px) {}
+
+@media only screen and (max-width: 1580px) {
+    .rules-hero-sec {
+        padding-bottom: 130px;
+    }
+
+    .rules-faq-sec {
+        padding-bottom: 130px;
+    }
+}
+
+@media only screen and (max-width: 1380px) {}

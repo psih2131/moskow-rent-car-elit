@@ -284,14 +284,14 @@
     //  centeredSlides: 'auto',
     breakpoints: {
         100: {
-        slidesPerView: 1,
-        spaceBetween: 0,
-        },
-        760: {
-        slidesPerView: 3,
+        slidesPerView: 5,
         spaceBetween: 20,
         },
-        1220: {
+        1380: {
+        slidesPerView: 5,
+        spaceBetween: 20,
+        },
+        1580: {
         slidesPerView: 6,
         spaceBetween: 20,
         },

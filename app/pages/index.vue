@@ -862,11 +862,11 @@ const  swiperClientsAbout  = useSwiper(clientsAboutUsSlider, {
       slidesPerView: 1,
       spaceBetween: 0,
     },
-    760: {
+    1380: {
       slidesPerView: 2,
-      spaceBetween: 20,
+      spaceBetween: 30,
     },
-    1220: {
+    1580: {
        slidesPerView: 2,
       spaceBetween: 70,
     },

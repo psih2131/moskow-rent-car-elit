@@ -133,3 +133,25 @@
 
     }
 }
+
+@media only screen and (max-width: 1750px) {}
+
+@media only screen and (max-width: 1580px) {
+    .contacts-sec__map {
+        width: 60%;
+    }
+
+    .contacts-sec__form {
+        width: 40%;
+    }
+
+    .contacts-sec__map-wrapper {
+        margin-top: 90px;
+    }
+
+    .contacts-sec {
+        padding-bottom: 100px;
+    }
+}
+
+@media only screen and (max-width: 1380px) {}
