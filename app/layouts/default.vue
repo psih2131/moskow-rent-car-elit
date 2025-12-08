@@ -24,42 +24,11 @@
   
 </template>
 
-<style scoped>
-.initial-loader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #10161B; /* фон можно поменять */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 99999;
-}
-
-.spinner {
-  width: 40px;
-  height: 40px;
-  border: 4px solid #151D24;
-  border-top: 4px solid #F1BD81; /* цвет спиннера */
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-</style>
-
 
 <script setup>
 //IMPORT
 
 import { ref, onMounted, onBeforeUnmount, computed, watch  } from 'vue';
-
-import InitialLoader from '@/components/InitialLoader.vue'
 
 import componentHeader from '@/components/header.vue'
 
@@ -85,8 +54,6 @@ const nuxtApp = useNuxtApp()
 const store = useCounterStore(nuxtApp.$pinia)
 
 const router = useRouter()
-
-
 
 const { data: optionsData } = await useFetch(`${store.serverUrlDomainRequest}/wp-json/acf/v3/options`)
 
