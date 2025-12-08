@@ -19,7 +19,6 @@
                 v-if="store.optionsData.uspeshnaya_otpravka_formy_podzagolovok"
                     v-html="store.optionsData.uspeshnaya_otpravka_formy_podzagolovok"></p>
             </div>
-        
 
         </div>
     </Transition>
