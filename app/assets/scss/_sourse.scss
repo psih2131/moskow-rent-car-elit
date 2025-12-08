@@ -181,6 +181,12 @@ ul {
 
 @media only screen and (max-width: 1380px) {
 	.container {
-		width: 1000px;
+		width: 980px;
+	}
+}
+
+@media only screen and (max-width: 990px) {
+	.container {
+		width: 750px;
 	}
 }

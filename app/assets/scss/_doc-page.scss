@@ -14,3 +14,29 @@
         text-align: justify;
     }
 }
+
+@media only screen and (max-width: 1380px) {
+    .doc-sec__title {
+        font-size: 35px;
+
+
+        &::before {
+            opacity: 0;
+        }
+
+        &::after {
+            opacity: 0;
+        }
+    }
+}
+
+@media only screen and (max-width: 990px) {
+    .doc-sec__title {
+        font-size: 30px;
+    }
+
+    .doc-sec {
+        padding-top: 160px;
+        padding-bottom: 70px;
+    }
+}

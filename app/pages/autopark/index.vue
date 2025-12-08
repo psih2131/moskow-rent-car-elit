@@ -62,31 +62,53 @@
 
 
             <div class="autopark-cars-sec__filtrs-row">
-                <div class="autopark-cars-sec__filtrs">
-                    
-                    <div class="autopark-cars-sec__filtr-wrapper autopark-cars-sec__filtr-wrapper--power">
-                        <customSelect :placeholder="'Мощьность'" :dopPlaceholder="'л.с'" :typeSelect="'two'" @sendData="getFiltrPover"/>
-                    </div>
+                <div class="autopark-cars-sec__filtrs-wrapper">
 
-                    <div class="autopark-cars-sec__filtr-wrapper autopark-cars-sec__filtr-wrapper--power">
-                        <customSelect :placeholder="'Тип трансмиссии'" :typeSelect="'one'" :valuesVariants="filtrTransValues" @sendData="getFiltrTransmision"/>
-                    </div>
+                    <div class="autopark-cars-sec__filtrs-mob-btn" @click="show = !show">
+                        Все фильтры
 
-                    <div class="autopark-cars-sec__filtr-wrapper autopark-cars-sec__filtr-wrapper--seat-places">
-                        <customSelect :placeholder="'К-во мест'" :typeSelect="'one'" :valuesVariants="filtrPlacesValues" @sendData="getFiltrPasangers"/>
-                    </div>
+                        <svg v-if="show == false" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7.4987 4.16667C7.03846 4.16667 6.66536 4.53976 6.66536 5C6.66536 5.46024 7.03846 5.83333 7.4987 5.83333C7.95894 5.83333 8.33203 5.46024 8.33203 5C8.33203 4.53976 7.95894 4.16667 7.4987 4.16667ZM5.14095 4.16667C5.48415 3.19567 6.41018 2.5 7.4987 2.5C8.58721 2.5 9.51325 3.19567 9.85644 4.16667H15.832C16.2923 4.16667 16.6654 4.53976 16.6654 5C16.6654 5.46024 16.2923 5.83333 15.832 5.83333H9.85644C9.51325 6.80433 8.58721 7.5 7.4987 7.5C6.41018 7.5 5.48415 6.80433 5.14095 5.83333H4.16536C3.70513 5.83333 3.33203 5.46024 3.33203 5C3.33203 4.53976 3.70513 4.16667 4.16536 4.16667H5.14095ZM12.4987 9.16667C12.0385 9.16667 11.6654 9.53976 11.6654 10C11.6654 10.4602 12.0385 10.8333 12.4987 10.8333C12.9589 10.8333 13.332 10.4602 13.332 10C13.332 9.53976 12.9589 9.16667 12.4987 9.16667ZM10.141 9.16667C10.4841 8.19567 11.4102 7.5 12.4987 7.5C13.5872 7.5 14.5132 8.19567 14.8564 9.16667H15.832C16.2923 9.16667 16.6654 9.53976 16.6654 10C16.6654 10.4602 16.2923 10.8333 15.832 10.8333H14.8564C14.5132 11.8043 13.5872 12.5 12.4987 12.5C11.4102 12.5 10.4841 11.8043 10.141 10.8333H4.16536C3.70513 10.8333 3.33203 10.4602 3.33203 10C3.33203 9.53976 3.70513 9.16667 4.16536 9.16667H10.141ZM7.4987 14.1667C7.03846 14.1667 6.66536 14.5398 6.66536 15C6.66536 15.4602 7.03846 15.8333 7.4987 15.8333C7.95894 15.8333 8.33203 15.4602 8.33203 15C8.33203 14.5398 7.95894 14.1667 7.4987 14.1667ZM5.14095 14.1667C5.48415 13.1957 6.41018 12.5 7.4987 12.5C8.58721 12.5 9.51325 13.1957 9.85644 14.1667H15.832C16.2923 14.1667 16.6654 14.5398 16.6654 15C16.6654 15.4602 16.2923 15.8333 15.832 15.8333H9.85644C9.51325 16.8043 8.58721 17.5 7.4987 17.5C6.41018 17.5 5.48415 16.8043 5.14095 15.8333H4.16536C3.70513 15.8333 3.33203 15.4602 3.33203 15C3.33203 14.5398 3.70513 14.1667 4.16536 14.1667H5.14095Z" fill="#5D736E"/>
+                        </svg>
 
-                    <div class="autopark-cars-sec__filtr-wrapper autopark-cars-sec__filtr-wrapper--price">
-                        <customSelect :placeholder="'Стоимость'" :dopPlaceholder="'₽'" :typeSelect="'two'" @sendData="getFiltrCost"/>
-                    </div>
-
-                    <div class="autopark-cars-sec__filtr-clear" @click="clearFiltr">
-                        <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg v-else width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect x="17.5703" width="1.65714" height="24.8571" rx="0.828571" transform="rotate(44.6384 17.5703 0)" fill="#F3C884"/>
                         <rect y="1.28125" width="1.65714" height="24.8571" rx="0.828571" transform="rotate(-45.3616 0 1.28125)" fill="#F3C884"/>
                         </svg>
+
+
                     </div>
-                    
+
+
+                    <Vue3SlideUpDown v-model="show">
+                        <div class="autopark-cars-sec__filtrs">
+                            
+                            <div class="autopark-cars-sec__filtr-wrapper autopark-cars-sec__filtr-wrapper--power">
+                                <customSelect :placeholder="'Мощьность'" :dopPlaceholder="'л.с'" :typeSelect="'two'" @sendData="getFiltrPover"/>
+                            </div>
+
+                            <div class="autopark-cars-sec__filtr-wrapper autopark-cars-sec__filtr-wrapper--power">
+                                <customSelect :placeholder="'Тип трансмиссии'" :typeSelect="'one'" :valuesVariants="filtrTransValues" @sendData="getFiltrTransmision"/>
+                            </div>
+
+                            <div class="autopark-cars-sec__filtr-wrapper autopark-cars-sec__filtr-wrapper--seat-places">
+                                <customSelect :placeholder="'К-во мест'" :typeSelect="'one'" :valuesVariants="filtrPlacesValues" @sendData="getFiltrPasangers"/>
+                            </div>
+
+                            <div class="autopark-cars-sec__filtr-wrapper autopark-cars-sec__filtr-wrapper--price">
+                                <customSelect :placeholder="'Стоимость'" :dopPlaceholder="'₽'" :typeSelect="'two'" @sendData="getFiltrCost"/>
+                            </div>
+
+                            <div class="autopark-cars-sec__filtr-clear" @click="clearFiltr">
+                                <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="17.5703" width="1.65714" height="24.8571" rx="0.828571" transform="rotate(44.6384 17.5703 0)" fill="#F3C884"/>
+                                <rect y="1.28125" width="1.65714" height="24.8571" rx="0.828571" transform="rotate(-45.3616 0 1.28125)" fill="#F3C884"/>
+                                </svg>
+                            </div>
+                            
+                        </div>
+                    </Vue3SlideUpDown>
+
                 </div>
 
                 <div class="autopark-cars-sec__view-mod-row">
@@ -112,7 +134,7 @@
           </div>
 
 
-          <div class="autopark-cars-sec__cars" :class="{'table-mod': viewMod == false}">
+          <div class="autopark-cars-sec__cars  cars-wrapper-rv" :class="{'table-mod': viewMod == false}">
             
             <template v-if="allCarsSave?.length > 0">
 
@@ -185,7 +207,34 @@
             <div class="autopark-seo-sec__data">
                 <h2 class="clients-about-us__title sec-title sec-title--left-mod" v-html="pageData[0].acf.seo_sekcziya.zagolovok_h1"></h2>
                 <div class="autopark-seo-sec__text-wrapper" v-if="pageData[0]?.acf?.seo_sekcziya.tekst">
-                    <div class="wp-editor" v-html="pageData[0].acf.seo_sekcziya.tekst"></div>
+                    <div class="wp-editor autopark-seo-sec__pc-text" v-html="pageData[0].acf.seo_sekcziya.tekst"></div>
+
+                    <div class="seo-sec-type-1__text-container autopark-seo-sec__ipad-text" 
+>
+                        <div
+                            class="seo-sec-type-1__text-wrapper"
+                            :style="{ maxHeight: expanded ? `${textHeight}px` : '215px', overflow: 'hidden',  }"
+                            ref="wrapper"
+                        >
+                            <div class="wp-editor seo-sec-type-1__editor" ref="editor" v-html="pageData[0].acf.seo_sekcziya.tekst"></div>
+                        </div>
+
+                        <div
+                            v-if="showReadMore"
+                            class="seo-sec-type-1__read-more"
+                            :class="{'active': expanded}"
+                            @click="toggleReadMore"
+                        >
+                            <span class="seo-sec-type-1__read-more-text" >
+                            Читать полностью
+                            </span>
+                            <div class="seo-sec-type-1__read-more-icon">
+                            <div class="seo-sec-type-1__read-more-icon-line seo-sec-type-1__read-more-icon--line-1"></div>
+                            <div class="seo-sec-type-1__read-more-icon-line seo-sec-type-1__read-more-icon--line-2"></div>
+                            </div>
+                        </div>
+                        </div>
+
                 </div>
             </div>
         </div>
@@ -209,11 +258,14 @@
 
     import formSec from '@/components/sections/formSec.vue'
 
+    import { Vue3SlideUpDown } from "vue3-slide-up-down";
     
     import { useCounterStore } from '@/stores/counter'
+
     import { useNuxtApp } from '#app'
 
     const nuxtApp = useNuxtApp()
+
     const store = useCounterStore(nuxtApp.$pinia)
 
     const route = useRoute()
@@ -222,9 +274,20 @@
 
     const allCarsSave = ref(null)
 
+    const show = ref(true)
+
+    const expanded = ref(false)
+
+    const showReadMore = ref(false)
+
+    const textHeight = ref(0)
+
+    const editor = ref(null)
 
     const { data: allCars } = await useFetch(`${store.serverUrlDomainRequest}/wp-json/wp/v2/cars`)
+
     const { data: carsCategoryes } = await useFetch(`${store.serverUrlDomainRequest}/wp-json/wp/v2/categories-cars`)
+
     const { data: pageData } = await useFetch(`${store.serverUrlDomainRequest}/wp-json/wp/v2/pages?slug=avtopark`)
 
     
@@ -283,8 +346,12 @@
     slidesPerView: "auto",
     //  centeredSlides: 'auto',
     breakpoints: {
-        100: {
-        slidesPerView: 5,
+        760: {
+        slidesPerView: 4,
+        spaceBetween: 20,
+        },
+        990: {
+        slidesPerView: 4,
         spaceBetween: 20,
         },
         1380: {
@@ -452,6 +519,12 @@ function checkGetParametrs(){
     }
 }
 
+
+const toggleReadMore = () => {
+  expanded.value = !expanded.value
+}
+
+
 onMounted(()=>{
     console.log('catRefSliderGallery', catRefSlider)
     checkGetParametrs()
@@ -459,6 +532,21 @@ onMounted(()=>{
     setTimeout(()=>{
         store.changeRouterChangeStatus(false)
     },200)
+
+
+    const editorHeight = editor.value.scrollHeight
+    textHeight.value = editorHeight
+
+    if (editorHeight > 215) {
+        showReadMore.value = true
+    }
+
+
+    const media = window.matchMedia('(max-width: 1380px)');
+
+    if (media.matches) {
+        show.value = false
+    }
 })
 
 

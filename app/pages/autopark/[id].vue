@@ -671,12 +671,12 @@ const  swiperCarSingle  = useSwiper(singleCarSlider, {
 
   //  centeredSlides: 'auto',
    breakpoints: {
-    100: {
-      slidesPerView: 1,
-      spaceBetween: 0,
+    760: {
+       slidesPerView: 3,
+      spaceBetween: 20,
     },
 
-    1220: {
+    1380: {
        slidesPerView: 3,
       spaceBetween: 50,
     },

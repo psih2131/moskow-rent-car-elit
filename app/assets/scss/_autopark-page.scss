@@ -245,6 +245,7 @@
     display: block;
     margin-bottom: 40px;
     box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.30);
+    object-fit: cover;
 
     &:last-child {
         margin-bottom: 0;
@@ -316,6 +317,36 @@
     margin-top: 15px;
 }
 
+.autopark-cars-sec__filtrs-wrapper {
+    display: contents;
+}
+
+.autopark-cars-sec__filtrs-mob-btn {
+    display: none;
+}
+
+.autopark-cars-sec__filtrs-mob-btn {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid rgba(243, 200, 132, 0.20);
+    background: #151D24;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.15);
+    padding: 20px;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    color: $grey2;
+
+    svg {
+        margin-left: 54px;
+        display: block;
+    }
+}
+
+.autopark-seo-sec__ipad-text {
+    display: none;
+}
 
 @media only screen and (max-width: 1750px) {}
 
@@ -364,4 +395,366 @@
     }
 }
 
-@media only screen and (max-width: 1380px) {}
+@media only screen and (max-width: 1380px) {
+    .autopark-cars-sec {
+        padding-top: 160px;
+        padding-bottom: 100px;
+    }
+
+    .autopark-cars-sec__filtrs-wrapper {
+        display: block;
+        position: relative;
+        width: calc(100% - 160px);
+    }
+
+
+
+    .autopark-cars-sec__filtrs-row {
+        align-items: flex-start;
+    }
+
+    .autopark-cars-sec__filtrs {
+        flex-wrap: wrap;
+        padding: 20px 0 0 0;
+        position: relative;
+        justify-content: space-between;
+    }
+
+    .autopark-cars-sec__filtr-wrapper--power {
+        width: calc(50% - 10px);
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .autopark-cars-sec__filtr-wrapper--seat-places {
+        width: calc(50% - 10px);
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .autopark-cars-sec__filtr-wrapper--price {
+        width: calc(50% - 10px);
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .autopark-cars-sec__filtr-clear {
+        position: absolute;
+        right: -80px;
+        top: 20px;
+    }
+
+    .autopark-cars-sec__filtrs-row {
+        margin-top: 40px;
+    }
+
+    .autopark-cars-sec__cars {
+        margin-top: 70px;
+    }
+
+    .autopark-seo-sec__images-claster-col {
+        width: calc(50% - 10px);
+    }
+
+    .autopark-seo-sec__images-claster-col--left .autopark-seo-sec__images-element:nth-child(1) {
+        margin-bottom: 20px;
+        height: 250px;
+    }
+
+    .autopark-seo-sec__images-claster-col--left .autopark-seo-sec__images-element:nth-child(2) {
+
+        height: 150px;
+    }
+
+    .autopark-seo-sec__images-claster-col--right .autopark-seo-sec__images-element:nth-child(1) {
+        margin-bottom: 20px;
+        height: 150px;
+    }
+
+    .autopark-seo-sec__images-claster-col--right .autopark-seo-sec__images-element:nth-child(2) {
+        height: 250px;
+    }
+
+
+    .autopark-seo-sec {
+        padding-bottom: 100px;
+    }
+
+    .autopark-seo-sec__ipad-text {
+        display: block;
+    }
+
+    .autopark-seo-sec__pc-text {
+        display: none;
+    }
+
+    .autopark-cars-sec__cars.table-mod {
+        width: calc(100% + 20px);
+        margin-left: -10px;
+
+        .car-card {
+            margin: 0 10px 20px 10px;
+            width: calc(33.333% - 20px);
+        }
+    }
+
+    .table-mod {
+        width: calc(100% + 20px);
+        margin-left: -10px;
+
+        .car-card {
+
+            &:nth-child(even) {
+                .car-card__wrapper {
+                    padding: 10px;
+                }
+
+                .car-card__data {
+                    padding: 20px 0px 20px 5px;
+                }
+            }
+        }
+
+        .car-card__data {
+            padding-right: 0;
+            padding-bottom: 20px;
+        }
+
+        .car-card__body {
+            margin-top: 15px;
+        }
+
+        .car-card-slider__slide-img {
+            height: 220px;
+        }
+
+        .car-card__wrapper {
+            padding: 10px;
+            align-items: flex-start;
+        }
+
+        .car-card__category {
+            font-size: 14px;
+        }
+
+        .car-card__title {
+            font-size: 18px;
+        }
+
+        .car-card__price-value {
+            font-size: 18px;
+        }
+
+        .car-card__price {
+            font-size: 12px;
+        }
+
+        .car-card__characteristic-value {
+            font-size: 9px;
+        }
+
+        .car-card__description {
+            margin-top: 20px;
+            font-size: 12px;
+        }
+
+        .car-card__characteristics {
+            margin-top: 25px;
+        }
+
+        .car-card__container {
+            height: 100%;
+        }
+
+        .car-card__wrapper {
+            height: 100%;
+        }
+
+        .car-card__border {
+            height: 100%;
+        }
+
+
+
+
+    }
+}
+
+@media only screen and (max-width: 990px) {
+    .autopark-cars-sec__slider-naw-wrapper .swipe-home-cat__wrapper {
+        height: 160px;
+        padding: 30px 10px 20px 10px;
+    }
+
+    .autopark-cars-sec__slider-naw-wrapper .swipe-home-cat__img-wprapper {
+        height: 50px;
+    }
+
+    .autopark-cars-sec__slider-naw-wrapper .swipe-home-cat__wrapper.active {
+        .swipe-home-cat__title-row {
+            &:after {
+                opacity: 0;
+            }
+
+            &:before {
+                opacity: 0;
+            }
+        }
+    }
+
+    .autopark-cars-sec__cars {
+        width: calc(100%);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        .car-card {
+            margin-bottom: 25px;
+        }
+    }
+
+    .autopark-cars-sec__view-btn {
+        width: 45px;
+        height: 45px;
+
+        svg {
+            width: 25px;
+            display: block;
+        }
+    }
+
+    .autopark-cars-sec__filtrs-mob-btn {
+        padding: 14px;
+        font-size: 14px;
+    }
+
+    .custom-select__result {
+        padding: 14px;
+        font-size: 14px;
+    }
+
+    .autopark-cars-sec__cars {
+        margin-top: 50px;
+    }
+
+    .autopark-cars-sec__cars.table-mod {
+        width: calc(100%);
+        margin-left: 0;
+
+        .car-card {
+            width: 100%;
+            margin: 0;
+            margin-bottom: 24px;
+        }
+    }
+
+    .table-mod {
+        .car-card__wrapper {
+            justify-content: space-between;
+        }
+
+        .car-card-slider {
+            width: 200px;
+        }
+
+        .car-card-slider__slide-img {
+            height: 170px;
+        }
+
+        .car-card__data {
+            width: calc(100% - 200px);
+            padding-left: 30px;
+            padding-bottom: 0;
+            padding-top: 0;
+        }
+
+        .car-card__description {
+            display: none;
+        }
+
+        .car-card__title {
+            font-size: 16px;
+        }
+
+        .car-card__category {
+            font-size: 12px;
+        }
+
+        .car-card__body {
+            margin-top: 10px;
+        }
+
+        .car-card__characteristics {
+            margin-top: 15px;
+            justify-content: flex-start;
+        }
+
+        .car-card__characteristic {
+            margin-right: 30px;
+        }
+
+        .car-card__characteristic-icon-wrapper svg {
+            width: 18px;
+        }
+    }
+
+    .autopark-cars-sec {
+        padding-bottom: 70px;
+    }
+
+    .autopark-seo-sec {
+        padding-bottom: 70px;
+
+        .sec-title--left-mod {
+            padding-left: 0;
+
+            &::before {
+                opacity: 0;
+            }
+        }
+    }
+
+    .autopark-seo-sec .container {
+        flex-wrap: wrap;
+    }
+
+    .autopark-seo-sec__images-claster {
+        order: 2;
+        margin-top: 50px;
+        width: 100%;
+    }
+
+    .autopark-seo-sec__data {
+        width: 100%;
+        padding-left: 0;
+    }
+
+    .autopark-seo-sec__text-wrapper {
+        padding-left: 0px;
+        margin-top: 35px;
+    }
+
+    .autopark-seo-sec__images-claster-col {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .autopark-seo-sec__images-claster-col--left {
+        .autopark-seo-sec__images-element {
+
+            width: calc(50% - 10px);
+            height: 200px !important;
+
+        }
+    }
+
+    .autopark-seo-sec__images-claster-col--right {
+        .autopark-seo-sec__images-element {
+
+            width: calc(50% - 10px);
+            height: 200px !important;
+
+        }
+    }
+
+}

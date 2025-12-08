@@ -19,4 +19,24 @@
     }
 }
 
-@media only screen and (max-width: 1380px) {}
+@media only screen and (max-width: 1380px) {
+    .rules-hero-sec {
+        padding-top: 200px;
+        padding-bottom: 100px;
+    }
+
+    .rules-faq-sec {
+        padding-bottom: 100px;
+    }
+}
+
+@media only screen and (max-width: 990px) {
+    .rules-hero-sec {
+        padding-top: 160px;
+        padding-bottom: 90px;
+    }
+
+    .rules-faq-sec {
+        padding-bottom: 90px;
+    }
+}

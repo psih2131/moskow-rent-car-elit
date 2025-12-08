@@ -645,64 +645,68 @@
 
 }
 
-@media only screen and (max-width: 1220px) {
-    .serteficat-popup__wrapper {
-        height: 100%;
+@media only screen and (max-width: 1380px) {
+    .popup-video {
+        width: calc(100% - 50px);
 
-        iframe {
-            height: 100%;
-            width: 750px;
+        .popup__close {
+            right: 0;
         }
+    }
+
+
+}
+
+@media only screen and (max-width: 1100px) {
+    .form-popup-price-table {
+        width: 980px;
+        padding: 60px;
     }
 }
 
-
-
-@media only screen and (max-width: 760px) {
-    .serteficat-popup__wrapper {
-        height: 100%;
-
-        iframe {
-            height: 100%;
-            width: 100%;
-        }
+@media only screen and (max-width: 990px) {
+    .form-popup-price-table {
+        width: 750px;
+        padding: 40px;
     }
 
-    .popup__close {
-        right: 0;
+    .form-popup-price-table .home-our-client-sec__title {
+        font-size: 26px;
     }
 
-    .form-popup {
-        border-radius: 15px;
-        width: 350px;
-        padding: 30px 20px;
+    .form-popup-price-table__table {
+        margin-top: 40px;
     }
 
-    .info-form-sec__form-inp-btn-v2 {
-        border-radius: 10px;
-        font-size: 14px;
-        padding: 15px;
+    .popup-table-price__row {
+        height: 50px;
     }
 
-    .form-popup-done__wrapper {
-        width: 350px;
-        border-radius: 15px;
-        padding: 30px 20px;
-    }
-
-    .form-popup-done__title {
-        font-size: 22px;
-    }
-
-    .form-popup-done__subtitle {
+    .popup-table-price__value {
         font-size: 14px;
     }
 
-    .serteficat-popup__slider {
+    .popup-table-price__name {
+        font-size: 14px;
+    }
+
+    .form-popup-price-table__booking-car-row {
+        margin-top: 40px;
+        flex-wrap: wrap;
+        justify-content: center;
+
+    }
+
+    .form-popup-price-table__car-title {
+        font-size: 26px;
+        margin-bottom: 30px;
         width: 100%;
+        text-align: center;
     }
 
-    .serteficat-popup {
-        width: calc(100% - 60px);
+    .popup-video {
+        height: 500px;
     }
+
+
 }

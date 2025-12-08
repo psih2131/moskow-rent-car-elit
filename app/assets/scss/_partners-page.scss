@@ -58,6 +58,15 @@
     margin-left: -22px;
 }
 
+.partners-exm-sec__row-slider {
+    width: 100%;
+    margin-top: 25px;
+}
+
+.partners-exm-sec__slider {
+    width: 100%;
+}
+
 .partners-exm-sec__element {
     width: calc(33.333% - 44px);
     margin: 44px 22px 0 22px;
@@ -74,6 +83,7 @@
 .partners-exm-sec__element-img {
     display: block;
     width: 100%;
+    object-fit: cover;
     height: 300px;
     box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.15);
 }
@@ -320,6 +330,199 @@
     .partners-how-start-sec__element-body {
         font-size: 16px;
     }
+
+    .partners-exm-sec {
+        padding-bottom: 130px;
+    }
+
+    .partners-how-it-work-sec {
+        padding-bottom: 130px;
+    }
+
+    .partners-adv-sec {
+        padding-bottom: 130px;
+    }
+
+    .partners-how-start-sec {
+        padding-bottom: 130px;
+    }
+
+    .partners-faq-sec {
+        padding-bottom: 130px;
+    }
 }
 
-@media only screen and (max-width: 1380px) {}
+
+@media only screen and (max-width: 1380px) {
+    .hero-partners-sec {
+        padding-top: 200px;
+        padding-bottom: 120px;
+    }
+
+    .hero-partners-sec__row {
+        margin-bottom: 100px;
+        align-items: flex-start;
+
+        .seo-sec-type-1__data {
+            padding-left: 40px;
+        }
+
+        &:nth-child(even) {
+            .seo-sec-type-1__data {
+                padding-right: 40px;
+            }
+        }
+    }
+
+    .hero-partners-sec__title {
+        padding-left: 0;
+
+        &::before {
+            opacity: 0;
+        }
+    }
+
+    .hero-partners-sec__title {
+        font-size: 26px;
+    }
+
+    .partners-exm-sec {
+        padding-bottom: 100px;
+    }
+
+    .partners-how-it-work-sec__element {
+        width: calc(33.333% - 20px);
+        margin: 0 10px 0 10px;
+    }
+
+    .partners-how-it-work-sec__row {
+        width: calc(100% + 20px);
+        margin-left: -10px;
+    }
+
+    .partners-how-it-work-sec__element-counter {
+        font-size: 25px;
+    }
+
+    .partners-how-it-work-sec {
+        padding-bottom: 100px;
+    }
+
+    .partners-adv-sec {
+        padding-bottom: 100px;
+    }
+
+    .partners-how-start-sec__element-header-counter {
+        font-size: 25px;
+    }
+
+    .partners-how-start-sec__element-header-title {
+        font-size: 24px;
+    }
+
+    .partners-how-start-sec__element-body {
+        font-size: 14px;
+    }
+
+    .partners-how-start-sec {
+        padding-bottom: 100px;
+    }
+
+    .partners-faq-sec {
+        padding-bottom: 100px;
+    }
+
+}
+
+@media only screen and (max-width: 990px) {
+    .hero-partners-sec {
+        padding-top: 160px;
+        padding-bottom: 100px;
+    }
+
+    .hero-partners-sec__row {
+        flex-wrap: wrap;
+
+        .seo-sec-type-1__images {
+            width: 100%;
+            order: 2;
+        }
+
+        .seo-sec-type-1__data {
+            padding-left: 0;
+            width: 100%;
+
+        }
+    }
+
+    .partners-exm-sec__element-img {
+        height: 240px;
+    }
+
+    .hero-partners-sec__row:nth-child(even) .seo-sec-type-1__data {
+        padding-right: 0;
+    }
+
+    .partners-exm-sec__element-subtitle {
+        font-size: 14px;
+    }
+
+    .partners-exm-sec__element-title {
+        font-size: 18px;
+    }
+
+    .partners-exm-sec__element-list-element-name {
+        font-size: 12px;
+    }
+
+    .partners-exm-sec__element-list-element-value {
+        font-size: 14px;
+    }
+
+    .partners-exm-sec__element-list-element {
+        padding: 20px 0;
+    }
+
+    .partners-exm-sec {
+        padding-bottom: 90px;
+    }
+
+    .partners-how-it-work-sec__row {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .partners-how-it-work-sec__element {
+        width: 100%;
+        margin: 0;
+        margin-bottom: 24px;
+    }
+
+    .partners-how-it-work-sec {
+        padding-bottom: 66px;
+    }
+
+    .partners-adv-sec {
+        padding-bottom: 66px;
+    }
+
+    .partners-how-start-sec__element {
+        width: 100%;
+    }
+
+    .partners-how-start-sec {
+        padding-bottom: 90px;
+    }
+
+    .partners-faq-sec {
+        padding-bottom: 90px;
+    }
+
+    .partners-how-it-work-sec__element-title {
+        font-size: 22px;
+    }
+
+    .partners-how-start-sec__element-header-title {
+        font-size: 22px;
+    }
+}

@@ -164,4 +164,111 @@
     }
 }
 
-@media only screen and (max-width: 1380px) {}
+@media only screen and (max-width: 1380px) {
+    .contacts-sec {
+        padding-top: 200px;
+        padding-bottom: 80px;
+    }
+
+    .contacts-sec__map-wrapper {
+        margin-top: 50px;
+    }
+
+    .contacts-sec__row {
+        margin-top: 50px;
+        flex-wrap: wrap;
+    }
+
+    .contacts-sec__social-row {
+        width: 100%;
+    }
+
+    .contacts-sec__map-wrapper-box {
+        flex-wrap: wrap;
+    }
+
+    .contacts-sec__map {
+        width: 100%;
+        order: 2;
+    }
+
+    .contacts-sec__form {
+        width: 100%;
+        padding: 40px;
+    }
+
+    .contacts-sec__form-wrapper {
+        width: 100%;
+    }
+
+    .contacts-sec__form-cont {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+
+        .contacts-sec__form-btn-wrapper {
+            width: calc(33.333% - 15px);
+        }
+
+        .form-popup__checkbox-wrapper {
+            width: calc(66.666% - 15px);
+        }
+    }
+
+    .contacts-sec__form-cont .contacts-sec__form-inp-wrapper {
+        width: calc(33.333% - 15px);
+    }
+
+    .contacts-sec__form-cont .form-valid-error {
+        font-size: 10px;
+    }
+
+    .contacts-sec__title {
+        font-size: 35px;
+    }
+
+}
+
+@media only screen and (max-width: 990px) {
+    .contacts-sec {
+        padding-top: 160px;
+        padding-bottom: 70px;
+    }
+
+
+
+    .contacts-sec__row .social-contact-def {
+        width: auto;
+        width: calc(50% - 15px);
+    }
+
+    .contacts-sec__social-row {
+        width: auto;
+        width: calc(50% - 15px);
+
+        .social-contact-def {
+            width: auto;
+        }
+    }
+
+    .contacts-sec__form-cont .contacts-sec__form-btn-wrapper {
+        width: calc(50% - 15px);
+    }
+
+    .contacts-sec__form-cont {
+
+
+        .form-popup__checkbox-wrapper {
+            width: calc(50% - 15px);
+        }
+    }
+
+    .contacts-sec__form-cont .contacts-sec__form-inp-wrapper {
+        width: calc(50% - 15px);
+    }
+
+    .contacts-sec__title {
+        font-size: 28px;
+    }
+}

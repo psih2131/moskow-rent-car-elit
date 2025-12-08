@@ -241,4 +241,75 @@
     }
 }
 
-@media only screen and (max-width: 1380px) {}
+@media only screen and (max-width: 1380px) {
+    .footer__col {
+        margin-left: 40px;
+    }
+
+    .footer__col-title {
+        font-size: 16px;
+    }
+
+    .footer__nav-link {
+        font-size: 13px;
+    }
+
+    .footer__contacts-element-value-main {
+        font-size: 13px;
+    }
+
+    .footer__firm-text {
+        max-width: 280px;
+        font-size: 14px;
+    }
+
+    .footer__logo {
+        max-width: 250px;
+    }
+
+    .footer__col {
+        width: 210px;
+    }
+
+    .footer__top {
+        padding: 40px 0;
+    }
+
+    .footer__down .container {
+        padding: 20px 0;
+    }
+}
+
+@media only screen and (max-width: 990px) {
+    .footer__top .container {
+        flex-wrap: wrap;
+    }
+
+    .footer__top-left {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .footer__firm-text {
+        max-width: 100%;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .footer__logo {
+        margin: 0 auto;
+    }
+
+    .footer__col {
+        width: calc(33.333% - 15px);
+        margin-left: 0;
+    }
+
+    .footer__top-right {
+        justify-content: space-between;
+    }
+
+
+
+
+}

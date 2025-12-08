@@ -4,6 +4,17 @@
         <div class="container">
 
             <div class="form-sec__data">
+                <div 
+                class="header-row-sec-v2__decor-wrapper"
+                v-gsap.whenVisible.once.from='{
+                autoAlpha: 0,
+                y: 100,
+                duration: 0.5,
+                delay: 0,
+                start: "top 70%",
+                }'>
+                <img src="@/assets/images/img/decor.png" alt="" class="header-row-sec-v2__decor"></img>
+                </div>
                 <h2 class="form-sec__title sec-title sec-title--left-mod" 
                 v-html="formSecData.sekcziya_obratnoj_svyazi.zagolovok"
                 v-gsap.whenVisible.once.from='{

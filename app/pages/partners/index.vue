@@ -179,37 +179,42 @@
                     </button>
                 </div>
 
-                <div class="partners-exm-sec__row">
+                <div class=" partners-exm-sec__row-slider">
 
-                    <div 
-                    class="partners-exm-sec__element" 
-                    v-for="(value,index) in pageData[0].acf['sekcziya_2_-_primery_zarabotka'].primery"
-                    v-gsap.whenVisible.once.from='{
-                    autoAlpha: 0,
-                    y: 100,
-                    duration: 0.5,
-                    delay: 0.1 + ((index + 1) / 10),
-                    start: "top 70%",
-                    }'>
-                        <div class="partners-exm-sec__element-wrapper">
-                        <img 
-                        :src="value.kartinka.url" 
-                        :alt="value.kartinka.alt" class="partners-exm-sec__element-img">
-                        <div class="partners-exm-sec__element-data">
-                            <div class="partners-exm-sec__element-header">
-                                <p class="partners-exm-sec__element-subtitle" v-html="value.podzagolovok"></p>
-                                <p class="partners-exm-sec__element-title" v-html="value.zagolovok_avto"></p>
-                            </div>
-                            <ul class="partners-exm-sec__element-list">
-                                <li class="partners-exm-sec__element-list-element" v-for="item in value.tablicza"
-                                :class="{'active':item.tip_stroki == 'active'}">
-                                    <span class="partners-exm-sec__element-list-element-name" v-html="item.nazvanite"></span>
-                                    <span class="partners-exm-sec__element-list-element-value" v-html="item.znachenie"></span>
-                                </li>
-                            </ul>
-                        </div>
-                        </div>
-                    </div>
+                    <ClientOnly>
+                        <swiper-container 
+                        ref="exampleRefSlider" 
+                        class="partners-exm-sec__slider"
+                        >
+                            <swiper-slide 
+                            class="swipe-home-cat" v-for="(value,index) in pageData[0].acf['sekcziya_2_-_primery_zarabotka'].primery">
+                               <div>
+                                    <div class="partners-exm-sec__element-wrapper">
+                                        <img 
+                                        :src="value.kartinka.url" 
+                                        :alt="value.kartinka.alt" class="partners-exm-sec__element-img">
+                                        <div class="partners-exm-sec__element-data">
+                                            <div class="partners-exm-sec__element-header">
+                                                <p class="partners-exm-sec__element-subtitle" v-html="value.podzagolovok"></p>
+                                                <p class="partners-exm-sec__element-title" v-html="value.zagolovok_avto"></p>
+                                            </div>
+                                            <ul class="partners-exm-sec__element-list">
+                                                <li class="partners-exm-sec__element-list-element" v-for="item in value.tablicza"
+                                                :class="{'active':item.tip_stroki == 'active'}">
+                                                    <span class="partners-exm-sec__element-list-element-name" v-html="item.nazvanite"></span>
+                                                    <span class="partners-exm-sec__element-list-element-value" v-html="item.znachenie"></span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                              
+                            </swiper-slide>
+
+                        </swiper-container>
+                        </ClientOnly>
+
+                    
                     
                 </div>
             </div>
@@ -456,6 +461,8 @@ const route = useRoute()
 
 const partnersChield = ref(null)
 
+const exampleRefSlider = ref(null)
+
 const { data: pageData } = await useFetch(`${store.serverUrlDomainRequest}/wp-json/wp/v2/pages?slug=partnerstvo`)
 
 const { data: optionsData } = await useFetch(`${store.serverUrlDomainRequest}/wp-json/acf/v3/options`)
@@ -494,9 +501,54 @@ console.log('optionsData', optionsData)
 
 //METHODS
 
+//example  gallery
+const  catRefSliderGallery  = useSwiper(exampleRefSlider, {
+   loop: true,
+   slidesPerView: 4,
+   spaceBetween: 30,   
+   speed: 1100,
+   freeMode: "true",  
+   freeMode: true,
+   slidesPerView: "auto",
+  //  centeredSlides: 'auto',
+   breakpoints: {
+    100: {
+      slidesPerView: 1,
+      spaceBetween: 0,
+    },
+    750: {
+      slidesPerView: 2,
+      spaceBetween: 30,
+    },
+    1380: {
+       slidesPerView: 3,
+      spaceBetween: 45,
+    },
+  },
+
+})
+
 const openTargetPopupForm = (data = null)=>{
   store.changePopupCurrent('popup-form')
   store.changeTrigerButtonForm(data)
+}
+
+function equalizeHeights(elements) {
+  if (!elements || elements.length === 0) return;
+
+  // Сбрасываем высоту перед вычислением
+  elements.forEach(el => el.style.height = 'auto');
+
+  // Превращаем NodeList в массив
+  const arr = Array.from(elements);
+
+  // Находим максимальную высоту
+  const maxHeight = Math.max(...arr.map(el => el.offsetHeight));
+
+  // Проставляем всем одинаковую
+  arr.forEach(el => {
+    el.style.height = maxHeight + 'px';
+  });
 }
 
 
@@ -505,6 +557,9 @@ onMounted(() => {
 setTimeout(()=>{
     store.changeRouterChangeStatus(false)
   },200)
+
+  let elements = document.querySelectorAll('.partners-how-start-sec__element-body')
+  equalizeHeights(elements)
 })
 
 

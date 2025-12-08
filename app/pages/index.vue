@@ -257,7 +257,7 @@
             </NuxtLink>
           </div>
 
-          <div class="header-row-sec__cars-wrapper" >
+          <div class="header-row-sec__cars-wrapper cars-wrapper-rv" >
             
             <template v-if="recomendCars?.length > 0" >
 
@@ -483,6 +483,17 @@
       <section class="home-about-sec" v-if="pageData[0].acf.sekcziya_6_o_kompanii.zagolovok">
         <div class="container">
           <div class="home-about-sec__info">
+            <div 
+            class="header-row-sec-v2__decor-wrapper"
+            v-gsap.whenVisible.once.from='{
+              autoAlpha: 0,
+              y: 100,
+              duration: 0.5,
+              delay: 0,
+              start: "top 70%",
+            }'>
+              <img src="@/assets/images/img/decor.png" alt="" class="header-row-sec-v2__decor"></img>
+            </div>
              <h2 
              class="clients-about-us__title sec-title sec-title--left-mod" 
              v-html="pageData[0].acf.sekcziya_6_o_kompanii.zagolovok"
@@ -803,14 +814,14 @@ const  catRefSliderGallery  = useSwiper(catRefSlider, {
   //  centeredSlides: 'auto',
    breakpoints: {
     100: {
-      slidesPerView: 1,
-      spaceBetween: 0,
+      slidesPerView: 2,
+      spaceBetween: 20,
     },
     760: {
       slidesPerView: 3,
       spaceBetween: 20,
     },
-    1220: {
+    1380: {
        slidesPerView: 4,
       spaceBetween: 30,
     },
@@ -838,7 +849,7 @@ const  swiperClients  = useSwiper(ourClientsSlider, {
       slidesPerView: 3,
       spaceBetween: 20,
     },
-    1220: {
+    1380: {
        slidesPerView: 4,
       spaceBetween: 30,
     },
@@ -847,7 +858,7 @@ const  swiperClients  = useSwiper(ourClientsSlider, {
 })
 
 
-//clients gallery
+//reviews gallery
 const  swiperClientsAbout  = useSwiper(clientsAboutUsSlider, {
    loop: true,
    slidesPerView: 4,

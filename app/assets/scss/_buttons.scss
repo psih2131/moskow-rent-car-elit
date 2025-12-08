@@ -163,3 +163,15 @@
     background: $bgColor2;
 
 }
+
+
+@media only screen and (max-width: 990px) {
+    .btnV1__title {
+        font-size: 18px;
+        padding: 15px 0;
+    }
+
+    .btnV1 {
+        width: 280px;
+    }
+}

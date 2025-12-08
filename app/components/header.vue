@@ -3,7 +3,7 @@
         <div class="blur-wrapper" v-if="show"></div>
     </Transition>
 
-    <header class="header">
+    <header class="header" :class="{'hide-logo': isActive}">
         <div class="header__container header__container-main">
 
             <div class="header__left">
@@ -155,7 +155,7 @@
 
 //IMPORT
 
-import { ref, onMounted, onBeforeUnmount, computed, watch  } from 'vue';
+import { ref, onMounted, onBeforeUnmount, onUnmounted, computed, watch  } from 'vue';
 
 import { useCounterStore } from '@/stores/counter'
 
@@ -170,7 +170,20 @@ const store = useCounterStore(nuxtApp.$pinia)
 
 const show = ref(false)
 
+const isActive = ref(false)
+
 
 //METHODS
+function handleScroll() {
+  isActive.value = window.scrollY > 200
+}
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll)
+})
 
 </script>

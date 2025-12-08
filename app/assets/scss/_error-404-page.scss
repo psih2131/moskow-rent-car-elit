@@ -24,3 +24,23 @@
     max-width: 525px;
     display: block;
 }
+
+@media only screen and (max-width: 1380px) {
+    .error-404-sec__img {
+        width: 400px;
+    }
+
+    .error-404-sec .header-row-sec-v2 {
+        margin-top: 100px;
+    }
+}
+
+@media only screen and (max-width: 990px) {
+    .error-404-sec__img {
+        width: 400px;
+    }
+
+    .error-404-sec .header-row-sec-v2 {
+        margin-top: 100px;
+    }
+}

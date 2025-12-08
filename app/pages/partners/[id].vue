@@ -268,12 +268,32 @@ const openTargetPopupForm = (data = null)=>{
   store.changeTrigerButtonForm(data)
 }
 
+function equalizeHeights(elements) {
+  if (!elements || elements.length === 0) return;
+
+  // Сбрасываем высоту перед вычислением
+  elements.forEach(el => el.style.height = 'auto');
+
+  // Превращаем NodeList в массив
+  const arr = Array.from(elements);
+
+  // Находим максимальную высоту
+  const maxHeight = Math.max(...arr.map(el => el.offsetHeight));
+
+  // Проставляем всем одинаковую
+  arr.forEach(el => {
+    el.style.height = maxHeight + 'px';
+  });
+}
 
 
 onMounted(() => {
 setTimeout(()=>{
     store.changeRouterChangeStatus(false)
   },200)
+
+   let elements = document.querySelectorAll('.partners-how-start-sec__element-body')
+  equalizeHeights(elements)
 })
 
 

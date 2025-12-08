@@ -107,3 +107,29 @@
         transform: scale(1.05);
     }
 }
+
+@media only screen and (max-width: 990px) {
+    .social-widget {
+        right: 50px;
+        bottom: 50px;
+    }
+
+    .pulse {
+        width: 60px;
+        height: 60px;
+    }
+
+    .pulse-anim {
+        width: 60px;
+        height: 60px;
+    }
+
+    .social-widget__link {
+        width: 60px;
+        height: 60px;
+    }
+
+    .social-widget__list {
+        padding-bottom: 60px;
+    }
+}
