@@ -212,6 +212,42 @@
             margin: 0 22px 44px 22px;
             width: calc(33.333% - 44px);
         }
+
+
+    }
+}
+
+.cars-wrapper-rv {
+    &.table-mod {
+        display: flex;
+        flex-wrap: wrap;
+        width: calc(100% + 44px);
+        margin-left: -22px;
+        padding-bottom: 44px;
+
+        .car-card {
+            margin: 0 22px 44px 22px;
+            width: calc(33.333% - 44px);
+        }
+
+        .car-card:nth-child(even) .car-card__wrapper {
+            padding: 10px;
+        }
+
+    }
+}
+
+.table-mod {
+    .car-card__container {
+        height: 100%;
+    }
+
+    .car-card__border {
+        height: 100%;
+    }
+
+    .car-card__wrapper {
+        height: 100%;
     }
 }
 
