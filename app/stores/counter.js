@@ -2,9 +2,9 @@ import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
 
 export const useCounterStore = defineStore('counter', () => {
-    const serverUrlDomainRequest = ref('http://rent-car.gearsdpz.beget.tech')
+    const serverUrlDomainRequest = ref('https://red-angels-server.ru')
 
-    const domainUrlCurrent = ref('https://psih2131-moskow-rent-car-elit-5dfc.twc1.net')
+    const domainUrlCurrent = ref('http://red-angels.ru')
 
     const optionsData = ref(null)
 
