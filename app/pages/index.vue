@@ -839,6 +839,7 @@ const  swiperClients  = useSwiper(ourClientsSlider, {
    freeMode: "true",  
    freeMode: true,
    slidesPerView: "auto",
+  
   //  centeredSlides: 'auto',
    breakpoints: {
     100: {
@@ -849,7 +850,7 @@ const  swiperClients  = useSwiper(ourClientsSlider, {
       slidesPerView: 3,
       spaceBetween: 20,
     },
-    1380: {
+    1500: {
        slidesPerView: 4,
       spaceBetween: 30,
     },
@@ -930,7 +931,11 @@ const openTargetPopupVider = (data) =>{
     store.changePopupCurrent('popup-video',payloadData)
 }
 
+
+
+
 onMounted(() => {
+ 
  // Альтернативно, через DOM событие
   if (catRefSlider.value) {
     catRefSlider.value.addEventListener('slidechange', (event) => {
@@ -949,6 +954,7 @@ onMounted(() => {
   setTimeout(()=>{
     store.changeRouterChangeStatus(false)
   },200)
+
 
 })
 

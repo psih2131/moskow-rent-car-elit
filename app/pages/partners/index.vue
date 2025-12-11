@@ -518,9 +518,13 @@ const  catRefSliderGallery  = useSwiper(exampleRefSlider, {
     },
     750: {
       slidesPerView: 2,
-      spaceBetween: 30,
+      spaceBetween: 25,
     },
     1380: {
+       slidesPerView: 3,
+      spaceBetween: 25,
+    },
+    1500: {
        slidesPerView: 3,
       spaceBetween: 45,
     },

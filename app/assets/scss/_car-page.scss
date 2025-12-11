@@ -538,6 +538,181 @@
     }
 }
 
+
+@media only screen and (max-width: 1500px) {
+    .car-hero-sec {
+        padding-top: 180px;
+        padding-bottom: 50px;
+    }
+
+    .car-hero-sec__title {
+        font-size: 35px;
+    }
+
+    .car-hero-sec__slider-wrapper {
+        margin-top: 40px;
+    }
+
+    .car-hero-sec__slider-wrapper {
+        height: 550px;
+    }
+
+    .single-car-swiper__slide-img {
+        height: 550px;
+    }
+
+    .car-hero-sec__slider-row {
+        width: 3000px;
+        transform: translateX(-90px);
+    }
+
+    .single-car-swiper-button-next {
+        left: calc(50% + 460px);
+    }
+
+    .single-car-swiper-button-prev {
+        left: calc(50% - 515px);
+    }
+
+    .single-car-swiper-button {
+        width: 60px;
+        height: 60px;
+        top: calc(50% - 30px);
+    }
+
+    .char-full__icon-wrapper::before {
+        width: 48px;
+        height: 48px;
+    }
+
+    .char-full__icon-wrapper {
+        width: 50px;
+        height: 50px;
+
+        svg {
+            width: 20px;
+            height: auto;
+        }
+
+
+    }
+
+    .char-full__title {
+        font-size: 12px;
+        margin-bottom: 5px;
+    }
+
+    .char-full__value {
+        font-size: 16px;
+    }
+
+    .char-full__data {
+        margin-left: 15px;
+    }
+
+    .car-char-sec {
+        padding-bottom: 100px;
+    }
+
+    .price-table__el {
+        height: 60px;
+        font-size: 16px;
+    }
+
+    .dop-services-price__row {
+        padding: 30px 0;
+    }
+
+    .dop-services-price__value {
+        font-size: 16px;
+    }
+
+    .dop-services-price__name {
+        font-size: 16px;
+    }
+
+    .car-price-sec {
+        padding-bottom: 100px;
+    }
+
+    .car-about-sec__info-wrapper {
+        margin-top: 50px;
+    }
+
+    .info-data-row__img {
+        width: calc(50% - 10px);
+    }
+
+    .info-data-row__data {
+        padding-right: 40px;
+    }
+
+    .info-data-row:nth-child(even) .info-data-row__data {
+        padding-left: 40px;
+    }
+
+    .info-data-row {
+        margin-bottom: 100px;
+    }
+
+    .car-about-sec {
+        padding-bottom: 100px;
+    }
+
+    .car-char-full-sec__wrapper {
+        margin-top: 50px;
+    }
+
+    .car-char-full-sec__row {
+        width: calc(50% - 20px);
+        padding: 35px 0;
+    }
+
+    .car-char-full-sec__value {
+        font-size: 16px;
+    }
+
+    .car-char-full-sec__row-counter {
+        font-size: 18px;
+    }
+
+    .car-char-full-sec {
+        padding-bottom: 100px;
+    }
+
+    .adv-row-v2 {
+        margin-top: 50px;
+    }
+
+    .adv-element-v2 {
+        padding: 20px;
+    }
+
+    .dv-element-v2__title {
+        font-size: 24px;
+    }
+
+    .dv-element-v2__subtitle {
+        font-size: 14px;
+    }
+
+    .car-adv-sec {
+        padding-bottom: 100px;
+    }
+
+    .car-simmilar-sec__cars-wrapper {
+        margin-top: 50px;
+    }
+
+    .car-simmilar-sec__cars-wrapper .car-card {
+        margin-bottom: 50px;
+    }
+
+    .car-simmilar-sec {
+        padding-bottom: 100px;
+    }
+}
+
 @media only screen and (max-width: 1380px) {
     .car-hero-sec {
         padding-bottom: 50px;
@@ -661,7 +836,7 @@
     }
 
     .car-char-full-sec__row {
-        padding: 35px 0;
+        padding: 30px 0;
     }
 
     .car-char-full-sec__value {
@@ -701,7 +876,19 @@
     }
 
     .car-simmilar-sec {
-        padding-bottom: 100px;
+        padding-bottom: 70px;
+    }
+
+    .single-car-swiper-button {
+        opacity: 0.5;
+    }
+
+    .single-car-swiper-button-prev {
+        left: calc(50% - 451px);
+    }
+
+    .single-car-swiper-button-next {
+        left: calc(50% + 391px);
     }
 }
 
@@ -711,11 +898,26 @@
         justify-content: center;
     }
 
+    .single-car-swiper-button {
+        width: 50px;
+        height: 50px;
+        top: calc(50% - 25px);
+    }
+
+    .single-car-swiper-button-next {
+        left: calc(50% + 329px);
+    }
+
+    .single-car-swiper-button-prev {
+        left: calc(50% - 380px);
+    }
+
     .car-hero-sec__title {
         width: 100%;
         text-align: center;
         padding-left: 0;
         margin-bottom: 50px;
+        font-size: 30px;
         display: flex;
         position: relative;
         justify-content: center;
@@ -738,6 +940,7 @@
 
     .car-hero-sec__slider-wrapper {
         height: 480px;
+        margin-top: 40px;
     }
 
     .car-char-sec .container {
@@ -745,8 +948,14 @@
         justify-content: center;
     }
 
+    .car-hero-sec {
+        padding-bottom: 30px;
+    }
+
     .char-full {
-        margin: 0 15px 30px 15px;
+        width: calc(33.333%);
+        margin: 0;
+        margin-bottom: 20px;
     }
 
     .car-char-sec {
@@ -754,7 +963,7 @@
     }
 
     .price-table__el {
-        font-size: 14px;
+        font-size: 13px;
     }
 
     .price-table__el {

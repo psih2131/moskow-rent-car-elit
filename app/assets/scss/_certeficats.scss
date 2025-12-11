@@ -172,6 +172,50 @@
 
 }
 
+@media only screen and (max-width: 1500px) {
+    .certificates-hero-sec {
+        padding-top: 180px;
+        padding-bottom: 130px;
+    }
+
+    .certeficat-card__value {
+        font-size: 28px;
+    }
+
+    .certeficat-card__title {
+        font-size: 16px;
+    }
+
+    .certeficat-card {
+        width: calc(33.333% - 40px);
+        height: 250px;
+        margin: 40px 20px 0 20px;
+    }
+
+    .certificates-catalog-sec__wrapper {
+        margin-top: 10px;
+        width: calc(100% + 40px);
+        margin-left: -20px;
+    }
+
+    .certificates-catalog-sec {
+        padding-bottom: 100px;
+    }
+
+    .certificates-about-sec__col {
+        margin-top: 50px;
+    }
+
+    .certificates-about-sec {
+        padding-bottom: 100px;
+    }
+
+    .certeficat-card__logo {
+        width: 180px;
+    }
+
+}
+
 @media only screen and (max-width: 1380px) {
     .certificates-hero-sec {
         padding-bottom: 100px;

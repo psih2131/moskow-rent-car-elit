@@ -1334,6 +1334,291 @@
     .car-card__price-value {
         font-size: 28px;
     }
+
+    .sec-title--left-mod:before {
+        top: 15px;
+    }
+}
+
+@media only screen and (max-width: 1500px) {
+    .home-hero-sec__title {
+        font-size: 50px;
+    }
+
+    .home-hero-sec__decor {
+        width: 200px;
+    }
+
+    .home-hero-sec__title-row {
+        margin-top: 20px;
+    }
+
+    .home-hero-sec__title {
+        width: 560px;
+    }
+
+    .home-hero-sec__decor-line {
+        width: 290px;
+    }
+
+    .home-hero-sec__play {
+        margin: 70px auto;
+    }
+
+    .car-card__title {
+        font-size: 27px;
+    }
+
+    .car-card__data {
+        padding-left: 30px;
+    }
+
+    .cars-wrapper-rv .car-card:nth-child(even) .car-card__data {
+        padding-right: 30px;
+    }
+
+    .car-card__body {
+        margin-top: 25px;
+    }
+
+    .car-card__price {
+        font-size: 22px;
+    }
+
+    .car-card__price-value {
+        font-size: 26px;
+    }
+
+    .car-card__characteristic {
+        margin-right: 0;
+    }
+
+    .car-card__characteristics {
+        justify-content: space-between;
+    }
+
+    .clients-about-us-slider__slide-text {
+        font-size: 14px;
+    }
+
+    .clients-about-us-slider__slide-photo {
+        order: 1;
+        width: 100px;
+        height: 100px;
+        border-radius: 1000px;
+    }
+
+    .clients-about-us-slider__slide-client-data {
+        order: 2;
+        width: calc(100% - 100px);
+        padding-left: 20px;
+        padding-top: 30px;
+    }
+
+    .clients-about-us-slider__slide-data {
+        order: 3;
+        padding-left: 0;
+        width: 100%;
+        margin-top: 25px;
+    }
+
+    .clients-about-us-slider__slide-wrapper {
+        align-items: flex-start;
+    }
+
+    .clients-about-us-slider__slide-client-name {
+        font-size: 24px;
+    }
+
+    .clients-about-us-slider__slide-client-description {
+        font-size: 16px;
+    }
+
+    .clients-about-us-slider__slide-wrapper {
+        height: 335px;
+    }
+
+    .home-about-sec__adv-wrapper {
+        padding-left: 0;
+    }
+
+    .home-about-sec__images-contacts-row {
+        margin-top: 50px;
+        flex-wrap: wrap;
+    }
+
+    .home-about-sec__images-social-row {
+        margin-top: 30px;
+    }
+
+    .faq-element__title {
+        font-size: 18px;
+        padding-left: 200px;
+    }
+
+    .faq-element__header {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    .faq-element__counter {
+        font-size: 20px;
+    }
+
+    .faq-element__btn {
+        width: 60px;
+        height: 60px;
+    }
+
+    .faq-element__btn-el {
+        width: 25px;
+    }
+
+    .faq-element__text {
+        padding-left: 235px;
+    }
+
+    .faq-wrapper {
+        margin-top: 50px;
+    }
+
+    .adv-element__title {
+        font-size: 24px;
+        margin-bottom: 15px;
+    }
+
+    .clients-about-us__slider-wrapper {
+        margin-top: 50px;
+    }
+
+    .home-our-client-sec__slider-wrapper {
+        margin-top: 50px;
+    }
+
+    .car-card__header-text {
+        padding-left: 25px;
+    }
+
+    .home-category-sec {
+        padding-bottom: 135px;
+    }
+
+    .form-sec__img-wrapper {
+        width: 430px;
+        height: 430px;
+    }
+
+    .form-sec__subtitle {
+        font-size: 18px;
+    }
+
+    .swipe-home-cat__title {
+        font-size: 18px;
+    }
+
+    .swipe-home-cat__wrapper {
+        height: 200px;
+        padding: 30px;
+    }
+
+    .swiper-def-ar__circle {
+        width: 50px;
+        height: 50px;
+    }
+
+    .swiper-def-ar {
+        width: 123px;
+        height: 50px;
+
+        svg {
+            width: 100px;
+        }
+    }
+
+    .home-news-sec__slider-row-control-wrapper {
+        margin-top: 25px;
+    }
+
+    .slider-counter__current {
+        font-size: 45px;
+        line-height: 1;
+    }
+
+    .slider-counter__total {
+        font-size: 30px;
+    }
+
+    .home-hero-sec__text {
+        font-size: 20px;
+    }
+
+    .header-row-sec__cars-wrapper .car-card {
+        margin-top: 50px;
+    }
+
+    .home-category-sec {
+        padding-bottom: 100px;
+    }
+
+    .home-cars-sec {
+        padding-bottom: 100px;
+    }
+
+    .home-our-client-sec {
+        padding-bottom: 100px;
+    }
+
+    .clients-about-us {
+        padding-bottom: 100px;
+    }
+
+    .home-hero-sec__title {
+        font-size: 46px;
+    }
+
+    .home-faq-sec {
+        padding-bottom: 100px;
+    }
+
+    .home-form-sec {
+        padding-bottom: 100px;
+    }
+
+    .home-seo-sec {
+        padding-bottom: 100px;
+    }
+
+    .car-card__wrapper {
+        padding: 20px;
+    }
+
+    .cars-wrapper-rv .car-card:nth-child(even) .car-card__wrapper {
+        padding: 20px;
+    }
+
+    .home-hero-sec {
+        min-height: 750px;
+        overflow: hidden;
+
+    }
+
+    .home-hero-sec__bg-img {
+        height: 100%;
+    }
+
+    .home-hero-sec__play {
+        width: 130px;
+        height: 130px;
+    }
+
+    .home-hero-sec__play-wrapper {
+        width: 80px;
+        height: 80px;
+    }
+
+    .home-hero-sec__play svg {
+        width: 37px;
+    }
 }
 
 @media only screen and (max-width: 1380px) {
@@ -1588,17 +1873,10 @@
         margin-top: 50px;
     }
 
-    .home-hero-sec__title {
-        font-size: 50px;
-    }
-
     .seo-sec-type-1__img {
         width: calc(50% - 10px);
     }
 
-    .home-hero-sec__title {
-        width: 600px;
-    }
 
     .home-about-sec {
         padding-bottom: 100px;
@@ -1607,6 +1885,19 @@
     .home-faq-sec {
         padding-bottom: 100px;
     }
+
+    .clients-about-us-slider__slide-wrapper {
+        height: auto;
+    }
+
+    .faq-element__header {
+        padding-right: 0;
+    }
+
+    .seo-sec-type-1__read-more-text {
+        font-size: 14px;
+    }
+
 }
 
 
@@ -1901,9 +2192,7 @@
         font-size: 14px;
     }
 
-    .clients-about-us-slider__slide-photo {
-        height: 200px;
-    }
+
 
     .clients-about-us {
         padding-bottom: 90px;
@@ -2060,5 +2349,7 @@
     .home-seo-sec {
         padding-bottom: 70px;
     }
+
+
 
 }
