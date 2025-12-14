@@ -1,10 +1,10 @@
 <template>
 
     <div class="faq-element" :class="{'active': show}">
-        <div class="faq-element__header" >
+        <div class="faq-element__header" @click="show = !show">
             <div class="faq-element__counter" v-if="counter">{{(getCurrentCounter(counter))}}</div>
             <p class="faq-element__title" v-if="title">{{ title }}</p>
-            <div class="faq-element__btn" @click="show = !show">
+            <div class="faq-element__btn" >
                 <span class="faq-element__btn-el faq-element__btn-el1"></span>
                 <span class="faq-element__btn-el faq-element__btn-el2"></span>
             </div>

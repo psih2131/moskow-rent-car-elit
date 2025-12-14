@@ -1,0 +1,133 @@
+.booking-widget {
+    position: fixed;
+    z-index: 100;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: $bgColor2;
+    padding: 25px 0;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.30);
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.booking-widget__form {
+    display: flex;
+    align-items: center;
+
+    .btnV1__title {
+        font-size: 18px;
+        padding: 17px 0;
+    }
+
+    .btnV1 {
+        width: 280px;
+    }
+}
+
+.booking-widget__input {
+    width: 280px;
+    margin-right: 25px;
+
+    input {
+        width: 100%;
+        background: none;
+        border: 1px solid #534A3C;
+        font-size: 18px;
+        padding: 13px;
+        color: $white;
+        font-family: $titleFont3;
+        line-height: 1;
+        font-weight: normal;
+        letter-spacing: 1px;
+        transition: all ease 0.3s;
+
+        &::placeholder {
+            color: $grey2;
+        }
+
+        &:hover,
+        &:focus {
+            border: solid 1px $gold1;
+            transition: all ease 0.3s;
+        }
+
+        &.validation-error {
+            border: solid 1px $red1;
+        }
+    }
+}
+
+.booking-widget__date {
+
+    width: 300px;
+    margin-right: 25px;
+
+    input {
+        width: 100%;
+        background: none;
+        border: 1px solid #534A3C;
+        font-size: 18px;
+        padding: 13px 30px 13px 40px;
+        color: $white;
+        font-family: $titleFont3;
+        line-height: 1;
+        font-weight: normal;
+        letter-spacing: 1px;
+        transition: all ease 0.3s;
+        border-radius: 0;
+        opacity: 1;
+
+        &::placeholder {
+            color: $grey2 !important;
+            opacity: 1;
+        }
+
+        &:hover,
+        &:focus {
+            border: solid 1px $gold1 !important;
+            transition: all ease 0.3s;
+        }
+    }
+}
+
+.booking-widget__social-row {
+    display: flex;
+    align-items: center;
+
+    .social-contact-def {
+        margin-left: 20px;
+        margin-right: 0;
+        margin-bottom: 0;
+    }
+
+    .social-contact-def__icon {
+        width: 52px;
+        height: 52px;
+
+        img {
+            width: 20px;
+            height: 20px;
+        }
+    }
+}
+
+.booking-widget__social-row-text {
+    font-family: $titleFont;
+    text-transform: uppercase;
+    font-size: 18px;
+}
+
+
+@media only screen and (max-width: 1500px) {
+    .booking-widget__social-row-text {
+        display: none;
+    }
+
+    .booking-widget {
+        padding: 20px 0;
+    }
+}

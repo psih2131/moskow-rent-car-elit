@@ -78,6 +78,10 @@
                 :visible="visibleRef"
                 :imgs="getJustImgSrc(moveLastToFirst(currentCarData[0].acf.slajder_izobrazhenij))"
                 :index="indexRef"
+                :moveDisabled="true"
+                :rotateDisabled="true"
+                :zoomDisabled="true" 
+                :loop="true"
                 @hide="onHide"
               />
 
@@ -510,7 +514,6 @@
 
     <formSec :formSecData="optionsData" />
 
-
     <section class="car-simmilar-sec" v-if="currentCarData[0].acf.zagolovok_pohozhie_avto">
       <div class="container">
         <div class="header-row-sec">
@@ -557,6 +560,8 @@
 
     </section>
 
+    <bookingCarWidget />
+
 </template>
 
 
@@ -564,12 +569,9 @@
 <script setup>
 
 //IMPORT
-
-
-
 import { ref, onMounted, onBeforeUnmount, computed, watch  } from 'vue';
 
-// import productCard from '@/components/component__producr-card.vue'
+import bookingCarWidget from '@/components/widgets/bookingCarWidget.vue'
 
 import carCard from '@/components/carCard.vue'
 
@@ -577,12 +579,16 @@ import faqElement from '@/components/faqElement.vue'
 
 import formSec from '@/components/sections/formSec.vue'
 
-const route = useRoute()
-
 import { useCounterStore } from '@/stores/counter'
+
 import { useNuxtApp } from '#app'
 
+
+//DATA
+const route = useRoute()
+
 const nuxtApp = useNuxtApp()
+
 const store = useCounterStore(nuxtApp.$pinia)
 
 const recomendCars = ref(null)
@@ -650,7 +656,7 @@ console.log('recomendCars', recomendCars)
 
 
 
-//DATA
+
 // const store = useCounterStore()
 
 // const route = useRoute()
@@ -735,6 +741,7 @@ const openTargetPopupForm = (data = null)=>{
 const showImg = (index) => {
   indexRef.value = index;
   visibleRef.value = true;
+  
 };
 const onHide = () => (visibleRef.value = false);
 

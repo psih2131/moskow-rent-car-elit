@@ -56,6 +56,10 @@ export default defineNuxtConfig({
     'v-gsap-nuxt',
   ],
 
+  build: {
+    transpile: ['@vuepic/vue-datepicker']
+  }
+
 
 
 })

@@ -1,11 +1,15 @@
 <template>
     <div class="car-card" v-if="carData" >
-        <div class="car-card__container"
-         
-         >
+        <div class="car-card__container">
+
+            
+
             <div class="car-card__border" >
+                
             <div class="car-card__wrapper">
 
+                <NuxtLink :to="`/autopark/${carData.slug}`"  class="car-card__link-wrapper"></NuxtLink>
+             
 
                 <ClientOnly>
                 <swiper-container 
@@ -18,27 +22,29 @@
                 }"
                 >
                     <swiper-slide class="car-card-slider__slide" v-for="item in carData.acf.izobrazheniya_avtomobilya_dlya_kartochki_avto" :key="item">
-                        <img :src="item.izobrazhenie.url" :alt="item.izobrazhenie.alt" class="car-card-slider__slide-img">
+                        <NuxtLink :to="`/autopark/${carData.slug}`">
+                            <img :src="item.izobrazhenie.url" :alt="item.izobrazhenie.alt" class="car-card-slider__slide-img">
+                        </NuxtLink>
                     </swiper-slide>
 
                 </swiper-container>
                 </ClientOnly>
 
-                <div class="car-card__data">
+                <NuxtLink :to="`/autopark/${carData.slug}`"  class="car-card__data">
                     <div class="car-card__header">
                         <div class="car-card__header-text">
                             <p class="car-card__category">{{ getCurrentCategory(carData['categories-cars']) }}</p>
-                            <NuxtLink :to="`/autopark/${carData.slug}`" class="car-card__title" >{{ carData.acf.nazvanie_avto }}</NuxtLink>
+                            <div class="car-card__title" >{{ carData.acf.nazvanie_avto }}</div>
                             
                         </div>
-                        <NuxtLink :to="`/autopark/${carData.slug}`" class="car-card__header-ar">
+                        <div  class="car-card__header-ar">
                             <svg width="64" height="15" viewBox="0 0 64 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M62.9449 8.17774C63.3414 7.79326 63.3511 7.16017 62.9666 6.7637L56.7011 0.302741C56.3167 -0.0937351 55.6836 -0.10346 55.2871 0.28102C54.8906 0.665501 54.8809 1.29859 55.2654 1.69507L60.8347 7.43814L55.0916 13.0074C54.6951 13.3919 54.6854 14.025 55.0699 14.4215C55.4544 14.818 56.0875 14.8277 56.4839 14.4432L62.9449 8.17774ZM0.015625 6.50391L0.000265975 7.50379L62.2334 8.45974L62.2487 7.45986L62.2641 6.45998L0.030984 5.50402L0.015625 6.50391Z" fill="#F1BD81"/>
                             </svg>
 
                             <div class="car-card__header-ar-circle"></div>
 
-                        </NuxtLink>
+                        </div>
                     </div>
 
                     <div class="car-card__body">
@@ -48,14 +54,14 @@
                                 / день
                             </div>
 
-                            <NuxtLink :to="`/autopark/${carData.slug}`" class="car-card__header-ar">
+                            <div class="car-card__header-ar">
                                 <svg width="64" height="15" viewBox="0 0 64 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M62.9449 8.17774C63.3414 7.79326 63.3511 7.16017 62.9666 6.7637L56.7011 0.302741C56.3167 -0.0937351 55.6836 -0.10346 55.2871 0.28102C54.8906 0.665501 54.8809 1.29859 55.2654 1.69507L60.8347 7.43814L55.0916 13.0074C54.6951 13.3919 54.6854 14.025 55.0699 14.4215C55.4544 14.818 56.0875 14.8277 56.4839 14.4432L62.9449 8.17774ZM0.015625 6.50391L0.000265975 7.50379L62.2334 8.45974L62.2487 7.45986L62.2641 6.45998L0.030984 5.50402L0.015625 6.50391Z" fill="#F1BD81"/>
                                 </svg>
 
                                 <div class="car-card__header-ar-circle"></div>
 
-                            </NuxtLink>
+                            </div>
                         </div>
                         
                         <p class="car-card__description" v-html="truncateString(carData.acf.korotkoe_opisanie, 250)"></p>
@@ -108,7 +114,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </NuxtLink>
             </div>
             </div>
         </div>

@@ -11,10 +11,13 @@
   },
   "dependencies": {
     "@pinia/nuxt": "^0.11.3",
+    "@vuepic/vue-datepicker": "^12.1.0",
+    "date-fns": "^4.1.0",
     "nuxt": "^4.2.0",
     "nuxt-easy-lightbox": "^1.1.0",
     "nuxt-swiper": "^2.0.1",
     "v-gsap-nuxt": "^1.4.4",
+    "v-mask": "^2.3.0",
     "vue": "^3.5.22",
     "vue-router": "^4.6.3",
     "vue-yandex-maps": "^2.2.4",
