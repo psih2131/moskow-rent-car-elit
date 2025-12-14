@@ -3,7 +3,7 @@
         <div class="blur-wrapper" v-if="show"></div>
     </Transition>
 
-    <header class="header" :class="{'hide-logo': isActive}">
+    <header class="header" :class="{'hide-logo': isActive, 'header--fixed': fixedStatus, 'header--show': isScrollingTop}">
         <div class="header__container header__container-main">
 
             <div class="header__left">
@@ -172,18 +172,39 @@ const show = ref(false)
 
 const isActive = ref(false)
 
+const fixedStatus = ref(false)
+
+const isScrollingTop = ref(false)
+
+const lastScrollY = ref(null)
+
 
 //METHODS
 function handleScroll() {
   isActive.value = window.scrollY > 200
+  fixedStatus.value = window.scrollY > 50
 }
+
+
+
+const onScroll = () => {
+  const currentScrollY = window.scrollY
+
+  isScrollingTop.value = currentScrollY < lastScrollY.value
+
+  lastScrollY.value = currentScrollY
+}
+
+
 
 onMounted(() => {
   window.addEventListener('scroll', handleScroll)
+window.addEventListener('scroll', onScroll,)
 })
 
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
+  window.removeEventListener('scroll', onScroll)
 })
 
 </script>

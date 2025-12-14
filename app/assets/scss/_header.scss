@@ -1,9 +1,35 @@
 .header {
-    position: absolute;
+    position: fixed;
     left: 0;
     top: 0;
     width: 100%;
     z-index: 100;
+    transition: all ease 0.5s;
+    padding-bottom: 25px;
+}
+
+.header--fixed {
+    background: $bgColor2;
+    padding-bottom: 15px;
+    transform: translateY(-100px);
+
+    .header__nav-list-link {
+        padding-top: 35px;
+    }
+
+    .header__right {
+        padding-top: 15px;
+    }
+
+    .header__logo-img {
+        width: 250px;
+    }
+}
+
+.header--show {
+    position: fixed;
+    transform: translateY(0px);
+
 }
 
 .header__container {
@@ -28,6 +54,8 @@
 .header__logo-img {
     width: 100%;
     display: block;
+    transition: all ease 0.3s;
+
 }
 
 .header__time-work {
@@ -38,6 +66,7 @@
     position: absolute;
     top: 65px;
     right: 24px;
+    display: none;
 }
 
 .header__nav-list {
@@ -93,6 +122,7 @@
     display: flex;
     padding-top: 26px;
     align-items: center;
+    transition: all ease 0.3s;
 }
 
 .header__yandex-rait {
