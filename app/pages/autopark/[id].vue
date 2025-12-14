@@ -4,7 +4,24 @@
             <div class="header-row-sec">
                 <h2 class="car-hero-sec__title sec-title sec-title--left-mod" v-html="addGoldGlimer(currentCarData[0].title.rendered)"></h2>
 
-                <button class="home-hero-sec__btn btnV1 btnV1--big" @click="openTargetPopupForm('Кнопка Забронирывать авто на странице авто')">
+
+                <div class="car-card__price-row-tab car-hero-sec__price">
+                    <div class="car-card__price" >
+                        <span class="car-card__price-value"><span v-html="currentCarData[0].acf.stoimost_avto_v_sutki"></span>₽</span>
+                        / день
+                    </div>
+
+                    <div class="car-card__header-ar">
+                        <svg width="64" height="15" viewBox="0 0 64 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M62.9449 8.17774C63.3414 7.79326 63.3511 7.16017 62.9666 6.7637L56.7011 0.302741C56.3167 -0.0937351 55.6836 -0.10346 55.2871 0.28102C54.8906 0.665501 54.8809 1.29859 55.2654 1.69507L60.8347 7.43814L55.0916 13.0074C54.6951 13.3919 54.6854 14.025 55.0699 14.4215C55.4544 14.818 56.0875 14.8277 56.4839 14.4432L62.9449 8.17774ZM0.015625 6.50391L0.000265975 7.50379L62.2334 8.45974L62.2487 7.45986L62.2641 6.45998L0.030984 5.50402L0.015625 6.50391Z" fill="#F1BD81"/>
+                        </svg>
+
+                        <div class="car-card__header-ar-circle"></div>
+
+                    </div>
+                </div>
+
+                <!-- <button class="home-hero-sec__btn btnV1 btnV1--big" @click="openTargetPopupForm('Кнопка Забронирывать авто на странице авто')">
                     <span class="btnV1__circle btnV1__circle-1"></span>
                     <span class="btnV1__circle btnV1__circle-2"></span>
                     <span class="btnV1__title">ЗАКАЗАТЬ АВТО</span>
@@ -13,7 +30,7 @@
                     <div class="btnV1__line btnV1__line-2"></div>
                     <div class="btnV1__line btnV1__line-3"></div>
                     <div class="btnV1__line btnV1__line-4"></div>
-                </button>
+                </button> -->
           </div>
           
         </div>
@@ -253,8 +270,9 @@
                 </button>
           </div>
 
-          <div class="car-price-sec__table price-table">
-            <div class="price-table__col"
+          <div 
+            class="car-price-sec__switch-row price-switch" 
+            v-if="currentCarData[0].acf.stoimost_arendy_pomesyachno?.length > 0"
             v-gsap.whenVisible.once.from='{
             autoAlpha: 0,
             y: 50,
@@ -262,12 +280,31 @@
             delay: 0.1,
             start: "top 70%",
             }'>
-              <div class="price-table__el price-table__el-header">1 день</div>
-              <div class="price-table__el price-table__el-value active"><span v-html="currentCarData[0].acf.stoimost_arendy_v_sutki"></span> руб./сутки</div>
-            </div>
+            <div class="price-switch__btn" @click="switchPrice = 1" :class="{'active': switchPrice == 1}">Посуточно</div>
+            <div class="price-switch__btn" @click="switchPrice = 2" :class="{'active': switchPrice == 2}">Помесячно</div>
+          </div>
+
+          <div class="car-price-sec__table price-table" v-if="switchPrice == 1">
 
             <div class="price-table__col" 
-            v-for="(item, index) in currentCarData[0].acf.gibkaya_stoimost_arendy.slice(0, 3)"
+            v-for="(item, index) in currentCarData[0].acf.gibkaya_stoimost_arendy.slice(0, 4)"
+            v-gsap.whenVisible.once.from='{
+            autoAlpha: 0,
+            y: 50,
+            duration: 0.5,
+            delay: 0.1 + ((index + 1) / 10),
+            start: "top 70%",
+            }'>
+              <div class="price-table__el price-table__el-header" v-html="item.period"></div>
+              <div class="price-table__el price-table__el-value"><span v-html="item.czena"></span> руб./сутки</div>
+            </div>
+          </div>
+
+          <div class="car-price-sec__table price-table" v-if="switchPrice == 2">
+
+            <div class="price-table__col"
+            v-if="currentCarData[0].acf.stoimost_arendy_pomesyachno?.length > 0" 
+            v-for="(item, index) in currentCarData[0].acf.stoimost_arendy_pomesyachno.slice(0, 4)"
             v-gsap.whenVisible.once.from='{
             autoAlpha: 0,
             y: 50,
@@ -295,6 +332,119 @@
           </div>
       </div>
      
+    </section>
+
+
+    <section class="car-adv-sec" v-if="currentCarData[0].acf.zagolovok_preimushhestva">
+      <div class="container">
+        <div class="header-row-sec-v2">
+
+            <div class="header-row-sec-v2__decor-wrapper"
+            v-gsap.whenVisible.once.from='{
+            autoAlpha: 0,
+            y: 50,
+            duration: 0.5,
+            delay: 0.1,
+            start: "top 70%",
+            }'>
+              <img src="@/assets/images/img/decor.png" alt="" class="header-row-sec-v2__decor"></img>
+            </div>
+            
+            <h2 class="car-adv-sec__title sec-title sec-title--center-mod" 
+            v-html="currentCarData[0].acf.zagolovok_preimushhestva"
+            v-gsap.whenVisible.once.from='{
+            autoAlpha: 0,
+            y: 50,
+            duration: 0.5,
+            delay: 0.1,
+            start: "top 70%",
+            }'></h2>
+        </div>
+
+        <div class="car-adv-sec__wrapper adv-row-v2" v-if="currentCarData[0].acf.tip_preimushhestv == 'Стандартный как у всех авто'">
+          <div class="adv-element-v2" 
+          v-for="(item, index) in optionsData.preimushhestva_v_avto"
+          v-gsap.whenVisible.once.from='{
+          autoAlpha: 0,
+          y: 50,
+          duration: 0.5,
+          delay: 0.1 + ((index + 1) / 10),
+          start: "top 70%",
+          }'>
+            <div class="adv-element__icon-wrapper-v2">
+              <img :src="item.ikonka.url" :alt="item.ikonka.alt" class="adv-element__icon-v2">
+            </div>
+
+            <p class="dv-element-v2__title" v-html="item.zagolovok"></p>
+            <p class="dv-element-v2__subtitle" v-html="item.tekst"></p>
+          </div>
+
+        </div>
+
+        <div class="car-adv-sec__wrapper adv-row-v2" v-else>
+          <div class="adv-element-v2" v-for="item in currentCarData[0].acf.preimushhestva">
+            <div class="adv-element__icon-wrapper-v2">
+              <img :src="item.ikonka.url" :alt="item.ikonka.acf" class="adv-element__icon-v2">
+            </div>
+
+            <p class="dv-element-v2__title" v-html="item.zagolovok"></p>
+            <p class="dv-element-v2__subtitle" v-html="item.tekst"></p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="home-faq-sec car-faq-sec" v-if="currentCarData[0].acf.zagolovok_usloviya_arendy">
+        <div class="container">
+          <div class="header-row-sec">
+            <h2 class="header-row-sec__title sec-title sec-title--left-mod" 
+            v-html="currentCarData[0].acf.zagolovok_usloviya_arendy"
+            v-gsap.whenVisible.once.from='{
+            autoAlpha: 0,
+            y: 50,
+            duration: 0.5,
+            delay: 0.1,
+            start: "top 70%",
+            }'></h2>
+
+            <button class="home-hero-sec__btn btnV1 btnV1--big" 
+            @click="openTargetPopupForm('Секция вопрос - ответ | Кнопка Задать вопрос')"
+            v-gsap.whenVisible.once.from='{
+            autoAlpha: 0,
+            y: 50,
+            duration: 0.5,
+            delay: 0.2,
+            start: "top 70%",
+            }'>
+                <span class="btnV1__circle btnV1__circle-1"></span>
+                <span class="btnV1__circle btnV1__circle-2"></span>
+                <span class="btnV1__title">ЗАДАТЬ СВОЙ ВОПРОС</span>
+
+                <div class="btnV1__line btnV1__line-1"></div>
+                <div class="btnV1__line btnV1__line-2"></div>
+                <div class="btnV1__line btnV1__line-3"></div>
+                <div class="btnV1__line btnV1__line-4"></div>
+            </button>
+          </div>
+
+          <div class="faq-wrapper" v-if="currentCarData[0].acf.tip_uslovij_arendy == 'Стандартный как у всех авто'">
+
+            <template v-for="(item, index) in optionsData.usloviya_arendy">
+              <faqElement :title="item.zagolovok" :description="item.opisanie" :counter="index+1" v-gsap.preset="'stagger-up'"/>
+            </template>
+
+          </div>
+
+          <div class="faq-wrapper" v-else>
+
+            <template v-for="(item, index) in currentCarData[0].acf.usloviya_arendy">
+              <faqElement :title="item.zagolovok" :description="item.opisanie" :counter="index+1" v-gsap.preset="'stagger-up'"/>
+            </template>
+
+          </div>
+
+        </div>
     </section>
 
 
@@ -399,118 +549,10 @@
     </section>
 
 
-    <section class="car-adv-sec" v-if="currentCarData[0].acf.zagolovok_preimushhestva">
-      <div class="container">
-        <div class="header-row-sec-v2">
-
-            <div class="header-row-sec-v2__decor-wrapper"
-            v-gsap.whenVisible.once.from='{
-            autoAlpha: 0,
-            y: 50,
-            duration: 0.5,
-            delay: 0.1,
-            start: "top 70%",
-            }'>
-              <img src="@/assets/images/img/decor.png" alt="" class="header-row-sec-v2__decor"></img>
-            </div>
-            
-            <h2 class="car-adv-sec__title sec-title sec-title--center-mod" 
-            v-html="currentCarData[0].acf.zagolovok_preimushhestva"
-            v-gsap.whenVisible.once.from='{
-            autoAlpha: 0,
-            y: 50,
-            duration: 0.5,
-            delay: 0.1,
-            start: "top 70%",
-            }'></h2>
-        </div>
-
-        <div class="car-adv-sec__wrapper adv-row-v2" v-if="currentCarData[0].acf.tip_preimushhestv == 'Стандартный как у всех авто'">
-          <div class="adv-element-v2" 
-          v-for="(item, index) in optionsData.preimushhestva_v_avto"
-          v-gsap.whenVisible.once.from='{
-          autoAlpha: 0,
-          y: 50,
-          duration: 0.5,
-          delay: 0.1 + ((index + 1) / 10),
-          start: "top 70%",
-          }'>
-            <div class="adv-element__icon-wrapper-v2">
-              <img :src="item.ikonka.url" :alt="item.ikonka.alt" class="adv-element__icon-v2">
-            </div>
-
-            <p class="dv-element-v2__title" v-html="item.zagolovok"></p>
-            <p class="dv-element-v2__subtitle" v-html="item.tekst"></p>
-          </div>
-
-        </div>
-
-        <div class="car-adv-sec__wrapper adv-row-v2" v-else>
-          <div class="adv-element-v2" v-for="item in currentCarData[0].acf.preimushhestva">
-            <div class="adv-element__icon-wrapper-v2">
-              <img :src="item.ikonka.url" :alt="item.ikonka.acf" class="adv-element__icon-v2">
-            </div>
-
-            <p class="dv-element-v2__title" v-html="item.zagolovok"></p>
-            <p class="dv-element-v2__subtitle" v-html="item.tekst"></p>
-          </div>
-
-        </div>
-      </div>
-    </section>
+    
 
 
-    <section class="home-faq-sec car-faq-sec" v-if="currentCarData[0].acf.zagolovok_usloviya_arendy">
-        <div class="container">
-          <div class="header-row-sec">
-            <h2 class="header-row-sec__title sec-title sec-title--left-mod" 
-            v-html="currentCarData[0].acf.zagolovok_usloviya_arendy"
-            v-gsap.whenVisible.once.from='{
-            autoAlpha: 0,
-            y: 50,
-            duration: 0.5,
-            delay: 0.1,
-            start: "top 70%",
-            }'></h2>
-
-            <button class="home-hero-sec__btn btnV1 btnV1--big" 
-            @click="openTargetPopupForm('Секция вопрос - ответ | Кнопка Задать вопрос')"
-            v-gsap.whenVisible.once.from='{
-            autoAlpha: 0,
-            y: 50,
-            duration: 0.5,
-            delay: 0.2,
-            start: "top 70%",
-            }'>
-                <span class="btnV1__circle btnV1__circle-1"></span>
-                <span class="btnV1__circle btnV1__circle-2"></span>
-                <span class="btnV1__title">ЗАДАТЬ СВОЙ ВОПРОС</span>
-
-                <div class="btnV1__line btnV1__line-1"></div>
-                <div class="btnV1__line btnV1__line-2"></div>
-                <div class="btnV1__line btnV1__line-3"></div>
-                <div class="btnV1__line btnV1__line-4"></div>
-            </button>
-          </div>
-
-          <div class="faq-wrapper" v-if="currentCarData[0].acf.tip_uslovij_arendy == 'Стандартный как у всех авто'">
-
-            <template v-for="(item, index) in optionsData.usloviya_arendy">
-              <faqElement :title="item.zagolovok" :description="item.opisanie" :counter="index+1" v-gsap.preset="'stagger-up'"/>
-            </template>
-
-          </div>
-
-          <div class="faq-wrapper" v-else>
-
-            <template v-for="(item, index) in currentCarData[0].acf.usloviya_arendy">
-              <faqElement :title="item.zagolovok" :description="item.opisanie" :counter="index+1" v-gsap.preset="'stagger-up'"/>
-            </template>
-
-          </div>
-
-        </div>
-    </section>
+    
 
     <formSec :formSecData="optionsData" />
 
@@ -594,6 +636,8 @@ const store = useCounterStore(nuxtApp.$pinia)
 const recomendCars = ref(null)
 
 const allCats = ref(null)
+
+const switchPrice  = ref(1)
 
 
 const { data: currentCarData } = await useFetch(`${store.serverUrlDomainRequest}/wp-json/wp/v2/cars?slug=${route.params.id}`)
@@ -716,7 +760,8 @@ function moveLastToFirst(arr) {
 const openTargetPopup = (data)=>{
   const payloadData = {
     'oneDay': currentCarData.value[0].acf.stoimost_arendy_v_sutki,
-    'list': currentCarData.value[0].acf.gibkaya_stoimost_arendy,
+    'list': currentCarData.value[0].acf.gibkaya_stoimost_arendy || '',
+    'list2': currentCarData.value[0].acf.stoimost_arendy_pomesyachno || '',
     'dop': currentCarData.value[0].acf.dopolnitelnye_uslugi,
     'title': currentCarData.value[0].acf.nazvanie_avto,
   }

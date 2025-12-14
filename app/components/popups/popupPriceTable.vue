@@ -14,14 +14,6 @@
             </div>
 
             <div class="form-popup-price-table__table popup-table-price">
-                <div class="popup-table-price__row" v-if="tableData?.oneDay">
-                    <div class="popup-table-price__col">
-                        <p class="popup-table-price__name">1 день</p>
-                    </div>
-                    <div class="popup-table-price__col">
-                        <div class="popup-table-price__value"><span v-html="tableData.oneDay"></span> руб./сутки</div>
-                    </div>
-                </div>
 
                 <template v-if="tableData?.list?.length > 0">
                     <div class="popup-table-price__row" v-for="item in tableData.list">
@@ -29,7 +21,19 @@
                             <p class="popup-table-price__name"><span v-html="item.period"></span></p>
                         </div>
                         <div class="popup-table-price__col">
-                            <div class="popup-table-price__value"><span v-html="item.czena"></span> руб./сутки</div>
+                            <div class="popup-table-price__value"><span v-html="item.czena"></span> ₽/сутки</div>
+                        </div>
+                    </div>
+                </template>
+
+
+                <template v-if="tableData?.list2?.length > 0">
+                    <div class="popup-table-price__row" v-for="item in tableData.list2">
+                        <div class="popup-table-price__col">
+                            <p class="popup-table-price__name"><span v-html="item.period"></span></p>
+                        </div>
+                        <div class="popup-table-price__col">
+                            <div class="popup-table-price__value"><span v-html="item.czena"></span> ₽/мес.</div>
                         </div>
                     </div>
                 </template>
