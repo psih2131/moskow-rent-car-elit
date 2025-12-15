@@ -309,7 +309,122 @@
         justify-content: space-between;
     }
 
+}
 
+@media only screen and (max-width: 760px) {
+    .footer__top {
+        padding: 40px 0;
+    }
 
+    .footer__logo {
+        width: 210px;
+        margin: 0;
 
+    }
+
+    .footer__firm-text {
+        margin-top: 25px;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+        text-align: left;
+    }
+
+    .footer__top-left {
+        margin-bottom: 40px;
+    }
+
+    .footer__top-right {
+        padding-top: 0;
+        flex-wrap: wrap;
+    }
+
+    .footer__col {
+        width: 100%;
+        margin-bottom: 40px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    .footer__col-title {
+        margin-bottom: 20px;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        letter-spacing: 1.92px;
+    }
+
+    .footer__nav-ul {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .footer__nav-ul-element {
+        width: calc(50%);
+        font-size: 12px;
+        line-height: normal;
+        letter-spacing: 1.44px;
+        margin-bottom: 15px;
+    }
+
+    .footer__contacts-element-value-main {
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 100%;
+    }
+
+    .contact-link__wrapper img {
+        width: auto;
+        max-width: 15px;
+        max-height: 15px;
+    }
+
+    .footer__contacts-element-value-main-dop {
+        margin-top: 6px;
+    }
+
+    .footer__social-wrapper {
+        margin-top: 40px;
+    }
+
+    .footer__down .container {
+        flex-wrap: wrap;
+        padding: 25px 0;
+    }
+
+    .footer__down-nav-ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .footer__down-nav-list-element {
+        margin: 0 0 10px 0;
+        width: 100%;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        text-align: center;
+    }
+
+    .footer__down-nav-link {
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: 1.44px;
+    }
+
+    .footer__developer {
+        margin-top: 30px;
+        text-align: center;
+        width: 100%;
+    }
 }

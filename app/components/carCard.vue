@@ -210,27 +210,5 @@ onMounted(() => {
 
 
 <style >
-  swiper-container::part(pagination) {
-    bottom: 24px; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
 
-  swiper-container::part(bullet) {
-    background-color:rgba(255, 255, 255, 0.40);
-    opacity: 1;
-    width: 6px;
-    height: 6px;
-    margin: 0 4px;
-    border-radius: 50%;
-    transition: background-color 0.3s;
-    cursor: pointer;transform: scale(1);
-  }
-
-  swiper-container::part(bullet-active) {
-    background-color: #F1BD81;
-    width: 8px;
-    height: 8px;
-  }
 </style>

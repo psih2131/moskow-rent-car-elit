@@ -14,6 +14,8 @@
         <popupDone v-if="store.popupCurrent == 'popup-done'" />
 
         <popupFullReview v-if="store.popupCurrent == 'popup-full-review'" />
+
+        <popupBooking v-if="store.popupCurrent == 'popup-booking'" />
         
     </div>
 </template>
@@ -33,6 +35,8 @@ import popupForm from '@/components/popups/popupForm.vue'
 import popupDone from '@/components/popups/popupDone.vue'
 
 import popupFullReview from '@/components/popups/popupFullReview.vue'
+
+import popupBooking from '@/components/popups/popupBooking.vue'
 
 //DATA
 const show = ref(false)

@@ -172,7 +172,7 @@
     </section>
     
 
-    <formSec />
+    <formSec :formSecData="optionsData" />
 
     <section class="autopark-seo-sec" v-if="pageData[0]?.acf?.seo_sekcziya?.zagolovok_h1">
         <div class="container">
@@ -246,10 +246,6 @@
 
 <script setup>
     //IMPORT
-
-
- 
-
     import { ref, onMounted, onBeforeUnmount, computed, watch  } from 'vue';
 
     import customSelect from '@/components/filtrs/customSelect.vue'
@@ -290,12 +286,15 @@
 
     const { data: pageData } = await useFetch(`${store.serverUrlDomainRequest}/wp-json/wp/v2/pages?slug=avtopark`)
 
-    
+    const { data: optionsData } = await useFetch(`${store.serverUrlDomainRequest}/wp-json/acf/v3/options`)
+
+
 
     allCarsSave.value = allCars.value
     console.log('allCars',allCars)
     console.log('carsCategoryes',carsCategoryes)
     console.log('pageData', pageData)
+    console.log('optionsData', optionsData)
 
     
 
@@ -344,8 +343,14 @@
     freeMode: "true",  
     freeMode: true,
     slidesPerView: "auto",
+    scrollbar:{ draggable: true },
     //  centeredSlides: 'auto',
     breakpoints: {
+        100: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+        loop: false,
+        },
         760: {
         slidesPerView: 4,
         spaceBetween: 20,

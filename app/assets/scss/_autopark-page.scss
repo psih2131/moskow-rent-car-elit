@@ -385,6 +385,11 @@
     display: none;
 }
 
+.autopark-cars-sec swiper-container::part(scrollbar) {
+    display: none;
+}
+
+
 @media only screen and (max-width: 1750px) {}
 
 @media only screen and (max-width: 1580px) {
@@ -947,5 +952,199 @@
 
     .autopark-seo-sec .sec-title {
         font-size: 26px;
+    }
+}
+
+@media only screen and (max-width: 760px) {
+    .autopark-cars-sec {
+        padding-top: 120px;
+    }
+
+    .autopark-cars-sec {
+        .swiper-def-ar {
+            display: none;
+        }
+    }
+
+    .autopark-cars-sec__slider-naw-wrapper {
+        margin-top: 35px;
+    }
+
+    .autopark-cars-sec swiper-container::part(scrollbar) {
+        display: block;
+        bottom: 0;
+        height: 10px;
+        background: $bgColor2;
+        padding: 2px;
+
+
+    }
+
+    .autopark-cars-sec swiper-container {
+
+        --swiper-scrollbar-drag-bg-color: #5D736E;
+
+    }
+
+    .home-cat-slider-swiper .swipe-home-cat {
+        padding-bottom: 40px;
+    }
+
+    .autopark-cars-sec__filtrs-wrapper {
+        width: 230px;
+    }
+
+    .autopark-cars-sec__filtrs-mob-btn {
+        width: 100%;
+    }
+
+    .autopark-cars-sec__filtr-wrapper--power {
+        width: 100%;
+    }
+
+    .autopark-cars-sec__filtr-wrapper--seat-places {
+        width: 100%;
+    }
+
+    .autopark-cars-sec__filtr-wrapper--price {
+        width: 100%;
+    }
+
+    .autopark-cars-sec__cars {
+        margin-top: 40px;
+    }
+
+    .autopark-cars-sec__cars .car-card {
+        width: 100%;
+    }
+
+    .cars-empty-searc {
+        height: 300px;
+    }
+
+    .autopark-seo-sec .sec-title {
+        text-align: left;
+    }
+
+    .autopark-seo-sec__text-wrapper {
+        margin-top: 3px;
+    }
+
+
+    .autopark-seo-sec__images-claster-col--left {
+        .autopark-seo-sec__images-element {
+            &:nth-child(1) {
+                width: 100%;
+                height: 196px !important;
+                margin-bottom: 18px;
+            }
+
+            &:nth-child(2) {
+                width: 100%;
+                height: 107px !important;
+
+            }
+        }
+
+
+    }
+
+
+    .autopark-seo-sec__images-claster-col--right {
+        .autopark-seo-sec__images-element {
+            &:nth-child(1) {
+                width: 100%;
+                height: 173px !important;
+                margin-bottom: 18px;
+            }
+
+            &:nth-child(2) {
+                width: 100%;
+                height: 131px !important;
+
+            }
+        }
+    }
+
+    .autopark-seo-sec__images-claster {
+        flex-wrap: wrap;
+    }
+
+    .autopark-seo-sec__images-claster-col {
+        flex-wrap: wrap;
+    }
+
+    .table-mod {
+        .car-card-slider {
+            width: 135px;
+        }
+
+        .car-card-slider__slide-img {
+            height: 135px;
+        }
+
+        .car-card__data {
+            width: calc(100% - 135px);
+            padding-left: 20px;
+        }
+
+        .car-card__category {
+            font-size: 10px;
+        }
+
+        .table-mod .car-card__title {
+            font-size: 12px;
+        }
+
+        .car-card__header-text {
+            border: none;
+            padding-left: 0;
+
+            &::before {
+                opacity: 0;
+            }
+        }
+
+        .car-card__price-row-tab .car-card__header-ar {
+            display: none;
+        }
+
+        .car-card__body {
+            padding-left: 0;
+        }
+
+        .car-card__price-value {
+            font-size: 12px;
+        }
+
+        .car-card__title {
+            font-size: 14px;
+        }
+
+        .car-card__characteristic-icon-wrapper {
+            display: none;
+        }
+
+        .car-card__characteristic {
+            margin-right: 10px;
+            margin-top: 10px;
+        }
+
+        .car-card__characteristics {
+            flex-wrap: wrap;
+        }
+
+        .car-card__characteristic-value {
+            margin-top: 0;
+        }
+
+        .car-card__characteristics {
+            margin-top: 10px;
+        }
+
+        .car-card:nth-child(even) .car-card__data {
+            padding: 0;
+            padding-left: 20px;
+        }
     }
 }

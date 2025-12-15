@@ -40,3 +40,29 @@
         padding-bottom: 70px;
     }
 }
+
+@media only screen and (max-width: 760px) {
+    .doc-sec {
+        padding-top: 120px;
+        overflow: hidden;
+    }
+
+    .doc-sec__title {
+        font-size: 24px;
+        padding-bottom: 22px;
+        position: relative;
+
+        &::before {
+            opacity: 1;
+            bottom: 0;
+            width: 50px;
+            position: absolute;
+            left: calc(50% - 25px);
+            top: auto;
+        }
+    }
+
+    .doc-sec__text-wrapper {
+        margin-top: 35px;
+    }
+}

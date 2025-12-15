@@ -1,85 +1,67 @@
 <template>
-    <div class="booking-widget">
-        <div class="container">
-            <div class="booking-widget__form">
-                <div class="booking-widget__date">
-                    <VueDatePicker 
-                    v-model="date" 
-                    range 
-                    multi-calendars
-                    dark 
-                    :locale="ru"
-                    :placeholder="'Дата аренды'"
-                    :formats="{ input: 'dd.MM.yyyy' }"
-                    class="dp__theme_dark"
-                    ></VueDatePicker>
-                </div>
 
-                <div class="booking-widget__input">
-                    <input 
-                    class="booking-widget__input-inp" 
-                    placeholder="Номер телефона"
-                    type="tel"
-                    v-model="phone"
-                    @input="onInput"
-                    @keydown="onKeydown"
-                    :class="{'validation-error': formPhoneValidStatus == false}"
-                    >
-                </div>
+    <Transition name="slide-fade">
+        <div v-if="show" class="popup-booking popup">
+            <div class="popup__close" @click="closePopup()">
+                <svg width="57" height="58" viewBox="0 0 57 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19.3279 19.3284C19.995 18.6612 21.0767 18.6612 21.7438 19.3284L28.9917 26.5762L36.2395 19.3284C36.9066 18.6613 37.9883 18.6613 38.6554 19.3284C39.3226 19.9955 39.3226 21.0772 38.6554 21.7443L31.4076 28.9922L38.6554 36.24C39.3226 36.9072 39.3226 37.9888 38.6554 38.656C37.9883 39.3231 36.9066 39.3231 36.2395 38.656L28.9917 31.4081L21.7438 38.656C21.0767 39.3231 19.995 39.3231 19.3279 38.656C18.6607 37.9888 18.6607 36.9072 19.3279 36.24L26.5757 28.9922L19.3279 21.7443C18.6607 21.0772 18.6607 19.9955 19.3279 19.3284Z" fill="white"/>
+                </svg>
 
-                <button class="home-hero-sec__btn btnV1 btnV1--big" @click="validationForm">
-                    <span class="btnV1__circle btnV1__circle-1"></span>
-                    <span class="btnV1__circle btnV1__circle-2"></span>
-                    <span class="btnV1__title">ЗАБРОНИРЫВАТЬ</span>
-
-                    <div class="btnV1__line btnV1__line-1"></div>
-                    <div class="btnV1__line btnV1__line-2"></div>
-                    <div class="btnV1__line btnV1__line-3"></div>
-                    <div class="btnV1__line btnV1__line-4"></div>
-                </button>
             </div>
 
-            <button class="home-hero-sec__btn btnV1 btnV1--big booking-widget__ipad" @click="openPopupBooking">
-                <span class="btnV1__circle btnV1__circle-1"></span>
-                <span class="btnV1__circle btnV1__circle-2"></span>
-                <span class="btnV1__title">ЗАБРОНИРЫВАТЬ</span>
+            <div class="popup-booking__wrapper">
+                <p class="popup-booking__title"><b>БРОНИРЫВАНИЕ</b> АВТО</p>
+                <p class="popup-booking__subtitle">Выберите дату бронирывания, укажт номер телефона, отправте заявку и нажи специалисты свяжутся с вами</p>
 
-                <div class="btnV1__line btnV1__line-1"></div>
-                <div class="btnV1__line btnV1__line-2"></div>
-                <div class="btnV1__line btnV1__line-3"></div>
-                <div class="btnV1__line btnV1__line-4"></div>
-            </button>
-
-            <div class="booking-widget__social-row" v-if="formSecData">
-
-                <p class="booking-widget__social-row-text">
-                    Или напишите нам:
-                </p>
-
-                <a class="form-sec__contact social-contact-def" v-for="item in formSecData.sekcziya_obratnoj_svyazi.kontakty" :href="item.ssylka">
-                    <div class="social-contact-def__icon">
-                        <div class="social-contact-def__icon-wrapper">
-                            <img :src="item.ikonka.url" :alt="item.ikonka.alt">
-
-                        </div>
+                <div class="popup-booking__form">
+                    <div class="booking-widget__date">
+                        <VueDatePicker 
+                        v-model="date" 
+                        range 
+                        multi-calendars
+                        dark 
+                        :locale="ru"
+                        :placeholder="'Дата аренды'"
+                        :formats="{ input: 'dd.MM.yyyy' }"
+                        class="dp__theme_dark"
+                        ></VueDatePicker>
                     </div>
 
-                    <!-- <div class="social-contact-def__info">
-                        <p class="social-contact-def__value" v-html="item.zagolovok"></p>
-                        <p class="social-contact-def__subvalue" v-html="item.podzagolovok"></p>
-                        <p class="social-contact-def__extream" v-if="item.snoska" v-html="item.snoska"></p>
-                    </div> -->
+                    <div class="booking-widget__input">
+                        <input 
+                        class="booking-widget__input-inp" 
+                        placeholder="Номер телефона"
+                        type="tel"
+                        v-model="phone"
+                        @input="onInput"
+                        @keydown="onKeydown"
+                        :class="{'validation-error': formPhoneValidStatus == false}"
+                        >
+                    </div>
 
-                </a>
+                    <button class="home-hero-sec__btn btnV1 btnV1--big" @click="validationForm">
+                        <span class="btnV1__circle btnV1__circle-1"></span>
+                        <span class="btnV1__circle btnV1__circle-2"></span>
+                        <span class="btnV1__title">ЗАБРОНИРЫВАТЬ</span>
 
+                        <div class="btnV1__line btnV1__line-1"></div>
+                        <div class="btnV1__line btnV1__line-2"></div>
+                        <div class="btnV1__line btnV1__line-3"></div>
+                        <div class="btnV1__line btnV1__line-4"></div>
+                    </button>
+                </div>
             </div>
+
         </div>
-    </div>
+    </Transition>
 </template>
 
 
 <script setup>
+import { useCounterStore } from '@/stores/counter'
+
 import { ref, onMounted, onBeforeUnmount, computed, watch  } from 'vue';
+
 
 import { VueDatePicker } from '@vuepic/vue-datepicker';
 
@@ -89,14 +71,13 @@ import { ru } from 'date-fns/locale'
 
 import '@vuepic/vue-datepicker/dist/main.css'
 
-import { useCounterStore } from '@/stores/counter'
 
+//DATA
+const show = ref(false)
 
 const store = useCounterStore()
 
 const route = useRoute()
-
-const formSecData = ref(null)
 
 const date = ref();
 
@@ -105,6 +86,16 @@ const phone = ref('')
 const formPhoneValidStatus = ref(null)
 
 let isDeleting = false
+
+
+//METHODS 
+function closePopup(){
+    show.value = false
+    setTimeout(()=>{
+        store.changePopupCurrent(null)
+    },800)
+
+}
 
 function onKeydown(e) {
   isDeleting = e.key === 'Backspace' || e.key === 'Delete'
@@ -202,23 +193,20 @@ function openFormDonePopup(){
 phone.value = null
 }
 
-function openPopupBooking(){
-    store.changePopupCurrent('popup-booking')
-    store.changeTrigerButtonForm('форма бронирывание на сранице авто')
-}
 
 
 
 //HOOKS
 onMounted(() => {
-    formSecData.value = store.optionsData
+  // Добавляем обработчик события scroll
+    show.value = true
 
     let socialwidget = document.querySelector('.social-widget')
 
     if(socialwidget){
         socialwidget.classList.add('hide-widget')
     }
-    
+
 });
 
 onBeforeUnmount(()=>{

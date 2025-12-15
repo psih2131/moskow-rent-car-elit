@@ -121,6 +121,9 @@
     font-size: 18px;
 }
 
+.booking-widget__ipad {
+    display: none;
+}
 
 @media only screen and (max-width: 1500px) {
     .booking-widget__social-row-text {
@@ -129,5 +132,35 @@
 
     .booking-widget {
         padding: 20px 0;
+    }
+}
+
+@media only screen and (max-width: 1380px) {
+    .booking-widget__ipad {
+        display: flex;
+    }
+
+    .booking-widget__form {
+        display: none;
+    }
+
+    .booking-widget__social-row-text {
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 990px) {}
+
+@media only screen and (max-width: 760px) {
+    .booking-widget__social-row-text {
+        display: none;
+    }
+
+    .booking-widget__social-row {
+        display: none;
+    }
+
+    .booking-widget .container {
+        justify-content: center;
     }
 }

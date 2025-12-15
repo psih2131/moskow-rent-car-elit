@@ -329,3 +329,88 @@
         height: 450px;
     }
 }
+
+@media only screen and (max-width: 760px) {
+    .contacts-sec {
+        padding-top: 120px;
+    }
+
+    .contacts-sec__row {
+        flex-wrap: wrap;
+    }
+
+    .contacts-sec__row .social-contact-def {
+        width: 100%;
+    }
+
+    .contacts-sec__social-row {
+        width: 100%;
+        align-items: flex-start;
+
+        .social-contact-def {
+            width: auto;
+            margin-bottom: 0;
+        }
+    }
+
+    .contacts-sec__map-wrapper {
+        margin-top: 90px;
+
+        .sec-title {
+            text-align: center;
+        }
+    }
+
+    .contacts-sec__form-subtitle {
+        text-align: center;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    .contacts-sec__map-container {
+        width: 100%;
+    }
+
+    .contacts-sec__map-wrapper {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .contacts-sec__form {
+        width: 360px;
+        margin: 0 auto;
+        padding: 0;
+        padding-top: 35px;
+        padding-bottom: 60px;
+    }
+
+    .contacts-sec__form-cont .contacts-sec__form-inp-wrapper {
+        width: 100%;
+    }
+
+    .contacts-sec__form-inp-wrapper input {
+        padding: 25px 0;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: normal;
+        letter-spacing: 0.7px;
+        text-align: center;
+    }
+
+    .contacts-sec__form-cont .form-popup__checkbox-wrapper {
+        width: 100%;
+    }
+
+    .contacts-sec__form-cont .contacts-sec__form-btn-wrapper {
+        width: 100%;
+    }
+
+    .contacts-sec__map {
+        height: 600px;
+    }
+}

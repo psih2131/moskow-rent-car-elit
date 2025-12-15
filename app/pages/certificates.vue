@@ -118,6 +118,26 @@
                     </div>
                 </div>
             </div>
+
+
+            <button class="home-hero-sec__btn btnV1 btnV1--big certificates-catalog-sec__btn-mob" 
+                v-gsap.whenVisible.once.from='{
+                autoAlpha: 0,
+                y: 50,
+                duration: 0.5,
+                delay: 0.2,
+                start: "top 70%",
+                }'
+                @click="openTargetPopupForm('Кнопка заказать сертификат')">
+                    <span class="btnV1__circle btnV1__circle-1"></span>
+                    <span class="btnV1__circle btnV1__circle-2"></span>
+                    <span class="btnV1__title">ЗАКАЗАТЬ СЕРТИФИКАТ</span>
+
+                    <div class="btnV1__line btnV1__line-1"></div>
+                    <div class="btnV1__line btnV1__line-2"></div>
+                    <div class="btnV1__line btnV1__line-3"></div>
+                    <div class="btnV1__line btnV1__line-4"></div>
+                </button>
         </div>
     </section>
 
@@ -154,7 +174,7 @@
         </div>
     </section>
 
-    <section class="partners-how-it-work-sec" v-if="pageData[0].acf.sekcziya_4_kak_poluchit.zagolovok">
+    <section class="partners-how-it-work-sec certeficat-how-it-work-sec" v-if="pageData[0].acf.sekcziya_4_kak_poluchit.zagolovok">
         <div class="container">
             <div class="header-row-sec">
                 <h2 class="partners-how-it-work-sec__title sec-title sec-title--left-mod" 
@@ -209,6 +229,27 @@
                     <p class="partners-how-it-work-sec__element-description" v-html="value.opisanie"></p>
                 </div>
             </div>
+
+            <button class="home-hero-sec__btn btnV1 btnV1--big certeficat-how-it-work-sec__mob-btn" 
+                v-gsap.whenVisible.once.from='{
+                    autoAlpha: 0,
+                    y: 50,
+                    duration: 0.5,
+                    delay: 0.2,
+                        start: "top 70%",
+                }'
+                @click="openTargetPopupForm('Кнопка заказать сертификат')">
+
+                    
+                    <span class="btnV1__circle btnV1__circle-1"></span>
+                    <span class="btnV1__circle btnV1__circle-2"></span>
+                    <span class="btnV1__title">ЗАКАЗАТЬ СЕРТИФИКАТ</span>
+
+                    <div class="btnV1__line btnV1__line-1"></div>
+                    <div class="btnV1__line btnV1__line-2"></div>
+                    <div class="btnV1__line btnV1__line-3"></div>
+                    <div class="btnV1__line btnV1__line-4"></div>
+            </button>
         </div>
     </section>
 

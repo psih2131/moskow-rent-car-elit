@@ -274,6 +274,26 @@
                     </div>
 
                 </div>
+
+
+                <button class="home-hero-sec__btn btnV1 btnV1--big partners-how-it-work-sec__btn-mob" 
+                    @click="openTargetPopupForm('Страница партнерства кнопка оставить заявку')"
+                    v-gsap.whenVisible.once.from='{
+                    autoAlpha: 0,
+                    y: 50,
+                    duration: 0.5,
+                    delay: 0.2,
+                    start: "top 70%",
+                    }'>
+                        <span class="btnV1__circle btnV1__circle-1"></span>
+                        <span class="btnV1__circle btnV1__circle-2"></span>
+                        <span class="btnV1__title">ОСТАВИТЬ ЗАЯВКУ</span>
+
+                        <div class="btnV1__line btnV1__line-1"></div>
+                        <div class="btnV1__line btnV1__line-2"></div>
+                        <div class="btnV1__line btnV1__line-3"></div>
+                        <div class="btnV1__line btnV1__line-4"></div>
+                    </button>
             </div>
         </section>
 
@@ -380,6 +400,26 @@
                     </div>
 
                 </div>
+
+                <button 
+                    class="home-hero-sec__btn btnV1 btnV1--big partners-how-start-sec__btn-mob" 
+                    @click="openTargetPopupForm('Страница партнерства кнопка оставить заявку')"
+                    v-gsap.whenVisible.once.from='{
+                    autoAlpha: 0,
+                    y: 50,
+                    duration: 0.5,
+                    delay: 0.2,
+                    start: "top 70%",
+                    }'>
+                        <span class="btnV1__circle btnV1__circle-1"></span>
+                        <span class="btnV1__circle btnV1__circle-2"></span>
+                        <span class="btnV1__title">ОСТАВИТЬ ЗАЯВКУ</span>
+
+                        <div class="btnV1__line btnV1__line-1"></div>
+                        <div class="btnV1__line btnV1__line-2"></div>
+                        <div class="btnV1__line btnV1__line-3"></div>
+                        <div class="btnV1__line btnV1__line-4"></div>
+                    </button>
             </div>
         </section>
 
@@ -425,6 +465,26 @@
                 </template>
 
             </div>
+
+            <button 
+                class="home-hero-sec__btn btnV1 btnV1--big partners-faq-sec__mob-btn" 
+                @click="openTargetPopupForm('Страница партнерства кнопка задать вопрос')"
+                v-gsap.whenVisible.once.from='{
+                autoAlpha: 0,
+                y: 50,
+                duration: 0.5,
+                delay: 0.2,
+                start: "top 70%",
+                }'>
+                    <span class="btnV1__circle btnV1__circle-1"></span>
+                    <span class="btnV1__circle btnV1__circle-2"></span>
+                    <span class="btnV1__title">ЗАДАТЬ СВОЙ ВОПРОС</span>
+
+                    <div class="btnV1__line btnV1__line-1"></div>
+                    <div class="btnV1__line btnV1__line-2"></div>
+                    <div class="btnV1__line btnV1__line-3"></div>
+                    <div class="btnV1__line btnV1__line-4"></div>
+                </button>
             </div>
         </section>
 

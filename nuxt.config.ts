@@ -56,6 +56,10 @@ export default defineNuxtConfig({
     'v-gsap-nuxt',
   ],
 
+  swiper: {
+    bundled: true, // или вообще убрать — true по умолчанию
+  },
+
   build: {
     transpile: ['@vuepic/vue-datepicker']
   }

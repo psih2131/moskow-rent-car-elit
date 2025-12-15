@@ -200,3 +200,9 @@ ul {
 		width: 750px;
 	}
 }
+
+@media only screen and (max-width: 760px) {
+	.container {
+		width: 360px;
+	}
+}

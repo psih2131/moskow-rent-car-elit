@@ -44,3 +44,22 @@
         margin-top: 100px;
     }
 }
+
+@media only screen and (max-width: 760px) {
+    .error-404-sec__img {
+        width: 100%;
+    }
+
+    .error-404-sec {
+        padding-top: 180px;
+        padding-bottom: 140px;
+    }
+
+    .error-404-sec__btn-row {
+        margin-top: 50px;
+    }
+
+    .error-404-sec .header-row-sec-v2 {
+        margin-top: 60px;
+    }
+}

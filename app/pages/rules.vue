@@ -95,6 +95,27 @@
                 </template>
 
             </div>
+
+            <button
+            v-gsap.whenVisible.once.from='{
+              autoAlpha: 0,
+              y: 100,
+              duration: 0.5,
+              delay: 0.2,
+              start: "top 70%",
+            }' 
+            @click="openTargetPopupForm()"
+            class="home-hero-sec__btn btnV1 btnV1--big home-faq-sec__btn-mob">
+                <span class="btnV1__circle btnV1__circle-1"></span>
+                <span class="btnV1__circle btnV1__circle-2"></span>
+                <span class="btnV1__title">ЗАДАТЬ СВОЙ ВОПРОС</span>
+
+                <div class="btnV1__line btnV1__line-1"></div>
+                <div class="btnV1__line btnV1__line-2"></div>
+                <div class="btnV1__line btnV1__line-3"></div>
+                <div class="btnV1__line btnV1__line-4"></div>
+            </button>
+            
             </div>
         </div>
     </section>

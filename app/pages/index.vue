@@ -152,6 +152,8 @@
               <swiper-container 
               ref="catRefSlider" 
               class="home-cat-slider-swiper"
+             
+          
               >
                   <swiper-slide 
                   class="swipe-home-cat" v-for="(item, index) in carsCategoryes"
@@ -264,6 +266,26 @@
                 <carCard v-for="(item, index) in recomendCars" :key="index" :carData="item" :allCats="carsCategoryes" v-gsap.preset="'stagger-up-800'" />
 
             </template>
+
+            <NuxtLink
+            v-gsap.whenVisible.once.from='{
+              autoAlpha: 0,
+              y: 100,
+              duration: 0.5,
+              delay: 0.2,
+              start: "top 70%",
+            }' 
+            to="/autopark" 
+            class="home-hero-sec__btn btnV1 btnV1--big home-cars-sec__btn-all-cars-mob">
+                <span class="btnV1__circle btnV1__circle-1"></span>
+                <span class="btnV1__circle btnV1__circle-2"></span>
+                <span class="btnV1__title">CМОТРЕТЬ ВСЕ АВТО</span>
+
+                <div class="btnV1__line btnV1__line-1"></div>
+                <div class="btnV1__line btnV1__line-2"></div>
+                <div class="btnV1__line btnV1__line-3"></div>
+                <div class="btnV1__line btnV1__line-4"></div>
+            </NuxtLink>
             
           </div>
         </div>
@@ -595,6 +617,17 @@
       <section class="home-faq-sec" v-if="pageData[0].acf.sekcziya_7_chastye_voprosy.zagolovok">
         <div class="container">
           <div class="header-row-sec">
+            <div 
+            class="header-row-sec-v2__decor-wrapper header-row-sec-v2__decor-wrapper--mob"
+             v-gsap.whenVisible.once.from='{
+              autoAlpha: 0,
+              y: 100,
+              duration: 0.5,
+              delay: 0,
+              start: "top 70%",
+            }' >
+              <img src="@/assets/images/img/decor.png" alt="" class="header-row-sec-v2__decor"></img>
+            </div>
             <h2 class="header-row-sec__title sec-title sec-title--left-mod" 
             v-html="pageData[0].acf.sekcziya_7_chastye_voprosy.zagolovok"
             v-gsap.whenVisible.once.from='{
@@ -633,6 +666,26 @@
             </template>
 
           </div>
+
+          <button
+            v-gsap.whenVisible.once.from='{
+              autoAlpha: 0,
+              y: 100,
+              duration: 0.5,
+              delay: 0.2,
+              start: "top 70%",
+            }' 
+            @click="openTargetPopupForm()"
+            class="home-hero-sec__btn btnV1 btnV1--big home-faq-sec__btn-mob">
+                <span class="btnV1__circle btnV1__circle-1"></span>
+                <span class="btnV1__circle btnV1__circle-2"></span>
+                <span class="btnV1__title">ЗАДАТЬ СВОЙ ВОПРОС</span>
+
+                <div class="btnV1__line btnV1__line-1"></div>
+                <div class="btnV1__line btnV1__line-2"></div>
+                <div class="btnV1__line btnV1__line-3"></div>
+                <div class="btnV1__line btnV1__line-4"></div>
+            </button>
         </div>
       </section>
 
@@ -811,11 +864,13 @@ const  catRefSliderGallery  = useSwiper(catRefSlider, {
    freeMode: "true",  
    freeMode: true,
    slidesPerView: "auto",
+   scrollbar:{ draggable: true },
   //  centeredSlides: 'auto',
    breakpoints: {
     100: {
       slidesPerView: 2,
       spaceBetween: 20,
+      
     },
     760: {
       slidesPerView: 3,

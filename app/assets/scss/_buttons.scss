@@ -185,3 +185,14 @@
         width: 280px;
     }
 }
+
+@media only screen and (max-width: 760px) {
+    .btnV1__title {
+        font-size: 16px;
+        padding: 16px 0;
+    }
+
+    .btnV1 {
+        width: 300px;
+    }
+}

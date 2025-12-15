@@ -15,6 +15,13 @@
     padding-bottom: 150px;
 }
 
+.singl-partner-how-start-sec__mob-btn {
+    display: none;
+}
+
+.singl-partner-how-it-work-sec__mob-btn {
+    display: none;
+}
 
 @media only screen and (max-width: 1750px) {}
 
@@ -80,5 +87,57 @@
 
     .singl-partner-about-sec .info-data-row {
         margin-bottom: 50px;
+    }
+}
+
+@media only screen and (max-width: 760px) {
+    .singl-partner-about-sec {
+        padding-top: 120px;
+        padding-bottom: 90px;
+    }
+
+    .singl-partner-about-sec {
+        .header-row-sec {
+            .btnV1 {
+                margin: 0 auto;
+                margin-top: 35px;
+            }
+        }
+    }
+
+    .singl-partner-about-sec__wrapper {
+        margin-top: 45px;
+    }
+
+    .singl-partner-about-sec .info-data-row {
+        margin-bottom: 35px;
+    }
+
+    .singl-partner-how-it-work-sec {
+        .header-row-sec {
+            .btnV1 {
+                display: none;
+            }
+        }
+    }
+
+    .singl-partner-how-start-sec {
+        .header-row-sec {
+            .btnV1 {
+                display: none;
+            }
+        }
+    }
+
+    .singl-partner-how-start-sec__mob-btn {
+        display: flex;
+        margin: 0 auto;
+        margin-top: 40px;
+    }
+
+    .singl-partner-how-it-work-sec__mob-btn {
+        display: flex;
+        margin: 0 auto;
+        margin-top: 40px;
     }
 }

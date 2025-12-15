@@ -143,7 +143,13 @@
     margin: 70px 35px 0 35px;
 }
 
+.certificates-catalog-sec__btn-mob {
+    display: none;
+}
 
+.certeficat-how-it-work-sec__mob-btn {
+    display: none;
+}
 
 @media only screen and (max-width: 1750px) {}
 
@@ -286,5 +292,75 @@
 
     .certificates-catalog-sec {
         padding-bottom: 90px;
+    }
+}
+
+@media only screen and (max-width: 760px) {
+    .certificates-hero-sec {
+        padding-top: 120px;
+    }
+
+    .certificates-hero-sec .hero-partners-sec__title {
+        font-size: 24px;
+    }
+
+    .certificates-catalog-sec {
+        .header-row-sec {
+            .btnV1 {
+                display: none;
+            }
+        }
+    }
+
+    .certificates-catalog-sec__wrapper {
+        margin-top: 35px;
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .certeficat-card {
+        width: 100%;
+        margin: 0;
+        margin-bottom: 20px;
+        height: 236px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    .certeficat-card__logo {
+        width: 160px;
+    }
+
+    .certeficat-card__title {
+        bottom: 22px;
+    }
+
+    .certeficat-card__value {
+        font-size: 26px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 117%;
+    }
+
+    .certificates-catalog-sec__btn-mob {
+        display: flex;
+        margin: 0 auto;
+        margin-top: 40px;
+    }
+
+    .certeficat-how-it-work-sec {
+        padding-bottom: 90px;
+    }
+
+    .certeficat-how-it-work-sec__mob-btn {
+        display: flex;
+        margin: 0 auto;
+        margin-top: 40px;
+    }
+
+    .certificates-about-sec__row {
+        margin-top: 35px;
     }
 }

@@ -121,6 +121,8 @@
 
             </div>
 
+        </div>
+        <div class="container contacts-sec__map-container">
             <div class="contacts-sec__map-wrapper" v-gsap.whenVisible.once.from='{
                   autoAlpha: 0,
                   y: 50,

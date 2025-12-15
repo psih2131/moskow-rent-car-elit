@@ -625,7 +625,55 @@
 }
 
 
+.popup-booking {
+    width: 500px;
+    background: $bgColor2;
+    padding: 60px 40px;
+    padding-bottom: 40px;
+}
 
+.popup-booking__form {
+    padding: 0 0px;
+
+    .booking-widget__date {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 25px;
+    }
+
+    .booking-widget__input {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 25px;
+    }
+
+    .btnV1 {
+        margin: 0 auto;
+        width: 100%;
+    }
+}
+
+.popup-booking__title {
+    font-size: 32px;
+    text-align: center;
+    color: $white;
+    font-family: $titleFont;
+
+    b {
+        color: $gold1;
+    }
+}
+
+.popup-booking__subtitle {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%;
+    color: #707070;
+}
 
 @media only screen and (max-width: 1520px) {
     .form-popup {
@@ -716,5 +764,134 @@
         height: 500px;
     }
 
+    .popup-form__wrapper .home-our-client-sec__title {
+        font-size: 26px;
+    }
 
+    .contacts-sec__form-subtitle {
+        font-size: 16px;
+    }
+
+    .popup-form__wrapper {
+        padding: 40px;
+    }
+
+    .popup-form__contacts-wrapper-row {
+        .social-contact-def {
+            margin-bottom: 0;
+
+        }
+
+        .social-contact-def__icon {
+            width: 50px;
+            height: 50px;
+
+            img {
+                width: 20px;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 760px) {
+    .popup-form {
+        width: 360px;
+
+        .popup__close {
+            right: 0px;
+            top: 0px;
+        }
+    }
+
+    .popup-form__wrapper {
+        padding: 30px 20px;
+        padding-top: 40px;
+    }
+
+    .contacts-sec__form-subtitle {
+        font-size: 14px;
+        margin-top: 25px;
+    }
+
+    .popup-form__fields-wrapper {
+        padding: 0;
+        margin-top: 0;
+    }
+
+    .popup-form__contacts-wrapper-title {
+        font-size: 18px;
+    }
+
+    .popup-form__contacts-wrapper-row .social-contact-def {
+        width: auto;
+        margin: 0 10px;
+    }
+
+    .form-valid-error {
+        font-size: 10px;
+    }
+
+    .form-valid-error-main {
+        font-size: 10px;
+    }
+
+    .popup-done {
+        width: 360px;
+    }
+
+    .popup-done__wrapper {
+        padding: 40px 20px 30px 20px;
+    }
+
+    .popup-done__wrapper .sec-title {
+        font-size: 26px;
+    }
+
+    .popup-booking {
+        width: 360px;
+        padding: 50px 25px 30px 25px;
+
+        .popup__close {
+            right: 0;
+            top: 0;
+        }
+    }
+
+    .popup-booking__title {
+        font-size: 24px;
+    }
+
+    .popup-booking__subtitle {
+        font-size: 14px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .form-popup-price-table {
+        width: 360px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .popup-table-price__col {
+        padding-left: 15px;
+        padding-right: 0;
+    }
+
+    .popup-table-price__value {
+        font-size: 13px;
+    }
+
+    .popup-table-price__name {
+        font-size: 13px;
+    }
+
+    .form-popup-price-table__car-title {
+        font-size: 20px;
+    }
+
+    .popup-video {
+        width: 360px;
+        height: 250px;
+    }
 }
