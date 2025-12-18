@@ -21,6 +21,34 @@
 
 }
 
+.car-card__price-old-price {
+    text-decoration: line-through;
+    font-size: 18px;
+    color: $grey1;
+    text-align: right;
+    margin-top: 5px;
+
+    .car-card__price-value {
+        font-size: 18px;
+        color: $grey1;
+    }
+}
+
+.car-card__price-sale-price {
+    position: relative;
+    text-align: left;
+}
+
+.car-card__price--sale-price-procent {
+    position: absolute;
+    font-size: 14px;
+    padding: 6px;
+    border-radius: 4px;
+    right: -60px;
+    top: 5px;
+    background: $green2s;
+}
+
 .car-hero-sec__slider-wrapper {
     margin-top: 40px;
     position: relative;
@@ -288,6 +316,7 @@
     height: 70px;
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     background: $bgColor2;
     padding: 0 30px;
     margin-bottom: 6px;
@@ -295,6 +324,10 @@
     &:last-child {
         margin-bottom: 0;
     }
+}
+
+.sale-wrapper {
+    width: 100%;
 }
 
 .price-table__el-value {
@@ -308,10 +341,41 @@
         color: $white;
     }
 
-    span {
+    .price-table__el-value-num {
         display: inline-block;
         margin-right: 7px;
     }
+}
+
+.price-table__el-value-old-price {
+    width: 100%;
+    display: block;
+    font-size: 14px;
+    opacity: 0.6;
+    text-decoration: line-through;
+    margin-top: 7px;
+
+    .price-table__el-value-num {
+        text-decoration: line-through;
+    }
+}
+
+.price-table__el-value-new-price {
+    width: 100%;
+    position: relative;
+    display: block;
+    color: $gold1;
+}
+
+.price-table__el-value-new-price-sale-procent {
+    position: absolute;
+    padding: 4px 6px;
+    border-radius: 3px;
+    right: 0;
+    top: 0;
+    font-size: 14px;
+    color: $white;
+    background: $green2s;
 }
 
 .price-table__el-header {
@@ -777,6 +841,11 @@
     .car-simmilar-sec {
         padding-bottom: 100px;
     }
+
+    .price-table__el-value-new-price-sale-procent {
+        right: -20px;
+        font-size: 11px;
+    }
 }
 
 @media only screen and (max-width: 1380px) {
@@ -962,6 +1031,40 @@
 
     .single-car-swiper-button-next {
         left: calc(50% + 391px);
+    }
+
+    .price-table__el {
+        padding-left: 20px;
+        padding-right: 10px;
+    }
+
+    .price-table__el-value-new-price-sale-procent {
+        right: 0;
+    }
+
+    .price-table__el-value-new-price {
+        font-size: 13px;
+    }
+
+    .price-table__el-value-old-price {
+        font-size: 12px;
+    }
+
+    .car-card__price--sale-price-procent {
+        right: 0;
+        top: -30px;
+    }
+
+    .car-card__price-old-price {
+        font-size: 14px;
+    }
+
+    .car-card__price-sale-price {
+        .car-card__price-value {
+            font-size: 24px;
+        }
+
+        font-size: 16px;
     }
 }
 
@@ -1150,6 +1253,30 @@
 
     .car-price-sec__table {
         margin-top: 0;
+    }
+
+    .price-table__el-value-new-price-sale-procent {
+
+        display: none;
+    }
+
+    .car-hero-sec__price {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .car-card__price-sale-price {
+        text-align: center;
+    }
+
+    .car-card__price-old-price {
+        text-align: center;
+    }
+
+    .car-card__price--sale-price-procent {
+        right: -50px;
+        top: 3px;
+        font-size: 12px;
     }
 }
 
@@ -1429,5 +1556,31 @@
         display: flex;
         margin: 0 auto;
         margin-top: 40px;
+    }
+
+    .price-table__el-value-new-price-sale-procent {
+        display: block;
+    }
+
+    .car-card__price-old-price .car-card__price-value {
+        font-size: 14px;
+    }
+
+    .car-card__price--sale-price-procent {
+        right: -52px;
+        top: 0px;
+        font-size: 12px;
+    }
+
+    .price-table__col {
+        margin-right: 0;
+        margin-left: 0;
+    }
+
+    .price-table__el {
+        height: auto;
+        min-height: 50px;
+        padding-top: 10px;
+        padding-bottom: 10px;
     }
 }

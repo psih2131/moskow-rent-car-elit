@@ -313,8 +313,9 @@
     display: flex;
     border: 1px solid #534A3C;
     margin-bottom: 10px;
-    height: 50px;
+    min-height: 50px;
     justify-content: space-between;
+    align-items: center;
 }
 
 .popup-table-price__col {
@@ -339,6 +340,7 @@
     font-weight: 600;
     line-height: 100%;
     color: $white;
+    width: 100%;
 }
 
 .form-popup-price-table__booking-car-row {
@@ -735,7 +737,18 @@
     }
 
     .popup-table-price__row {
-        height: 50px;
+        .price-table__el-value-new-price-sale-procent {
+            right: auto;
+            left: -45px;
+            display: none;
+        }
+
+        .popup-table-price__col {
+            &:last-child {
+                padding-left: 0;
+            }
+        }
+
     }
 
     .popup-table-price__value {

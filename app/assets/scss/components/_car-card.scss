@@ -2,6 +2,16 @@
     width: 100%;
     position: relative;
 
+    .car-card__price-old-price {
+        text-align: left;
+
+    }
+
+    .car-card__price-sale-price {
+        color: $white;
+        display: inline-block;
+    }
+
 
 }
 
@@ -433,5 +443,42 @@
 
     .car-card__characteristic {
         margin-right: 0;
+    }
+}
+
+
+@media only screen and (max-width: 1380px) {
+    .car-card {
+        .car-card__price--sale-price-procent {
+            top: 3px;
+            right: -60px;
+        }
+
+        .car-card__price-sale-price .car-card__price-value {
+            font-size: 23px;
+        }
+
+    }
+}
+
+@media only screen and (max-width: 990px) {
+    .car-card {
+        .car-card__price--sale-price-procent {
+            top: 0px;
+            right: -60px;
+        }
+
+        .car-card__price-sale-price {
+            font-size: 12px;
+        }
+
+        .car-card__price-sale-price .car-card__price-value {
+            font-size: 20px;
+        }
+
+        .car-card__price-old-price .car-card__price-value {
+            font-size: 14px;
+        }
+
     }
 }

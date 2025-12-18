@@ -67,10 +67,38 @@
 
                     <div class="car-card__body">
                         <div class="car-card__price-row-tab">
-                            <div class="car-card__price" >
-                                <span class="car-card__price-value"><span v-html="carData.acf.stoimost_avto_v_sutki"></span>₽</span>
+
+                            <template v-if="carData.acf.gibkaya_stoimost_arendy[0].skidka">
+                            <div class="car-card__price-sale-wrapper">
+                            <div class="car-card__price-sale-price" >
+                                <span class="car-card__price-value"><span v-html="carData.acf.gibkaya_stoimost_arendy[0].skidka"></span>₽</span>
+                                / день
+
+                                <div class="car-card__price--sale-price-procent" v-if="carData.acf.gibkaya_stoimost_arendy[0].skidka_v_proczentah">
+                                    -{{ carData.acf.gibkaya_stoimost_arendy[0].skidka_v_proczentah }}%
+                                </div>
+                            </div>
+
+                            <div class="car-card__price-old-price" >
+                                <span class="car-card__price-value"><span v-html="carData.acf.gibkaya_stoimost_arendy[0].czena"></span>₽</span>
                                 / день
                             </div>
+                            </div>
+
+                        </template>
+
+                        <template v-else>
+                            <div class="car-card__price" >
+                                <span class="car-card__price-value"><span v-html="carData.acf.gibkaya_stoimost_arendy[0].czena"></span>₽</span>
+                                / день
+                            </div>
+                        </template>
+
+
+                            <!-- <div class="car-card__price" >
+                                <span class="car-card__price-value"><span v-html="carData.acf.stoimost_avto_v_sutki"></span>₽</span>
+                                / день
+                            </div> -->
 
                             <div class="car-card__header-ar">
                                 <svg width="64" height="15" viewBox="0 0 64 15" fill="none" xmlns="http://www.w3.org/2000/svg">

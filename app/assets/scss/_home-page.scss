@@ -1232,7 +1232,29 @@ swiper-container::part(bullet-active) {
 
 
 
-@media only screen and (max-width: 1750px) {}
+@media only screen and (max-width: 1750px) {
+    .home-hero-sec__play {
+        margin: 100px auto;
+    }
+}
+
+@media only screen and (max-width: 1750px) and (max-height: 850px) {
+    .home-hero-sec__play {
+        margin: 80px auto;
+    }
+
+    .home-hero-sec__title {
+        font-size: 45px;
+    }
+
+    .home-hero-sec__decor {
+        width: 200px;
+    }
+
+    .home-hero-sec__title {
+        width: 500px;
+    }
+}
 
 @media only screen and (max-width: 1580px) {
     .home-hero-sec__title {
@@ -1386,6 +1408,20 @@ swiper-container::part(bullet-active) {
 
     .sec-title--left-mod:before {
         top: 15px;
+    }
+}
+
+@media only screen and (max-width: 1580px) and (max-height: 850px) {
+    .home-hero-sec__play {
+        margin: 60px auto;
+    }
+
+    .home-hero-sec__title {
+        font-size: 45px;
+    }
+
+    .home-hero-sec__decor {
+        width: 200px;
     }
 }
 

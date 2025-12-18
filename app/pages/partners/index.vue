@@ -187,7 +187,7 @@
                         class="partners-exm-sec__slider"
                         >
                             <swiper-slide 
-                            class="swipe-home-cat" v-for="(value,index) in pageData[0].acf['sekcziya_2_-_primery_zarabotka'].primery">
+                            class="swipe-home-cat" v-for="(value,index) in pageData[0].acf['sekcziya_2_-_primery_zarabotka'].primery" v-gsap.preset="'stagger-up'">
                                <div>
                                     <div class="partners-exm-sec__element-wrapper">
                                         <img 

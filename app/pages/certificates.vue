@@ -94,6 +94,7 @@
                 
                 <div class="certificates-catalog-sec__element certeficat-card"
                 v-for="value in pageData[0].acf.sekcziya_2_dostupnye_sertefikaty.sertefikaty"
+                v-gsap.preset="'stagger-up'"
                 
                 >
 

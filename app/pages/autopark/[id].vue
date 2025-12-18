@@ -6,10 +6,32 @@
 
 
                 <div class="car-card__price-row-tab car-hero-sec__price">
+                  <template v-if="currentCarData[0].acf.gibkaya_stoimost_arendy[0].skidka">
+                    <div class="car-card__price-sale-wrapper">
+                       <div class="car-card__price-sale-price" >
+                          <span class="car-card__price-value"><span v-html="currentCarData[0].acf.gibkaya_stoimost_arendy[0].skidka"></span>₽</span>
+                          / день
+
+                          <div class="car-card__price--sale-price-procent" v-if="currentCarData[0].acf.gibkaya_stoimost_arendy[0].skidka_v_proczentah">
+                            -{{ currentCarData[0].acf.gibkaya_stoimost_arendy[0].skidka_v_proczentah }}%
+                          </div>
+                      </div>
+
+                      <div class="car-card__price-old-price" >
+                          <span class="car-card__price-value"><span v-html="currentCarData[0].acf.gibkaya_stoimost_arendy[0].czena"></span>₽</span>
+                          / день
+                      </div>
+                    </div>
+
+                  </template>
+
+                  <template v-else>
                     <div class="car-card__price" >
-                        <span class="car-card__price-value"><span v-html="currentCarData[0].acf.stoimost_avto_v_sutki"></span>₽</span>
+                        <span class="car-card__price-value"><span v-html="currentCarData[0].acf.gibkaya_stoimost_arendy[0].czena"></span>₽</span>
                         / день
                     </div>
+                  </template>
+                    
                 </div>
 
                 <!-- <button class="home-hero-sec__btn btnV1 btnV1--big" @click="openTargetPopupForm('Кнопка Забронирывать авто на странице авто')">
@@ -89,6 +111,7 @@
                 :moveDisabled="true"
                 :rotateDisabled="true"
                 :zoomDisabled="true" 
+                :dblclickDisabled="true"
                 :loop="true"
                 @hide="onHide"
               />
@@ -287,7 +310,25 @@
             start: "top 70%",
             }'>
               <div class="price-table__el price-table__el-header" v-html="item.period"></div>
-              <div class="price-table__el price-table__el-value"><span v-html="item.czena"></span> руб./сутки</div>
+              <div class="price-table__el price-table__el-value">
+                
+                <template v-if="item.skidka && item.skidka != ' '">
+                  <div class="sale-wrapper">
+                  <span class="price-table__el-value-new-price">
+                    <span class="price-table__el-value-num" v-html="item.skidka"></span> руб./сутки
+
+                    <div class="price-table__el-value-new-price-sale-procent">-{{item.skidka_v_proczentah}}%</div>
+                  </span>
+                  <span class="price-table__el-value-old-price">
+                    <span class="price-table__el-value-num" v-html="item.czena"></span> руб./сутки
+                  </span>
+                  </div>
+                </template>
+
+                <template v-else>
+                  <span class="price-table__el-value-num" v-html="item.czena"></span> руб./сутки
+                </template>
+              </div>
             </div>
           </div>
 
@@ -304,7 +345,25 @@
             start: "top 70%",
             }'>
               <div class="price-table__el price-table__el-header" v-html="item.period"></div>
-              <div class="price-table__el price-table__el-value"><span v-html="item.czena"></span> руб./сутки</div>
+              <div class="price-table__el price-table__el-value">
+                <template v-if="item.skidka && item.skidka != ' '">
+                  <div class="sale-wrapper">
+                  <span class="price-table__el-value-new-price">
+                    <span class="price-table__el-value-num" v-html="item.skidka"></span> руб./сутки
+
+                    <div class="price-table__el-value-new-price-sale-procent">-{{item.skidka_v_proczentah}}%</div>
+                  </span>
+                  <span class="price-table__el-value-old-price">
+                    <span class="price-table__el-value-num" v-html="item.czena"></span> руб./сутки
+                  </span>
+                  </div>
+                  
+                </template>
+
+                <template v-else>
+                  <span class="price-table__el-value-num" v-html="item.czena"></span> руб./сутки
+                </template>
+              </div>
             </div>
           </div>
 
