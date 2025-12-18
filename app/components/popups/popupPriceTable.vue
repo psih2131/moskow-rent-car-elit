@@ -74,7 +74,7 @@
 
 <script setup>
 import { useCounterStore } from '@/stores/counter'
-import { ref, onMounted, onBeforeUnmount, computed, watch  } from 'vue';
+import { ref, onMounted, onBeforeUnmount, computed, watch   } from 'vue';
 // import popupForm from '@/components/popups/popup__form.vue'
 
 
@@ -84,6 +84,8 @@ const show = ref(false)
 const store = useCounterStore()
 
 const tableData = ref(null)
+
+
 
 //METHODS 
 function closePopup(){
@@ -103,12 +105,19 @@ function addGoldGlimer(str){
 
 
 const openTargetPopupForm = (data = null)=>{
-  store.changePopupCurrent('popup-form')
+  store.changePopupCurrent('popup-booking')
   store.changeTrigerButtonForm(data)
 }
 
 
 //HOOKS
+
+watch(() => store.popupCloseAll,(newVal, oldVal) => {
+    closePopup()
+    console.log('gg')
+  }
+)
+
 onMounted(() => {
     show.value = true
   // Добавляем обработчик события scroll

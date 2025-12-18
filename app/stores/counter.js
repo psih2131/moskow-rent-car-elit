@@ -10,6 +10,8 @@ export const useCounterStore = defineStore('counter', () => {
 
     const popupCurrent = ref(null)
 
+    const popupCloseAll = ref(true)
+
     const routerAnimStatus = ref(false)
 
     const routerChangeStatus = ref(false)
@@ -72,6 +74,11 @@ export const useCounterStore = defineStore('counter', () => {
         console.log('new value store', trigerButtonForm.value)
     }
 
+    const changePopupCloseAll = () => {
+        popupCloseAll.value = !popupCloseAll.value
+        console.log('new value store', popupCloseAll.value)
+    }
+
     return {
         serverUrlDomainRequest,
         domainUrlCurrent,
@@ -84,6 +91,7 @@ export const useCounterStore = defineStore('counter', () => {
         routerAnimStatus,
         routerChangeStatus,
         trigerButtonForm,
+        popupCloseAll,
 
 
         changeOptionData,
@@ -94,6 +102,7 @@ export const useCounterStore = defineStore('counter', () => {
         changeRouterAnimStatus,
         changeRouterChangeStatus,
         changeTrigerButtonForm,
+        changePopupCloseAll
 
     }
 })

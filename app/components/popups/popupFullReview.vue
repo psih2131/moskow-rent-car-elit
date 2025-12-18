@@ -46,6 +46,13 @@ function closePopup(){
 }
 
 //HOOKS
+
+watch(() => store.popupCloseAll,(newVal, oldVal) => {
+    closePopup()
+    console.log('gg')
+  }
+)
+
 onMounted(() => {
   // Добавляем обработчик события scroll
     show.value = true

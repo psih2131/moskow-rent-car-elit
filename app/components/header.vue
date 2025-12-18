@@ -1,5 +1,5 @@
 <template>
-    <Transition name="blureffect">
+    <Transition name="blureffect" @click.self="show = false">
         <div class="blur-wrapper" v-if="show"></div>
     </Transition>
 

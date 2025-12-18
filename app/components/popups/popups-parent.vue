@@ -1,7 +1,7 @@
 <template>
-    <div class="popups-wrapper">
+    <div class="popups-wrapper" @click.self="closeAllPopup">
         <Transition name="bg-fade">
-          <div v-if="show" class="popups-wrapper__bg"></div>
+          <div v-if="show" class="popups-wrapper__bg" @click.self="closeAllPopup"></div>
         </Transition>
 
 
@@ -24,7 +24,7 @@
 <script setup>
 import { useCounterStore } from '@/stores/counter'
 
-import { ref, onMounted, onBeforeUnmount, computed, watch  } from 'vue';
+import { ref, onMounted, onBeforeUnmount, computed, watch,   } from 'vue';
 
 import popupPriceTable from '@/components/popups/popupPriceTable.vue'
 
@@ -43,10 +43,12 @@ const show = ref(false)
 
 const store = useCounterStore()
 
+const parentClicked = ref(false)
 
 //METHODS 
-
-
+const closeAllPopup = ()=>{
+    store.changePopupCloseAll()
+}
 
 //HOOKS
 onMounted(() => {

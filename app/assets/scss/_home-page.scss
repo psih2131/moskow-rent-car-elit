@@ -394,7 +394,7 @@
                 padding: 20px 20px 20px 45px;
             }
 
-            .car-card-slider {
+            .car-card-slider-wrapper {
                 order: 2;
             }
 
@@ -1257,7 +1257,7 @@ swiper-container::part(bullet-active) {
         padding-bottom: 30px;
     }
 
-    .car-card-slider {
+    .car-card-slider-wrapper {
         width: 50%;
     }
 
@@ -2079,7 +2079,7 @@ swiper-container::part(bullet-active) {
         height: 100%;
     }
 
-    .car-card-slider {
+    .car-card-slider-wrapper {
         width: 100%;
     }
 
@@ -2400,7 +2400,28 @@ swiper-container::part(bullet-active) {
         padding-bottom: 70px;
     }
 
+    .car-card-slider-wrapper .single-car-swiper-button {
+        width: 35px;
+        height: 35px;
+        top: calc(50% - 17px);
 
+        svg {
+            width: 18px;
+            height: auto;
+        }
+    }
+
+    .car-card-slider-wrapper .single-car-swiper-button-next {
+        right: 10px;
+    }
+
+    .car-card-slider-wrapper .single-car-swiper-button-prev {
+        left: 10px;
+    }
+
+    .table-mod .car-card-slider-wrapper {
+        width: 200px;
+    }
 
 }
 
@@ -2895,4 +2916,13 @@ swiper-container::part(bullet-active) {
         padding-bottom: 40px;
     }
 
+    .table-mod {
+        .car-card-slider-wrapper {
+            width: 135px;
+        }
+
+        .single-car-swiper-button {
+            display: none;
+        }
+    }
 }
