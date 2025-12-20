@@ -172,7 +172,7 @@
     </section>
     
 
-    <formSec :formSecData="optionsData" />
+    <formSec :formSecData="optionsData" :animStatusDisable="true" />
 
     <section class="autopark-seo-sec" v-if="pageData[0]?.acf?.seo_sekcziya?.zagolovok_h1">
         <div class="container">
@@ -260,6 +260,8 @@
 
     import { useNuxtApp } from '#app'
 
+
+    //DATA
     const nuxtApp = useNuxtApp()
 
     const store = useCounterStore(nuxtApp.$pinia)
