@@ -11,7 +11,7 @@
 .header--fixed {
     background: $bgColor2;
     padding-bottom: 15px;
-    transform: translateY(-100px);
+    top: -100px;
 
     .header__nav-list-link {
         padding-top: 35px;
@@ -28,7 +28,7 @@
 
 .header--show {
     position: fixed;
-    transform: translateY(0px);
+    top: 0;
 
 }
 
@@ -512,7 +512,7 @@
 
     .header--fixed {
         background: none;
-        transform: translateY(0);
+        top: 0;
         padding-bottom: 0;
 
         .header__right {
