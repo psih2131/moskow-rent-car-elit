@@ -75,6 +75,40 @@
                         </div>
                     </div>
                 </template>
+
+
+                <template v-if="tableData?.list3?.length > 0">
+                    <p class="popup-table-price__row-title">С водителем</p>
+                    <div class="popup-table-price__row" v-for="item in tableData.list3">
+
+                        
+                        <div class="popup-table-price__col">
+                            <p class="popup-table-price__name"><span v-html="item.period"></span></p>
+                        </div>
+                        <div class="popup-table-price__col">
+                            <div class="popup-table-price__value">
+                                <template v-if="item.skidka && item.skidka != ' '">
+                                <div class="sale-wrapper">
+                                <span class="price-table__el-value-new-price">
+                                    <span class="price-table__el-value-num" v-html="item.skidka"></span> руб./мес
+
+                                    <div class="price-table__el-value-new-price-sale-procent">-{{item.skidka_v_proczentah}}%</div>
+                                </span>
+                                <span class="price-table__el-value-old-price">
+                                    <span class="price-table__el-value-num" v-html="item.czena"></span> руб./мес
+                                </span>
+                                </div>
+                                
+                                </template>
+
+                                <template v-else>
+                                <span class="price-table__el-value-num" v-html="item.czena"></span> руб./мес
+                                </template>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </template>
                 
             </div>
 

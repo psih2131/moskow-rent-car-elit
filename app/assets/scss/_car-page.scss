@@ -1397,6 +1397,7 @@
     .car-price-sec__switch-row {
         margin-top: 35px;
         justify-content: space-between;
+        flex-wrap: wrap;
     }
 
     .price-switch__btn {
@@ -1404,6 +1405,11 @@
         width: calc(50% - 3px);
         font-size: 14px;
         padding: 10px 0;
+
+        &:last-child {
+            width: 100%;
+            margin-top: 6px;
+        }
     }
 
     .price-table__col {
@@ -1583,4 +1589,5 @@
         padding-top: 10px;
         padding-bottom: 10px;
     }
+
 }

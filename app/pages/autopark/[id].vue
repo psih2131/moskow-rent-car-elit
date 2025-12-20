@@ -296,6 +296,7 @@
             }'>
             <div class="price-switch__btn" @click="switchPrice = 1" :class="{'active': switchPrice == 1}">Посуточно</div>
             <div class="price-switch__btn" @click="switchPrice = 2" :class="{'active': switchPrice == 2}">Помесячно</div>
+            <div class="price-switch__btn" @click="switchPrice = 3" :class="{'active': switchPrice == 3}">С водителем</div>
           </div>
 
           <div class="car-price-sec__table price-table" v-if="switchPrice == 1">
@@ -337,6 +338,41 @@
             <div class="price-table__col"
             v-if="currentCarData[0].acf.stoimost_arendy_pomesyachno?.length > 0" 
             v-for="(item, index) in currentCarData[0].acf.stoimost_arendy_pomesyachno.slice(0, 4)"
+            v-gsap.whenVisible.once.from='{
+            autoAlpha: 0,
+            y: 50,
+            duration: 0.5,
+            delay: 0.1 + ((index + 1) / 10),
+            start: "top 70%",
+            }'>
+              <div class="price-table__el price-table__el-header" v-html="item.period"></div>
+              <div class="price-table__el price-table__el-value">
+                <template v-if="item.skidka && item.skidka != ' '">
+                  <div class="sale-wrapper">
+                  <span class="price-table__el-value-new-price">
+                    <span class="price-table__el-value-num" v-html="item.skidka"></span> руб./сутки
+
+                    <div class="price-table__el-value-new-price-sale-procent">-{{item.skidka_v_proczentah}}%</div>
+                  </span>
+                  <span class="price-table__el-value-old-price">
+                    <span class="price-table__el-value-num" v-html="item.czena"></span> руб./сутки
+                  </span>
+                  </div>
+                  
+                </template>
+
+                <template v-else>
+                  <span class="price-table__el-value-num" v-html="item.czena"></span> руб./сутки
+                </template>
+              </div>
+            </div>
+          </div>
+
+          <div class="car-price-sec__table price-table" v-if="switchPrice == 3">
+
+            <div class="price-table__col"
+            v-if="currentCarData[0].acf.stoimost_arendy_c_voditelem?.length > 0" 
+            v-for="(item, index) in currentCarData[0].acf.stoimost_arendy_c_voditelem.slice(0, 4)"
             v-gsap.whenVisible.once.from='{
             autoAlpha: 0,
             y: 50,
@@ -852,6 +888,7 @@ const openTargetPopup = (data)=>{
     'oneDay': currentCarData.value[0].acf.stoimost_arendy_v_sutki,
     'list': currentCarData.value[0].acf.gibkaya_stoimost_arendy || '',
     'list2': currentCarData.value[0].acf.stoimost_arendy_pomesyachno || '',
+    'list3': currentCarData.value[0].acf.stoimost_arendy_c_voditelem || '',
     'dop': currentCarData.value[0].acf.dopolnitelnye_uslugi,
     'title': currentCarData.value[0].acf.nazvanie_avto,
   }
