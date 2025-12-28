@@ -27,7 +27,27 @@
                 >
                     <swiper-slide class="car-card-slider__slide" v-for="item in carData.acf.izobrazheniya_avtomobilya_dlya_kartochki_avto" :key="item">
                         <NuxtLink :to="`/autopark/${carData.slug}`">
-                            <img :src="item.izobrazhenie.url" :alt="item.izobrazhenie.alt" class="car-card-slider__slide-img">
+                            <!-- <img 
+                            :src="item.izobrazhenie.sizes.large" 
+                            :alt="item.izobrazhenie.alt"
+                             class="car-card-slider__slide-img"> -->
+
+                             <picture class="car-card-slider__slide-img-picture">
+                                <source 
+                                v-if="item.izobrazhenie?.sizes?.medium_large"
+                                media="(max-width: 760px)" 
+                                :srcset="item.izobrazhenie.sizes.medium_large">
+                                <source 
+                                v-if="item.izobrazhenie?.sizes?.large"
+                                media="(max-width: 990px)" 
+                                :srcset="item.izobrazhenie.sizes.large">
+                                <img 
+                                :src="item.izobrazhenie.sizes.large" 
+                                :alt="item.izobrazhenie.alt" 
+                                class="car-card-slider__slide-img"
+                                loading="lazy">
+                            </picture>
+
                         </NuxtLink>
                     </swiper-slide>
 

@@ -667,7 +667,12 @@
                     start: "top 70%",
                   }'>
                     <div class="clients-about-us-slider__slide-wrapper">
-                      <img :src="item.foto_klienta.url" :alt="item.foto_klienta.alt" class="clients-about-us-slider__slide-photo">
+                      <img 
+                      :src="item.foto_klienta.sizes.medium" 
+                      :alt="item.foto_klienta.alt"
+                       
+                      loading="lazy"
+                      class="clients-about-us-slider__slide-photo">
                       <div class="clients-about-us-slider__slide-data">
                         <div class="clients-about-us-slider__slide-text-wrapper">
                           <p class="clients-about-us-slider__slide-text" v-html="trimString(item.tekst_otzyva)"></p>
@@ -773,7 +778,10 @@
               }'></div>
             </div>
             <div class="info-data-row__img-wrapper">
-              <img :src="item.izobrazhenie_1.url" :alt="item.izobrazhenie_1.alt" class="info-data-row__img"
+              <img 
+              :src="item.izobrazhenie_1.sizes.medium_large" 
+              :alt="item.izobrazhenie_1.alt" class="info-data-row__img"
+              loading="lazy"
               v-gsap.whenVisible.once.from='{
               autoAlpha: 0,
               y: 50,
@@ -781,7 +789,11 @@
               delay: 0.1,
               start: "top 70%",
               }'>
-              <img :src="item.izobrazhenie_2.url" :alt="item.izobrazhenie_2.alt" class="info-data-row__img"
+              <img 
+              :src="item.izobrazhenie_2.sizes.medium_large" 
+              :alt="item.izobrazhenie_2.alt" 
+              class="info-data-row__img"
+              loading="lazy"
               v-gsap.whenVisible.once.from='{
               autoAlpha: 0,
               y: 50,
