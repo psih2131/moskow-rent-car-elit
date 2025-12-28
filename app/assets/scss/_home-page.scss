@@ -2920,7 +2920,8 @@ swiper-container::part(bullet-active) {
     .faq-element__title {
         padding-left: 20px;
         width: calc(100% - 50px - 20px);
-        font-size: 14px;
+        font-size: 13px;
+        padding-right: 10px;
         font-style: normal;
         font-weight: 500;
         line-height: normal;
@@ -3054,5 +3055,10 @@ swiper-container::part(bullet-active) {
 
     .clients-about-us-slider__slide-client-data {
         align-items: flex-start;
+    }
+
+    .faq-element:hover .faq-element__title {
+        transform: translateX(0px);
+
     }
 }

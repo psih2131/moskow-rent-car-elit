@@ -1,6 +1,6 @@
 <template>
     
-    <div class="social-widget" v-if="store.optionsData.socz_seti_dlya_vidzheta?.length > 0">
+    <div class="social-widget" ref="box" v-if="store.optionsData.socz_seti_dlya_vidzheta?.length > 0">
         <div class="pulse-anim"></div>
         <div class="pulse" @click="show = !show">
             <svg v-if="show == false" xmlns="http://www.w3.org/2000/svg" width="30" height="24" viewBox="0 0 30 24" fill="none">  
@@ -50,5 +50,25 @@ const show = ref(false);
 const nuxtApp = useNuxtApp()
 
 const store = useCounterStore(nuxtApp.$pinia)
+
+const box = ref(null)
+
+
+function handleClickOutside(event) {
+    if (box.value && !box.value.contains(event.target)) {
+        console.log('Клик ВНЕ компонента')
+        show.value = false
+        
+    }
+}
+
+
+onMounted(() => {
+  document.addEventListener('click', handleClickOutside)
+})
+
+onBeforeUnmount(() => {
+  document.removeEventListener('click', handleClickOutside)
+})
 
 </script>

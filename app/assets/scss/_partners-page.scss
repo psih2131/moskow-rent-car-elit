@@ -562,6 +562,26 @@
         margin-top: 50px;
     }
 
+    .partners-exm-sec swiper-container::part(scrollbar) {
+        display: block;
+        bottom: 0;
+        height: 10px;
+        background: $bgColor2;
+        padding: 2px;
+
+
+    }
+
+    .partners-exm-sec .swipe-home-cat {
+        padding-bottom: 35px;
+    }
+
+    .partners-exm-sec swiper-container {
+
+        --swiper-scrollbar-drag-bg-color: #5D736E;
+
+    }
+
 }
 
 @media only screen and (max-width: 990px) {
@@ -686,9 +706,12 @@
     }
 
     .partners-exm-sec {
-        .btnV1 {
-            display: none;
+        .header-row-sec {
+            .btnV1 {
+                display: none;
+            }
         }
+
     }
 
     .partners-exm-sec__row-slider {

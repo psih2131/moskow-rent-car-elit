@@ -455,7 +455,7 @@
           </div>
 
 
-          <button class="home-hero-sec__btn btnV1 btnV1--big car-price-sec__btn-mob" 
+          <button class="home-hero-sec__btn btnV1 btnV1--big car-price-sec__btn-mob btnV1--blick" 
                 v-if="currentCarData[0].acf?.gibkaya_stoimost_arendy?.length > 3"
                 @click="openTargetPopup('popup-price-table')"
                 v-gsap.whenVisible.once.from='{
@@ -577,6 +577,26 @@
               <faqElement :title="item.zagolovok" :description="item.opisanie" :counter="index+1" v-gsap.preset="'stagger-up'"/>
             </template>
 
+            <button
+            v-gsap.whenVisible.once.from='{
+              autoAlpha: 0,
+              y: 100,
+              duration: 0.5,
+              delay: 0.2,
+              start: "top 70%",
+            }' 
+            @click="openTargetPopupForm()"
+            class="home-hero-sec__btn btnV1 btnV1--big home-faq-sec__btn-mob btnV1--blick">
+                <span class="btnV1__circle btnV1__circle-1"></span>
+                <span class="btnV1__circle btnV1__circle-2"></span>
+                <span class="btnV1__title">ЗАДАТЬ СВОЙ ВОПРОС</span>
+
+                <div class="btnV1__line btnV1__line-1"></div>
+                <div class="btnV1__line btnV1__line-2"></div>
+                <div class="btnV1__line btnV1__line-3"></div>
+                <div class="btnV1__line btnV1__line-4"></div>
+            </button>
+
           </div>
 
           <div class="faq-wrapper" v-else>
@@ -584,6 +604,26 @@
             <template v-for="(item, index) in currentCarData[0].acf.usloviya_arendy">
               <faqElement :title="item.zagolovok" :description="item.opisanie" :counter="index+1" v-gsap.preset="'stagger-up'"/>
             </template>
+
+            <button
+            v-gsap.whenVisible.once.from='{
+              autoAlpha: 0,
+              y: 100,
+              duration: 0.5,
+              delay: 0.2,
+              start: "top 70%",
+            }' 
+            @click="openTargetPopupForm()"
+            class="home-hero-sec__btn btnV1 btnV1--big home-faq-sec__btn-mob btnV1--blick">
+                <span class="btnV1__circle btnV1__circle-1"></span>
+                <span class="btnV1__circle btnV1__circle-2"></span>
+                <span class="btnV1__title">ЗАДАТЬ СВОЙ ВОПРОС</span>
+
+                <div class="btnV1__line btnV1__line-1"></div>
+                <div class="btnV1__line btnV1__line-2"></div>
+                <div class="btnV1__line btnV1__line-3"></div>
+                <div class="btnV1__line btnV1__line-4"></div>
+            </button>
 
           </div>
 
@@ -827,7 +867,7 @@
             start: "top 70%",
             }'></h2>
 
-            <NuxtLink to="/autopark" class="home-hero-sec__btn btnV1 btnV1--big"
+            <NuxtLink to="/autopark" class="home-hero-sec__btn btnV1 btnV1--big btnV1--blick"
             v-gsap.whenVisible.once.from='{
             autoAlpha: 0,
             y: 50,
@@ -856,7 +896,7 @@
 
         </div>
 
-        <NuxtLink to="/autopark" class="home-hero-sec__btn btnV1 btnV1--big car-simmilar-sec__bob-btn"
+        <NuxtLink to="/autopark" class="home-hero-sec__btn btnV1 btnV1--big car-simmilar-sec__bob-btn btnV1--blick"
             v-gsap.whenVisible.once.from='{
             autoAlpha: 0,
             y: 50,

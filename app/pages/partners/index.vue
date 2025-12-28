@@ -51,7 +51,7 @@
 
                         <NuxtLink 
                         :to="`/partners/${value.slug}`" 
-                        class="hero-partners-sec__btn btnV1 btnV1--big"
+                        class="hero-partners-sec__btn btnV1 btnV1--big btnV1--blick"
                         v-gsap.whenVisible.once.from='{
                         autoAlpha: 0,
                         y: 50,
@@ -93,7 +93,7 @@
                     }'></h2>
 
                     <button 
-                    class="home-hero-sec__btn btnV1 btnV1--big" 
+                    class="home-hero-sec__btn btnV1 btnV1--big btnV1--blick" 
                     @click="openTargetPopupForm('Страница партнерства кнопка Расчитать доход')"
                     v-gsap.whenVisible.once.from='{
                     autoAlpha: 0,
@@ -151,6 +151,27 @@
                     
                     
                 </div>
+
+
+                <button class="home-hero-sec__btn btnV1 btnV1--big partners-how-it-work-sec__btn-mob btnV1--blick" 
+                    @click="openTargetPopupForm('Страница партнерства кнопка оставить заявку')"
+                    v-gsap.whenVisible.once.from='{
+                    autoAlpha: 0,
+                    y: 50,
+                    duration: 0.5,
+                    delay: 0.2,
+                    start: "top 70%",
+                    }'>
+                        <span class="btnV1__circle btnV1__circle-1"></span>
+                        <span class="btnV1__circle btnV1__circle-2"></span>
+                        <span class="btnV1__title">РАСЧИТАТЬ ДОХОД</span>
+
+                        <div class="btnV1__line btnV1__line-1"></div>
+                        <div class="btnV1__line btnV1__line-2"></div>
+                        <div class="btnV1__line btnV1__line-3"></div>
+                        <div class="btnV1__line btnV1__line-4"></div>
+                    </button>
+
             </div>
         </section>
 
@@ -168,7 +189,7 @@
                     start: "top 70%",
                     }'></h2>
 
-                    <button class="home-hero-sec__btn btnV1 btnV1--big" 
+                    <button class="home-hero-sec__btn btnV1 btnV1--big btnV1--blick" 
                     @click="openTargetPopupForm('Страница партнерства кнопка оставить заявку')"
                     v-gsap.whenVisible.once.from='{
                     autoAlpha: 0,
@@ -210,7 +231,7 @@
                 </div>
 
 
-                <button class="home-hero-sec__btn btnV1 btnV1--big partners-how-it-work-sec__btn-mob" 
+                <button class="home-hero-sec__btn btnV1 btnV1--big partners-how-it-work-sec__btn-mob btnV1--blick" 
                     @click="openTargetPopupForm('Страница партнерства кнопка оставить заявку')"
                     v-gsap.whenVisible.once.from='{
                     autoAlpha: 0,
@@ -293,7 +314,7 @@
                     }'></h2>
 
                     <button 
-                    class="home-hero-sec__btn btnV1 btnV1--big" 
+                    class="home-hero-sec__btn btnV1 btnV1--big btnV1--blick" 
                     @click="openTargetPopupForm('Страница партнерства кнопка оставить заявку')"
                     v-gsap.whenVisible.once.from='{
                     autoAlpha: 0,
@@ -336,7 +357,7 @@
                 </div>
 
                 <button 
-                    class="home-hero-sec__btn btnV1 btnV1--big partners-how-start-sec__btn-mob" 
+                    class="home-hero-sec__btn btnV1 btnV1--big partners-how-start-sec__btn-mob btnV1--blick" 
                     @click="openTargetPopupForm('Страница партнерства кнопка оставить заявку')"
                     v-gsap.whenVisible.once.from='{
                     autoAlpha: 0,
@@ -372,7 +393,7 @@
                 }'></h2>
 
                 <button 
-                class="home-hero-sec__btn btnV1 btnV1--big" 
+                class="home-hero-sec__btn btnV1 btnV1--big btnV1--blick" 
                 @click="openTargetPopupForm('Страница партнерства кнопка задать вопрос')"
                 v-gsap.whenVisible.once.from='{
                 autoAlpha: 0,
@@ -401,7 +422,7 @@
             </div>
 
             <button 
-                class="home-hero-sec__btn btnV1 btnV1--big partners-faq-sec__mob-btn" 
+                class="home-hero-sec__btn btnV1 btnV1--big partners-faq-sec__mob-btn btnV1--blick" 
                 @click="openTargetPopupForm('Страница партнерства кнопка задать вопрос')"
                 v-gsap.whenVisible.once.from='{
                 autoAlpha: 0,
@@ -504,6 +525,7 @@ const  catRefSliderGallery  = useSwiper(exampleRefSlider, {
    freeMode: "true",  
    freeMode: true,
    slidesPerView: "auto",
+   scrollbar:{ draggable: true },
   //  centeredSlides: 'auto',
    breakpoints: {
     100: {

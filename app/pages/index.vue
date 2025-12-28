@@ -270,7 +270,7 @@
               start: "top 70%",
             }' 
             to="/autopark" 
-            class="home-hero-sec__btn btnV1 btnV1--big home-cars-sec__btn-all-cars-mob">
+            class="home-hero-sec__btn btnV1 btnV1--big home-cars-sec__btn-all-cars-mob btnV1--blick">
                 <span class="btnV1__circle btnV1__circle-1"></span>
                 <span class="btnV1__circle btnV1__circle-2"></span>
                 <span class="btnV1__title">CМОТРЕТЬ ВСЕ АВТО</span>
@@ -681,7 +681,7 @@
               start: "top 70%",
             }' 
             @click="openTargetPopupForm()"
-            class="home-hero-sec__btn btnV1 btnV1--big home-faq-sec__btn-mob">
+            class="home-hero-sec__btn btnV1 btnV1--big home-faq-sec__btn-mob btnV1--blick">
                 <span class="btnV1__circle btnV1__circle-1"></span>
                 <span class="btnV1__circle btnV1__circle-2"></span>
                 <span class="btnV1__title">ЗАДАТЬ СВОЙ ВОПРОС</span>
@@ -1025,23 +1025,23 @@ useHead({
     title: pageData.value[0].acf.seo_title || pageData.value[0].title.rendered,
     meta: [
         // Description
-        { name: 'description', content: pageData.value[0].acf.seo_description || 'Описание по умолчанию' },
+        { name: 'description', content: pageData.value[0].acf.seo_description || 'Luxury rental moskow' },
 
         // Keywords (опционально, не влияет сильно на SEO)
-        { name: 'keywords',  content: pageData.value[0].acf.klyuchevaya_fraza || 'test' },
+        { name: 'keywords',  content: pageData.value[0].acf.klyuchevaya_fraza || 'Rent car' },
 
         // OpenGraph
         { property: 'og:title', content: pageData.value[0].acf.seo_title },
         { property: 'og:description', content: pageData.value[0].acf.seo_description },
         { property: 'og:type', content: 'website' },
         { property: 'og:url', content: `${store.domainUrlCurrent}${route.fullPath}` },
-        { property: 'og:image', content: pageData.value?.[0]?.acf?.og_image?.url || 'http://syberia.gearsdpz.beget.tech/wp-content/uploads/2025/07/87baa9efe5d849e4f8da67fe01f9e029.jpg' },
+        { property: 'og:image', content: pageData.value?.[0]?.acf?.og_image?.url || store.defaultUrlOgImage },
 
         // Twitter Card (если используешь)
         { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'twitter:title', content: pageData.value[0].acf.seo_title },
         { name: 'twitter:description', content: pageData.value[0].acf.seo_description },
-        { name: 'twitter:image', content: pageData.value?.[0]?.acf?.og_image?.url || 'http://syberia.gearsdpz.beget.tech/wp-content/uploads/2025/07/87baa9efe5d849e4f8da67fe01f9e029.jpg' },
+        { name: 'twitter:image', content: pageData.value?.[0]?.acf?.og_image?.url || store.defaultUrlOgImage },
 
         // Индексация / Деиндексация
         // Например, noindex для черновика:

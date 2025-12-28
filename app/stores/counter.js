@@ -6,6 +6,8 @@ export const useCounterStore = defineStore('counter', () => {
 
     const domainUrlCurrent = ref('http://red-angels.ru')
 
+    const defaultUrlOgImage = ref('https://red-angels-server.ru/wp-content/uploads/2025/12/og-image.jpg')
+
     const optionsData = ref(null)
 
     const popupCurrent = ref(null)
@@ -92,6 +94,7 @@ export const useCounterStore = defineStore('counter', () => {
         routerChangeStatus,
         trigerButtonForm,
         popupCloseAll,
+        defaultUrlOgImage,
 
 
         changeOptionData,

@@ -493,4 +493,12 @@
         }
 
     }
+
+
+    .car-card__border {
+        &:hover {
+            transform: scale(1);
+        }
+    }
+
 }

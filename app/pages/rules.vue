@@ -67,7 +67,7 @@
                 }' 
                 v-html="pageData[0].acf.sekcziya_2_voprosy.zagolovok"></h2>
 
-                <button class="home-hero-sec__btn btnV1 btnV1--big"
+                <button class="home-hero-sec__btn btnV1 btnV1--big btnV1--blick"
                 v-gsap.whenVisible.once.from='{
                   autoAlpha: 0,
                   y: 50,
@@ -105,7 +105,7 @@
               start: "top 70%",
             }' 
             @click="openTargetPopupForm()"
-            class="home-hero-sec__btn btnV1 btnV1--big home-faq-sec__btn-mob">
+            class="home-hero-sec__btn btnV1 btnV1--big home-faq-sec__btn-mob btnV1--blick">
                 <span class="btnV1__circle btnV1__circle-1"></span>
                 <span class="btnV1__circle btnV1__circle-2"></span>
                 <span class="btnV1__title">ЗАДАТЬ СВОЙ ВОПРОС</span>
