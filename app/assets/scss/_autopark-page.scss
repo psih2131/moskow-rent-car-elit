@@ -87,7 +87,8 @@
     .swiper-def-ar {
         width: 94px;
         height: 50px;
-        right: 0px;
+        right: auto;
+        left: auto;
         top: -70px;
         position: absolute;
 
@@ -95,6 +96,16 @@
             width: 70px;
             height: auto;
         }
+    }
+
+    .home-cat-slider-swiper-button-next {
+        right: 0px;
+
+    }
+
+    .home-cat-slider-swiper-button-prev {
+        left: 0;
+        transform: rotate(180deg);
     }
 
     .swiper-def-ar__circle {

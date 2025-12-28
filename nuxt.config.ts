@@ -1,9 +1,13 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
 
-  // app: {
-  //   pageTransition: { name: 'page', mode: 'out-in' },
-  // },
+  app: {
+    head: {
+      meta: [
+        { name: 'format-detection', content: 'telephone=no' }
+      ]
+    }
+  },
 
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
@@ -54,7 +58,10 @@ export default defineNuxtConfig({
     'vue-yandex-maps/nuxt',
     'nuxt-easy-lightbox',
     'v-gsap-nuxt',
+    'nuxt-locomotive-scroll'
   ],
+
+
 
   swiper: {
     bundled: true, // или вообще убрать — true по умолчанию

@@ -15,7 +15,7 @@
               v-gsap.whenVisible.once.from='{
                   autoAlpha: 0,
                   y: 100,
-                  delay: 1.9,
+                  delay: 0.1,
                   duration: 0.5,
               
                 }'>
@@ -28,7 +28,7 @@
                   autoAlpha: 0,
                   x: -50,
                   duration: 0.5,
-                  delay: 2,
+                  delay: 0.2,
             
                 }'></div>
 
@@ -37,7 +37,7 @@
                 v-gsap.whenVisible.once.from='{
                   autoAlpha: 0,
                   y: 100,
-                  delay: 2,
+                  delay: 0.2,
                   duration: 0.5,
               
                 }'
@@ -49,7 +49,7 @@
                   autoAlpha: 0,
                   x: 50,
                   duration: 0.5,
-                  delay: 2,
+                  delay: 0.2,
             
                 }'></div>
               </div>
@@ -73,7 +73,7 @@
               v-gsap.whenVisible.once.from='{
                   autoAlpha: 0,
                   y: 100,
-                  delay: 2.2,
+                  delay: 0.3,
                   duration: 0.5,
             
                 }'
@@ -81,22 +81,16 @@
 
               <div class="home-hero-sec__btn-row" 
               v-if="pageData[0].acf.sekcziya_1_hero.tekst_knopki"
-              v-gsap.whenVisible.once.from='{
+               v-gsap.whenVisible.once.from='{
                   autoAlpha: 0,
                   y: 100,
-                  delay: 2.3,
+                  delay: 0.4,
                   duration: 0.5,
-                 
-                }'
-              >
-                <NuxtLink to="/autopark" class="home-hero-sec__btn btnV1"
-                v-gsap.whenVisible.once.from='{
-                  autoAlpha: 0,
-                  y: 100,
-                  delay: 2.4,
-                  duration: 0.5,
-                
+                  start: "top 99%"
+            
                 }'>
+              
+                <NuxtLink to="/autopark" class="home-hero-sec__btn btnV1 btnV1--blick">
                   <span class="btnV1__circle btnV1__circle-1"></span>
                   <span class="btnV1__circle btnV1__circle-2"></span>
                   <span class="btnV1__title">{{ pageData[0].acf.sekcziya_1_hero.tekst_knopki }}</span>
@@ -135,7 +129,7 @@
               start: "top 70%",
             }' 
             to="/autopark" 
-            class="home-hero-sec__btn btnV1 btnV1--big">
+            class="home-hero-sec__btn btnV1 btnV1--big btnV1--blick">
                 <span class="btnV1__circle btnV1__circle-1"></span>
                 <span class="btnV1__circle btnV1__circle-2"></span>
                 <span class="btnV1__title">ПЕРЕЙТИ В КАТАЛОГ</span>
@@ -160,7 +154,7 @@
                   v-gsap.whenVisible.once.from='{
                     autoAlpha: 0,
                     y: 200,
-                    duration: 1,
+                    duration: 0.5,
                     delay: (0.1 * (+index + 1)),
                     start: "top 70%",
                   }' 
@@ -247,7 +241,7 @@
               start: "top 70%",
             }' 
             to="/autopark" 
-            class="home-hero-sec__btn btnV1 btnV1--big">
+            class="home-hero-sec__btn btnV1 btnV1--big btnV1--blick">
                 <span class="btnV1__circle btnV1__circle-1"></span>
                 <span class="btnV1__circle btnV1__circle-2"></span>
                 <span class="btnV1__title">CМОТРЕТЬ ВСЕ АВТО</span>
@@ -331,7 +325,7 @@
                   v-gsap.whenVisible.once.from='{
                     autoAlpha: 0,
                     y: 200,
-                    duration: 1,
+                    duration: 0.8,
                     delay: (0.1 * (+index + 1)),
                     start: "top 70%",
                   }' 
@@ -429,7 +423,7 @@
                   v-gsap.whenVisible.once.from='{
                     autoAlpha: 0,
                     y: 200,
-                    duration: 1,
+                    duration: 0.8,
                     delay: (0.1 * (+index + 1)),
                     start: "top 70%",
                   }'>
@@ -450,8 +444,19 @@
                       </div>
 
                       <div class="clients-about-us-slider__slide-client-data">
-                        <p class="clients-about-us-slider__slide-client-name" v-if="item.imya_avtora" v-html="item.imya_avtora"></p>
-                        <p class="clients-about-us-slider__slide-client-description" v-if="item.podzagolovok" v-html="item.podzagolovok"></p>
+                        <div class="clients-about-us-slider__slide-client-data-info">
+                           <p class="clients-about-us-slider__slide-client-name" v-if="item.imya_avtora" v-html="item.imya_avtora"></p>
+                          <p class="clients-about-us-slider__slide-client-description" v-if="item.podzagolovok" v-html="item.podzagolovok"></p>
+                        </div>
+                        <a :href="item.ssylka_na_original" v-if="item.ssylka_na_original" target="_blank" class="clients-about-us-slider__slide-client-data-resources">
+                          <span class="clients-about-us-slider__slide-client-data-resources-text">
+                            читать оригинал
+                          </span>
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3M12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3M12 21V3M4.46 7.5H19.67M11.69 3.00001C11.69 3.00001 7.3 4.90001 7.3 12C7.3 19.1 11.69 21 11.69 21M12.31 3.00001C12.31 3.00001 16.7 4.90001 16.7 12C16.7 19.1 12.31 21 12.31 21M4.46 16.5H19.67M3.56 12H20.56" stroke="#3F4F4F" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                        </a>
+                       
                       </div>
 
                     </div>
@@ -639,7 +644,7 @@
             }'
             ></h2>
 
-            <button class="home-hero-sec__btn btnV1 btnV1--big" 
+            <button class="home-hero-sec__btn btnV1 btnV1--big btnV1--blick" 
             @click="openTargetPopupForm()"
             v-gsap.whenVisible.once.from='{
               autoAlpha: 0,

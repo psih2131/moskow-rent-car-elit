@@ -12,6 +12,25 @@
         display: flex;
         justify-content: space-between;
     }
+
+    &::before {
+        width: 100%;
+        height: calc(100vh - 103px);
+        left: 0;
+        top: 0;
+        background: rgba(0, 0, 0, 0.5);
+        content: "";
+        position: fixed;
+        pointer-events: none;
+        opacity: 0;
+        transition: all ease 0.3s;
+    }
+
+    &:hover {
+        &::before {
+            opacity: 1;
+        }
+    }
 }
 
 .booking-widget__form {
@@ -146,6 +165,14 @@
 
     .booking-widget__social-row-text {
         display: block;
+    }
+
+    .booking-widget {
+        &:hover {
+            &::before {
+                opacity: 0;
+            }
+        }
     }
 }
 

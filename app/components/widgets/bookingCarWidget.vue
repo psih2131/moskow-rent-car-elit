@@ -1,4 +1,5 @@
 <template>
+    
     <div class="booking-widget">
         <div class="container">
             <div class="booking-widget__form">
@@ -27,7 +28,7 @@
                     >
                 </div>
 
-                <button class="home-hero-sec__btn btnV1 btnV1--big" @click="validationForm">
+                <button class="home-hero-sec__btn btnV1 btnV1--big btnV1--blick" @click="validationForm">
                     <span class="btnV1__circle btnV1__circle-1"></span>
                     <span class="btnV1__circle btnV1__circle-2"></span>
                     <span class="btnV1__title">ЗАБРОНИРЫВАТЬ</span>
@@ -39,7 +40,7 @@
                 </button>
             </div>
 
-            <button class="home-hero-sec__btn btnV1 btnV1--big booking-widget__ipad" @click="openPopupBooking">
+            <button class="home-hero-sec__btn btnV1 btnV1--big booking-widget__ipad btnV1--blick" @click="openPopupBooking">
                 <span class="btnV1__circle btnV1__circle-1"></span>
                 <span class="btnV1__circle btnV1__circle-2"></span>
                 <span class="btnV1__title">ЗАБРОНИРЫВАТЬ</span>
@@ -79,7 +80,7 @@
 
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount, computed, watch  } from 'vue';
+import { ref, onMounted,onUnmounted, onBeforeUnmount, computed, watch  } from 'vue';
 
 import { VueDatePicker } from '@vuepic/vue-datepicker';
 
@@ -221,12 +222,12 @@ onMounted(() => {
     
 });
 
-onBeforeUnmount(()=>{
+onUnmounted(()=>{
 
     let socialwidget = document.querySelector('.social-widget')
 
     if(socialwidget){
-        socialwidget.remove('hide-widget')
+        socialwidget.classList.remove('hide-widget')
     }
 })
 

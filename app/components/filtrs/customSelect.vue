@@ -1,6 +1,14 @@
 <template>
-    <div class="custom-select" :class="{'active': show == true}">
-       <div class="custom-select__header" @click="show = !show">
+
+   <!-- <Teleport to="body" v-if="show == true"> -->
+    <Transition name="bg-fade-select">
+        <div v-if="show == true" class="custom-select__wrapper-dark"></div>
+    </Transition>
+    <!-- </Teleport> -->
+
+    <div class="custom-select" ref="box" :class="{'active': show == true}">
+        
+       <div class="custom-select__header" @click="openElement()" >
         <div class="custom-select__result">{{ totalValue }}</div>
         <div class="custom-select__ar">
             <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -74,6 +82,8 @@
         valuesVariants: Array,
     })
 
+    const box = ref(null)
+
     const show = ref(false);
 
     const textValue = ref(null)
@@ -95,6 +105,17 @@
         value2.value = e.target.value.replace(/\D/g, '')
     }
 
+    function openElement(){
+        show.value = !show.value
+
+        if(show.value == true){
+            document.querySelector('.autopark-cars-sec__filtrs-row').style.transform = 'none'
+        }
+        else{
+            document.querySelector('.autopark-cars-sec__filtrs-row').style.transform = 'translate(0px, 0px)'
+        }
+    }
+    
     function selectValue(){
         if(value1.value || value2.value){
             
@@ -140,6 +161,14 @@
         show.value = false
     }
 
+    function handleClickOutside(event) {
+        if (box.value && !box.value.contains(event.target)) {
+            console.log('Клик ВНЕ компонента')
+            show.value = false
+            
+        }
+    }
+
     function selectValueOne(index){
         activeIndex.value = index
 
@@ -168,5 +197,13 @@
 
   }
 )
+
+onMounted(() => {
+  document.addEventListener('click', handleClickOutside)
+})
+
+onBeforeUnmount(() => {
+  document.removeEventListener('click', handleClickOutside)
+})
 
 </script>

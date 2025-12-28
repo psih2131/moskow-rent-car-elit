@@ -125,7 +125,7 @@
             <div class="form-popup-price-table__booking-car-row" v-if="tableData?.title">
                 <p class="form-popup-price-table__car-title" v-html="addGoldGlimer(tableData.title)"></p>
 
-                <button  class="home-hero-sec__btn btnV1 btnV1--big" @click="openTargetPopupForm('Кнопка забронирывать авто внутри развернутой таблицы с ценами внутри авто')">
+                <button  class="home-hero-sec__btn btnV1 btnV1--big btnV1--blick" @click="openTargetPopupForm('Кнопка забронирывать авто внутри развернутой таблицы с ценами внутри авто')">
                     <span class="btnV1__circle btnV1__circle-1"></span>
                     <span class="btnV1__circle btnV1__circle-2"></span>
                     <span class="btnV1__title">ЗАБРОНИРЫВАТЬ АВТО</span>

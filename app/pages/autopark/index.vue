@@ -3,11 +3,26 @@
         <div class="container">
             <div class="header-row-sec-v2">
 
-                <div class="header-row-sec-v2__decor-wrapper">
+                <div class="header-row-sec-v2__decor-wrapper"
+                v-gsap.whenVisible.once.from='{
+                  autoAlpha: 0,
+                  y: 50,
+                  duration: 0.5,
+                  delay: 0.1,
+                    start: "top 100%",
+                }'>
                 <img src="@/assets/images/img/decor.png" alt="" class="header-row-sec-v2__decor"></img>
                 </div>
                 
-                <h2 class="home-our-client-sec__title sec-title sec-title--center-mod" v-if="pageData[0]?.acf?.zagolovok" v-html="pageData[0].acf.zagolovok"></h2>
+                <h2 class="home-our-client-sec__title sec-title sec-title--center-mod" 
+                v-if="pageData[0]?.acf?.zagolovok" v-html="pageData[0].acf.zagolovok"
+                v-gsap.whenVisible.once.from='{
+                  autoAlpha: 0,
+                  y: 50,
+                  duration: 0.5,
+                  delay: 0.2,
+                    start: "top 100%",
+                }'></h2>
             </div>
 
           <div class="autopark-cars-sec__nav">
@@ -20,7 +35,14 @@
         
                 >
 
-                    <swiper-slide class="swipe-home-cat" @click="loadCurrentCut('all',999)">
+                    <swiper-slide class="swipe-home-cat" @click="loadCurrentCut('all',999)"
+                    v-gsap.whenVisible.once.from='{
+                    autoAlpha: 0,
+                    y: 200,
+                    duration: 0.5,
+                    delay: 0.1,
+                    start: "top 100%",
+                  }'>
                         <div class="swipe-home-cat__wrapper" :class="{'active': currentCutIndex == 999}">
                             <div class="swipe-home-cat__img-wprapper">
                                 <img src="@/assets/images/img/catAll.png" alt="" class="swipe-home-cat__img">
@@ -31,7 +53,14 @@
                         </div>
                     </swiper-slide>
 
-                    <swiper-slide class="swipe-home-cat" v-for="(item,index) in carsCategoryes" @click="loadCurrentCut(item.id,index)">
+                    <swiper-slide class="swipe-home-cat" v-for="(item,index) in carsCategoryes" @click="loadCurrentCut(item.id,index)"
+                    v-gsap.whenVisible.once.from='{
+                    autoAlpha: 0,
+                    y: 200,
+                    duration: 0.5,
+                    delay: (0.1 * (+index + 1)),
+                    start: "top 100%",
+                  }'>
                         <div class="swipe-home-cat__wrapper" :class="{'active': currentCutIndex == index}">
                             <div class="swipe-home-cat__img-wprapper">
                                 <img :src="item.acf.izobrazhenie_kategorii.url" :alt="item.acf.izobrazhenie_kategorii.alt" class="swipe-home-cat__img">
@@ -45,12 +74,30 @@
                 </swiper-container>
                 </ClientOnly>
 
-              <!-- <div class="home-cat-slider-swiper-button-prev swiper-def-ar swiper-def-ar--prev swiper-button" @click="swiperRecomend.prev()">
-                  <svg width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M8.15429 13.7071C8.53841 13.3166 8.53841 12.6834 8.15429 12.2929L2.94817 7L8.15429 1.70711C8.53841 1.31658 8.53841 0.683417 8.15429 0.292893C7.77017 -0.0976315 7.14738 -0.0976315 6.76326 0.292893L0.861622 6.29289C0.4775 6.68342 0.4775 7.31658 0.861622 7.70711L6.76326 13.7071C7.14738 14.0976 7.77017 14.0976 8.15429 13.7071Z" fill="#5D736E"/>
-                  </svg>
-              </div> -->
-              <div class="home-cat-slider-swiper-button-next swiper-def-ar swiper-def-ar--next swiper-button" @click="catRefSliderGallery.next()">
+              <div class="home-cat-slider-swiper-button-prev  swiper-def-ar swiper-def-ar--next swiper-button" 
+              @click="catRefSliderGallery.prev()"
+              v-gsap.whenVisible.once.from='{
+                  autoAlpha: 0,
+                  y: 50,
+                  duration: 0.5,
+                  delay: 0.2,
+                start: "top 100%",
+                }'>
+                  <svg width="153" height="15" viewBox="0 0 153 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M152.71 8.07039C153.101 7.67986 153.101 7.0467 152.71 6.65617L146.346 0.292213C145.956 -0.0983109 145.323 -0.0983109 144.932 0.292213C144.542 0.682738 144.542 1.3159 144.932 1.70643L150.589 7.36328L144.932 13.0201C144.542 13.4107 144.542 14.0438 144.932 14.4343C145.323 14.8249 145.956 14.8249 146.346 14.4343L152.71 8.07039ZM0 7.36328V8.36328H152.003V7.36328V6.36328H0V7.36328Z" fill="#F1BD81"/>
+                    </svg>
+                    <div class="swiper-def-ar__circle"></div>
+              </div>
+              <div class="home-cat-slider-swiper-button-next swiper-def-ar swiper-def-ar--next swiper-button" 
+              @click="catRefSliderGallery.next()"
+              v-gsap.whenVisible.once.from='{
+                  autoAlpha: 0,
+                  y: 50,
+                  duration: 0.5,
+                  delay: 0.2,
+                start: "top 100%",
+                }'
+              >
                     <svg width="153" height="15" viewBox="0 0 153 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M152.71 8.07039C153.101 7.67986 153.101 7.0467 152.71 6.65617L146.346 0.292213C145.956 -0.0983109 145.323 -0.0983109 144.932 0.292213C144.542 0.682738 144.542 1.3159 144.932 1.70643L150.589 7.36328L144.932 13.0201C144.542 13.4107 144.542 14.0438 144.932 14.4343C145.323 14.8249 145.956 14.8249 146.346 14.4343L152.71 8.07039ZM0 7.36328V8.36328H152.003V7.36328V6.36328H0V7.36328Z" fill="#F1BD81"/>
                     </svg>
@@ -61,7 +108,14 @@
             </div>
 
 
-            <div class="autopark-cars-sec__filtrs-row">
+            <div class="autopark-cars-sec__filtrs-row" 
+            v-gsap.whenVisible.once.from='{
+                  autoAlpha: 0,
+                  y: 50,
+                  duration: 0.5,
+                  delay: 0.3,
+                  start: "top 100%",
+                }'>
                 <div class="autopark-cars-sec__filtrs-wrapper">
 
                     <div class="autopark-cars-sec__filtrs-mob-btn" @click="show = !show">
@@ -88,7 +142,7 @@
                             </div>
 
                             <div class="autopark-cars-sec__filtr-wrapper autopark-cars-sec__filtr-wrapper--power">
-                                <customSelect :placeholder="'Тип трансмиссии'" :typeSelect="'one'" :valuesVariants="filtrTransValues" @sendData="getFiltrTransmision"/>
+                                <customSelect :placeholder="'Тип привода'" :typeSelect="'one'" :valuesVariants="filtrTransValues" @sendData="getFiltrTransmision"/>
                             </div>
 
                             <div class="autopark-cars-sec__filtr-wrapper autopark-cars-sec__filtr-wrapper--seat-places">
@@ -134,11 +188,18 @@
           </div>
 
 
-          <div class="autopark-cars-sec__cars  cars-wrapper-rv" :class="{'table-mod': viewMod == false}">
+          <div class="autopark-cars-sec__cars  cars-wrapper-rv" :class="{'table-mod': viewMod == false}"
+          v-gsap.whenVisible.once.from='{
+                  autoAlpha: 0,
+                  y: 50,
+                  duration: 0.5,
+                  delay: 0.3,
+                start: "top 100%",
+                }'>
             
             <template v-if="allCarsSave?.length > 0">
 
-                <carCard v-for="(item, index) in allCarsSave" :key="index" :carData="item" :allCats="carsCategoryes" />
+                <carCard v-for="(item, index) in allCarsSave" :key="index" :carData="item" :allCats="carsCategoryes"  />
 
             </template>
 
@@ -172,7 +233,7 @@
     </section>
     
 
-    <formSec :formSecData="optionsData" :animStatusDisable="true" />
+    <formSec :formSecData="optionsData"  />
 
     <section class="autopark-seo-sec" v-if="pageData[0]?.acf?.seo_sekcziya?.zagolovok_h1">
         <div class="container">
@@ -184,6 +245,13 @@
                     <img 
                     :src="item.img.url" 
                     :alt="item.img.alt" 
+                    v-gsap.whenVisible.once.from='{
+                    autoAlpha: 0,
+                    y: 50,
+                    duration: 0.5,
+                    delay: 0.1,
+                    start: "top 80%",
+                    }'
                     class="autopark-seo-sec__images-element"
                     >
            
@@ -195,7 +263,14 @@
                 <template v-for="(item, index) in getCurrentImg(pageData[0].acf.seo_sekcziya.izobrazheniya, 2)">
                     <img 
                     :src="item.img.url" 
-                    :alt="item.img.alt" 
+                    :alt="item.img.alt"
+                    v-gsap.whenVisible.once.from='{
+                    autoAlpha: 0,
+                    y: 50,
+                    duration: 0.5,
+                    delay: 0.2,
+                    start: "top 80%",
+                    }' 
                     class="autopark-seo-sec__images-element"
                     >
            
@@ -205,12 +280,34 @@
             </div>
 
             <div class="autopark-seo-sec__data">
-                <h2 class="clients-about-us__title sec-title sec-title--left-mod" v-html="pageData[0].acf.seo_sekcziya.zagolovok_h1"></h2>
+                <h2 class="clients-about-us__title sec-title sec-title--left-mod" 
+                v-html="pageData[0].acf.seo_sekcziya.zagolovok_h1"
+                v-gsap.whenVisible.once.from='{
+                    autoAlpha: 0,
+                    y: 50,
+                    duration: 0.5,
+                    delay: 0.1,
+                    start: "top 80%",
+                    }'></h2>
                 <div class="autopark-seo-sec__text-wrapper" v-if="pageData[0]?.acf?.seo_sekcziya.tekst">
-                    <div class="wp-editor autopark-seo-sec__pc-text" v-html="pageData[0].acf.seo_sekcziya.tekst"></div>
+                    <div class="wp-editor autopark-seo-sec__pc-text" 
+                    v-html="pageData[0].acf.seo_sekcziya.tekst"
+                    v-gsap.whenVisible.once.from='{
+                    autoAlpha: 0,
+                    y: 50,
+                    duration: 0.5,
+                    delay: 0.1,
+                    start: "top 80%",
+                    }'></div>
 
                     <div class="seo-sec-type-1__text-container autopark-seo-sec__ipad-text" 
->
+                    v-gsap.whenVisible.once.from='{
+                    autoAlpha: 0,
+                    y: 50,
+                    duration: 0.5,
+                    delay: 0.1,
+                    start: "top 80%",
+                    }'>
                         <div
                             class="seo-sec-type-1__text-wrapper"
                             :style="{ maxHeight: expanded ? `${textHeight}px` : '215px', overflow: 'hidden',  }"
@@ -224,6 +321,13 @@
                             class="seo-sec-type-1__read-more"
                             :class="{'active': expanded}"
                             @click="toggleReadMore"
+                            v-gsap.whenVisible.once.from='{
+                            autoAlpha: 0,
+                            y: 50,
+                            duration: 0.5,
+                            delay: 0.1,
+                            start: "top 80%",
+                            }'
                         >
                             <span class="seo-sec-type-1__read-more-text" >
                             Читать полностью
@@ -303,10 +407,9 @@
     const catRefSlider = ref(null)
 
     const filtrTransValues = [
-        'Механика',
-        'Автомат',
-        'Робот',
-        'Вариатор',
+        'Передний',
+        'Задний',
+        'Полный',
     ]
 
      const filtrPlacesValues = [
@@ -328,7 +431,7 @@
             'min':null,
             'max':null
         },
-        'transmission': null,
+        'privod': null,
         'passengers': null,
         'cost': {
             'min':null,
@@ -430,7 +533,7 @@ function getFiltrPover(data){
 
 function getFiltrTransmision(data){
     console.log('Transmision filtr data:', data)
-    filtrsObject.value.transmission = data
+    filtrsObject.value.privod = data
     applyFiltrs()
 }
 
@@ -462,7 +565,7 @@ function applyFiltrs(){
     if (f.power.max !== null && +char.moshhnost_ls > +f.power.max) return false
 
     // Коробка передач
-    if (f.transmission !== null && char.transmissiya !== f.transmission) return false
+    if (f.privod !== null && char.tip_privoda !== f.privod) return false
 
     // Кол-во пассажиров
     if (f.passengers !== null && +char.kolichestvo_mest < +f.passengers){
@@ -554,6 +657,8 @@ onMounted(()=>{
     if (media.matches) {
         show.value = false
     }
+
+   
 })
 
 

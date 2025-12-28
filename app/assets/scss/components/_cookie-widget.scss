@@ -1,0 +1,163 @@
+.cookie-banner {
+    position: fixed;
+    z-index: 100;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: $bgColor2;
+    padding: 25px 0;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.30);
+    z-index: 9999;
+
+
+    &::before {
+        width: 100%;
+        height: calc(100vh - 94px);
+        left: 0;
+        top: 0;
+        background: rgba(0, 0, 0, 0.5);
+        content: "";
+        position: fixed;
+        pointer-events: none;
+        opacity: 0;
+        transition: all ease 0.3s;
+    }
+
+    &:hover {
+        &::before {
+            opacity: 1;
+        }
+    }
+}
+
+.cookie-banner__wrapper {
+    width: 1560px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.cookie-banner p {
+    margin: 0;
+    text-align: left;
+    line-height: 1.4;
+    color: $grey2;
+    font-family: $mainFont;
+    font-size: 16px;
+    width: 900px
+}
+
+.cookie-link {
+    color: $gold1;
+    text-decoration: underline;
+    transition: all ease 0.3s;
+}
+
+.cookie-link:hover {
+    color: $white;
+    transition: all ease 0.3s;
+}
+
+.cookie-btn {
+    background: $white;
+    color: $bgColor;
+    border: none;
+    padding: 12px 25px;
+
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all ease 0.3s;
+    font-family: $mainFont;
+
+    &:hover {
+        background: $gold1;
+        color: $white;
+        transition: all ease 0.3s;
+    }
+}
+
+
+@media only screen and (max-width: 1750px) {
+    .cookie-banner__wrapper {
+        width: 1440px;
+    }
+}
+
+@media only screen and (max-width: 1580px) {
+    .cookie-banner__wrapper {
+        width: 1360px;
+    }
+}
+
+@media only screen and (max-width: 1500px) {
+    .cookie-banner__wrapper {
+        width: 1160px;
+    }
+}
+
+@media only screen and (max-width: 1380px) {
+    .cookie-banner__wrapper {
+        width: 980px;
+    }
+
+    .cookie-banner p {
+        width: calc(100% - 200px);
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 990px) {
+    .cookie-banner__wrapper {
+        width: 750px;
+    }
+
+    .cookie-banner {
+        &::before {
+            height: calc(100vh - 108px);
+        }
+    }
+}
+
+@media only screen and (max-width: 760px) {
+    .cookie-banner__wrapper {
+        width: 360px;
+        flex-wrap: wrap;
+    }
+
+    .cookie-banner p {
+        width: 100%;
+        text-align: center;
+        font-size: 10px;
+        line-height: 1.3;
+    }
+
+    .cookie-banner__btn-wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    .cookie-btn {
+        font-size: 12px;
+        padding: 10px 15px;
+    }
+
+    .cookie-banner {
+        padding: 15px 0 20px;
+    }
+
+    .cookie-banner {
+        &::before {
+            height: calc(100vh - 118px);
+        }
+
+        &:hover {
+            &::before {
+                opacity: 0;
+            }
+        }
+    }
+}

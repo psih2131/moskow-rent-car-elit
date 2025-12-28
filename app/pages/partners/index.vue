@@ -6,21 +6,7 @@
 
                 <div class="hero-partners-sec__row" v-for="(value, index) in partnersChield">
                     
-                    <div class="seo-sec-type-1__images" v-if="index == 0">
-                        <img v-for="(item,inx) in value.acf.izobrazheniya_kartochki"
-                        
-                        :src="item.kartinka.url" :alt="item.kartinka.alt" 
-                        v-gsap.whenVisible.once.from='{
-                        autoAlpha: 0,
-                        y: 50,
-                        duration: 0.5,
-                        delay: 2 + ((inx + 1) / 10),
-                        start: "top 70%",
-                        }'
-                        class="seo-sec-type-1__img" >
-                    </div>
-
-                    <div class="seo-sec-type-1__images" v-else>
+                    <div class="seo-sec-type-1__images">
                         <img v-for="(item,inx) in value.acf.izobrazheniya_kartochki"
                         
                         :src="item.kartinka.url" :alt="item.kartinka.alt" 
@@ -29,64 +15,12 @@
                         y: 50,
                         duration: 0.5,
                         delay: 0.1 + ((inx + 1) / 10),
-                        start: "top 70%",
+                        start: "top 90%",
                         }'
                         class="seo-sec-type-1__img" >
                     </div>
 
-                    <div class="seo-sec-type-1__data" v-if="index == 0">
-                        <h1 
-                        class="hero-partners-sec__title sec-title sec-title--left-mod sec-title--capitalize-mod" 
-                        v-if="value.acf.zagolovok" v-html="value.acf.zagolovok"
-                        v-gsap.whenVisible.once.from='{
-                        autoAlpha: 0,
-                        y: 50,
-                        duration: 0.5,
-                        delay: 2.3,
-                        start: "top 70%",
-                        }'></h1>
-
-                        <div class="seo-sec-type-1__text-container">
-                        <div v-if="value.acf.korotkoe_opisanie"
-                            class="seo-sec-type-1__text-wrapper">
-                            <div class="wp-editor seo-sec-type-1__editor" 
-                            ref="editor"
-                            v-gsap.whenVisible.once.from='{
-                            autoAlpha: 0,
-                            y: 50,
-                            duration: 0.5,
-                            delay: 2.4,
-                            start: "top 70%",
-                            }'>
-                                <p v-html="value.acf.korotkoe_opisanie"></p>
-                            </div>
-                        </div>
-
-                        <NuxtLink 
-                        :to="`/partners/${value.slug}`" 
-                        class="hero-partners-sec__btn btnV1 btnV1--big"
-                        v-gsap.whenVisible.once.from='{
-                        autoAlpha: 0,
-                        y: 50,
-                        duration: 0.5,
-                        delay: 2.5,
-                        start: "top 70%",
-                        }'>
-                            <span class="btnV1__circle btnV1__circle-1"></span>
-                            <span class="btnV1__circle btnV1__circle-2"></span>
-                            <span class="btnV1__title">{{ value.acf.tekst_knopki }}</span>
-
-                            <div class="btnV1__line btnV1__line-1"></div>
-                            <div class="btnV1__line btnV1__line-2"></div>
-                            <div class="btnV1__line btnV1__line-3"></div>
-                            <div class="btnV1__line btnV1__line-4"></div>
-                        </NuxtLink>
-
-                        </div>
-                        
-                    </div>
-
-                    <div class="seo-sec-type-1__data" v-else>
+                    <div class="seo-sec-type-1__data">
                         <h1 
                         class="hero-partners-sec__title sec-title sec-title--left-mod sec-title--capitalize-mod" 
                         v-if="value.acf.zagolovok" v-html="value.acf.zagolovok"
@@ -95,7 +29,7 @@
                         y: 50,
                         duration: 0.5,
                         delay: 0.3,
-                        start: "top 70%",
+                        start: "top 90%",
                         }'></h1>
 
                         <div class="seo-sec-type-1__text-container">
@@ -108,7 +42,7 @@
                             y: 50,
                             duration: 0.5,
                             delay: 0.4,
-                            start: "top 70%",
+                            start: "top 90%",
                             }'
                             >
                                 <p v-html="value.acf.korotkoe_opisanie"></p>
@@ -123,7 +57,7 @@
                         y: 50,
                         duration: 0.5,
                         delay: 0.5,
-                        start: "top 70%",
+                        start: "top 90%",
                         }'>
                             <span class="btnV1__circle btnV1__circle-1"></span>
                             <span class="btnV1__circle btnV1__circle-2"></span>

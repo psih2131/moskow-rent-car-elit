@@ -11,7 +11,7 @@
                         autoAlpha: 0,
                         y: 50,
                         duration: 0.5,
-                        delay: 2 + ((index + 1) / 10),
+                        delay: 0.1 + ((index + 1) / 10),
                     
                     }'
                     :src="value.kartinka.url" 
@@ -26,7 +26,7 @@
                         autoAlpha: 0,
                         y: 50,
                         duration: 0.5,
-                        delay: 2.3,
+                        delay: 0.3,
                     
                     }'
                     v-html="pageData[0].acf['sekcziya_1_-_hero'].zagolvok"></h1>
@@ -38,7 +38,7 @@
                                 autoAlpha: 0,
                                 y: 50,
                                 duration: 0.5,
-                                delay: 2.4,
+                                delay: 0.4,
                             
                             }'
                             v-html="pageData[0].acf['sekcziya_1_-_hero'].tekst"></div>
@@ -59,17 +59,17 @@
                 y: 50,
                 duration: 0.5,
                 delay: 0.1,
-                start: "top 70%",
+                start: "top 90%",
                 }'
                 v-html="pageData[0].acf.sekcziya_2_dostupnye_sertefikaty.zagolovok"></h2>
 
-                <button class="home-hero-sec__btn btnV1 btnV1--big" 
+                <button class="home-hero-sec__btn btnV1 btnV1--big btnV1--blick" 
                 v-gsap.whenVisible.once.from='{
                 autoAlpha: 0,
                 y: 50,
                 duration: 0.5,
                 delay: 0.2,
-                start: "top 70%",
+                start: "top 90%",
                 }'
                 @click="openTargetPopupForm('Кнопка заказать сертификат')">
                     <span class="btnV1__circle btnV1__circle-1"></span>
@@ -94,7 +94,7 @@
                 
                 <div class="certificates-catalog-sec__element certeficat-card"
                 v-for="value in pageData[0].acf.sekcziya_2_dostupnye_sertefikaty.sertefikaty"
-                v-gsap.preset="'stagger-up'"
+    
                 
                 >
 
@@ -106,7 +106,7 @@
                     </div>
 
                     <div class="certeficat-card__btn-wrapper" @click="openTargetPopupForm(`Кнопка заказать сертификат ${value.znachenie}`)">
-                        <button class="certeficat-card__btn btnV1 btnV1--big">
+                        <button class="certeficat-card__btn btnV1 btnV1--big btnV1--blick">
                             <span class="btnV1__circle btnV1__circle-1"></span>
                             <span class="btnV1__circle btnV1__circle-2"></span>
                             <span class="btnV1__title">ЗАКАЗАТЬ СЕРТИФИКАТ</span>
@@ -121,7 +121,7 @@
             </div>
 
 
-            <button class="home-hero-sec__btn btnV1 btnV1--big certificates-catalog-sec__btn-mob" 
+            <button class="home-hero-sec__btn btnV1 btnV1--big certificates-catalog-sec__btn-mob btnV1--blick" 
                 v-gsap.whenVisible.once.from='{
                 autoAlpha: 0,
                 y: 50,
@@ -189,7 +189,7 @@
                     }'
                 ></h2>
 
-                <button class="home-hero-sec__btn btnV1 btnV1--big" 
+                <button class="home-hero-sec__btn btnV1 btnV1--big btnV1--blick" 
                 v-gsap.whenVisible.once.from='{
                     autoAlpha: 0,
                     y: 50,
@@ -231,7 +231,7 @@
                 </div>
             </div>
 
-            <button class="home-hero-sec__btn btnV1 btnV1--big certeficat-how-it-work-sec__mob-btn" 
+            <button class="home-hero-sec__btn btnV1 btnV1--big certeficat-how-it-work-sec__mob-btn btnV1--blick" 
                 v-gsap.whenVisible.once.from='{
                     autoAlpha: 0,
                     y: 50,
@@ -269,7 +269,7 @@
             }'
             ></h2>
 
-            <button class="home-hero-sec__btn btnV1 btnV1--big" 
+            <button class="home-hero-sec__btn btnV1 btnV1--big btnV1--blick" 
             @click="openTargetPopupForm('Секция вопрос - ответ | Кнопка задать вопрос')"
             v-gsap.whenVisible.once.from='{
                 autoAlpha: 0,

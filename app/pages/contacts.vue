@@ -8,7 +8,7 @@
                   autoAlpha: 0,
                   y: 50,
                   duration: 0.5,
-                  delay: 2,
+                  delay: 0.1,
             
                 }'
                 >
@@ -19,7 +19,7 @@
                   autoAlpha: 0,
                   y: 50,
                   duration: 0.5,
-                  delay: 2.2,
+                  delay: 0.2,
             
                 }'
                 class="contacts-sec__title sec-title sec-title--center-mod" v-html="pageData[0].acf.zagolovok"></h2>
@@ -32,7 +32,7 @@
                   autoAlpha: 0,
                   y: 50,
                   duration: 0.5,
-                  delay: 2.3,
+                  delay: 0.3,
             
                 }'
                 :href="pageData[0].acf.telefon.ssylka" class="contacts-sec__contact social-contact-def" v-if="pageData[0].acf?.telefon?.znachenie">
@@ -55,7 +55,7 @@
                   autoAlpha: 0,
                   y: 50,
                   duration: 0.5,
-                  delay: 2.4,
+                  delay: 0.4,
             
                 }'
                 :href="pageData[0].acf.pochta.ssylka" class="contacts-sec__contact social-contact-def" v-if="pageData[0].acf?.pochta?.znachenie">
@@ -78,7 +78,7 @@
                   autoAlpha: 0,
                   y: 50,
                   duration: 0.5,
-                  delay: 2.5,
+                  delay: 0.5,
             
                 }'
                 :href="pageData[0].acf.adres.ssylka" class="contacts-sec__contact social-contact-def social-contact-def--map" 
@@ -102,7 +102,7 @@
                   autoAlpha: 0,
                   y: 50,
                   duration: 0.5,
-                  delay: 2.5 + ((index + 1) / 10),
+                  delay: 0.5 + ((index + 1) / 10),
             
                 }'
                     :href="item.ssylka" class="contacts-sec__contact social-contact-def" v-for="(item, index) in pageData[0].acf.socz_seti">
@@ -127,7 +127,7 @@
                   autoAlpha: 0,
                   y: 50,
                   duration: 0.5,
-                  delay: 2.8,
+                  delay: 0.8,
             
                 }'>
                 <div class="contacts-sec__map-wrapper-box">

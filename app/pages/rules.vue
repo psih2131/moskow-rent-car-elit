@@ -9,7 +9,7 @@
                   autoAlpha: 0,
                   y: 50,
                   duration: 0.5,
-                  delay: 2,
+                  delay: 0.1,
             
                 }'>
               <img 
@@ -24,7 +24,7 @@
                   autoAlpha: 0,
                   y: 50,
                   duration: 0.5,
-                  delay: 2.1,
+                  delay: 0.1,
             
                 }'
               class="car-adv-sec__title sec-title sec-title--center-mod" v-html="pageData[0].acf.sekcziya_1_usloviya.zagolovok"></h2>
@@ -36,7 +36,7 @@
               autoAlpha: 0,
               y: 50,
               duration: 0.5,
-              delay: 2 + ((index + 1) / 10),
+              delay: 0.1 + ((index + 1) / 10),
         
             }'
           v-for="(item, index) in pageData[0].acf.sekcziya_1_usloviya.usloviya">
@@ -175,6 +175,8 @@ onMounted(() => {
   setTimeout(()=>{
     store.changeRouterChangeStatus(false)
   },200)
+
+  
 })
 
 

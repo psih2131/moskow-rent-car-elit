@@ -1,11 +1,29 @@
 <template>
+  <div id="scroll-container"  >
+
     <section class="car-hero-sec">
         <div class="container">
             <div class="header-row-sec">
-                <h2 class="car-hero-sec__title sec-title sec-title--left-mod" v-html="addGoldGlimer(currentCarData[0].title.rendered)"></h2>
+                <h2 class="car-hero-sec__title sec-title sec-title--left-mod" 
+                
+                v-html="addGoldGlimer(currentCarData[0].title.rendered)"
+                v-gsap.whenVisible.once.from='{
+                    autoAlpha: 0,
+                    y: 50,
+                    duration: 0.5,
+                    delay: 0.1,
+                    start: "top 80%",
+                    }'></h2>
 
 
-                <div class="car-card__price-row-tab car-hero-sec__price">
+                <div class="car-card__price-row-tab car-hero-sec__price"
+                v-gsap.whenVisible.once.from='{
+                  autoAlpha: 0,
+                  y: 50,
+                  duration: 0.5,
+                  delay: 0.2,
+                  start: "top 80%",
+                  }'>
                   <template v-if="currentCarData[0].acf.gibkaya_stoimost_arendy[0].skidka">
                     <div class="car-card__price-sale-wrapper">
                        <div class="car-card__price-sale-price" >
@@ -48,7 +66,14 @@
           
         </div>
 
-        <div class="car-hero-sec__slider-wrapper">
+        <div class="car-hero-sec__slider-wrapper"
+        v-gsap.whenVisible.once.from='{
+                    autoAlpha: 0,
+                    y: 50,
+                    duration: 0.5,
+                    delay: 0.3,
+                    start: "top 80%",
+                    }'>
 
             <div class="car-hero-sec__slider-row">
 
@@ -122,7 +147,6 @@
           
     </section>
 
-
     <section class="car-char-sec" v-if="currentCarData[0].acf.harakteristiki">
       <div class="container">
 
@@ -132,6 +156,25 @@
         y: 50,
         duration: 0.5,
         delay: 0.1,
+        start: "top 70%",
+        }'>
+          <div class="char-full__icon-wrapper">
+            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M10.6396 25.9629L7.78809 23.1138H5.8252C5.13916 23.1138 4.57764 22.5522 4.57764 21.8662V19.7422H3.38867V22.2275C3.38867 22.7573 2.9541 23.1919 2.42432 23.1919H0.964355C0.43457 23.1919 0 22.7573 0 22.2275V13.8047C0 13.2749 0.43457 12.8403 0.964355 12.8403H2.42432C2.9541 12.8403 3.38867 13.2749 3.38867 13.8047V16.29H4.57764V14.0049C4.57764 13.3188 5.13916 12.7573 5.8252 12.7573H7.91016L10.8569 9.625C11.1987 9.32715 11.6528 9.22217 12.1826 9.24414H24.3237C24.7437 9.29053 25.0635 9.45166 25.2588 9.75439C25.4541 10.0522 25.4224 10.2207 25.4224 10.5552V16.29H26.6113V13.8047C26.6113 13.2749 27.0459 12.8403 27.5757 12.8403H29.0356C29.5654 12.8403 30 13.2749 30 13.8047V22.2275C30 22.7573 29.5654 23.1919 29.0356 23.1919H27.5757C27.0459 23.1919 26.6113 22.7573 26.6113 22.2275V19.7422H25.4224V19.9668C25.4224 20.6333 25.4419 21.0361 25.0171 21.5879C24.9365 21.6929 24.8462 21.793 24.7461 21.8857L20.3931 26.1484C20.1758 26.3901 19.8462 26.522 19.4116 26.5464H11.9897C11.4355 26.522 10.9839 26.3315 10.6396 25.9629ZM15.5542 18.5361L12.4683 18.2456L15.0269 12.6401H18.5254L16.5405 15.8555L20.1099 16.251L13.5571 24.1172L15.5542 18.5361ZM12.6904 3.45312H21.1133C21.6431 3.45312 22.0776 3.8877 22.0776 4.41748V5.87744C22.0776 6.40723 21.6431 6.8418 21.1133 6.8418H18.6279V8.06982H15.1758V6.8418H12.6904C12.1606 6.8418 11.7261 6.40723 11.7261 5.87744V4.41748C11.7261 3.8877 12.1606 3.45312 12.6904 3.45312Z" fill="#F1BD81"/>
+            </svg>
+          </div>
+          <div class="char-full__data">
+            <p class="char-full__title">Обьем двигателя</p>
+            <p class="char-full__value"><span v-html="currentCarData[0].acf.harakteristiki.obyom_dvigatelya"></span> литра</p>
+          </div>
+        </div>
+
+        <div class="char-full"
+        v-gsap.whenVisible.once.from='{
+        autoAlpha: 0,
+        y: 50,
+        duration: 0.5,
+        delay: 0.2,
         start: "top 70%",
         }'>
           <div class="char-full__icon-wrapper">
@@ -151,40 +194,18 @@
         autoAlpha: 0,
         y: 50,
         duration: 0.5,
-        delay: 0.2,
-        start: "top 70%",
-        }'>
-          <div class="char-full__icon-wrapper">
-            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M8.67969 2.15625V5.34375L7.71172 5.20541C6.88177 5.08675 6.27344 4.47123 6.27344 3.75C6.27344 3.0324 6.8776 2.41383 7.71172 2.29459L8.67969 2.15625ZM21.4396 1.9998V5.50019C21.4396 6.60345 20.3958 7.49999 19.1065 7.49999C18.7654 7.49999 18.4708 7.70273 18.397 7.98808L17.4297 11.7187H13.7834L12.8161 7.98808C12.7435 7.708 12.4545 7.49999 12.1065 7.49999C10.818 7.49999 9.77344 6.60468 9.77344 5.50019V1.9998C9.77344 0.895312 10.818 0 12.1065 0H19.1065C20.3951 0 21.4396 0.895312 21.4396 1.9998ZM17.3565 13.5937V16.5C17.3565 17.3285 16.5731 18 15.6065 18C14.6399 18 13.8565 17.3286 13.8565 16.5V13.5937H17.3565ZM20.3459 23.2476C20.3459 23.9764 19.6559 24.5625 18.8119 24.5625H12.4012C11.5549 24.5625 10.8672 23.9724 10.8672 23.2476C10.8672 23.0395 10.7944 23.3825 12.1564 18.1295C13.6422 20.4487 17.5507 20.4619 19.0559 18.126C20.4198 23.387 20.3459 23.0397 20.3459 23.2476Z" fill="#F1BD81"/>
-            <path d="M27.2752 19.0002V25.9998C27.2752 28.2094 25.1861 30 22.6083 30H8.6083C6.03047 30 3.94141 28.2094 3.94141 25.9998V19.0002C3.94141 16.7906 6.03047 15 8.6083 15H11.1848C10.7514 15.5127 10.4444 16.0975 10.2817 16.7256C8.66353 22.967 8.68144 22.7502 8.68144 23.2477C8.68144 25.0066 10.3508 26.4375 12.4029 26.4375H18.8137C20.8703 26.4375 22.5351 25.01 22.5351 23.2477C22.5351 22.7649 22.5853 23.0882 20.9349 16.7256C20.7722 16.0969 20.4652 15.5127 20.0311 15H22.6083C25.1861 15 27.2752 16.7906 27.2752 19.0002Z" fill="#F1BD81"/>
-            </svg>
-
-          </div>
-          <div class="char-full__data">
-            <p class="char-full__title">Трансмиссия</p>
-            <p class="char-full__value"><span v-html="currentCarData[0].acf.harakteristiki.transmissiya"></span></p>
-          </div>
-        </div>
-
-        <div class="char-full"
-        v-gsap.whenVisible.once.from='{
-        autoAlpha: 0,
-        y: 50,
-        duration: 0.5,
         delay: 0.3,
         start: "top 70%",
         }'>
           <div class="char-full__icon-wrapper">
-            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M25.832 24.5455H5.37749C4.24763 24.5455 3.33203 25.4613 3.33203 26.5909C3.33203 28.4738 4.85813 29.9999 6.74104 29.9999H24.4682C26.3511 29.9999 27.8775 28.4738 27.8775 26.5909C27.8775 25.4613 26.9617 24.5455 25.832 24.5455ZM9.80398 12.2268C9.82444 10.7372 11.0402 9.5416 12.5298 9.54538H18.6797C20.1853 9.5471 21.4053 10.7671 21.407 12.2727L22.1174 23.1819H25.1149L24.4682 10.9092C24.4657 8.65074 22.6358 6.82076 20.3773 6.81827H19.6957V5.45446H21.0592C21.812 5.4537 22.422 4.8437 22.4228 4.09091V2.72736C22.4211 1.22171 21.2011 0.00178977 19.6957 0H11.5139C10.0082 0.00172585 8.78829 1.22171 8.7865 2.72736V4.09091C8.78726 4.8437 9.39726 5.4537 10.15 5.45446H11.5139V6.81827H10.832C8.58598 6.81603 6.75926 8.62722 6.74232 10.8732L6.09461 23.1819H9.05893L9.80398 12.2268ZM12.8774 5.45446H18.3319V6.81827H12.8774V5.45446Z" fill="#F1BD81"/>
-            <path d="M18.6834 10.9082H12.5336C11.7808 10.909 11.1708 11.519 11.17 12.2718L10.4297 23.1809H20.7546L20.0483 12.3157C20.0524 12.1333 20.0202 11.952 19.9536 11.7821C19.887 11.6123 19.7873 11.4574 19.6603 11.3264C19.5333 11.1954 19.3816 11.091 19.2139 11.0192C19.0462 10.9474 18.8658 10.9097 18.6834 10.9082Z" fill="#F1BD81"/>
+            <svg width="30" height="27" viewBox="0 0 30 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M13.5938 2.8944C11.3398 3.15025 9.20203 4.03113 7.42125 5.43779L8.9625 6.98259C9.2109 7.24946 9.34613 7.60244 9.3397 7.96715C9.33327 8.33186 9.18569 8.67983 8.92804 8.93776C8.67039 9.19569 8.32279 9.34344 7.95848 9.34987C7.59417 9.35631 7.24158 9.22093 6.975 8.97226L5.42625 7.4237C4.10996 9.07653 3.25353 11.0483 2.94375 13.1393H6.09375C6.46671 13.1393 6.8244 13.2876 7.08812 13.5516C7.35184 13.8156 7.5 14.1737 7.5 14.5471C7.5 14.9204 7.35184 15.2785 7.08812 15.5425C6.8244 15.8065 6.46671 15.9549 6.09375 15.9549H2.85938C3.1513 18.9673 4.52662 21.771 6.72938 23.8441C6.99505 24.101 7.14909 24.4522 7.15822 24.8219C7.16734 25.1915 7.03081 25.5499 6.77813 25.8196C6.52545 26.0894 6.17691 26.2487 5.80783 26.2633C5.43874 26.2779 5.07874 26.1465 4.80563 25.8975C1.91813 23.189 0 19.1946 0 14.9093C0 6.66537 6.72563 0 15 0C23.2744 0 30 6.6635 30 14.9093C29.9963 16.9667 29.5745 19.0019 28.7603 20.8909C27.946 22.7799 26.7564 24.4833 25.2638 25.8975C24.9906 26.1465 24.6306 26.2779 24.2615 26.2633C23.8925 26.2487 23.5439 26.0894 23.2912 25.8196C23.0386 25.5499 22.902 25.1915 22.9112 24.8219C22.9203 24.4522 23.0743 24.101 23.34 23.8441C25.5275 21.7675 26.88 18.9613 27.1425 15.9549H23.9062C23.5333 15.9549 23.1756 15.8065 22.9119 15.5425C22.6482 15.2785 22.5 14.9204 22.5 14.5471C22.5 14.1737 22.6482 13.8156 22.9119 13.5516C23.1756 13.2876 23.5333 13.1393 23.9062 13.1393H27.0563C26.2613 7.75969 21.8944 3.51945 16.4062 2.8944V5.16187C16.4062 5.53523 16.2581 5.89331 15.9944 6.15732C15.7306 6.42133 15.373 6.56965 15 6.56965C14.627 6.56965 14.2694 6.42133 14.0056 6.15732C13.7419 5.89331 13.5938 5.53523 13.5938 5.16187V2.8944ZM21.4669 7.1459C21.6373 7.01043 21.8494 6.93851 22.067 6.94246C22.2845 6.94642 22.4939 7.026 22.6593 7.16758C22.8246 7.30915 22.9356 7.50389 22.9733 7.71843C23.0109 7.93297 22.9729 8.15393 22.8656 8.34345L22.6594 8.71135C21.9054 10.0442 21.1466 11.3745 20.3831 12.7019C19.7728 13.7642 19.154 14.8217 18.5269 15.8741C18.2919 16.2701 18.0518 16.6631 17.8069 17.0529C17.6194 17.3476 17.4356 17.6273 17.3006 17.785C16.8163 18.353 16.1264 18.7051 15.3827 18.7639C14.639 18.8227 13.9024 18.5833 13.335 18.0984C12.7676 17.6136 12.4159 16.9229 12.3571 16.1784C12.2984 15.4339 12.5375 14.6965 13.0219 14.1285C13.1569 13.9708 13.4025 13.7437 13.665 13.5128C13.9462 13.2632 14.3081 12.9572 14.715 12.6137C15.5325 11.9305 16.5563 11.0933 17.5538 10.2862C18.7435 9.32269 19.9373 8.36414 21.135 7.41056L21.4669 7.14778V7.1459Z" fill="#F3C884"/>
             </svg>
 
           </div>
           <div class="char-full__data">
-            <p class="char-full__title">К-во мест</p>
-            <p class="char-full__value"><span v-html="currentCarData[0].acf.harakteristiki.kolichestvo_mest"></span> места</p>
+            <p class="char-full__title">Разгон до 100</p>
+            <p class="char-full__value"><span v-html="currentCarData[0].acf.harakteristiki.razgon_do_100"></span> секунд</p>
           </div>
         </div>
 
@@ -194,25 +215,6 @@
         y: 50,
         duration: 0.5,
         delay: 0.4,
-        start: "top 70%",
-        }'>
-          <div class="char-full__icon-wrapper">
-            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M10.6396 25.9629L7.78809 23.1138H5.8252C5.13916 23.1138 4.57764 22.5522 4.57764 21.8662V19.7422H3.38867V22.2275C3.38867 22.7573 2.9541 23.1919 2.42432 23.1919H0.964355C0.43457 23.1919 0 22.7573 0 22.2275V13.8047C0 13.2749 0.43457 12.8403 0.964355 12.8403H2.42432C2.9541 12.8403 3.38867 13.2749 3.38867 13.8047V16.29H4.57764V14.0049C4.57764 13.3188 5.13916 12.7573 5.8252 12.7573H7.91016L10.8569 9.625C11.1987 9.32715 11.6528 9.22217 12.1826 9.24414H24.3237C24.7437 9.29053 25.0635 9.45166 25.2588 9.75439C25.4541 10.0522 25.4224 10.2207 25.4224 10.5552V16.29H26.6113V13.8047C26.6113 13.2749 27.0459 12.8403 27.5757 12.8403H29.0356C29.5654 12.8403 30 13.2749 30 13.8047V22.2275C30 22.7573 29.5654 23.1919 29.0356 23.1919H27.5757C27.0459 23.1919 26.6113 22.7573 26.6113 22.2275V19.7422H25.4224V19.9668C25.4224 20.6333 25.4419 21.0361 25.0171 21.5879C24.9365 21.6929 24.8462 21.793 24.7461 21.8857L20.3931 26.1484C20.1758 26.3901 19.8462 26.522 19.4116 26.5464H11.9897C11.4355 26.522 10.9839 26.3315 10.6396 25.9629ZM15.5542 18.5361L12.4683 18.2456L15.0269 12.6401H18.5254L16.5405 15.8555L20.1099 16.251L13.5571 24.1172L15.5542 18.5361ZM12.6904 3.45312H21.1133C21.6431 3.45312 22.0776 3.8877 22.0776 4.41748V5.87744C22.0776 6.40723 21.6431 6.8418 21.1133 6.8418H18.6279V8.06982H15.1758V6.8418H12.6904C12.1606 6.8418 11.7261 6.40723 11.7261 5.87744V4.41748C11.7261 3.8877 12.1606 3.45312 12.6904 3.45312Z" fill="#F1BD81"/>
-            </svg>
-          </div>
-          <div class="char-full__data">
-            <p class="char-full__title">Обьем двигателя</p>
-            <p class="char-full__value"><span v-html="currentCarData[0].acf.harakteristiki.obyom_dvigatelya"></span> литра</p>
-          </div>
-        </div>
-
-        <div class="char-full"
-        v-gsap.whenVisible.once.from='{
-        autoAlpha: 0,
-        y: 50,
-        duration: 0.5,
-        delay: 0.5,
         start: "top 70%",
         }'>
           <div class="char-full__icon-wrapper">
@@ -231,24 +233,59 @@
         autoAlpha: 0,
         y: 50,
         duration: 0.5,
-        delay: 0.6,
+        delay: 0.5,
         start: "top 70%",
         }'>
           <div class="char-full__icon-wrapper">
-            <svg width="30" height="27" viewBox="0 0 30 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M13.5938 2.8944C11.3398 3.15025 9.20203 4.03113 7.42125 5.43779L8.9625 6.98259C9.2109 7.24946 9.34613 7.60244 9.3397 7.96715C9.33327 8.33186 9.18569 8.67983 8.92804 8.93776C8.67039 9.19569 8.32279 9.34344 7.95848 9.34987C7.59417 9.35631 7.24158 9.22093 6.975 8.97226L5.42625 7.4237C4.10996 9.07653 3.25353 11.0483 2.94375 13.1393H6.09375C6.46671 13.1393 6.8244 13.2876 7.08812 13.5516C7.35184 13.8156 7.5 14.1737 7.5 14.5471C7.5 14.9204 7.35184 15.2785 7.08812 15.5425C6.8244 15.8065 6.46671 15.9549 6.09375 15.9549H2.85938C3.1513 18.9673 4.52662 21.771 6.72938 23.8441C6.99505 24.101 7.14909 24.4522 7.15822 24.8219C7.16734 25.1915 7.03081 25.5499 6.77813 25.8196C6.52545 26.0894 6.17691 26.2487 5.80783 26.2633C5.43874 26.2779 5.07874 26.1465 4.80563 25.8975C1.91813 23.189 0 19.1946 0 14.9093C0 6.66537 6.72563 0 15 0C23.2744 0 30 6.6635 30 14.9093C29.9963 16.9667 29.5745 19.0019 28.7603 20.8909C27.946 22.7799 26.7564 24.4833 25.2638 25.8975C24.9906 26.1465 24.6306 26.2779 24.2615 26.2633C23.8925 26.2487 23.5439 26.0894 23.2912 25.8196C23.0386 25.5499 22.902 25.1915 22.9112 24.8219C22.9203 24.4522 23.0743 24.101 23.34 23.8441C25.5275 21.7675 26.88 18.9613 27.1425 15.9549H23.9062C23.5333 15.9549 23.1756 15.8065 22.9119 15.5425C22.6482 15.2785 22.5 14.9204 22.5 14.5471C22.5 14.1737 22.6482 13.8156 22.9119 13.5516C23.1756 13.2876 23.5333 13.1393 23.9062 13.1393H27.0563C26.2613 7.75969 21.8944 3.51945 16.4062 2.8944V5.16187C16.4062 5.53523 16.2581 5.89331 15.9944 6.15732C15.7306 6.42133 15.373 6.56965 15 6.56965C14.627 6.56965 14.2694 6.42133 14.0056 6.15732C13.7419 5.89331 13.5938 5.53523 13.5938 5.16187V2.8944ZM21.4669 7.1459C21.6373 7.01043 21.8494 6.93851 22.067 6.94246C22.2845 6.94642 22.4939 7.026 22.6593 7.16758C22.8246 7.30915 22.9356 7.50389 22.9733 7.71843C23.0109 7.93297 22.9729 8.15393 22.8656 8.34345L22.6594 8.71135C21.9054 10.0442 21.1466 11.3745 20.3831 12.7019C19.7728 13.7642 19.154 14.8217 18.5269 15.8741C18.2919 16.2701 18.0518 16.6631 17.8069 17.0529C17.6194 17.3476 17.4356 17.6273 17.3006 17.785C16.8163 18.353 16.1264 18.7051 15.3827 18.7639C14.639 18.8227 13.9024 18.5833 13.335 18.0984C12.7676 17.6136 12.4159 16.9229 12.3571 16.1784C12.2984 15.4339 12.5375 14.6965 13.0219 14.1285C13.1569 13.9708 13.4025 13.7437 13.665 13.5128C13.9462 13.2632 14.3081 12.9572 14.715 12.6137C15.5325 11.9305 16.5563 11.0933 17.5538 10.2862C18.7435 9.32269 19.9373 8.36414 21.135 7.41056L21.4669 7.14778V7.1459Z" fill="#F3C884"/>
+            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_1620_3556)">
+            <path d="M2.25195 10.502L5 2.1875V0.3125H2.5L2.25195 10.502ZM5.3125 2.5V8.75H7.1875V2.5H5.3125ZM5.25195 1.50195L2.5 9.0625V10.9375H5L5.25195 1.50195ZM2.1875 8.75V2.5H0.3125V8.75H2.1875ZM2.5 9.0625C2.32741 9.0625 2.1875 8.92259 2.1875 8.75H0.3125C0.3125 9.95813 1.29188 10.9375 2.5 10.9375V9.0625ZM5.3125 8.75C5.3125 8.92259 5.42454 1.50195 5.25195 1.50195L5 10.9375C6.20812 10.9375 7.1875 9.95813 7.1875 8.75H5.3125ZM5 2.1875C5.17259 2.1875 5.3125 2.32741 5.3125 2.5H7.1875C7.1875 1.29188 6.20812 0.3125 5 0.3125V2.1875ZM2.5 0.3125C1.29188 0.3125 0.3125 1.29188 0.3125 2.5H2.1875C2.1875 2.32741 2.07937 10.502 2.25195 10.502L2.5 0.3125Z" fill="#F1BD81"/>
+            <path d="M2.5 20.9375H5V19.0625H2.5V20.9375ZM1.50195 28.502L5.3125 27.5H7.1875V21.25L1.50195 28.502ZM2.5 20.4803V27.8125V29.6875H5L2.5 20.4803ZM2.1875 27.5L6.00195 21.002L0.3125 21.25V27.5H2.1875ZM2.5 27.8125C2.32741 27.8125 2.1875 27.6726 2.1875 27.5H0.3125C0.3125 28.7081 1.29188 29.6875 2.5 29.6875V27.8125ZM5.3125 27.5C5.3125 27.6726 2.67259 20.4803 2.5 20.4803L5 29.6875C6.20812 29.6875 7.1875 28.7081 7.1875 27.5H5.3125ZM5 20.9375C5.17259 20.9375 1.50195 28.3293 1.50195 28.502L7.1875 21.25C7.1875 20.0419 6.20812 19.0625 5 19.0625V20.9375ZM2.5 19.0625C1.29188 19.0625 0.3125 20.0419 0.3125 21.25L6.00195 21.002C6.00195 20.8293 2.32741 20.9375 2.5 20.9375V19.0625Z" fill="#F1BD81"/>
+            <path d="M25 2.1875L24.002 9.75195L27.5 0.3125H25V2.1875ZM27.002 7.22359L27.8125 8.75H29.6875V2.5L27.002 7.22359ZM24.3355 7.22359L25 9.0625V10.9375H27.5L24.3355 7.22359ZM27.752 9.00195L29.252 7.50195L22.8125 2.5V8.75L27.752 9.00195ZM25 9.0625C24.8274 9.0625 27.752 9.17454 27.752 9.00195L22.8125 8.75C22.8125 9.95813 23.7919 10.9375 25 10.9375V9.0625ZM27.8125 8.75C27.8125 8.92259 21.8355 1.16304 24.3355 7.22359L27.5 10.9375C28.7081 10.9375 29.6875 9.95813 29.6875 8.75H27.8125ZM24.002 9.75195C24.1746 9.75195 27.002 7.051 27.002 7.22359L29.6875 2.5C29.6875 1.29188 28.7081 0.3125 27.5 0.3125L24.002 9.75195ZM25 0.3125C23.7919 0.3125 22.8125 1.29188 22.8125 2.5L29.252 7.50195C29.252 7.32937 24.8274 2.1875 25 2.1875V0.3125Z" fill="#F1BD81"/>
+            <path d="M24.752 28.502L27.5 20.9375V19.0625H25L24.752 28.502ZM27.8125 21.25L25.502 23.252L24.6875 27.8125L29.6875 27.5V21.25H27.8125ZM27.5 27.8125H25V29.6875H27.5V27.8125ZM24.6875 27.5V21.25H22.8125V27.5H24.6875ZM25 27.8125C24.8274 27.8125 24.6875 27.6726 24.6875 27.5H22.8125C22.8125 28.7081 23.7919 29.6875 25 29.6875V27.8125ZM24.6875 27.8125C24.6875 27.9851 27.6726 27.8125 27.5 27.8125V29.6875C28.7081 29.6875 29.6875 28.7081 29.6875 27.5L24.6875 27.8125ZM27.5 20.9375C24.002 28.502 27.8125 21.0774 27.8125 21.25H29.6875C29.6875 20.0419 28.7081 19.0625 27.5 19.0625V20.9375ZM25 19.0625C23.7919 19.0625 22.8125 20.0419 22.8125 21.25H24.6875C24.6875 21.0774 24.5793 28.502 24.752 28.502L25 19.0625Z" fill="#F1BD81"/>
+            <path d="M23.75 25.3125C24.2678 25.3125 24.6875 24.8928 24.6875 24.375C24.6875 23.8572 24.2678 23.4375 23.75 23.4375V25.3125ZM6.25 23.4375C5.73224 23.4375 5.3125 23.8572 5.3125 24.375C5.3125 24.8928 5.73224 25.3125 6.25 25.3125V23.4375ZM6.25 25.3125H23.75V23.4375H6.25V25.3125Z" fill="#F1BD81"/>
+            <path d="M12.5 1.5625C11.9822 1.5625 11.5625 1.98224 11.5625 2.5C11.5625 3.01776 11.9822 3.4375 12.5 3.4375V1.5625ZM17.5 3.4375C18.0177 3.4375 18.4375 3.01776 18.4375 2.5C18.4375 1.98224 18.0177 1.5625 17.5 1.5625V3.4375ZM12.5 3.4375H17.5V1.5625H12.5V3.4375Z" fill="#F1BD81"/>
+            <path d="M12.5 26.5625C11.9822 26.5625 11.5625 26.9822 11.5625 27.5C11.5625 28.0178 11.9822 28.4375 12.5 28.4375V26.5625ZM17.5 28.4375C18.0177 28.4375 18.4375 28.0178 18.4375 27.5C18.4375 26.9822 18.0177 26.5625 17.5 26.5625V28.4375ZM12.5 28.4375H17.5V26.5625H12.5V28.4375Z" fill="#F1BD81"/>
+            <path d="M15.9375 5.625C15.9375 5.10724 15.5178 4.6875 15 4.6875C14.4822 4.6875 14.0625 5.10724 14.0625 5.625H15.9375ZM14.0625 24.375C14.0625 24.8928 14.4822 25.3125 15 25.3125C15.5178 25.3125 15.9375 24.8928 15.9375 24.375H14.0625ZM14.0625 5.625V24.375H15.9375V5.625H14.0625Z" fill="#F1BD81"/>
+            <path d="M23.75 6.5625C24.2678 6.5625 24.6875 6.14276 24.6875 5.625C24.6875 5.10724 24.2678 4.6875 23.75 4.6875V6.5625ZM6.25 4.6875C5.73224 4.6875 5.3125 5.10724 5.3125 5.625C5.3125 6.14276 5.73224 6.5625 6.25 6.5625V4.6875ZM6.25 6.5625H23.75V4.6875H6.25V6.5625Z" fill="#F1BD81"/>
+            </g>
+            <defs>
+            <clipPath id="clip0_1620_3556">
+            <rect width="30" height="30" fill="white"/>
+            </clipPath>
+            </defs>
             </svg>
 
           </div>
           <div class="char-full__data">
-            <p class="char-full__title">Разгон до 100</p>
-            <p class="char-full__value"><span v-html="currentCarData[0].acf.harakteristiki.razgon_do_100"></span> секунды</p>
+            <p class="char-full__title">Тип привода</p>
+            <p class="char-full__value"><span v-html="currentCarData[0].acf.harakteristiki.tip_privoda"></span></p>
+          </div>
+        </div>
+
+        <div class="char-full"
+        v-gsap.whenVisible.once.from='{
+        autoAlpha: 0,
+        y: 50,
+        duration: 0.5,
+        delay: 0.6,
+        start: "top 70%",
+        }'>
+          <div class="char-full__icon-wrapper">
+            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M25.832 24.5455H5.37749C4.24763 24.5455 3.33203 25.4613 3.33203 26.5909C3.33203 28.4738 4.85813 29.9999 6.74104 29.9999H24.4682C26.3511 29.9999 27.8775 28.4738 27.8775 26.5909C27.8775 25.4613 26.9617 24.5455 25.832 24.5455ZM9.80398 12.2268C9.82444 10.7372 11.0402 9.5416 12.5298 9.54538H18.6797C20.1853 9.5471 21.4053 10.7671 21.407 12.2727L22.1174 23.1819H25.1149L24.4682 10.9092C24.4657 8.65074 22.6358 6.82076 20.3773 6.81827H19.6957V5.45446H21.0592C21.812 5.4537 22.422 4.8437 22.4228 4.09091V2.72736C22.4211 1.22171 21.2011 0.00178977 19.6957 0H11.5139C10.0082 0.00172585 8.78829 1.22171 8.7865 2.72736V4.09091C8.78726 4.8437 9.39726 5.4537 10.15 5.45446H11.5139V6.81827H10.832C8.58598 6.81603 6.75926 8.62722 6.74232 10.8732L6.09461 23.1819H9.05893L9.80398 12.2268ZM12.8774 5.45446H18.3319V6.81827H12.8774V5.45446Z" fill="#F1BD81"/>
+            <path d="M18.6834 10.9082H12.5336C11.7808 10.909 11.1708 11.519 11.17 12.2718L10.4297 23.1809H20.7546L20.0483 12.3157C20.0524 12.1333 20.0202 11.952 19.9536 11.7821C19.887 11.6123 19.7873 11.4574 19.6603 11.3264C19.5333 11.1954 19.3816 11.091 19.2139 11.0192C19.0462 10.9474 18.8658 10.9097 18.6834 10.9082Z" fill="#F1BD81"/>
+            </svg>
+
+          </div>
+          <div class="char-full__data">
+            <p class="char-full__title">К-во мест</p>
+            <p class="char-full__value"><span v-html="currentCarData[0].acf.harakteristiki.kolichestvo_mest"></span> места</p>
           </div>
         </div>
 
       </div>
     </section>
-
 
     <section class="car-price-sec" v-if="currentCarData[0].acf.zagolovok_stoimost_arendy">
       <div class="container">
@@ -263,7 +300,7 @@
                 start: "top 70%",
                 }'></h2>
 
-                <button class="home-hero-sec__btn btnV1 btnV1--big" 
+                <button class="home-hero-sec__btn btnV1 btnV1--big btnV1--blick" 
                 v-if="currentCarData[0].acf?.gibkaya_stoimost_arendy?.length > 3"
                 @click="openTargetPopup('popup-price-table')"
                 v-gsap.whenVisible.once.from='{
@@ -441,7 +478,6 @@
      
     </section>
 
-
     <section class="car-adv-sec" v-if="currentCarData[0].acf.zagolovok_preimushhestva">
       <div class="container">
         <div class="header-row-sec-v2">
@@ -515,7 +551,7 @@
             start: "top 70%",
             }'></h2>
 
-            <button class="home-hero-sec__btn btnV1 btnV1--big" 
+            <button class="home-hero-sec__btn btnV1 btnV1--big btnV1--blick" 
             @click="openTargetPopupForm('Секция вопрос - ответ | Кнопка Задать вопрос')"
             v-gsap.whenVisible.once.from='{
             autoAlpha: 0,
@@ -554,6 +590,128 @@
         </div>
     </section>
 
+    <section class="clients-about-us" v-if="currentCarData[0].acf.zagolovok_otzyvy_klientov">
+        <div class="container">
+          <div class="header-row-sec-v2">
+
+            <div 
+            class="header-row-sec-v2__decor-wrapper"
+            v-gsap.whenVisible.once.from='{
+              autoAlpha: 0,
+              y: 100,
+              duration: 0.5,
+              delay: 0,
+              start: "top 70%",
+            }'>
+              <img src="@/assets/images/img/decor.png" alt="" class="header-row-sec-v2__decor"></img>
+            </div>
+            
+            <h2 
+            class="clients-about-us__title sec-title sec-title--center-mod" 
+            v-html="currentCarData[0].acf.zagolovok_otzyvy_klientov"
+            v-gsap.whenVisible.once.from='{
+              autoAlpha: 0,
+              y: 100,
+              duration: 0.5,
+              delay: 0,
+              start: "top 70%",
+            }'></h2>
+          </div>
+
+          <div class="clients-about-us__slider-wrapper">
+            <ClientOnly>
+              <swiper-container 
+              ref="clientsAboutUsSlider" 
+              class="clients-about-us-slider"
+              >
+                  <swiper-slide class="clients-about-us-slider__slide" 
+                  v-for="(item, index) in currentCarData[0].acf.otzyvy_klientov.otzyvy"
+                  v-gsap.whenVisible.once.from='{
+                    autoAlpha: 0,
+                    y: 200,
+                    duration: 1,
+                    delay: (0.1 * (+index + 1)),
+                    start: "top 70%",
+                  }'>
+                    <div class="clients-about-us-slider__slide-wrapper">
+                      <img :src="item.foto_klienta.url" :alt="item.foto_klienta.alt" class="clients-about-us-slider__slide-photo">
+                      <div class="clients-about-us-slider__slide-data">
+                        <div class="clients-about-us-slider__slide-text-wrapper">
+                          <p class="clients-about-us-slider__slide-text" v-html="trimString(item.tekst_otzyva)"></p>
+                        </div>
+                        <div class="clients-about-us-slider__slide-read-more-btn" 
+                        v-if="item.tekst_otzyva.length > 350" 
+                        @click="openTargetPopupFullReview(item.imya_avtora,item.tekst_otzyva)">
+                          <span>читать полностью</span>
+                          <svg width="11" height="6" viewBox="0 0 11 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M0.23013 0.21967C0.536971 -0.0732233 1.03446 -0.0732233 1.3413 0.21967L5.5 4.18934L9.6587 0.21967C9.96554 -0.0732233 10.463 -0.0732233 10.7699 0.21967C11.0767 0.512563 11.0767 0.987437 10.7699 1.28033L6.05558 5.78033C5.74874 6.07322 5.25126 6.07322 4.94442 5.78033L0.23013 1.28033C-0.0767101 0.987437 -0.0767101 0.512563 0.23013 0.21967Z" fill="#707070"/>
+                          </svg>
+                        </div>
+                      </div>
+
+                      <div class="clients-about-us-slider__slide-client-data">
+                        <div class="clients-about-us-slider__slide-client-data-info">
+                           <p class="clients-about-us-slider__slide-client-name" v-if="item.imya_avtora" v-html="item.imya_avtora"></p>
+                          <p class="clients-about-us-slider__slide-client-description" v-if="item.podzagolovok" v-html="item.podzagolovok"></p>
+                        </div>
+                        <a :href="item.ssylka_na_original" v-if="item.ssylka_na_original" target="_blank" class="clients-about-us-slider__slide-client-data-resources">
+                          <span class="clients-about-us-slider__slide-client-data-resources-text">
+                            читать оригинал
+                          </span>
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3M12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3M12 21V3M4.46 7.5H19.67M11.69 3.00001C11.69 3.00001 7.3 4.90001 7.3 12C7.3 19.1 11.69 21 11.69 21M12.31 3.00001C12.31 3.00001 16.7 4.90001 16.7 12C16.7 19.1 12.31 21 12.31 21M4.46 16.5H19.67M3.56 12H20.56" stroke="#3F4F4F" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                        </a>
+                       
+                      </div>
+
+                    </div>
+                  </swiper-slide>
+
+              </swiper-container>
+            </ClientOnly>
+
+              <!-- <div class="home-cat-slider-swiper-button-prev swiper-def-ar swiper-def-ar--prev swiper-button" @click="swiperRecomend.prev()">
+                  <svg width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M8.15429 13.7071C8.53841 13.3166 8.53841 12.6834 8.15429 12.2929L2.94817 7L8.15429 1.70711C8.53841 1.31658 8.53841 0.683417 8.15429 0.292893C7.77017 -0.0976315 7.14738 -0.0976315 6.76326 0.292893L0.861622 6.29289C0.4775 6.68342 0.4775 7.31658 0.861622 7.70711L6.76326 13.7071C7.14738 14.0976 7.77017 14.0976 8.15429 13.7071Z" fill="#5D736E"/>
+                  </svg>
+              </div> -->
+              <div class="home-news-sec__slider-row-control-wrapper">
+
+                <div 
+                class="slider-counter"
+                v-gsap.whenVisible.once.from='{
+                  autoAlpha: 0,
+                  y: 100,
+                  duration: 0.5,
+                  delay: 0,
+                  start: "top 70%",
+                }'>
+                  <span class="slider-counter__current">{{ getRealIndex(swiperClientsAbout.realIndex) }}</span>
+                  <span class="slider-counter__total">/{{ getTotalSlides(swiperClientsAbout.slides) }}</span>
+          
+                </div>
+               
+                <div 
+                class="home-cat-slider-swiper-button-next swiper-def-ar swiper-def-ar--next swiper-button" 
+                @click="swiperClientsAbout.next()"
+                v-gsap.whenVisible.once.from='{
+                  autoAlpha: 0,
+                  y: 100,
+                  duration: 0.5,
+                  delay: 0.3,
+                  start: "top 70%",
+                }'>
+                    <svg width="153" height="15" viewBox="0 0 153 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M152.71 8.07039C153.101 7.67986 153.101 7.0467 152.71 6.65617L146.346 0.292213C145.956 -0.0983109 145.323 -0.0983109 144.932 0.292213C144.542 0.682738 144.542 1.3159 144.932 1.70643L150.589 7.36328L144.932 13.0201C144.542 13.4107 144.542 14.0438 144.932 14.4343C145.323 14.8249 145.956 14.8249 146.346 14.4343L152.71 8.07039ZM0 7.36328V8.36328H152.003V7.36328V6.36328H0V7.36328Z" fill="#F1BD81"/>
+                    </svg>
+
+                    <div class="swiper-def-ar__circle"></div>
+                </div>
+              </div>
+          </div>
+        </div>
+    </section>
 
     <section class="car-about-sec" v-if="currentCarData[0].acf.zagolovok_pro_avtomobil">
       <div class="container">
@@ -606,7 +764,6 @@
       </div>
     </section>
 
-
     <section class="car-char-full-sec" v-if="currentCarData[0].acf.zagolovok_harakteristiki_avto">
       <div class="container">
         <div class="header-row-sec-v2">
@@ -654,7 +811,6 @@
           </div>
       </div>
     </section>
-
 
     <formSec :formSecData="optionsData" />
 
@@ -724,6 +880,7 @@
 
     <bookingCarWidget />
 
+  </div>
 </template>
 
 
@@ -732,6 +889,8 @@
 
 //IMPORT
 import { ref, onMounted, onBeforeUnmount, computed, watch  } from 'vue';
+
+import Scrollbar from 'smooth-scrollbar';
 
 import bookingCarWidget from '@/components/widgets/bookingCarWidget.vue'
 
@@ -755,9 +914,13 @@ const store = useCounterStore(nuxtApp.$pinia)
 
 const recomendCars = ref(null)
 
+const clientsAboutUsSlider = ref(null)
+
 const allCats = ref(null)
 
 const switchPrice  = ref(1)
+
+
 
 
 const { data: currentCarData } = await useFetch(`${store.serverUrlDomainRequest}/wp-json/wp/v2/cars?slug=${route.params.id}`)
@@ -806,24 +969,6 @@ try {
 console.log('recomendCars', recomendCars)
 }
 
-// if(recomendCars.value.length >0){
-// const { data: carsCategoryes } = await useFetch(`${store.serverUrlDomainRequest}/wp-json/wp/v2/categories-cars`)
-// allCats.value = carsCategoryes.value
-// }
-
-// console.log('recomendCars', recomendCars)
-
-
-
-
-
-
-
-
-
-// const store = useCounterStore()
-
-// const route = useRoute()
 
 const singleCarSlider = ref(null)
 
@@ -860,6 +1005,34 @@ const  swiperCarSingle  = useSwiper(singleCarSlider, {
     1500: {
        slidesPerView: 3,
       spaceBetween: 50,
+    },
+  },
+
+})
+
+
+//reviews gallery
+const  swiperClientsAbout  = useSwiper(clientsAboutUsSlider, {
+   loop: true,
+   slidesPerView: 4,
+   spaceBetween: 30,   
+   speed: 1100,
+   freeMode: "true",  
+   freeMode: true,
+   slidesPerView: "auto",
+  //  centeredSlides: 'auto',
+   breakpoints: {
+    100: {
+      slidesPerView: 1,
+      spaceBetween: 0,
+    },
+    1380: {
+      slidesPerView: 2,
+      spaceBetween: 30,
+    },
+    1580: {
+       slidesPerView: 2,
+      spaceBetween: 70,
     },
   },
 
@@ -918,7 +1091,6 @@ const showImg = (index) => {
 const onHide = () => (visibleRef.value = false);
 
 
-
 const getJustImgSrc = (data)=>{
   let newArray = []
   data.forEach(element => {
@@ -926,10 +1098,45 @@ const getJustImgSrc = (data)=>{
   });
   return newArray
 }
+
+//Cut string for long review text
+function trimString(str) {
+  if (str.length > 350) {
+    return str.slice(0, 347) + '...';
+  }
+  return str;
+}
+
+//Open review popup
+const openTargetPopupFullReview = (title,text)=>{
+  store.changePopupCurrent('popup-full-review')
+
+  let ojj = {
+    'title':title,
+    'text': text
+  }
+  store.changeReviewTextPopup(ojj)
+}
+
+function getRealIndex(data){
+  console.log(data.value)
+  return data.value + 1
+}
+
+function getTotalSlides(data){
+  console.log(data.value)
+  return data.value.length
+}
+
+
 onMounted(() => {
   setTimeout(()=>{
     store.changeRouterChangeStatus(false)
   },200)
+
+
+
+
 })
 
 

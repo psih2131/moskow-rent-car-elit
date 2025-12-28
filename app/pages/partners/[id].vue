@@ -11,18 +11,18 @@
                     autoAlpha: 0,
                     y: 50,
                     duration: 0.5,
-                    delay: 2,
+                    delay: 0.1,
                     start: "top 70%",
                     }'></h2>
 
                     <button 
-                    class="home-hero-sec__btn btnV1 btnV1--big" 
+                    class="home-hero-sec__btn btnV1 btnV1--big btnV1--blick" 
                     @click="openTargetPopupForm(`Страница:${currentPartnershipData[0].acf.sekcziya_1_opisanie.zagolovok} | Кнопка оставить заявку`)"
                     v-gsap.whenVisible.once.from='{
                     autoAlpha: 0,
                     y: 50,
                     duration: 0.5,
-                    delay: 2.1,
+                    delay: 0.2,
                     start: "top 70%",
                     }'>
                         <span class="btnV1__circle btnV1__circle-1"></span>
@@ -49,7 +49,7 @@
                             autoAlpha: 0,
                             y: 50,
                             duration: 0.5,
-                            delay: 2.4,
+                            delay: 0.3,
                             start: "top 80%",
                             }'></div>
                             </div>
@@ -63,7 +63,7 @@
                             autoAlpha: 0,
                             y: 100,
                             duration: 0.5,
-                            delay: 2.1 + ((inx + 1) / 10),
+                            delay: 0.1 + ((inx + 1) / 10),
                             start: "top 80%",
                             }'>
                             </div>
@@ -121,7 +121,7 @@
                     start: "top 80%",
                     }'></h2>
 
-                    <button class="home-hero-sec__btn btnV1 btnV1--big" 
+                    <button class="home-hero-sec__btn btnV1 btnV1--big btnV1--blick" 
                     @click="openTargetPopupForm(`Страница:${currentPartnershipData[0].acf.sekcziya_1_opisanie.zagolovok} | Кнопка оставить заявку`)"
                     v-gsap.whenVisible.once.from='{
                     autoAlpha: 0,
@@ -161,7 +161,7 @@
 
                 </div>
 
-                 <button class="home-hero-sec__btn btnV1 btnV1--big singl-partner-how-it-work-sec__mob-btn" 
+                 <button class="home-hero-sec__btn btnV1 btnV1--big singl-partner-how-it-work-sec__mob-btn btnV1--blick" 
                     @click="openTargetPopupForm(`Страница:${currentPartnershipData[0].acf.sekcziya_1_opisanie.zagolovok} | Кнопка оставить заявку`)"
                     v-gsap.whenVisible.once.from='{
                     autoAlpha: 0,
@@ -195,7 +195,7 @@
                     start: "top 80%",
                     }'></h2>
 
-                    <button class="home-hero-sec__btn btnV1 btnV1--big" 
+                    <button class="home-hero-sec__btn btnV1 btnV1--big btnV1--blick" 
                     @click="openTargetPopupForm(`Страница:${currentPartnershipData[0].acf.sekcziya_1_opisanie.zagolovok} | Кнопка оставить заявку`)"
                     v-gsap.whenVisible.once.from='{
                     autoAlpha: 0,
@@ -237,7 +237,7 @@
 
                 </div>
 
-                <button class="home-hero-sec__btn btnV1 btnV1--big singl-partner-how-start-sec__mob-btn" 
+                <button class="home-hero-sec__btn btnV1 btnV1--big singl-partner-how-start-sec__mob-btn btnV1--blick" 
                     @click="openTargetPopupForm(`Страница:${currentPartnershipData[0].acf.sekcziya_1_opisanie.zagolovok} | Кнопка оставить заявку`)"
                     v-gsap.whenVisible.once.from='{
                     autoAlpha: 0,
