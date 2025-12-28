@@ -10,7 +10,7 @@ export default defineSitemapEventHandler(async () => {
     const docs: WPPost[] = await $fetch('https://red-angels-server.ru/wp-json/wp/v2/docs?per_page=100')
 
     return docs.map((post) => ({
-        loc: `http://localhost:3000/docs/${post.slug}`,       // локальный маршрут
+        loc: `https://red-angels-server.ru/docs/${post.slug}`,       // локальный маршрут
         lastmod: post.modified,                // дата последнего изменения
         changefreq: 'weekly',
         priority: 0.7
