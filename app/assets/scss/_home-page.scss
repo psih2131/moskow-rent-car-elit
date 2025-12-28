@@ -2069,6 +2069,26 @@ swiper-container::part(bullet-active) {
         font-size: 14px;
     }
 
+    .swipe-home-cat__wrapper {
+        &:hover {
+            border: 1px solid rgba(243, 200, 132, 0.2);
+
+            .swipe-home-cat__img {
+                transform: scale(1);
+            }
+
+            .swipe-home-cat__title-row {
+                &::before {
+                    opacity: 0;
+                }
+
+                &::after {
+                    opacity: 0;
+                }
+            }
+        }
+    }
+
 }
 
 
@@ -2544,6 +2564,8 @@ swiper-container::part(bullet-active) {
     .table-mod .car-card-slider-wrapper {
         width: 200px;
     }
+
+
 
 }
 

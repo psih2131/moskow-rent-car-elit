@@ -17,6 +17,40 @@ export default defineNuxtConfig({
     }
   },
 
+  site: {
+    url: 'https://red-angels.ru',
+  },
+
+  sitemap: {
+
+    sitemaps: {
+      pages: {
+        sources: [
+          '/api/__sitemap__/urls',
+        ]
+      },
+      cars: {
+        sources: [
+          '/api/__sitemap__/wordpress-cars',
+        ]
+      },
+
+      docsPages: {
+        sources: [
+          '/api/__sitemap__/wordpress-docs',
+        ]
+      },
+
+      partnership: {
+        sources: [
+          '/api/__sitemap__/wordpress-partners',
+        ]
+      },
+
+    }
+  },
+
+
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
 
@@ -35,10 +69,10 @@ export default defineNuxtConfig({
         value: {
           autoAlpha: 0,
           y: 200,
-          duration: 0.8,
+          duration: 0.6,
           delay: 0,
           opacity: 0,
-          start: "top 70%",
+          start: "top 80%",
         }
       },
 
@@ -51,7 +85,7 @@ export default defineNuxtConfig({
           duration: 0.5,
           delay: 0,
           opacity: 0,
-          start: "top 70%",
+          start: "top 80%",
         }
       }
     ],
@@ -60,13 +94,42 @@ export default defineNuxtConfig({
     composable: true
   },
 
+  robots: {
+    groups: [
+      {
+        userAgent: '*',      // все поисковики
+        allow: '/',          // разрешаем индексацию всего сайта
+        disallow: [          // что точно не индексировать
+          '/api',
+          '/_nuxt',
+          '/admin'
+        ]
+      },
+      {
+        userAgent: ['Yandex'],   // отдельные правила для Яндекса
+        cleanParam: [            // удаляем дубли по GET-параметрам
+          'page',
+          'sort',
+          'order',
+          'utm_source',
+          'utm_medium',
+          'utm_campaign',
+          'utm_content'
+        ]
+      }
+    ],
+    sitemap: 'https://red-angels.ru/sitemap.xml' // абсолютный URL
+  },
+
   modules: [
     '@pinia/nuxt',
     'nuxt-swiper',
     'vue-yandex-maps/nuxt',
     'nuxt-easy-lightbox',
     'v-gsap-nuxt',
-    'nuxt-locomotive-scroll'
+    'nuxt-locomotive-scroll',
+    '@nuxtjs/sitemap',
+    '@nuxtjs/robots'
   ],
 
 
