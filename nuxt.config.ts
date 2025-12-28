@@ -118,7 +118,7 @@ export default defineNuxtConfig({
         ]
       }
     ],
-    sitemap: 'https://red-angels.ru/sitemap.xml' // абсолютный URL
+    // sitemap: 'https://red-angels.ru/sitemap.xml'
   },
 
   modules: [
