@@ -52,16 +52,6 @@
                     
                 </div>
 
-                <!-- <button class="home-hero-sec__btn btnV1 btnV1--big" @click="openTargetPopupForm('Кнопка Забронирывать авто на странице авто')">
-                    <span class="btnV1__circle btnV1__circle-1"></span>
-                    <span class="btnV1__circle btnV1__circle-2"></span>
-                    <span class="btnV1__title">ЗАКАЗАТЬ АВТО</span>
-
-                    <div class="btnV1__line btnV1__line-1"></div>
-                    <div class="btnV1__line btnV1__line-2"></div>
-                    <div class="btnV1__line btnV1__line-3"></div>
-                    <div class="btnV1__line btnV1__line-4"></div>
-                </button> -->
           </div>
           
         </div>
@@ -86,7 +76,20 @@
 
                 <swiper-slide class="single-car-swiper__slide" v-for="(item,index) in moveLastToFirst(currentCarData[0].acf.slajder_izobrazhenij)">
                     <div class="single-car-swiper__slide-wrapper">
-                      <img :src="item.izobrazhenie.url" :alt="item.izobrazhenie.alt" class="single-car-swiper__slide-img">
+
+                      <picture class="single-car-swiper__slide-img-picture">
+                        <source 
+                        v-if="item.izobrazhenie?.sizes?.medium_large"
+                        media="(max-width: 760px)" 
+                        :srcset="item.izobrazhenie.sizes.medium_large">
+                        <source 
+                        v-if="item.izobrazhenie?.sizes?.large"
+                        media="(max-width: 990px)" 
+                        :srcset="item.izobrazhenie.sizes.large">
+                        <img :src="item.izobrazhenie.url" :alt="item.izobrazhenie.alt" class="single-car-swiper__slide-img">
+                      </picture>
+
+                      <!-- <img :src="item.izobrazhenie.url" :alt="item.izobrazhenie.alt" class="single-car-swiper__slide-img"> -->
 
                       <div class="home-hero-sec__play" v-if="item.video_fajl" @click="openTargetPopupVider(item.video_fajl)">
                           <div class="home-hero-sec__play-wrapper">
@@ -106,16 +109,8 @@
                 </swiper-slide>
 
               </swiper-container>
-
-
               
             </ClientOnly>
-
-              <!-- <div class="home-cat-slider-swiper-button-prev swiper-def-ar swiper-def-ar--prev swiper-button" @click="swiperRecomend.prev()">
-                  <svg width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M8.15429 13.7071C8.53841 13.3166 8.53841 12.6834 8.15429 12.2929L2.94817 7L8.15429 1.70711C8.53841 1.31658 8.53841 0.683417 8.15429 0.292893C7.77017 -0.0976315 7.14738 -0.0976315 6.76326 0.292893L0.861622 6.29289C0.4775 6.68342 0.4775 7.31658 0.861622 7.70711L6.76326 13.7071C7.14738 14.0976 7.77017 14.0976 8.15429 13.7071Z" fill="#5D736E"/>
-                  </svg>
-              </div> -->
 
             <div class="single-car-swiper-button single-car-swiper-button-prev " @click="swiperCarSingle.prev()">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -141,9 +136,7 @@
                 @hide="onHide"
               />
 
-
           </div>
-
           
     </section>
 
