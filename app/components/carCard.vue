@@ -88,7 +88,7 @@
                     <div class="car-card__body">
                         <div class="car-card__price-row-tab">
 
-                            <template v-if="carData.acf.gibkaya_stoimost_arendy[0].skidka">
+                            <template v-if="carData.acf.gibkaya_stoimost_arend?.length > 0 && carData.acf.gibkaya_stoimost_arendy[0].skidka && carData.acf.gibkaya_stoimost_arendy[0].skidka != ''">
                             <div class="car-card__price-sale-wrapper">
                             <div class="car-card__price-sale-price" >
                                 <span class="car-card__price-value"><span v-html="carData.acf.gibkaya_stoimost_arendy[0].skidka"></span>₽</span>
@@ -108,7 +108,7 @@
                         </template>
 
                         <template v-else>
-                            <div class="car-card__price" >
+                            <div class="car-card__price" v-if="carData.acf.gibkaya_stoimost_arend?.length > 0" >
                                 <span class="car-card__price-value"><span v-html="carData.acf.gibkaya_stoimost_arendy[0].czena"></span>₽</span>
                                 / день
                             </div>

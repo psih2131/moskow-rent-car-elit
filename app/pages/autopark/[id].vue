@@ -24,7 +24,7 @@
                   delay: 0.2,
                   start: "top 80%",
                   }'>
-                  <template v-if="currentCarData[0].acf.gibkaya_stoimost_arendy[0].skidka">
+                  <template v-if="currentCarData[0].acf.gibkaya_stoimost_arendy?.length > 0 && currentCarData[0].acf.gibkaya_stoimost_arendy[0].skidka">
                     <div class="car-card__price-sale-wrapper">
                        <div class="car-card__price-sale-price" >
                           <span class="car-card__price-value"><span v-html="currentCarData[0].acf.gibkaya_stoimost_arendy[0].skidka"></span>₽</span>
@@ -44,7 +44,7 @@
                   </template>
 
                   <template v-else>
-                    <div class="car-card__price" >
+                    <div class="car-card__price" v-if="currentCarData[0].acf.gibkaya_stoimost_arendy?.length > 0 && currentCarData[0].acf.gibkaya_stoimost_arendy[0].czena">
                         <span class="car-card__price-value"><span v-html="currentCarData[0].acf.gibkaya_stoimost_arendy[0].czena"></span>₽</span>
                         / день
                     </div>
@@ -125,6 +125,7 @@
 
           </div>
           <VueEasyLightbox
+          v-if="currentCarData[0].acf?.slajder_izobrazhenij?.length > 0"
                 :visible="visibleRef"
                 :imgs="getJustImgSrc(moveLastToFirst(currentCarData[0].acf.slajder_izobrazhenij))"
                 :index="indexRef"
@@ -332,6 +333,7 @@
           <div class="car-price-sec__table price-table" v-if="switchPrice == 1">
 
             <div class="price-table__col" 
+            v-if="currentCarData[0].acf?.gibkaya_stoimost_arendy?.length > 0"
             v-for="(item, index) in currentCarData[0].acf.gibkaya_stoimost_arendy.slice(0, 4)"
             v-gsap.whenVisible.once.from='{
             autoAlpha: 0,
