@@ -154,7 +154,7 @@ const store = useCounterStore(nuxtApp.$pinia);
 
 const route = useRoute()
 
-const { data: docsPageData } = await useFetch(`${store.serverUrlDomainRequest}/wp-json/wp/v2/docs`)
+const { data: docsPageData } = await useFetch(`${store.serverUrlDomainRequest}/wp-json/wp/v2/docs?_fields=id,slug,title`)
 
 console.log("docsPageData", docsPageData)
 

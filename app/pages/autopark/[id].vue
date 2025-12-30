@@ -978,9 +978,9 @@ const [
   { data: optionsData },
   { data: carsCategoryes }
 ] = await Promise.all([
-  useFetch(`${store.serverUrlDomainRequest}/wp-json/wp/v2/cars?slug=${route.params.id}`),
+  useFetch( `${store.serverUrlDomainRequest}/wp-json/wp/v2/cars?slug=${route.params.id}&_fields=id,title,acf,categories-cars`),
   useFetch(`${store.serverUrlDomainRequest}/wp-json/acf/v3/options`),
-  useFetch(`${store.serverUrlDomainRequest}/wp-json/wp/v2/categories-cars`)
+  useFetch(`${store.serverUrlDomainRequest}/wp-json/wp/v2/categories-cars?_fields=id,name`)
 ])
 
 
@@ -1015,7 +1015,7 @@ try {
     const slugs = chitatTakzhe.map(obj => obj.post_name)
 
     const promises = slugs.map(slug =>
-      fetch(`${store.serverUrlDomainRequest}/wp-json/wp/v2/cars?slug=${slug}`)
+      fetch(`${store.serverUrlDomainRequest}/wp-json/wp/v2/cars?slug=${slug}&_fields=id,slug,title,acf,categories-cars`)
         .then(res => res.json())
         .then(data => data?.[0] || null)
     )
