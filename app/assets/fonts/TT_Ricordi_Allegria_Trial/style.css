@@ -5,6 +5,7 @@
     font-style: normal;
     font-weight: normal;
     src: local('TT Ricordi Allegria Trl Regular'), url('TT Ricordi Allegria Trial Regular.woff') format('woff');
+    font-display: swap;
 }
 
 
