@@ -1,7 +1,7 @@
 <template>
   
     <div class="app-wrapper">
-
+<!-- 
        <div class="initial-loader">
 
         <div class="initial-loader__logo">
@@ -26,8 +26,7 @@
 
 
 
-        <!-- <div class="spinner"></div> -->
-       </div>
+       </div> -->
        
         <componentHeader />
         
@@ -162,22 +161,22 @@ router.afterEach((to, from) => {
 
 
 onMounted(async () => {
-      let loaderWrapper =  document.querySelector('.initial-loader')
-      let hideWrapper = document.querySelector('.initial-loader__hide')   
-    setTimeout(()=>{
+    //   let loaderWrapper =  document.querySelector('.initial-loader')
+    //   let hideWrapper = document.querySelector('.initial-loader__hide')   
+    // setTimeout(()=>{
 
-      hideWrapper.style.height = '100%'
+    //   hideWrapper.style.height = '100%'
 
-    },2000)
+    // },2000)
 
-    setTimeout(()=>{
-        loaderWrapper.style.height = '0px'
-    },2700)
+    // setTimeout(()=>{
+    //     loaderWrapper.style.height = '0px'
+    // },2700)
 
-    setTimeout(()=>{
-        loaderWrapper.style.display = 'none'
+    // setTimeout(()=>{
+    //     loaderWrapper.style.display = 'none'
       
-    },3200)
+    // },3200)
 
     
 
