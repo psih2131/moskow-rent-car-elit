@@ -7,7 +7,7 @@
         <div class="header__container header__container-main">
 
             <div class="header__left">
-                <NuxtLink to="/" href="" class="header__logo">
+                <NuxtLink to="/" class="header__logo">
                     <img :src="store.optionsData.header_logo.url" :alt="store.optionsData.header_logo.alt" class="header__logo-img">
                 </NuxtLink>
                 <p 

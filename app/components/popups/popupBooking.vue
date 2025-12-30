@@ -15,16 +15,18 @@
 
                 <div class="popup-booking__form">
                     <div class="booking-widget__date">
-                        <VueDatePicker 
-                        v-model="date" 
-                        range 
-                       
-                        dark 
-                        :locale="ru"
-                        :placeholder="'Дата аренды'"
-                        :formats="{ input: 'dd.MM.yyyy' }"
-                        class="dp__theme_dark"
-                        ></VueDatePicker>
+                        <ClientOnly placeholder="">
+                          <VueDatePicker 
+                          v-model="date" 
+                          range 
+                        
+                          dark 
+                          :locale="ru"
+                          :placeholder="'Дата аренды'"
+                          :formats="{ input: 'dd.MM.yyyy' }"
+                          class="dp__theme_dark"
+                          ></VueDatePicker>
+                        </ClientOnly>
                     </div>
 
                     <div class="booking-widget__input">

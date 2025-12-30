@@ -4,7 +4,10 @@
         <div class="container">
             <div class="booking-widget__form">
                 <div class="booking-widget__date">
-                    <VueDatePicker 
+
+                  <ClientOnly placeholder="">
+                    <div>
+                      <VueDatePicker 
                     v-model="date" 
                     range 
                     multi-calendars
@@ -14,6 +17,8 @@
                     :formats="{ input: 'dd.MM.yyyy' }"
                     class="dp__theme_dark"
                     ></VueDatePicker>
+                    </div>
+                  </ClientOnly>
                 </div>
 
                 <div class="booking-widget__input">

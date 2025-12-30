@@ -473,7 +473,7 @@
      
     </section>
 
-    <!-- <section class="car-adv-sec" v-if="currentCarData[0].acf.zagolovok_preimushhestva">
+     <section class="car-adv-sec" v-if="currentCarData[0].acf.zagolovok_preimushhestva">
       <div class="container">
         <div class="header-row-sec-v2">
 
@@ -531,9 +531,9 @@
 
         </div>
       </div>
-    </section> -->
+    </section> 
 
-    <!-- <section class="home-faq-sec car-faq-sec" v-if="currentCarData[0].acf.zagolovok_usloviya_arendy">
+    <section class="home-faq-sec car-faq-sec" v-if="currentCarData[0].acf.zagolovok_usloviya_arendy">
         <div class="container">
           <div class="header-row-sec">
             <h2 class="header-row-sec__title sec-title sec-title--left-mod" 
@@ -623,7 +623,7 @@
           </div>
 
         </div>
-    </section> -->
+    </section> 
 
     <section class="clients-about-us" v-if="currentCarData[0].acf.zagolovok_otzyvy_klientov">
         <div class="container">
@@ -859,7 +859,7 @@
       </div>
     </section>
 
-    <!-- <formSec :formSecData="optionsData" />
+   <formSec :formSecData="optionsData" />
 
     <section class="car-simmilar-sec" v-if="currentCarData[0].acf.zagolovok_pohozhie_avto">
       <div class="container">
@@ -923,9 +923,11 @@
         
       </div>
 
-    </section> -->
+    </section>
 
+    
     <bookingCarWidget />
+   
 
   </div>
 </template>
@@ -970,18 +972,20 @@ const switchPrice  = ref(1)
 
 
 
+
+
 const { data: currentCarData } = await useFetch(`${store.serverUrlDomainRequest}/wp-json/wp/v2/cars?slug=${route.params.id}`)
 
 console.log('currentCarData',currentCarData)
 
 
-// const { data: optionsData } = await useFetch(`${store.serverUrlDomainRequest}/wp-json/acf/v3/options`)
+const { data: optionsData } = await useFetch(`${store.serverUrlDomainRequest}/wp-json/acf/v3/options`)
 
-// console.log('optionsData', optionsData)
+console.log('optionsData', optionsData)
 
 
-// const { data: carsCategoryes } = await useFetch(`${store.serverUrlDomainRequest}/wp-json/wp/v2/categories-cars`)
-// console.log('carsCategoryes', carsCategoryes)
+const { data: carsCategoryes } = await useFetch(`${store.serverUrlDomainRequest}/wp-json/wp/v2/categories-cars`)
+console.log('carsCategoryes', carsCategoryes)
 
 
 const visibleRef = ref(false);

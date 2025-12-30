@@ -35,17 +35,29 @@
     
         <componentFooter />
 
-        <popupsPlagin v-if="store.popupCurrent != null" />
+        <ClientOnly>
 
-        <preloader v-if="store.preloaderStatus == true" />
+            <popupsPlagin v-if="store.popupCurrent != null" />
 
-        <socialContactWidget />
+            <preloader v-if="store.preloaderStatus == true" />
+
+            <socialContactWidget />
+
+            <cookieWidget />
+
+            <customCursor />
+          
+        </ClientOnly>
+
+        
+
+        
 
         <!-- <routerAnim v-if="store.routerAnimStatus == true" /> -->
-         
-        <cookieWidget />
+                   
+        
 
-        <customCursor />
+        
 
     </div>
   
@@ -88,8 +100,6 @@ const nuxtApp = useNuxtApp()
 const store = useCounterStore(nuxtApp.$pinia)
 
 const router = useRouter()
-
-const cursor = ref(null)
 
 const { data: optionsData } = await useFetch(`${store.serverUrlDomainRequest}/wp-json/acf/v3/options`)
 
@@ -166,7 +176,10 @@ onMounted(async () => {
 
     setTimeout(()=>{
         loaderWrapper.style.display = 'none'
+      
     },3200)
+
+    
 
 });
 
