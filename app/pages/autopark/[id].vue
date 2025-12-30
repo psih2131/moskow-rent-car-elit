@@ -973,18 +973,28 @@ const switchPrice  = ref(1)
 
 
 
+const [
+  { data: currentCarData },
+  { data: optionsData },
+  { data: carsCategoryes }
+] = await Promise.all([
+  useFetch(`${store.serverUrlDomainRequest}/wp-json/wp/v2/cars?slug=${route.params.id}`),
+  useFetch(`${store.serverUrlDomainRequest}/wp-json/acf/v3/options`),
+  useFetch(`${store.serverUrlDomainRequest}/wp-json/wp/v2/categories-cars`)
+])
 
-const { data: currentCarData } = await useFetch(`${store.serverUrlDomainRequest}/wp-json/wp/v2/cars?slug=${route.params.id}`)
+
+// const { data: currentCarData } = await useFetch(`${store.serverUrlDomainRequest}/wp-json/wp/v2/cars?slug=${route.params.id}`)
 
 console.log('currentCarData',currentCarData)
 
 
-const { data: optionsData } = await useFetch(`${store.serverUrlDomainRequest}/wp-json/acf/v3/options`)
+// const { data: optionsData } = await useFetch(`${store.serverUrlDomainRequest}/wp-json/acf/v3/options`)
 
 console.log('optionsData', optionsData)
 
 
-const { data: carsCategoryes } = await useFetch(`${store.serverUrlDomainRequest}/wp-json/wp/v2/categories-cars`)
+// const { data: carsCategoryes } = await useFetch(`${store.serverUrlDomainRequest}/wp-json/wp/v2/categories-cars`)
 console.log('carsCategoryes', carsCategoryes)
 
 
