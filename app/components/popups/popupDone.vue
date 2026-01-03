@@ -27,7 +27,7 @@
 
 <script setup>
 import { useCounterStore } from '@/stores/counter'
-import { ref, onMounted, onBeforeUnmount, computed, watch  } from 'vue';
+import { ref, onMounted,  watch  } from 'vue';
 // import popupForm from '@/components/popups/popup__form.vue'
 
 
@@ -57,15 +57,16 @@ watch(() => store.popupCloseAll,(newVal, oldVal) => {
 onMounted(() => {
   // Добавляем обработчик события scroll
     show.value = true
-    
-
-   
-  
-  
+ 
 });
 
-onBeforeUnmount(() => {
-
-})
 
 </script>
+
+
+<style scoped  lang="scss">
+
+@import "@/assets/scss/components/popup-system.scss";
+
+
+</style>

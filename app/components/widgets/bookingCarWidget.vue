@@ -85,7 +85,7 @@
 
 
 <script setup>
-import { ref, onMounted,onUnmounted, onBeforeUnmount, computed, watch  } from 'vue';
+import { ref, onMounted,onUnmounted  } from 'vue';
 
 import { VueDatePicker } from '@vuepic/vue-datepicker';
 
@@ -269,4 +269,11 @@ onUnmounted(()=>{
   --dp-range-between-dates-text-color: var(--dp-hover-text-color);
   --dp-range-between-border-color: var(--dp-hover-color);
 }
+</style>
+
+
+<style scoped  lang="scss">
+
+@import "@/assets/scss/components/booking-car-widget.scss";
+
 </style>

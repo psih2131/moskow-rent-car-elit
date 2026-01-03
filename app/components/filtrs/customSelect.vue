@@ -59,7 +59,7 @@
 
 
 
-    import { ref, onMounted, onBeforeUnmount, computed, watch  } from 'vue';
+    import { ref, onMounted, onBeforeUnmount, watch  } from 'vue';
 
     import { Vue3SlideUpDown } from "vue3-slide-up-down";
 

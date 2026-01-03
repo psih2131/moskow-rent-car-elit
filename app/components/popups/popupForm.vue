@@ -101,7 +101,7 @@
 //IMPORT
 import { useCounterStore } from '@/stores/counter'
 
-import { ref, onMounted, onBeforeUnmount, computed, watch  } from 'vue';
+import { ref, onMounted, watch  } from 'vue';
 
 
 
@@ -244,3 +244,10 @@ onMounted(() => {
 
 
 </script>
+
+
+<style scoped  lang="scss">
+
+@import "@/assets/scss/components/popup-system.scss";
+
+</style>

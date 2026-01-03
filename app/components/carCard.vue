@@ -216,7 +216,7 @@
 
 // import { useCounterStore } from '@/stores/counter'
 
-import { ref, onMounted, onBeforeUnmount, computed, watch  } from 'vue';
+import { ref, onMounted  } from 'vue';
 
 // import productCard from '@/components/component__producr-card.vue'
 
@@ -289,13 +289,9 @@ function truncateString(str, maxLength) {
 }
 
 
-onMounted(() => {
 
-})
 
 </script>
 
 
-<style >
 
-</style>

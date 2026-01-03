@@ -21,7 +21,7 @@
 
 //IMPORT
 
-import { ref, onMounted, onBeforeUnmount, computed, watch  } from 'vue';
+import { ref, onMounted  } from 'vue';
 
 import { useCounterStore } from '@/stores/counter';
 
@@ -90,3 +90,10 @@ useHead({
 
 
 </script>
+
+
+<style scoped  lang="scss">
+
+@import "@/assets/scss/doc-page.scss";
+
+</style>

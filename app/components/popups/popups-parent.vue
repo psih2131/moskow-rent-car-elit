@@ -24,7 +24,7 @@
 <script setup>
 import { useCounterStore } from '@/stores/counter'
 
-import { ref, onMounted, onBeforeUnmount, computed, watch,   } from 'vue';
+import { ref, onMounted, onBeforeUnmount   } from 'vue';
 
 import popupPriceTable from '@/components/popups/popupPriceTable.vue'
 
@@ -68,3 +68,12 @@ onBeforeUnmount(() => {
   })
 
 </script>
+
+
+
+<style scoped  lang="scss">
+
+@import "@/assets/scss/components/popup-system.scss";
+
+
+</style>

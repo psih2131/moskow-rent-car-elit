@@ -309,7 +309,7 @@
 
 //IMPORT
 
-import { ref, onMounted, onBeforeUnmount, computed, watch  } from 'vue';
+import { ref, onMounted } from 'vue';
 
 import faqElement from '@/components/faqElement.vue'
 
@@ -345,9 +345,6 @@ const openTargetPopupForm = (data = null)=>{
   store.changePopupCurrent('popup-form')
   store.changeTrigerButtonForm(data)
 }
-
-
-
 
 //HOOKS
 onMounted(() => {
@@ -395,6 +392,5 @@ useHead({
         { rel: 'canonical', href: `${store.domainUrlCurrent}/${pageData.value[0].acf.canonical || route.name}` }
     ]
 })
-
 
 </script>

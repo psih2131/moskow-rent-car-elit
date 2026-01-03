@@ -25,9 +25,7 @@
 <script setup>
     //IMPORT
 
-    import { useCounterStore } from '@/stores/counter'
-
-    import { ref, onMounted, onBeforeUnmount, computed, watch  } from 'vue';
+    import { ref } from 'vue';
 
     import { Vue3SlideUpDown } from "vue3-slide-up-down";
 
@@ -49,6 +47,5 @@
             return data
         }
     }
-
 
 </script>

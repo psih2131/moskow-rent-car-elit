@@ -85,7 +85,7 @@ onUnmounted(() => {
 })
 </script>
 
-<style lang="scss">
+<style  lang="scss">
   * {
     cursor: none !important; 
   }

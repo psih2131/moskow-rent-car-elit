@@ -132,7 +132,7 @@
 
 //IMPORT
 
-import { ref, onMounted, onBeforeUnmount, computed, watch  } from 'vue';
+import { ref, onMounted  } from 'vue';
 
 import faqElement from '@/components/faqElement.vue'
 

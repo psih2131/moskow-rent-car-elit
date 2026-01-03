@@ -350,7 +350,7 @@
 
 <script setup>
     //IMPORT
-    import { ref, onMounted, onBeforeUnmount, computed, watch  } from 'vue';
+    import { ref, onMounted  } from 'vue';
 
     import customSelect from '@/components/filtrs/customSelect.vue'
 

@@ -43,3 +43,10 @@ if (event) {
   setResponseStatus(event, 404)
 }
 </script>
+
+
+<style scoped  lang="scss">
+
+@import "@/assets/scss/error-404-page.scss";
+
+</style>

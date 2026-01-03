@@ -1019,7 +1019,7 @@
 <script setup>
 
 //IMPORT
-import { ref, onMounted, onBeforeUnmount, computed, watch  } from 'vue';
+import { ref, onMounted } from 'vue';
 
 import Scrollbar from 'smooth-scrollbar';
 

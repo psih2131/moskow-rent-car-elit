@@ -769,7 +769,7 @@
 
 //IMPORT
 
-import { ref, onMounted, onBeforeUnmount, computed, watch  } from 'vue';
+import { ref, onMounted } from 'vue';
 
 import carCard from '@/components/carCard.vue'
 

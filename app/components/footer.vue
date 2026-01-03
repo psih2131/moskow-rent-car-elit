@@ -136,14 +136,9 @@
 
 //IMPORT
 
-import { ref, onMounted, onBeforeUnmount, computed, watch  } from 'vue';
-
-import formSec from '@/components/sections/formSec.vue'
-
 import { useCounterStore } from '@/stores/counter';
 
 import { useNuxtApp } from '#app';
-
 
 
 //DATA
@@ -152,10 +147,8 @@ const nuxtApp = useNuxtApp();
 
 const store = useCounterStore(nuxtApp.$pinia);
 
-const route = useRoute()
-
 const { data: docsPageData } = await useFetch(`${store.serverUrlDomainRequest}/wp-json/wp/v2/docs?_fields=id,slug,title`)
 
-console.log("docsPageData", docsPageData)
+// console.log("docsPageData", docsPageData)
 
 </script>

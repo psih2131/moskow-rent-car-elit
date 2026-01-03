@@ -1,29 +1,30 @@
 @import "vars";
 @import "fonts";
-@import "mixins";
+// @import "mixins";
 
 @import "sourse";
 @import "buttons";
+
 @import "header";
 @import "footer";
 
 @import "components/car-card";
 @import "components/custom-select";
 @import "components/wp-editor";
-@import "components/popup-system";
-@import "components/preloader";
-@import "components/soialContactWiget";
-@import "components/booking-car-widget";
-@import "components/cookie-widget";
-@import "components/routerAnim";
+// @import "components/popup-system";
+// @import "components/preloader";
+// @import "components/soialContactWiget";
+// @import "components/booking-car-widget";
+// @import "components/cookie-widget";
+// @import "components/routerAnim";
 @import "components/first-preloader";
 
 @import "home-page";
 @import "autopark-page";
 @import "car-page";
 @import "rules-page";
-@import "doc-page";
-@import "error-404-page";
+// @import "doc-page";
+// @import "error-404-page";
 @import "contacts-page";
 @import "partners-page";
 @import "partner-single-page";

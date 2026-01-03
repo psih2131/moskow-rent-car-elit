@@ -35,7 +35,7 @@
 
 //IMPORT
 
-import { ref, onMounted, onBeforeUnmount, computed, watch  } from 'vue';
+import { ref, onMounted, onBeforeUnmount  } from 'vue';
 
 import { Vue3SlideUpDown } from "vue3-slide-up-down";
 
@@ -72,3 +72,10 @@ onBeforeUnmount(() => {
 })
 
 </script>
+
+
+<style scoped  lang="scss">
+
+@import "@/assets/scss/components/soialContactWiget.scss";
+
+</style>

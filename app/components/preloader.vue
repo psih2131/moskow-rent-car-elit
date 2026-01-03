@@ -13,8 +13,9 @@
     </div>
 </template>
 
-<script setup>
 
-    import { useCounterStore } from '@/stores/counter'
+<style scoped  lang="scss">
 
-</script>
+@import "@/assets/scss/components/preloader.scss";
+
+</style>
