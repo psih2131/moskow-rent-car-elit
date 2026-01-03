@@ -9,7 +9,7 @@
                     <div class="seo-sec-type-1__images">
                         <img v-for="(item,inx) in value.acf.izobrazheniya_kartochki"
                         
-                        :src="item.kartinka.url" :alt="item.kartinka.alt" 
+                        :src="item.kartinka.sizes.medium_large" :alt="item.kartinka.alt" 
                         v-gsap.whenVisible.once.from='{
                         autoAlpha: 0,
                         y: 50,
@@ -125,7 +125,7 @@
                                <div>
                                     <div class="partners-exm-sec__element-wrapper">
                                         <img 
-                                        :src="value.kartinka.url" 
+                                        :src="value.kartinka.sizes.medium_large" 
                                         :alt="value.kartinka.alt" class="partners-exm-sec__element-img">
                                         <div class="partners-exm-sec__element-data">
                                             <div class="partners-exm-sec__element-header">
@@ -478,9 +478,16 @@ const partnersChield = ref(null)
 
 const exampleRefSlider = ref(null)
 
-const { data: pageData } = await useFetch(`${store.serverUrlDomainRequest}/wp-json/wp/v2/pages?slug=partnerstvo`)
+const [
+  { data: pageData },
+  { data: optionsData },
+] = await Promise.all([
+  useFetch(`${store.serverUrlDomainRequest}/wp-json/wp/v2/pages?slug=partnerstvo&_fields=id,name,acf,slug,title`),
+  useFetch(`${store.serverUrlDomainRequest}/wp-json/acf/v3/options?_fields=sekcziya_obratnoj_svyazi`)
 
-const { data: optionsData } = await useFetch(`${store.serverUrlDomainRequest}/wp-json/acf/v3/options`)
+])
+
+
 
 if(pageData.value[0].acf?.sekcziya_1_tipy_partnerstva?.length >0){
 

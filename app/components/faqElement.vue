@@ -17,35 +17,40 @@
         </Vue3SlideUpDown>
     </div>
 
-   
-    
 </template>
 
 
 <script setup>
-    //IMPORT
+//IMPORT
 
-    import { ref } from 'vue';
+import { ref } from 'vue';
 
-    import { Vue3SlideUpDown } from "vue3-slide-up-down";
+import { Vue3SlideUpDown } from "vue3-slide-up-down";
 
-    const show = ref(false);
+const show = ref(false);
 
 
-    //DATA
-    defineProps({
-    title: String,
-    description: String,
-    counter: Number,
-    })
+//DATA
+defineProps({
+title: String,
+description: String,
+counter: Number,
+})
 
-    const getCurrentCounter = (data) =>{
-        if(+data < 10){
-            return '0' + data
-        }
-        else{
-            return data
-        }
+const getCurrentCounter = (data) =>{
+    if(+data < 10){
+        return '0' + data
     }
+    else{
+        return data
+    }
+}
 
 </script>
+
+
+<style scoped  lang="scss">
+
+@import "@/assets/scss/components/faq-element.scss";
+
+</style>

@@ -56,7 +56,7 @@
                             <div class="info-data-row__img-wrapper">
                             <img 
                             v-for="(item, inx) in value.kartinki"
-                            :src="item.kartinka.url" 
+                            :src="item.kartinka.sizes.medium_large" 
                             :alt="item.kartinka.alt" 
                             class="info-data-row__img"
                             v-gsap.whenVisible.once.from='{
@@ -87,7 +87,7 @@
                             <div class="info-data-row__img-wrapper">
                             <img 
                             v-for="(item, inx) in value.kartinki"
-                            :src="item.kartinka.url" 
+                            :src="item.kartinka.sizes.medium_large" 
                             :alt="item.kartinka.alt" 
                             class="info-data-row__img"
                             v-gsap.whenVisible.once.from='{
@@ -288,9 +288,17 @@ const store = useCounterStore(nuxtApp.$pinia);
 
 const route = useRoute()
 
-const { data: currentPartnershipData } = await useFetch(`${store.serverUrlDomainRequest}/wp-json/wp/v2/partnership?slug=${route.params.id}`)
+const [
+  { data: currentPartnershipData },
+  { data: optionsData },
+] = await Promise.all([
+  useFetch(`${store.serverUrlDomainRequest}/wp-json/wp/v2/partnership?slug=${route.params.id}&_fields=id,name,acf,slug,title`),
+  useFetch(`${store.serverUrlDomainRequest}/wp-json/acf/v3/options?_fields=sekcziya_obratnoj_svyazi`)
 
-const { data: optionsData } = await useFetch(`${store.serverUrlDomainRequest}/wp-json/acf/v3/options`)
+])
+
+
+
 
 console.log('currentPartnershipData', currentPartnershipData)
 
