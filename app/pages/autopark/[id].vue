@@ -1,4 +1,6 @@
 <template>
+  <main class="main">
+
   <div id="scroll-container"  >
 
     <section class="car-hero-sec">
@@ -86,7 +88,7 @@
                         v-if="item.izobrazhenie?.sizes?.large"
                         media="(max-width: 990px)" 
                         :srcset="item.izobrazhenie.sizes.large">
-                        <img :src="item.izobrazhenie.url" :alt="item.izobrazhenie.alt" class="single-car-swiper__slide-img">
+                        <img :src="item.izobrazhenie.sizes['1536x1536']" :alt="item.izobrazhenie.alt" class="single-car-swiper__slide-img">
                       </picture>
 
                       <!-- <img :src="item.izobrazhenie.url" :alt="item.izobrazhenie.alt" class="single-car-swiper__slide-img"> -->
@@ -126,16 +128,16 @@
           </div>
           <VueEasyLightbox
           v-if="currentCarData[0].acf?.slajder_izobrazhenij?.length > 0"
-                :visible="visibleRef"
-                :imgs="getJustImgSrc(moveLastToFirst(currentCarData[0].acf.slajder_izobrazhenij))"
-                :index="indexRef"
-                :moveDisabled="true"
-                :rotateDisabled="true"
-                :zoomDisabled="true" 
-                :dblclickDisabled="true"
-                :loop="true"
-                @hide="onHide"
-              />
+          :visible="visibleRef"
+          :imgs="getJustImgSrc(moveLastToFirst(currentCarData[0].acf.slajder_izobrazhenij))"
+          :index="indexRef"
+          :moveDisabled="true"
+          :rotateDisabled="true"
+          :zoomDisabled="true" 
+          :dblclickDisabled="true"
+          :loop="true"
+          @hide="onHide"
+          />
 
           </div>
           
@@ -930,6 +932,8 @@
    
 
   </div>
+
+  </main>
 </template>
 
 

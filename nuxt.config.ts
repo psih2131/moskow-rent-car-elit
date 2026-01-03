@@ -3,6 +3,9 @@ export default defineNuxtConfig({
 
   app: {
     head: {
+      htmlAttrs: {
+        lang: 'ru'
+      },
       meta: [
         { name: 'format-detection', content: 'telephone=no' },
         {
