@@ -3,10 +3,36 @@
 
       <section class="home-hero-sec"v-if="pageData[0].acf.sekcziya_1_hero.zagolovok">
         <div class="home-hero-sec__header-shadow"></div>
-        <img 
+
+        <picture class="home-hero-sec__bg-img-picture">
+          <source 
+          v-if="pageData[0].acf.sekcziya_1_hero.fonovoe_izobrazhenie?.sizes?.medium_large"
+          media="(max-width: 450px)" 
+          :srcset="pageData[0].acf.sekcziya_1_hero.fonovoe_izobrazhenie.sizes.medium_large">
+
+          <source 
+          v-if="pageData[0].acf.sekcziya_1_hero.fonovoe_izobrazhenie?.sizes?.medium_large"
+          media="(max-width: 760px)" 
+          :srcset="pageData[0].acf.sekcziya_1_hero.fonovoe_izobrazhenie.sizes.medium_large">
+          
+          <source 
+          v-if="pageData[0].acf.sekcziya_1_hero.fonovoe_izobrazhenie?.sizes['1536x1536']"
+          media="(max-width: 990px)" 
+          :srcset="pageData[0].acf.sekcziya_1_hero.fonovoe_izobrazhenie.sizes['1536x1536']">
+          
+          <img 
+          :src="pageData[0].acf.sekcziya_1_hero.fonovoe_izobrazhenie.url" 
+          :alt="pageData[0].acf.sekcziya_1_hero.fonovoe_izobrazhenie.alt" 
+          class="home-hero-sec__bg-img"
+          >
+      </picture>
+
+        <!-- <img 
         :src="pageData[0].acf.sekcziya_1_hero.fonovoe_izobrazhenie.url"
         :alt="pageData[0].acf.sekcziya_1_hero.fonovoe_izobrazhenie.alt" 
-        class="home-hero-sec__bg-img">
+        class="home-hero-sec__bg-img"> -->
+
+
         <div class="home-hero-sec__content">
           <div class="container">
 
@@ -19,6 +45,7 @@
                   duration: 0.5,
               
                 }'>
+
                 <img src="@/assets/images/img/decor.png" alt="" class="home-hero-sec__decor-img">
               </div>
               <div class="home-hero-sec__title-row">
@@ -163,7 +190,12 @@
                      :to="`/autopark?id=${item.id}`" 
                      class="swipe-home-cat__wrapper" >
                       <div  class="swipe-home-cat__img-wprapper">
-                        <img 
+                        <img v-if="item.acf.izobrazhenie_kategorii.sizes?.medium"
+                        :src="item.acf.izobrazhenie_kategorii.sizes.medium" 
+                        :alt="item.acf.izobrazhenie_kategorii.alt" 
+                        class="swipe-home-cat__img">
+
+                        <img v-else
                         :src="item.acf.izobrazhenie_kategorii.url" 
                         :alt="item.acf.izobrazhenie_kategorii.alt" 
                         class="swipe-home-cat__img">
@@ -177,11 +209,6 @@
               </swiper-container>
             </ClientOnly>
 
-              <!-- <div class="home-cat-slider-swiper-button-prev swiper-def-ar swiper-def-ar--prev swiper-button" @click="swiperRecomend.prev()">
-                  <svg width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M8.15429 13.7071C8.53841 13.3166 8.53841 12.6834 8.15429 12.2929L2.94817 7L8.15429 1.70711C8.53841 1.31658 8.53841 0.683417 8.15429 0.292893C7.77017 -0.0976315 7.14738 -0.0976315 6.76326 0.292893L0.861622 6.29289C0.4775 6.68342 0.4775 7.31658 0.861622 7.70711L6.76326 13.7071C7.14738 14.0976 7.77017 14.0976 8.15429 13.7071Z" fill="#5D736E"/>
-                  </svg>
-              </div> -->
               <div class="home-news-sec__slider-row-control-wrapper">
 
                 <div class="slider-counter"
@@ -568,7 +595,7 @@
                   delay: 0,
                   start: "top 70%",
                 }'
-                :src="item.kartinka.url" 
+                :src="item.kartinka.sizes.medium_large" 
                 :alt="item.kartinka.alt" class="home-about-sec__images-element">
 
               </div>
@@ -582,7 +609,7 @@
                   delay: 0.2,
                   start: "top 70%",
                 }' 
-                :src="item.kartinka.url" 
+                :src="item.kartinka.sizes.medium_large" 
                 :alt="item.kartinka.alt" class="home-about-sec__images-element">
 
               </div>
@@ -694,7 +721,7 @@
         </div>
       </section>
 
-      <formSec :formSecData="optionsData" />
+      <formSec :formSecData="store.optionsData" />
 
       <section class="home-seo-sec seo-sec-type-1" v-if="pageData[0].acf.sekcziya_10_seo_blok.zagolovok_h1">
         <div class="container">
@@ -746,7 +773,7 @@
           </div>
           <div class="seo-sec-type-1__images">
             <img v-for="(item,index) in pageData[0].acf.sekcziya_10_seo_blok.izobrazheniya"
-            :src="item.kartirka.url" 
+            :src="item.kartirka.sizes.medium_large" 
             :alt="item.kartirka.alt" 
             v-gsap.whenVisible.once.from='{
               autoAlpha: 0,
@@ -831,9 +858,9 @@ try {
 
 console.log('recomendCars', recomendCars)
 }
-const { data: optionsData } = await useFetch(`${store.serverUrlDomainRequest}/wp-json/acf/v3/options`)
+// const { data: optionsData } = await useFetch(`${store.serverUrlDomainRequest}/wp-json/acf/v3/options`)
 
-console.log('optionsData', optionsData)
+// console.log('optionsData', optionsData)
 
 console.log('pageData', pageData)
 
