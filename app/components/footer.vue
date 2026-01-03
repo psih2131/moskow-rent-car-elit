@@ -59,8 +59,8 @@
                     <div class="footer__col">
                         <p class="footer__col-title">Контакты</p>
 
-                        <ul class="footer__contacts-list">
-                            <a :href="value.ssylka" class="footer__contacts-element" v-for="value in store.optionsData.footer_kontakty">
+                        <div class="footer__contacts-list">
+                            <a :href="value.ssylka" aria-label="Ссылка на контакт" class="footer__contacts-element" v-for="value in store.optionsData.footer_kontakty">
                                 <div class="contact-link">
                                     <div class="contact-link__wrapper">
                                         <img :src="value.ikonka.url" :alt="value.ikonka.alt">
@@ -70,7 +70,7 @@
                                     <span class="footer__contacts-element-value-main" v-html="value.znachenie"></span>
                                 </div>
                             </a>
-                        </ul>
+                        </div>
                     </div>
 
 
@@ -79,7 +79,7 @@
 
                         <div class="footer__contacts-list" v-if="store.optionsData.footer_svyaz">
                          
-                            <a :href="value.ssylka" class="footer__contacts-element" v-for="value in store.optionsData.footer_svyaz">
+                            <a :href="value.ssylka" aria-label="Ссылка на социальную сеть" class="footer__contacts-element" v-for="value in store.optionsData.footer_svyaz">
                                 <div class="contact-link">
                                     <div class="contact-link__wrapper">
                                         <img :src="value.ikonka.url" :alt="value.ikonka.alt">

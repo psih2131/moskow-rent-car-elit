@@ -815,20 +815,24 @@ const route = useRoute()
 const recomendCars = ref(null)
 
 const { data: pageData } = await useFetch(
-  `${store.serverUrlDomainRequest}/wp-json/wp/v2/pages?slug=glavnaya`
+  `${store.serverUrlDomainRequest}/wp-json/wp/v2/pages?slug=glavnaya&_fields=id,name,acf,slug`
 );
+
+console.log('pageData', pageData)
 
 // Ждём, пока данные загружены и есть что брать
 const categoriesIds = pageData.value?.[0]?.acf?.sekcziya_2_kategorii?.kategorii || [];
 
-const urlCat = `/wp-json/wp/v2/categories-cars?include=${categoriesIds.join(',')}`;
+const urlCat = `/wp-json/wp/v2/categories-cars?include=${categoriesIds.join(',')}&_fields=id,name,acf,slug`;
 
 const { data: carsCategoryes } = await useFetch(
   `${store.serverUrlDomainRequest}${urlCat}`
 );
 
+console.log('carsCategoryes', carsCategoryes)
 
-if(pageData.value[0].acf?.sekcziya_3_populyarnye_modeli?.modeli?.length >0){
+
+if(pageData?.value?.length > 0 && pageData.value[0].acf?.sekcziya_3_populyarnye_modeli?.modeli?.length >0){
 
 // получаем рекомендованные посты
 try {
@@ -839,7 +843,7 @@ try {
     const slugs = chitatTakzhe.map(obj => obj.post_name)
 
     const promises = slugs.map(slug =>
-      fetch(`${store.serverUrlDomainRequest}/wp-json/wp/v2/cars?slug=${slug}`)
+      fetch(`${store.serverUrlDomainRequest}/wp-json/wp/v2/cars?slug=${slug}&_fields=id,name,acf,slug`)
         .then(res => res.json())
         .then(data => data?.[0] || null)
     )
@@ -852,13 +856,8 @@ try {
 
 console.log('recomendCars', recomendCars)
 }
-// const { data: optionsData } = await useFetch(`${store.serverUrlDomainRequest}/wp-json/acf/v3/options`)
 
-// console.log('optionsData', optionsData)
 
-console.log('pageData', pageData)
-
-console.log('carsCategoryes', carsCategoryes)
 
 
 const catRefSlider = ref(null)
