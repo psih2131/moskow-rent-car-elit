@@ -152,9 +152,16 @@ const store = useCounterStore(nuxtApp.$pinia)
 
 const route = useRoute()
 
-const { data: pageData } = await useFetch(`${store.serverUrlDomainRequest}/wp-json/wp/v2/pages?slug=usloviya-arendy`)
 
-const { data: optionsData } = await useFetch(`${store.serverUrlDomainRequest}/wp-json/acf/v3/options`)
+const [
+  { data: pageData },
+  { data: optionsData },
+] = await Promise.all([
+  useFetch(`${store.serverUrlDomainRequest}/wp-json/wp/v2/pages?slug=usloviya-arendy&_fields=id,name,acf,slug,title`),
+  useFetch(`${store.serverUrlDomainRequest}/wp-json/acf/v3/options?_fields=sekcziya_obratnoj_svyazi`)
+
+])
+
 
 console.log('pageData', pageData)
 

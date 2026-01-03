@@ -815,7 +815,7 @@ const route = useRoute()
 const recomendCars = ref(null)
 
 const { data: pageData } = await useFetch(
-  `${store.serverUrlDomainRequest}/wp-json/wp/v2/pages?slug=glavnaya&_fields=id,name,acf,slug`
+  `${store.serverUrlDomainRequest}/wp-json/wp/v2/pages?slug=glavnaya&_fields=id,name,acf,slug,title`
 );
 
 console.log('pageData', pageData)
