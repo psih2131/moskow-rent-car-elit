@@ -21,13 +21,13 @@ export default defineNuxtConfig({
     routeRules: {
       '/_nuxt/**': {
         headers: {
-          'Cache-Control': 'public, max-age=43200, immutable'
+          'Cache-Control': 'public, max-age=604800, immutable'
         }
       },
 
       '/fonts/**': {
         headers: {
-          'Cache-Control': 'public, max-age=43200, immutable'
+          'Cache-Control': 'public, max-age=604800, immutable'
         }
       },
       '/': { isr: 3600 },
