@@ -70,13 +70,13 @@
             <div class="car-hero-sec__slider-row">
 
 
-           <ClientOnly>
+           <!-- <ClientOnly>
               <swiper-container 
               ref="singleCarSlider" 
               class="single-car-swiper"
               >
 
-                <swiper-slide class="single-car-swiper__slide" v-for="(item,index) in moveLastToFirst(currentCarData[0].acf.slajder_izobrazhenij)">
+                <swiper-slide class="single-car-swiper__slide" v-for="(item,index) in moveLastToFirst(currentCarData[0].acf.slajder_izobrazhenij)" >
                     <div class="single-car-swiper__slide-wrapper">
 
                       <picture class="single-car-swiper__slide-img-picture">
@@ -91,7 +91,6 @@
                         <img :src="item.izobrazhenie.sizes['1536x1536']" :alt="item.izobrazhenie.alt" class="single-car-swiper__slide-img">
                       </picture>
 
-                      <!-- <img :src="item.izobrazhenie.url" :alt="item.izobrazhenie.alt" class="single-car-swiper__slide-img"> -->
 
                       <div class="home-hero-sec__play" v-if="item.video_fajl" @click="openTargetPopupVider(item.video_fajl)">
                           <div class="home-hero-sec__play-wrapper">
@@ -111,19 +110,98 @@
                 </swiper-slide>
 
               </swiper-container>
-              
-            </ClientOnly>
 
-            <div class="single-car-swiper-button single-car-swiper-button-prev " @click="swiperCarSingle.prev()">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M9.29289 18.7071C8.90237 18.3166 8.90237 17.6834 9.29289 17.2929L14.5858 12L9.29289 6.70711C8.90237 6.31658 8.90237 5.68342 9.29289 5.29289C9.68342 4.90237 10.3166 4.90237 10.7071 5.29289L16.7071 11.2929C17.0976 11.6834 17.0976 12.3166 16.7071 12.7071L10.7071 18.7071C10.3166 19.0976 9.68342 19.0976 9.29289 18.7071Z" fill="white"/>
-                </svg>
-            </div>
-            <div class="single-car-swiper-button single-car-swiper-button-next " @click="swiperCarSingle.next()">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M9.29289 18.7071C8.90237 18.3166 8.90237 17.6834 9.29289 17.2929L14.5858 12L9.29289 6.70711C8.90237 6.31658 8.90237 5.68342 9.29289 5.29289C9.68342 4.90237 10.3166 4.90237 10.7071 5.29289L16.7071 11.2929C17.0976 11.6834 17.0976 12.3166 16.7071 12.7071L10.7071 18.7071C10.3166 19.0976 9.68342 19.0976 9.29289 18.7071Z" fill="white"/>
-                </svg>
-            </div>
+
+                <div class="single-car-swiper-button single-car-swiper-button-prev " @click="swiperCarSingle.prev()">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9.29289 18.7071C8.90237 18.3166 8.90237 17.6834 9.29289 17.2929L14.5858 12L9.29289 6.70711C8.90237 6.31658 8.90237 5.68342 9.29289 5.29289C9.68342 4.90237 10.3166 4.90237 10.7071 5.29289L16.7071 11.2929C17.0976 11.6834 17.0976 12.3166 16.7071 12.7071L10.7071 18.7071C10.3166 19.0976 9.68342 19.0976 9.29289 18.7071Z" fill="white"/>
+                  </svg>
+              </div>
+              <div class="single-car-swiper-button single-car-swiper-button-next " @click="swiperCarSingle.next()">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9.29289 18.7071C8.90237 18.3166 8.90237 17.6834 9.29289 17.2929L14.5858 12L9.29289 6.70711C8.90237 6.31658 8.90237 5.68342 9.29289 5.29289C9.68342 4.90237 10.3166 4.90237 10.7071 5.29289L16.7071 11.2929C17.0976 11.6834 17.0976 12.3166 16.7071 12.7071L10.7071 18.7071C10.3166 19.0976 9.68342 19.0976 9.29289 18.7071Z" fill="white"/>
+                  </svg>
+              </div>
+              
+            </ClientOnly> -->
+
+
+            <ClientOnly>
+    <swiper-container
+      ref="singleCarSlider"
+      class="single-car-swiper"
+     @swiperfromedge="onSlideChange"
+    >
+      <swiper-slide
+        v-for="(item, index) in visibleSlides"
+        :key="index"
+        class="single-car-swiper__slide"
+        
+      >
+        <div class="single-car-swiper__slide-wrapper">
+          <picture class="single-car-swiper__slide-img-picture">
+            <source
+              v-if="item.izobrazhenie?.sizes?.medium_large"
+              media="(max-width: 760px)"
+              :srcset="item.izobrazhenie.sizes.medium_large"
+            />
+            <source
+              v-if="item.izobrazhenie?.sizes?.large"
+              media="(max-width: 990px)"
+              :srcset="item.izobrazhenie.sizes.large"
+            />
+            <img
+              :src="item.izobrazhenie.sizes['1536x1536']"
+              :alt="item.izobrazhenie.alt"
+              class="single-car-swiper__slide-img"
+            />
+          </picture>
+
+          <!-- кнопка видео -->
+          <div
+            class="home-hero-sec__play"
+            v-if="item.video_fajl"
+            @click="openTargetPopupVider(item.video_fajl)"
+          >
+            <div class="home-hero-sec__play-wrapper"></div>
+            <svg width="47" height="47" viewBox="0 0 47 47" fill="none">
+              <path
+                d="M5.875 23.5013V37.1452C5.875 41.6674 10.8381 44.526 14.8767 42.3297L21.1492 38.9187M5.875 15.668V9.8574C5.875 5.33517 10.8381 2.47667 14.8767 4.67287L39.9668 18.3168C44.1222 20.5765 44.1222 26.4261 39.9668 28.6858L27.4218 35.5078"
+                stroke="white"
+                stroke-width="3"
+                stroke-linecap="round"
+              />
+            </svg>
+          </div>
+
+          <!-- кнопка зума -->
+          <div class="single-car-swiper__slide-zoom" @click="() => showImg(index)">
+            <svg width="33" height="34" viewBox="0 0 33 34" fill="none">
+              <path
+                d="M23.375 2.75391C22.6156 2.75391 22 3.37018 22 4.1304C22 4.89062 22.6156 5.5069 23.375 5.5069L25.5555 5.5069L19.6527 11.4161C19.1158 11.9536 19.1158 12.8252 19.6527 13.3627C20.1897 13.9003 21.0603 13.9003 21.5973 13.3627L27.5 7.45356L27.5 9.63639C27.5 10.3966 28.1156 11.0129 28.875 11.0129C29.6344 11.0129 30.25 10.3966 30.25 9.63639L30.25 4.1304C30.25 3.37018 29.6344 2.75391 28.875 2.75391H23.375ZM5.5 25.5842L5.5 23.4013C5.5 22.6411 4.88439 22.0248 4.125 22.0248C3.36561 22.0248 2.75 22.6411 2.75 23.4013L2.75 28.9073C2.75001 29.6676 3.36561 30.2838 4.125 30.2838H9.625C10.3844 30.2838 11 29.6676 11 28.9073C11 28.1471 10.3844 27.5308 9.625 27.5308H7.44454L13.3473 21.6217C13.8842 21.0841 13.8842 20.2126 13.3473 19.675C12.8103 19.1375 11.9397 19.1375 11.4027 19.675L5.5 25.5842Z"
+                fill="#CFCFCF"
+              />
+            </svg>
+          </div>
+        </div>
+      </swiper-slide>
+    </swiper-container>
+
+    <!-- кнопки навигации -->
+    <div class="single-car-swiper-button single-car-swiper-button-prev" @click="swiperCarSingle.prev()">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9.29289 18.7071C8.90237 18.3166 8.90237 17.6834 9.29289 17.2929L14.5858 12L9.29289 6.70711C8.90237 6.31658 8.90237 5.68342 9.29289 5.29289C9.68342 4.90237 10.3166 4.90237 10.7071 5.29289L16.7071 11.2929C17.0976 11.6834 17.0976 12.3166 16.7071 12.7071L10.7071 18.7071C10.3166 19.0976 9.68342 19.0976 9.29289 18.7071Z" fill="white"/>
+                  </svg>
+    </div>
+    <div class="single-car-swiper-button single-car-swiper-button-next" @click="swiperCarSingle.next()">
+     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9.29289 18.7071C8.90237 18.3166 8.90237 17.6834 9.29289 17.2929L14.5858 12L9.29289 6.70711C8.90237 6.31658 8.90237 5.68342 9.29289 5.29289C9.68342 4.90237 10.3166 4.90237 10.7071 5.29289L16.7071 11.2929C17.0976 11.6834 17.0976 12.3166 16.7071 12.7071L10.7071 18.7071C10.3166 19.0976 9.68342 19.0976 9.29289 18.7071Z" fill="white"/>
+                  </svg>
+    </div>
+  </ClientOnly>
+
+
+          
 
           </div>
           <VueEasyLightbox
@@ -1038,43 +1116,109 @@ console.log('recomendCars', recomendCars)
 const singleCarSlider = ref(null)
 
 
+
+
+
+const currentCarDataSlider = ref([]) // массив с 30 изображениями
+
+const visibleSlides = ref([]) // видимые слайды
+
+const initialSlideCount = 6
+
+
+if(currentCarData.value[0].acf?.slajder_izobrazhenij?.length > 0){
+  visibleSlides.value = moveLastToFirst(currentCarData.value[0].acf.slajder_izobrazhenij).slice(0, initialSlideCount)
+}
+
+
+// const singleCarSlider = ref(null)
+const swiperCarSingle = useSwiper(singleCarSlider, {
+  loop: false,
+  slidesPerView: 1,
+  spaceBetween: 0,   
+  speed: 1100,
+  freeMode: "true",  
+  slidesPerView: "auto",
+  pagination: true,
+  
+
+  watchSlidesProgress: true,
+  observer: true,
+  observeParents: true,
+
+  
+  breakpoints: {
+    100: { slidesPerView: 3, spaceBetween: 15 },
+    760: { slidesPerView: 3, spaceBetween: 20 },
+    1380: { slidesPerView: 3, spaceBetween: 30 },
+    1500: { slidesPerView: 3, spaceBetween: 50 },
+  },
+})
+
+
+
+
+let onse = false
+// при перелистывании подгружаем остальные
+function onSlideChange() {
+
+
+  if(onse == false){
+  let allSlides = currentCarData.value[0].acf.slajder_izobrazhenij
+
+  for(let i = 5; i < allSlides.length; i++){
+      visibleSlides.value.push(
+      allSlides[i]
+    )
+  }
+
+    console.log('gg', singleCarSlider, allSlides, visibleSlides.value, singleCarSlider,  swiperCarSingle)
+
+    singleCarSlider.value.swiper.update()
+  singleCarSlider.value.swiper.loopDestroy()
+  singleCarSlider.value.swiper.loopCreate()
+
+
+}
+  onse = true
+}
+
+
 //recomend gallery
-const  swiperCarSingle  = useSwiper(singleCarSlider, {
-   loop: true,
-   slidesPerView: 1,
-   spaceBetween: 0,   
-   speed: 1100,
-   freeMode: "true",  
-  //  freeMode: true,
-   slidesPerView: "auto",
-   pagination: true,
+// const  swiperCarSingle  = useSwiper(singleCarSlider, {
+//    loop: true,
+//    slidesPerView: 1,
+//    spaceBetween: 0,   
+//    speed: 1100,
+//    freeMode: "true",  
+//    slidesPerView: "auto",
+//    pagination: true,
    
 
-  //  centeredSlides: 'auto',
-   breakpoints: {
+//    breakpoints: {
 
-    100: {
-       slidesPerView: 3,
-      spaceBetween: 15,
-    },
+//     100: {
+//        slidesPerView: 3,
+//       spaceBetween: 15,
+//     },
 
-    760: {
-       slidesPerView: 3,
-      spaceBetween: 20,
-    },
+//     760: {
+//        slidesPerView: 3,
+//       spaceBetween: 20,
+//     },
 
-    1380: {
-       slidesPerView: 3,
-      spaceBetween: 30,
-    },
+//     1380: {
+//        slidesPerView: 3,
+//       spaceBetween: 30,
+//     },
 
-    1500: {
-       slidesPerView: 3,
-      spaceBetween: 50,
-    },
-  },
+//     1500: {
+//        slidesPerView: 3,
+//       spaceBetween: 50,
+//     },
+//   },
 
-})
+// })
 
 
 

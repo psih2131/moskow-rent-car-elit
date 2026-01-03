@@ -40,7 +40,7 @@
 
             <preloader v-if="store.preloaderStatus == true" />
 
-            <socialContactWidget />
+            <socialContactWidget v-if="showWidget" />
 
             <cookieWidget />
 
@@ -100,6 +100,8 @@ const store = useCounterStore(nuxtApp.$pinia)
 
 const router = useRouter()
 
+const route = useRoute()
+
 const { data: optionsData } = await useFetch(`${store.serverUrlDomainRequest}/wp-json/acf/v3/options`)
 
 store.changeOptionData(optionsData.value)
@@ -157,8 +159,11 @@ router.afterEach((to, from) => {
 
 })
 
-
-
+// Проверка: показывать виджет только если путь не равен /autopark/test и не начинается с /autopark/
+const showWidget = computed(() => {
+  // route.path — это текущий путь, например: /autopark/123
+  return !route.path.startsWith('/autopark')
+})
 
 onMounted(async () => {
     //   let loaderWrapper =  document.querySelector('.initial-loader')
