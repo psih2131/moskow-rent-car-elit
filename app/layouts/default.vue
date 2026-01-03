@@ -1,7 +1,7 @@
 <template>
   
     <div class="app-wrapper">
-<!-- 
+
        <div class="initial-loader">
 
         <div class="initial-loader__logo">
@@ -26,7 +26,7 @@
 
 
 
-       </div> -->
+       </div>
        
         <componentHeader />
         
@@ -166,22 +166,22 @@ const showWidget = computed(() => {
 })
 
 onMounted(async () => {
-    //   let loaderWrapper =  document.querySelector('.initial-loader')
-    //   let hideWrapper = document.querySelector('.initial-loader__hide')   
-    // setTimeout(()=>{
+      let loaderWrapper =  document.querySelector('.initial-loader')
+      let hideWrapper = document.querySelector('.initial-loader__hide')   
+    setTimeout(()=>{
 
-    //   hideWrapper.style.height = '100%'
+      hideWrapper.style.height = '100%'
 
-    // },2000)
+    },600)
 
-    // setTimeout(()=>{
-    //     loaderWrapper.style.height = '0px'
-    // },2700)
+    setTimeout(()=>{
+        loaderWrapper.style.height = '0px'
+    },1000)
 
-    // setTimeout(()=>{
-    //     loaderWrapper.style.display = 'none'
+    setTimeout(()=>{
+        loaderWrapper.style.display = 'none'
       
-    // },3200)
+    },1300)
 
     
 

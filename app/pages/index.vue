@@ -27,12 +27,6 @@
           >
       </picture>
 
-        <!-- <img 
-        :src="pageData[0].acf.sekcziya_1_hero.fonovoe_izobrazhenie.url"
-        :alt="pageData[0].acf.sekcziya_1_hero.fonovoe_izobrazhenie.alt" 
-        class="home-hero-sec__bg-img"> -->
-
-
         <div class="home-hero-sec__content">
           <div class="container">
 
