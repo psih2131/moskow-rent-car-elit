@@ -17,6 +17,25 @@ export default defineNuxtConfig({
     }
   },
 
+  nitro: {
+    routeRules: {
+      '/_nuxt/**': {
+        headers: {
+          'Cache-Control': 'public, max-age=43200, immutable'
+        }
+      },
+
+      '/fonts/**': {
+        headers: {
+          'Cache-Control': 'public, max-age=43200, immutable'
+        }
+      },
+      '/': { isr: 3600 },
+      '/autopark/**': { isr: 3600 }
+    },
+
+  },
+
   site: {
     url: 'https://red-angels.ru',
   },

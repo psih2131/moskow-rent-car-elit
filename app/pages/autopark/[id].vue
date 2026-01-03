@@ -625,7 +625,7 @@
         </div>
     </section> 
 
-    <section class="clients-about-us" v-if="currentCarData[0].acf.zagolovok_otzyvy_klientov">
+    <section class="clients-about-us" v-if="currentCarData[0].acf.zagolovok_otzyvy_klientov && currentCarData[0].acf?.otzyvy_klientov?.otzyvy?.length > 0">
         <div class="container">
           <div class="header-row-sec-v2">
 
@@ -753,7 +753,7 @@
         </div>
     </section>
 
-    <section class="car-about-sec" v-if="currentCarData[0].acf.zagolovok_pro_avtomobil">
+    <section class="car-about-sec" v-if="currentCarData[0].acf.zagolovok_pro_avtomobil && currentCarData[0].acf?.o_avtomobile?.length > 0">
       <div class="container">
         <h2 class="car-price-sec__title sec-title sec-title--left-mod" 
         v-html="currentCarData[0].acf.zagolovok_pro_avtomobil"
@@ -811,7 +811,7 @@
       </div>
     </section>
 
-    <section class="car-char-full-sec" v-if="currentCarData[0].acf.zagolovok_harakteristiki_avto">
+    <section class="car-char-full-sec" v-if="currentCarData[0].acf.zagolovok_harakteristiki_avto && currentCarData[0].acf?.dopolnitelnye_polzovatelskie_harakteristiki?.length > 0">
       <div class="container">
         <div class="header-row-sec-v2">
 
@@ -861,7 +861,7 @@
 
    <formSec :formSecData="optionsData" />
 
-    <section class="car-simmilar-sec" v-if="currentCarData[0].acf.zagolovok_pohozhie_avto">
+    <section class="car-simmilar-sec" v-if="currentCarData[0].acf.zagolovok_pohozhie_avto && recomendCars?.length > 0">
       <div class="container">
         <div class="header-row-sec">
             <h2 class="car-simmilar-sec__title sec-title sec-title--left-mod" 
@@ -1044,6 +1044,7 @@ const  swiperCarSingle  = useSwiper(singleCarSlider, {
   //  freeMode: true,
    slidesPerView: "auto",
    pagination: true,
+   
 
   //  centeredSlides: 'auto',
    breakpoints: {
@@ -1070,6 +1071,8 @@ const  swiperCarSingle  = useSwiper(singleCarSlider, {
   },
 
 })
+
+
 
 
 //reviews gallery
