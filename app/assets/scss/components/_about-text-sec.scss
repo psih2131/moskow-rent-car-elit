@@ -1,0 +1,133 @@
+@import "../vars";
+
+.info-data-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 75px;
+    margin-bottom: 125px;
+
+    &:nth-child(even) {
+        .info-data-row__data {
+            order: 2;
+            padding-right: 0;
+            padding-left: 80px;
+        }
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.info-data-row__img-wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 740px;
+}
+
+.info-data-row__img {
+    width: calc(50% - 20px);
+    display: block;
+    height: 352px;
+    object-fit: cover;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.30);
+}
+
+.info-data-row__data {
+    width: calc(100% - 740px);
+    padding-right: 80px;
+}
+
+@media only screen and (max-width: 1580px) {
+    .info-data-row__img-wrapper {
+        width: 45%;
+    }
+
+    .info-data-row__img {
+        height: 280px;
+    }
+
+    .info-data-row__data {
+        width: 55%;
+    }
+}
+
+@media only screen and (max-width: 1500px) {
+    .info-data-row__img {
+        width: calc(50% - 10px);
+    }
+
+    .info-data-row__data {
+        padding-right: 40px;
+    }
+
+    .info-data-row:nth-child(even) .info-data-row__data {
+        padding-left: 40px;
+    }
+
+    .info-data-row {
+        margin-bottom: 100px;
+    }
+}
+
+@media only screen and (max-width: 1380px) {
+    .info-data-row__img {
+        width: calc(50% - 10px);
+    }
+
+    .info-data-row {
+        margin-bottom: 70px;
+    }
+
+    .info-data-row__data {
+        padding-right: 30px;
+
+        .wp-editor {
+            p {
+                font-size: 14px;
+            }
+        }
+    }
+
+    .info-data-row:nth-child(even) .info-data-row__data {
+        padding-left: 30px;
+    }
+}
+
+@media only screen and (max-width: 990px) {
+    .info-data-row {
+        padding-left: 40px;
+        flex-wrap: wrap;
+        margin-bottom: 50px;
+    }
+
+    .info-data-row__data {
+        padding-right: 0;
+        width: 100%;
+    }
+
+    .info-data-row__img-wrapper {
+        width: 100%;
+        margin-top: 30px;
+    }
+
+    .info-data-row:nth-child(even) .info-data-row__data {
+        padding-left: 0;
+        order: 0;
+    }
+}
+
+@media only screen and (max-width: 760px) {
+    .info-data-row {
+        padding-left: 0;
+    }
+
+    .info-data-row__img {
+        height: 170px;
+    }
+
+    .info-data-row {
+        margin-bottom: 35px;
+    }
+}

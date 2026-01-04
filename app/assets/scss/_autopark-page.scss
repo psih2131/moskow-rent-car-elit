@@ -204,13 +204,6 @@
     margin-top: 120px;
     padding-bottom: 20px;
 
-    .car-card {
-        margin-bottom: 70px;
-
-        &:last-child {
-            margin-bottom: 0;
-        }
-    }
 }
 
 .autopark-cars-sec__cars {
@@ -220,13 +213,6 @@
         width: calc(100% + 44px);
         margin-left: -22px;
         padding-bottom: 44px;
-
-        .car-card {
-            margin: 0 22px 44px 22px;
-            width: calc(33.333% - 44px);
-        }
-
-
     }
 }
 
@@ -237,32 +223,10 @@
         width: calc(100% + 44px);
         margin-left: -22px;
         padding-bottom: 44px;
-
-        .car-card {
-            margin: 0 22px 44px 22px;
-            width: calc(33.333% - 44px);
-        }
-
-        .car-card:nth-child(even) .car-card__wrapper {
-            padding: 10px;
-        }
-
     }
 }
 
-.table-mod {
-    .car-card__container {
-        height: 100%;
-    }
 
-    .car-card__border {
-        height: 100%;
-    }
-
-    .car-card__wrapper {
-        height: 100%;
-    }
-}
 
 .autopark-cars-sec__load-more-row {
     display: flex;
@@ -435,11 +399,7 @@
         height: 500px;
     }
 
-    .table-mod {
-        .car-card__title {
-            font-size: 23px;
-        }
-    }
+
 
     .autopark-cars-sec__cars.table-mod {
         padding-bottom: 0;
@@ -493,23 +453,14 @@
         margin-top: 60px;
     }
 
-    .cars-wrapper-rv.table-mod .car-card {
-        margin: 0 10px 25px 10px;
-        width: calc(33.333% - 20px);
-    }
+
 
     .cars-wrapper-rv.table-mod {
         width: calc(100% + 20px);
         margin-left: -10px;
     }
 
-    .table-mod .car-card__title {
-        font-size: 20px;
-    }
 
-    .table-mod .car-card__category {
-        font-size: 16px;
-    }
 
     .autopark-cars-sec__view-btn svg {
         width: 30px;
@@ -523,83 +474,7 @@
         padding-bottom: 100px;
     }
 
-    .table-mod {
-        .car-card-slider-wrapper .single-car-swiper-button {
-            width: 40px;
-            height: 40px;
-        }
 
-        .car-card-slider-wrapper .single-car-swiper-button-next {
-            right: 10px;
-        }
-
-        .car-card-slider-wrapper .single-car-swiper-button-prev {
-            left: 10px;
-        }
-
-        .car-card-slider__slide-img-picture {
-            height: 250px;
-        }
-
-        .car-card__price--sale-price-procent {
-            top: -2px;
-        }
-
-        .car-card__title {
-            font-size: 18px;
-        }
-
-        .car-card__category {
-            font-size: 14px;
-        }
-
-        .car-card__price-sale-price {
-            font-size: 16px;
-
-            .car-card__price-value {
-                font-size: 20px;
-            }
-        }
-
-        .car-card__price-old-price {
-            font-size: 14px;
-
-            .car-card__price-value {
-                font-size: 16px;
-            }
-        }
-
-        .car-card__characteristics {
-            margin-top: 30px;
-        }
-
-
-        .car-card__characteristic-value {
-            font-size: 11px;
-        }
-
-        .car-card__description {
-            font-size: 13px;
-            margin-top: 30px;
-        }
-
-        .car-card__wrapper {
-            flex-direction: column;
-            justify-content: flex-start;
-        }
-
-        .car-card {
-            .car-card__data {
-                padding: 20px 5px 30px 5px;
-            }
-
-            &:nth-child(even) {
-                .car-card__data {
-                    padding: 20px 5px 30px 5px;
-                }
-            }
-        }
-    }
 }
 
 @media only screen and (max-width: 1380px) {
@@ -695,18 +570,13 @@
         display: none;
     }
 
-    .autopark-cars-sec__cars .car-card {
-        margin-bottom: 50px;
-    }
+
 
     .autopark-cars-sec__cars.table-mod {
         width: calc(100% + 20px);
         margin-left: -10px;
 
-        .car-card {
-            margin: 0 10px 20px 10px;
-            width: calc(33.333% - 20px);
-        }
+
     }
 
 
@@ -739,127 +609,6 @@
     .table-mod {
         width: calc(100% + 20px);
         margin-left: -10px;
-
-        .car-card {
-
-            &:nth-child(even) {
-                .car-card__wrapper {
-                    padding: 10px;
-                }
-
-                .car-card__data {
-                    padding: 20px 0px 20px 5px;
-                }
-            }
-        }
-
-        .car-card__data {
-            padding-right: 0;
-            padding-bottom: 20px;
-        }
-
-        .car-card__body {
-            margin-top: 15px;
-        }
-
-        .car-card-slider__slide-img-picture {
-            height: 220px;
-        }
-
-        .car-card__wrapper {
-            padding: 10px;
-            align-items: flex-start;
-        }
-
-        .car-card__category {
-            font-size: 12px;
-        }
-
-        .car-card__title {
-            font-size: 16px;
-        }
-
-        .car-card__price-value {
-            font-size: 16px;
-        }
-
-        .car-card__price-sale-price {
-            font-size: 13px;
-
-            .car-card__price-value {
-                font-size: 16px;
-            }
-        }
-
-        .car-card__price-old-price {
-            font-size: 12px;
-
-            .car-card__price-value {
-                font-size: 13px;
-            }
-        }
-
-
-
-        .car-card__description {
-            margin-top: 20px;
-            font-size: 12px;
-        }
-
-        .car-card__characteristics {
-            margin-top: 25px;
-        }
-
-        .car-card__container {
-            height: 100%;
-        }
-
-        .car-card__wrapper {
-            height: 100%;
-        }
-
-        .car-card__border {
-            height: 100%;
-        }
-
-        .car-card__header-text::before {
-            opacity: 0;
-        }
-
-        .car-card__header-text {
-            padding-left: 0;
-            border: none;
-        }
-
-        .car-card__body {
-            padding-left: 0;
-        }
-
-        .car-card__characteristic-icon-wrapper svg {
-            height: 18px;
-        }
-
-        .car-card__characteristic-value {
-            font-size: 10px;
-        }
-
-        .car-card__description {
-            font-size: 11px;
-        }
-
-        .car-card {
-            .car-card__data {
-                padding-bottom: 20px;
-
-
-            }
-
-            &:nth-child(even) {
-                .car-card__data {
-                    padding-bottom: 20px;
-                }
-            }
-        }
     }
 
 }
@@ -892,9 +641,7 @@
         flex-wrap: wrap;
         justify-content: space-between;
 
-        .car-card {
-            margin-bottom: 25px;
-        }
+
     }
 
     .autopark-cars-sec__view-btn {
@@ -921,88 +668,10 @@
         width: calc(100%);
         margin-left: 0;
 
-        .car-card {
-            width: 100%;
-            margin: 0;
-            margin-bottom: 24px;
-        }
-    }
-
-    .table-mod {
-        .car-card__wrapper {
-            justify-content: space-between;
-            flex-direction: row;
-            align-items: center;
-        }
-
-        .car-card-slider {
-            width: 200px;
-        }
-
-        .car-card-slider__slide-img-picture {
-            height: 170px;
-        }
-
-        .car-card__data {
-            width: calc(100% - 200px);
-            padding-left: 30px;
-            padding-bottom: 0;
-            padding-top: 0;
-        }
-
-        .car-card__description {
-            display: none;
-        }
-
-        .car-card__title {
-            font-size: 16px;
-        }
-
-        .car-card__category {
-            font-size: 12px;
-        }
-
-        .car-card__body {
-            margin-top: 10px;
-        }
-
-        .car-card__characteristics {
-            margin-top: 15px;
-            justify-content: flex-start;
-        }
-
-        .car-card__characteristic {
-            margin-right: 30px;
-        }
-
-        .car-card__characteristic-icon-wrapper svg {
-            width: 18px;
-        }
-
-        .car-card {
-            .car-card__data {
-                padding: 0 0 0 20px;
-            }
-
-            &:nth-child(even) {
-                .car-card__data {
-                    padding: 0 0 0 20px;
-                }
-            }
-        }
-
-        .car-card-slider-wrapper {
-            swiper-container::part(pagination) {
-                bottom: 10px;
-            }
-
-            .single-car-swiper-button {
-                display: none;
-            }
-        }
-
 
     }
+
+
 
     .autopark-cars-sec {
         padding-bottom: 70px;
@@ -1163,9 +832,7 @@
         margin-top: 40px;
     }
 
-    .autopark-cars-sec__cars .car-card {
-        width: 100%;
-    }
+
 
     .cars-empty-searc {
         height: 300px;
@@ -1223,127 +890,5 @@
         flex-wrap: wrap;
     }
 
-    .table-mod {
-        .car-card-slider {
-            width: 135px;
-        }
 
-        .car-card-slider__slide-img-picture {
-            height: 135px;
-        }
-
-        .car-card__data {
-            width: calc(100% - 135px);
-            padding-left: 15px;
-        }
-
-        .car-card__category {
-            font-size: 10px;
-        }
-
-        .car-card__title {
-            font-size: 12px;
-        }
-
-        .car-card__header-text {
-            border: none;
-            padding-left: 0;
-
-            &::before {
-                opacity: 0;
-            }
-        }
-
-        .car-card__price-row-tab .car-card__header-ar {
-            display: none;
-        }
-
-        .car-card__body {
-            padding-left: 0;
-        }
-
-        .car-card__price-value {
-            font-size: 12px;
-        }
-
-        .car-card__price-sale-price {
-            font-size: 11px;
-
-            .car-card__price-value {
-                font-size: 12px;
-            }
-        }
-
-        .car-card__price-old-price {
-            font-size: 11px;
-
-            .car-card__price-value {
-                font-size: 11px;
-            }
-        }
-
-        .car-card__title {
-            font-size: 12px;
-
-
-        }
-
-        .car-card__characteristic-icon-wrapper {
-            display: none;
-        }
-
-        .car-card__characteristic {
-            margin-right: 10px;
-            margin-top: 10px;
-        }
-
-        .car-card__characteristics {
-            flex-wrap: wrap;
-        }
-
-        .car-card__characteristic-value {
-            margin-top: 0;
-        }
-
-        .car-card__characteristics {
-            margin-top: 10px;
-        }
-
-        .car-card:nth-child(even) .car-card__data {
-            padding: 0;
-            padding-left: 15px;
-        }
-
-        .car-card__wrapper {
-            align-items: flex-start;
-        }
-
-        .car-card__characteristic {
-            margin-right: 7px;
-            line-height: 1;
-            margin-top: 7px;
-        }
-
-        .car-card__price-sale-wrapper {
-            width: 100%;
-            position: relative;
-        }
-
-        .car-card__price-sale-price {
-            width: 100%;
-            justify-content: flex-start;
-            text-align: left;
-        }
-
-        .car-card__price--sale-price-procent {
-            right: 0px;
-            top: -5px;
-        }
-    }
-
-    .autopark-cars-sec__cars.table-mod .car-card {
-        &:last-child {
-            margin-bottom: 0;
-        }
-    }
 }

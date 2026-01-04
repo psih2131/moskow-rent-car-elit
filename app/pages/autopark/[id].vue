@@ -957,9 +957,6 @@ const allCats = ref(null)
 const switchPrice  = ref(1)
 
 
-
-
-
 const [
   { data: currentCarData },
   { data: optionsData },
@@ -1238,6 +1235,18 @@ useHead({
 </script>
 
 
+
+
+<style scoped  lang="scss">
+
+@import "@/assets/scss/components/advantages-sec.scss";
+
+@import "@/assets/scss/components/about-text-sec.scss";
+
+@import "@/assets/scss/car-page.scss";
+
+
+</style>
 
 
 <style scoped>

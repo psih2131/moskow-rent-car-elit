@@ -2,18 +2,12 @@
     <div class="car-card" v-if="carData" >
         <div class="car-card__container">
 
-            
-
             <div class="car-card__border" >
                 
             <div class="car-card__wrapper">
 
-                
-
-                
                 <NuxtLink :to="`/autopark/${carData.slug}`"  class="car-card__link-wrapper"></NuxtLink>
              
-
                 <ClientOnly>
                     <div class="car-card-slider-wrapper">
                 <swiper-container 
@@ -65,8 +59,6 @@
                     </div>
                 </div>
                 </ClientOnly>
-
-                
 
                 <NuxtLink :to="`/autopark/${carData.slug}`"  class="car-card__data">
                     <div class="car-card__header">
@@ -192,13 +184,7 @@
                                     </svg>
                                 </div>
                                 <p class="car-card__characteristic-value"><span v-html="carData.acf.harakteristiki.tip_privoda"></span></p>
-                            </div>
-
-                            
-
-                            
-
-                            
+                            </div> 
                         </div>
                     </div>
                 </NuxtLink>
@@ -213,22 +199,10 @@
 <script setup>
 
 //IMPORT
-
-// import { useCounterStore } from '@/stores/counter'
-
-import { ref, onMounted  } from 'vue';
-
-// import productCard from '@/components/component__producr-card.vue'
-
-
-
-
+import { ref } from 'vue';
 
 
 //DATA
-// const store = useCounterStore()
-
-// const route = useRoute()
 
 const carCardRefSlider = ref(null)
 
@@ -236,7 +210,6 @@ const props = defineProps({
     carData: Object,
     allCats: Array,
 })
-
 
 //recomend gallery
 const  swiperCarCard  = useSwiper(carCardRefSlider, {
@@ -280,18 +253,20 @@ const getCurrentCategory = (data)=>{
     return currentCutTitle
 }
 
-
-
 function truncateString(str, maxLength) {
   if (typeof str !== 'string') return ''
   if (str.length <= maxLength) return str
   return str.slice(0, maxLength) + '...'
 }
 
-
-
-
 </script>
 
+
+
+<style scoped  lang="scss">
+
+@import "@/assets/scss/components/car-card.scss";
+
+</style>
 
 

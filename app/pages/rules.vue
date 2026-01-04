@@ -232,6 +232,8 @@ useHead({
 
 <style scoped  lang="scss">
 
+@import "@/assets/scss/components/advantages-sec.scss";
+
 @import "@/assets/scss/rules-page.scss";
 
 </style>
