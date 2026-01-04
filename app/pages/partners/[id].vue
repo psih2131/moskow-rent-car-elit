@@ -270,7 +270,7 @@
 
 //IMPORT
 
-import { ref, onMounted  } from 'vue';
+import {onMounted  } from 'vue';
 
 import formSec from '@/components/sections/formSec.vue'
 
@@ -385,3 +385,10 @@ useHead({
 
 
 </script>
+
+
+<style scoped  lang="scss">
+@import "@/assets/scss/partners-page.scss";
+@import "@/assets/scss/partner-single-page.scss";
+
+</style>

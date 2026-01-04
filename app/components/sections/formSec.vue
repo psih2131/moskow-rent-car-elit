@@ -114,8 +114,6 @@
 
                         </a>
 
-
-
                     </div>
                     </div>
                 </div>
@@ -144,3 +142,10 @@
         animStatusDisable: Boolean,
     })
 </script>
+
+
+<style scoped  lang="scss">
+
+@import "@/assets/scss/components/form-sec.scss";
+
+</style>
