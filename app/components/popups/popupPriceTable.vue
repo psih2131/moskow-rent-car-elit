@@ -203,5 +203,6 @@ onMounted(() => {
 <style scoped  lang="scss">
 
 @import "@/assets/scss/components/popup-system.scss";
+@import "@/assets/scss/car-page.scss";
 
 </style>
