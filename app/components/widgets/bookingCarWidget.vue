@@ -239,41 +239,6 @@ onUnmounted(()=>{
 </script>
 
 
-<style scoped>
-:deep(.dp__theme_dark) {
-  --dp-background-color: #151D24;
-  --dp-text-color: #CFCFCF;
-  --dp-hover-color: #3F4F4F;
-  --dp-hover-text-color: #fff;
-  --dp-hover-icon-color: #CFCFCF;
-  --dp-primary-color: #5D736E;
-  --dp-primary-disabled-color: #F1BD81;
-  --dp-primary-text-color: #fff;
-  --dp-secondary-color: #a9a9a9;
-  --dp-border-color: #2d2d2d;
-  --dp-menu-border-color: #2d2d2d;
-  --dp-border-color-hover: #aaaeb7;
-  --dp-border-color-focus: #aaaeb7;
-  --dp-disabled-color: #737373;
-  --dp-disabled-color-text: #d0d0d0;
-  --dp-scroll-bar-background: #151D24;
-  --dp-scroll-bar-color: #484848;
-  --dp-success-color: #00701a;
-  --dp-success-color-disabled: #428f59;
-  --dp-icon-color: #959595;
-  --dp-danger-color: #e53935;
-  --dp-marker-color: #e53935;
-  --dp-tooltip-color: #3e3e3e;
-  --dp-highlight-color: rgb(0 92 178 / 20%);
-  --dp-range-between-dates-background-color: var(--dp-hover-color);
-  --dp-range-between-dates-text-color: var(--dp-hover-text-color);
-  --dp-range-between-border-color: var(--dp-hover-color);
-}
-</style>
 
 
-<style scoped  lang="scss">
 
-@import "@/assets/scss/components/booking-car-widget.scss";
-
-</style>

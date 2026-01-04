@@ -151,8 +151,22 @@ export default defineNuxtConfig({
     'v-gsap-nuxt',
     'nuxt-locomotive-scroll',
     '@nuxtjs/sitemap',
-    '@nuxtjs/robots'
+    '@nuxtjs/robots',
+    '@nuxtjs/critters',
   ],
+
+  critters: {
+    // Options passed directly to beasties: https://github.com/danielroe/beasties#beasties-
+    config: {
+      // Default: 'media'
+      preload: 'swap',
+      pruneSource: true,        // удаляет неиспользуемый CSS
+      reduceInlineStyles: true, // уменьшает inline
+      mergeStylesheets: true,   // объединяет CSS
+      noscriptFallback: true
+    },
+  },
+
 
 
 
