@@ -152,21 +152,14 @@ export default defineNuxtConfig({
     'nuxt-locomotive-scroll',
     '@nuxtjs/sitemap',
     '@nuxtjs/robots',
-    '@nuxtjs/critters',
+    'nuxt-vitalizer'
   ],
 
-  critters: {
-    // Options passed directly to beasties: https://github.com/danielroe/beasties#beasties-
-    config: {
-      // Default: 'media'
-      preload: 'swap',
-      pruneSource: true,        // удаляет неиспользуемый CSS
-      reduceInlineStyles: true, // уменьшает inline
-      mergeStylesheets: true,   // объединяет CSS
-      noscriptFallback: true
-    },
-  },
 
+  vitalizer: {
+    // Remove the render-blocking entry CSS
+    disableStylesheets: 'entry'
+  },
 
 
 
