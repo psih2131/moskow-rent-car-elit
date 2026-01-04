@@ -4,27 +4,22 @@
 
 
 
-       <div class="initial-loader">
-
-        <div class="initial-loader__logo">
-          <div class="initial-loader__logo-row">
-            <span>R</span>
-            <span>E</span>
-            <span>D</span>
-            <span class="space-logo"> </span>
-            <span>A</span>
-            <span>N</span> 
-            <span>G</span> 
-            <span>E</span>
-            <span>L</span>
-            <span>S</span>
+       <div class="initial-loader" id="initialLoader">
+          <div class="initial-loader__logo">
+            <div class="initial-loader__logo-row">
+              <span>R</span>
+              <span>E</span>
+              <span>D</span>
+              <span class="space-logo"></span>
+              <span>A</span>
+              <span>N</span>
+              <span>G</span>
+              <span>E</span>
+              <span>L</span>
+              <span>S</span>
+            </div>
           </div>
-          
         </div>
-
-        <div class="initial-loader__hide"></div>
-
-       </div>
 
 
        
@@ -171,23 +166,10 @@ const showWidget = computed(() => {
 })
 
 onMounted(async () => {
-      let loaderWrapper =  document.querySelector('.initial-loader')
-      let hideWrapper = document.querySelector('.initial-loader__hide')   
-    setTimeout(()=>{
-
-      hideWrapper.style.height = '100%'
-
-    },1000)
-
-    setTimeout(()=>{
-        loaderWrapper.style.height = '0px'
-    },1300)
-
-    setTimeout(()=>{
-        loaderWrapper.style.display = 'none'
-      
-    },1600)
-
+  requestAnimationFrame(() => {
+    const loader = document.getElementById('initialLoader')
+    if (loader) loader.classList.add('hidden')
+  })
 
 
 });
