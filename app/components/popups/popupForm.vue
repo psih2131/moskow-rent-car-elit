@@ -250,4 +250,6 @@ onMounted(() => {
 
 @import "@/assets/scss/components/popup-system.scss";
 
+@import "@/assets/scss/components/form-contacts-page.scss";
+
 </style>

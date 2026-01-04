@@ -1,3 +1,5 @@
+@import "../vars";
+
 .custom-select__wrapper-dark {
     width: 100%;
     height: 100vh;
@@ -175,4 +177,34 @@
 .bg-fade-select-leave-to {
 
     opacity: 0;
+}
+
+@media only screen and (max-width: 1500px) {
+    .custom-select__result {
+        font-size: 13px;
+        padding: 15px;
+    }
+
+    .custom-select__list-element {
+        font-size: 13px;
+        padding: 13px 15px;
+    }
+
+    .custom-select__inp-value input {
+        font-size: 13px;
+        padding: 13px;
+    }
+
+    .custom-select__aprove {
+        width: 44px;
+        height: 44px;
+    }
+}
+
+@media only screen and (max-width: 990px) {
+    .custom-select__result {
+        padding: 14px;
+        font-size: 14px;
+    }
+
 }

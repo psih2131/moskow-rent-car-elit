@@ -1,3 +1,5 @@
+@import "vars";
+
 .autopark-cars-sec {
     padding-top: 210px;
     padding-bottom: 150px;
@@ -461,10 +463,7 @@
         height: 180px;
     }
 
-    .custom-select__result {
-        font-size: 13px;
-        padding: 15px;
-    }
+
 
     .autopark-cars-sec__filtr-wrapper--power {
         width: 210px;
@@ -474,20 +473,7 @@
         width: 230px;
     }
 
-    .custom-select__list-element {
-        font-size: 13px;
-        padding: 13px 15px;
-    }
 
-    .custom-select__inp-value input {
-        font-size: 13px;
-        padding: 13px;
-    }
-
-    .custom-select__aprove {
-        width: 44px;
-        height: 44px;
-    }
 
     .autopark-cars-sec__filtr-clear {
         width: 48px;
@@ -926,10 +912,6 @@
         font-size: 14px;
     }
 
-    .custom-select__result {
-        padding: 14px;
-        font-size: 14px;
-    }
 
     .autopark-cars-sec__cars {
         margin-top: 50px;

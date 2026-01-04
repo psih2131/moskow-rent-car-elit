@@ -207,3 +207,10 @@ onBeforeUnmount(() => {
 })
 
 </script>
+
+
+<style scoped  lang="scss">
+
+@import "@/assets/scss/components/custom-select.scss";
+
+</style>

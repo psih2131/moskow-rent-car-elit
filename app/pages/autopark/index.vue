@@ -703,3 +703,10 @@ useHead({
 })
 
 </script>
+
+
+<style scoped  lang="scss">
+
+@import "@/assets/scss/autopark-page.scss";
+
+</style>

@@ -1,0 +1,316 @@
+@import "../vars";
+
+.clients-about-us__slider-wrapper {
+    margin-top: 70px;
+}
+
+.clients-about-us-slider__slide-wrapper {
+    border: 2px solid #534A3C;
+
+    background: $bgColor2;
+    padding: 30px 30px 30px 30px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.clients-about-us-slider__slide-photo {
+    width: 160px;
+    display: block;
+    object-fit: cover;
+    height: 210px;
+}
+
+.clients-about-us-slider__slide-data {
+    width: calc(100% - 160px);
+    padding-left: 30px;
+}
+
+.clients-about-us-slider__slide-text {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    color: $grey2;
+    font-family: $subFont;
+}
+
+.clients-about-us-slider__slide-read-more-btn {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    font-family: $subFont;
+    cursor: pointer;
+    transition: all ease 0.3s;
+
+    span {
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        color: $grey3;
+        margin-right: 10px;
+        transition: all ease 0.3s;
+    }
+
+    svg {
+        display: block;
+
+        path {
+            transition: all ease 0.3s;
+        }
+
+    }
+
+    &:hover {
+        transition: all ease 0.3s;
+
+        span {
+            color: $white;
+            transition: all ease 0.3s;
+
+            svg {
+                path {
+                    fill: $white;
+                    transition: all ease 0.3s;
+                }
+            }
+        }
+    }
+}
+
+.clients-about-us-slider__slide-client-data {
+    width: 100%;
+    padding-left: 190px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.clients-about-us-slider__slide-client-name {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    color: $gold1;
+    font-family: $titleFont;
+    padding-left: 34px;
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    &::before {
+        width: 20px;
+        height: 2px;
+        border-radius: 10px;
+        background: $gold1;
+        position: absolute;
+        left: 0;
+        content: "";
+    }
+}
+
+.clients-about-us-slider__slide-client-description {
+    color: $grey3;
+    font-family: $subFont;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.7px;
+    margin-top: 5px;
+    padding-left: 34px;
+}
+
+.clients-about-us-slider__slide-client-data-resources {
+    display: flex;
+    align-items: center;
+    border: solid 1px rgba(63, 79, 79, 0.73);
+    padding: 7px 10px 7px 20px;
+    border-radius: 100px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    transition: all ease 0.3s;
+
+    svg {
+        display: block;
+
+        path {
+            transition: all ease 0.3s;
+        }
+    }
+
+    &:hover {
+        border: solid 1px rgba(63, 79, 79, 1);
+        transition: all ease 0.3s;
+
+        .clients-about-us-slider__slide-client-data-resources-text {
+            color: $white;
+            transition: all ease 0.3s;
+        }
+
+        svg {
+            path {
+                stroke: $white;
+                transition: all ease 0.3s;
+            }
+        }
+    }
+}
+
+.clients-about-us-slider__slide-client-data-resources-text {
+    font-size: 12px;
+    font-weight: 500;
+    font-family: $subFont;
+    color: $grey3;
+    margin-right: 13px;
+    transition: all ease 0.3s;
+
+}
+
+@media only screen and (max-width: 1500px) {
+    .clients-about-us__slider-wrapper {
+        margin-top: 50px;
+    }
+
+    .clients-about-us-slider__slide-text {
+        font-size: 14px;
+    }
+
+    .clients-about-us-slider__slide-photo {
+        order: 1;
+        width: 100px;
+        height: 100px;
+        border-radius: 1000px;
+    }
+
+    .clients-about-us-slider__slide-client-data {
+        order: 2;
+        width: calc(100% - 100px);
+        padding-left: 20px;
+        padding-top: 0px;
+        flex-wrap: wrap;
+        height: 100px;
+    }
+
+    .clients-about-us-slider__slide-client-data-info {
+        width: 100%;
+
+    }
+
+    .clients-about-us-slider__slide-client-data-resources {
+        margin-left: 24px;
+        margin-top: 15px;
+        padding: 5px 5px 5px 12px;
+    }
+
+
+    .clients-about-us-slider__slide-data {
+        order: 3;
+        padding-left: 0;
+        width: 100%;
+        margin-top: 25px;
+    }
+
+    .clients-about-us-slider__slide-wrapper {
+        align-items: flex-start;
+    }
+
+    .clients-about-us-slider__slide-client-name {
+        font-size: 24px;
+        line-height: 1;
+    }
+
+    .clients-about-us-slider__slide-client-description {
+        font-size: 16px;
+    }
+
+    .clients-about-us-slider__slide-wrapper {
+        height: 335px;
+    }
+
+}
+
+@media only screen and (max-width: 1380px) {
+    .clients-about-us__slider-wrapper {
+        margin-top: 50px;
+    }
+
+    .clients-about-us-slider__slide-wrapper {
+        height: auto;
+    }
+
+}
+
+@media only screen and (max-width: 990px) {
+    .clients-about-us__slider-wrapper {
+        margin-top: 40px;
+    }
+
+    .clients-about-us-slider__slide-text {
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 760px) {
+    .clients-about-us__slider-wrapper {
+        margin-top: 35px;
+    }
+
+    .clients-about-us-slider__slide-wrapper {
+        padding: 20px;
+    }
+
+    .clients-about-us-slider__slide-photo {
+        width: 90px;
+        height: 120px;
+        border-radius: 0;
+    }
+
+    .clients-about-us-slider__slide-client-data {
+        width: calc(100% - 90px);
+        padding: 0;
+        height: 120px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding-left: 20px;
+
+    }
+
+    .clients-about-us-slider__slide-client-name {
+        padding-left: 0;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 100%;
+
+        &::before {
+            opacity: 0;
+        }
+    }
+
+    .clients-about-us-slider__slide-client-description {
+        margin-top: 10px;
+        padding-left: 0;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        letter-spacing: 0.6px;
+    }
+
+    .clients-about-us-slider__slide-data {
+        margin-top: 20px;
+    }
+
+    .clients-about-us-slider__slide-read-more-btn {
+        margin-top: 15px;
+    }
+
+    .clients-about-us-slider__slide-client-data-resources {
+        margin-left: 0;
+    }
+
+    .clients-about-us-slider__slide-client-data {
+        align-items: flex-start;
+    }
+}

@@ -1,0 +1,234 @@
+@import "../vars";
+
+.contacts-sec__form-inp-wrapper {
+    input {
+        padding: 25px 0;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: normal;
+        letter-spacing: 0.9px;
+        background: none;
+        border: none;
+        width: 100%;
+        border-bottom: solid 1px $grey3;
+        font-family: $mainFont;
+        color: $white;
+        transition: all ease 0.3s;
+
+        &::placeholder {
+            color: $grey3;
+        }
+
+        &:hover {
+            color: $white;
+            border-bottom: solid 1px $white;
+            transition: all ease 0.3s;
+        }
+    }
+}
+
+.contacts-sec__form-btn-wrapper {
+    margin-top: 30px;
+}
+
+.contacts-sec__form-cont {
+    .contacts-sec__form-inp-wrapper {
+        position: relative;
+    }
+
+    .form-valid-error {
+        text-align: left;
+    }
+}
+
+.checkbox-item-custom__wrapper {
+    // width: 20px;
+    // height: 20px;
+    // border: solid 1px $darkBlueV2;
+    // display: block;
+    // border-radius: 4px;
+}
+
+/* Скрываем стандартный чекбокс */
+.checkbox-item-custom__wrapper input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Стиль коробки */
+.checkbox-item-custom__box {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid $green1;
+    border-radius: 4px;
+    /* для скругления */
+    transition: all 0.3s ease;
+    position: relative;
+    cursor: pointer;
+}
+
+/* Состояние checked */
+.checkbox-item-custom__wrapper input[type="checkbox"]:checked+.checkbox-item-custom__box {
+    background-color: $green1;
+    /* фон при активном чекбоксе */
+    border-color: $green1;
+}
+
+/* Галочка */
+.checkbox-item-custom__wrapper input[type="checkbox"]:checked+.checkbox-item-custom__box::after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 0px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.form-popup__checkbox-wrapper {
+    margin-top: 30px;
+
+}
+
+.checkbox-item-custom {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    position: relative;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    .form-valid-error {
+        position: relative;
+        top: auto;
+        left: auto;
+        bottom: auto;
+        width: 100%;
+        padding-left: 35px;
+        margin-top: 5px;
+    }
+}
+
+.checkbox-item-custom__text {
+    width: calc(100% - 20px);
+    padding-left: 15px;
+    font-size: 10px;
+    color: $green1;
+
+    a {
+        text-decoration: underline;
+        color: $green1;
+        transition: all ease 0.3s;
+
+        &:hover {
+            color: $white;
+            transition: all ease 0.3s;
+        }
+    }
+}
+
+.form-valid-error {
+    color: $red1;
+    font-size: 12px;
+    text-align: center;
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    width: 100%;
+}
+
+.form-valid-error-main {
+    font-size: 12px;
+    text-align: center;
+    color: $red1;
+    margin-top: 10px;
+}
+
+@media only screen and (max-width: 1380px) {
+    .contacts-sec__form-cont {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+
+        .contacts-sec__form-btn-wrapper {
+            width: calc(33.333% - 15px);
+        }
+
+        .form-popup__checkbox-wrapper {
+            width: calc(66.666% - 15px);
+        }
+    }
+
+    .contacts-sec__form-cont .contacts-sec__form-inp-wrapper {
+        width: calc(33.333% - 15px);
+    }
+
+    .contacts-sec__form-inp-wrapper input {
+        font-size: 16px;
+    }
+
+    .btnV2__wrapper {
+        font-size: 16px;
+    }
+}
+
+@media only screen and (max-width: 990px) {
+    .contacts-sec__form-cont .contacts-sec__form-btn-wrapper {
+        width: calc(50% - 15px);
+    }
+
+    .contacts-sec__form-cont {
+
+
+        .form-popup__checkbox-wrapper {
+            width: calc(50% - 15px);
+        }
+    }
+
+    .contacts-sec__form-cont .contacts-sec__form-inp-wrapper {
+        width: calc(50% - 15px);
+    }
+
+    .contacts-sec__form-inp-wrapper input {
+        font-size: 14px;
+        padding: 15px 0;
+    }
+
+    .btnV2__wrapper {
+        font-size: 14px;
+        padding: 15px 0;
+    }
+}
+
+@media only screen and (max-width: 760px) {
+    .contacts-sec__form-cont .contacts-sec__form-inp-wrapper {
+        width: 100%;
+    }
+
+    .contacts-sec__form-inp-wrapper input {
+        padding: 25px 0;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: normal;
+        letter-spacing: 0.7px;
+        text-align: center;
+    }
+
+    .contacts-sec__form-cont .form-popup__checkbox-wrapper {
+        width: 100%;
+    }
+
+    .contacts-sec__form-cont .contacts-sec__form-btn-wrapper {
+        width: 100%;
+    }
+}
