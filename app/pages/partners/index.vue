@@ -639,4 +639,10 @@ useHead({
 
 @import "@/assets/scss/partners-page.scss";
 
+.partners-how-start-sec__element-body {
+    a{
+        text-decoration: underline;
+        color: #fff;
+    }
+}
 </style>

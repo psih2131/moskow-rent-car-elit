@@ -1614,22 +1614,4 @@
         font-size: 12px;
     }
 
-    .single-car-swiper-button-prev {
-        left: calc(50% - 167px - 18px);
-    }
-
-    .single-car-swiper-button-next {
-        right: calc(50% - 167px - 18px);
-        left: auto;
-    }
-
-    .single-car-swiper-button {
-        width: 35px;
-        height: 35px;
-        top: calc(50% - 17px);
-
-        svg {
-            width: 18px;
-        }
-    }
 }

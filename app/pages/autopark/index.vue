@@ -235,7 +235,7 @@
             </div>
         </section>
 
-        <formSec :formSecData="optionsData"  />
+        <formSec :formSecData="optionsData" :animStatusDisable="true"  />
 
         <section class="autopark-seo-sec" v-if="pageData[0]?.acf?.seo_sekcziya?.zagolovok_h1">
             <div class="container">
@@ -247,13 +247,7 @@
                         <img 
                         :src="item.img.url" 
                         :alt="item.img.alt" 
-                        v-gsap.whenVisible.once.from='{
-                        autoAlpha: 0,
-                        y: 50,
-                        duration: 0.5,
-                        delay: 0.1,
-                        start: "top 80%",
-                        }'
+
                         class="autopark-seo-sec__images-element"
                         >
             
@@ -266,13 +260,7 @@
                         <img 
                         :src="item.img.url" 
                         :alt="item.img.alt"
-                        v-gsap.whenVisible.once.from='{
-                        autoAlpha: 0,
-                        y: 50,
-                        duration: 0.5,
-                        delay: 0.2,
-                        start: "top 80%",
-                        }' 
+
                         class="autopark-seo-sec__images-element"
                         >
             
@@ -283,33 +271,12 @@
 
                 <div class="autopark-seo-sec__data">
                     <h2 class="clients-about-us__title sec-title sec-title--left-mod" 
-                    v-html="pageData[0].acf.seo_sekcziya.zagolovok_h1"
-                    v-gsap.whenVisible.once.from='{
-                        autoAlpha: 0,
-                        y: 50,
-                        duration: 0.5,
-                        delay: 0.1,
-                        start: "top 80%",
-                        }'></h2>
+                    v-html="pageData[0].acf.seo_sekcziya.zagolovok_h1"></h2>
                     <div class="autopark-seo-sec__text-wrapper" v-if="pageData[0]?.acf?.seo_sekcziya.tekst">
                         <div class="wp-editor autopark-seo-sec__pc-text" 
-                        v-html="pageData[0].acf.seo_sekcziya.tekst"
-                        v-gsap.whenVisible.once.from='{
-                        autoAlpha: 0,
-                        y: 50,
-                        duration: 0.5,
-                        delay: 0.1,
-                        start: "top 80%",
-                        }'></div>
+                        v-html="pageData[0].acf.seo_sekcziya.tekst"></div>
 
-                        <div class="seo-sec-type-1__text-container autopark-seo-sec__ipad-text" 
-                        v-gsap.whenVisible.once.from='{
-                        autoAlpha: 0,
-                        y: 50,
-                        duration: 0.5,
-                        delay: 0.1,
-                        start: "top 80%",
-                        }'>
+                        <div class="seo-sec-type-1__text-container autopark-seo-sec__ipad-text" >
                             <div
                                 class="seo-sec-type-1__text-wrapper"
                                 :style="{ maxHeight: expanded ? `${textHeight}px` : '215px', overflow: 'hidden',  }"
@@ -322,15 +289,7 @@
                                 v-if="showReadMore"
                                 class="seo-sec-type-1__read-more"
                                 :class="{'active': expanded}"
-                                @click="toggleReadMore"
-                                v-gsap.whenVisible.once.from='{
-                                autoAlpha: 0,
-                                y: 50,
-                                duration: 0.5,
-                                delay: 0.1,
-                                start: "top 80%",
-                                }'
-                            >
+                                @click="toggleReadMore">
                                 <span class="seo-sec-type-1__read-more-text" >
                                 Читать полностью
                                 </span>

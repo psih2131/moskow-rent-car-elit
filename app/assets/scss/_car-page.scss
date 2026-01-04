@@ -478,6 +478,55 @@
     background: $green2s;
 }
 
+.single-car-swiper-button-next {
+    left: calc(50% + 600px - 35px);
+}
+
+.single-car-swiper-button {
+    position: absolute;
+    z-index: 20;
+    background: $bgColor2;
+    border: solid 1px $green2s;
+    width: 70px;
+    height: 70px;
+    border-radius: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    top: calc(50% - 35px);
+    opacity: 0.6;
+    transition: all ease 0.3s;
+
+    svg {
+        display: block;
+    }
+}
+
+.single-car-swiper-button-prev {
+    left: calc(50% - 600px - 35px);
+
+    svg {
+        transform: rotate(180deg);
+    }
+}
+
+.car-hero-sec__slider-wrapper {
+    &:hover {
+        .single-car-swiper-button {
+            opacity: 0.6;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+
+
+
+
 
 
 @media only screen and (max-width: 1750px) {}
@@ -666,6 +715,20 @@
         right: -20px;
         font-size: 11px;
     }
+
+    .single-car-swiper-button-next {
+        left: calc(50% + 460px);
+    }
+
+    .single-car-swiper-button-prev {
+        left: calc(50% - 515px);
+    }
+
+    .single-car-swiper-button {
+        width: 60px;
+        height: 60px;
+        top: calc(50% - 30px);
+    }
 }
 
 @media only screen and (max-width: 1380px) {
@@ -840,6 +903,18 @@
         font-size: 12px;
     }
 
+    .single-car-swiper-button {
+        opacity: 0.5;
+    }
+
+    .single-car-swiper-button-prev {
+        left: calc(50% - 451px);
+    }
+
+    .single-car-swiper-button-next {
+        left: calc(50% + 391px);
+    }
+
 
 }
 
@@ -1007,6 +1082,20 @@
     .car-hero-sec__price {
         justify-content: center;
         text-align: center;
+    }
+
+    .single-car-swiper-button {
+        width: 50px;
+        height: 50px;
+        top: calc(50% - 25px);
+    }
+
+    .single-car-swiper-button-next {
+        left: calc(50% + 329px);
+    }
+
+    .single-car-swiper-button-prev {
+        left: calc(50% - 380px);
     }
 
 
@@ -1279,4 +1368,21 @@
         padding-bottom: 10px;
     }
 
+    .single-car-swiper-button {
+        width: 40px;
+        height: 40px;
+        top: calc(50% - 20px);
+    }
+
+    .single-car-swiper-button-next {
+        left: calc(50% + 120px);
+    }
+
+    .single-car-swiper-button-prev {
+        left: calc(50% - 160px);
+    }
+
+    .single-car-swiper__slide-zoom {
+        display: none;
+    }
 }

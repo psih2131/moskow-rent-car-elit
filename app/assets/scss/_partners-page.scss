@@ -308,7 +308,7 @@
     color: $grey2;
 
     a {
-        text-decoration: underline;
+        text-decoration: underline !important;
         color: $white;
     }
 }
@@ -332,6 +332,8 @@
 .partners-faq-sec__mob-btn {
     display: none;
 }
+
+
 
 @media only screen and (max-width: 1750px) {}
 
