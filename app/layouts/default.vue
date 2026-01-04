@@ -34,17 +34,25 @@
     
         <componentFooter />
 
+
+
         <ClientOnly>
 
-            <popupsPlagin v-if="store.popupCurrent != null" />
+            <template v-if="showClientsComponentsStatus == true">
 
-            <preloader v-if="store.preloaderStatus == true" />
+              <popupsPlagin v-if="store.popupCurrent != null" />
 
-            <socialContactWidget v-if="showWidget" />
+              <preloader v-if="store.preloaderStatus == true" />
 
-            <cookieWidget />
+              <socialContactWidget v-if="showWidget" />
 
-            <customCursor />
+              <cookieWidget />
+
+              <customCursor />
+
+            </template>
+
+            
           
         </ClientOnly>
 
@@ -104,7 +112,10 @@ const route = useRoute()
 
 const { data: optionsData } = await useFetch(`${store.serverUrlDomainRequest}/wp-json/acf/v3/options`)
 
+const showClientsComponentsStatus = ref(false)
+
 store.changeOptionData(optionsData.value)
+
 
 
 
@@ -183,7 +194,9 @@ onMounted(async () => {
       
     // },3200)
 
-    
+    setTimeout(()=>{
+      showClientsComponentsStatus.value = true
+    }, 6000)
 
 });
 

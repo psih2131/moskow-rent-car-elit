@@ -3,13 +3,7 @@
 	padding: 0;
 	box-sizing: border-box;
 	-webkit-tap-highlight-color: transparent;
-	// -webkit-user-select: none;
-	// -khtml-user-select: none;
-	// -moz-user-select: none;
-	// -ms-user-select: none;
-	// user-select: none;
 }
-
 
 a {
 	text-decoration: none;
@@ -30,7 +24,6 @@ body::-webkit-scrollbar {
 	width: 5px;
 }
 
-body::-webkit-scrollbar-track {}
 
 body::-webkit-scrollbar-thumb {
 	background-color: darkgrey;
@@ -73,8 +66,6 @@ textarea {
 	appearance: none;
 }
 
-button {}
-
 select {
 	cursor: pointer;
 	outline: 0 none !important;
@@ -91,20 +82,10 @@ svg {
 }
 
 body {
-	// overscroll-behavior-y: contain;
-	/* Для совместимости с большинством браузеров */
-	// overscroll-behavior-y: auto;
 	font-family: $mainFont;
 	background: $bgColor;
 	color: $white;
 }
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {}
 
 ul {
 	margin-bottom: 0;
@@ -120,10 +101,6 @@ ul {
 	min-height: 500px;
 }
 
-// .overflowChange {
-// 	overflow: hidden;
-// 	height: 100vh;
-// }
 .page-enter-active,
 .page-leave-active {
 	transition: all 0.4s;
@@ -136,24 +113,6 @@ ul {
 }
 
 
-
-
-// .page-enter-active,
-// .page-leave-active {
-// 	transition: all 0.4s;
-// }
-
-// .page-enter-from,
-// .page-leave-to {
-// 	opacity: 0.4;
-// 	filter: blur(10px);
-// }
-
-
-
-
-
-
 @keyframes spin {
 	0% {
 		transform: rotate(0deg);
@@ -163,9 +122,6 @@ ul {
 		transform: rotate(360deg);
 	}
 }
-
-
-
 
 
 .fade-enter-from,
@@ -257,9 +213,3 @@ ul {
 		width: 360px;
 	}
 }
-
-// @media only screen and (max-width: 375px) {
-// 	.container {
-// 		width: 345px;
-// 	}
-// }

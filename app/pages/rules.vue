@@ -1,4 +1,5 @@
-<template v-if="pageData && pageData.length > 0">
+<template >
+    <main class="main" v-if="pageData && pageData.length > 0">
 
     <section class="rules-hero-sec" v-if="pageData[0].acf.sekcziya_1_usloviya.zagolovok">
       <div class="container">
@@ -51,7 +52,6 @@
         </div>
       </div>
     </section>
-
 
     <section class="rules-faq-sec" v-if="pageData[0].acf.sekcziya_2_voprosy.zagolovok">
         <div class="container">
@@ -120,9 +120,9 @@
         </div>
     </section>
 
-
     <formSec :formSecData="optionsData" />
 
+    </main>
 
 </template>
 
