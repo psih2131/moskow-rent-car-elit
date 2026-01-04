@@ -34,102 +34,101 @@
     transition: all ease 0.3s;
 }
 
-#logo {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 800px;
-    transition: all ease 0.3s;
 
 
-}
+.initial-loader__logo-row {
+    display: flex;
+    overflow: hidden;
 
-#logo path:nth-child(1) {}
+    span {
+        font-size: 90px;
+        font-family: $titleFont;
+        color: $bgColor;
+        font-weight: 600;
+        transform: translateY(100%);
+        letter-spacing: 2px;
+        text-shadow:
+            -1px -1px 0 $gold1,
+            1px -1px 0 $gold1,
+            -1px 1px 0 $gold1,
+            1px 1px 0 $gold1;
 
-#logo path:nth-child(2) {
-    stroke-dasharray: 493.9128112792969;
-    stroke-dashoffset: 493.9128112792969;
-    animation: line-anim 0.7s ease forwards;
-}
 
-#logo path:nth-child(3) {
-    stroke-dasharray: 477.7687683105469;
-    stroke-dashoffset: 477.7687683105469;
-    animation: line-anim 0.7s ease forwards 0.25s;
-}
 
-#logo path:nth-child(4) {
-    stroke-dasharray: 506.44561767578125;
-    stroke-dashoffset: 506.44561767578125;
-    animation: line-anim 0.7s ease forwards 0.45s;
-}
+        &:nth-child(1) {
+            animation: line-anim 0.2s ease forwards 0.1s;
+        }
 
-#logo path:nth-child(5) {
-    stroke-dasharray: 422.4999084472656;
-    stroke-dashoffset: 422.4999084472656;
-    animation: line-anim 0.7s ease forwards 0.65s;
-}
+        &:nth-child(2) {
+            animation: line-anim 0.2s ease forwards 0.15s;
+        }
 
-#logo path:nth-child(6) {
-    stroke-dasharray: 467.8448181152344;
-    stroke-dashoffset: 467.8448181152344;
-    animation: line-anim 0.7s ease forwards 0.85s;
-}
+        &:nth-child(3) {
+            animation: line-anim 0.2s ease forwards 0.2s;
+        }
 
-#logo path:nth-child(7) {
-    stroke-dasharray: 477.7682189941406;
-    stroke-dashoffset: 477.7682189941406;
-    animation: line-anim 0.7s ease forwards 1.05s;
-}
+        &:nth-child(4) {
+            animation: line-anim 0.2s ease forwards 0.25s;
+        }
 
-#logo path:nth-child(8) {
-    stroke-dasharray: 422.5007019042969;
-    stroke-dashoffset: 422.5007019042969;
-    animation: line-anim 0.7s ease forwards 1.25s;
-}
+        &:nth-child(5) {
+            animation: line-anim 0.2s ease forwards 0.3s;
+        }
 
-#logo path:nth-child(9) {
-    stroke-dasharray: 506.4461669921875;
-    stroke-dashoffset: 506.4461669921875;
-    animation: line-anim 0.7s ease forwards 1.55s;
-}
+        &:nth-child(6) {
+            animation: line-anim 0.2s ease forwards 0.35s;
+        }
 
-#logo path:nth-child(10) {
-    stroke-dasharray: 506.4463195800781;
-    stroke-dashoffset: 506.4463195800781;
-    animation: line-anim 0.7s ease forwards 1.75s;
-}
+        &:nth-child(7) {
+            animation: line-anim 0.2s ease forwards 0.4s;
+        }
 
-#logo path:nth-child(11) {
-    stroke-dasharray: 561.4005126953125;
-    stroke-dashoffset: 561.4005126953125;
-    animation: line-anim 0.7s ease forwards 1.95s;
-}
+        &:nth-child(8) {
+            animation: line-anim 0.2s ease forwards 0.45s;
+        }
 
-@keyframes line-anim {
-    to {
-        stroke-dashoffset: -10;
+        &:nth-child(9) {
+            animation: line-anim 0.2s ease forwards 0.5s;
+        }
+
+        &:nth-child(10) {
+            animation: line-anim 0.2s ease forwards 0.55s;
+        }
     }
 }
 
-@media only screen and (max-width: 1380px) {
-    #logo {
-        width: 500px;
+.space-logo {
+    width: 30px;
+}
+
+
+
+@keyframes line-anim {
+    from {
+        transform: translateY(100%);
+    }
+
+    to {
+        transform: translateY(0);
     }
 }
 
 @media only screen and (max-width: 990px) {
-    #logo {
-        width: 400px;
+    .initial-loader__logo-row {
+
+
+        span {
+            font-size: 70px;
+        }
     }
 }
 
 @media only screen and (max-width: 760px) {
+    .initial-loader__logo-row {
 
-    /* For mobile phones: */
-    #logo {
-        width: 300px;
-        height: auto;
+
+        span {
+            font-size: 45px;
+        }
     }
 }
