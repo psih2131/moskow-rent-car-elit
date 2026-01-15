@@ -1,0 +1,92 @@
+@import "../vars";
+
+.price-car-swiper__slide {
+    width: 220px;
+}
+
+.price-car-swiper__slide-period {
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: $grey1;
+    font-weight: 500;
+
+}
+
+.price-car-swiper__slide-wrapper {
+    width: 100%;
+    min-height: 110px;
+    padding: 15px;
+    border-radius: 2px;
+    background: $bgColor2;
+    position: relative;
+
+
+    .price-table__el-value-new-price-sale-procent {
+        top: 13px;
+        right: 15px;
+    }
+
+    .price-table__el-value-new-price {
+        .price-table__el-value-num {
+            font-size: 18px;
+        }
+    }
+
+}
+
+.price-car-swiper__el-value-new-price-sale-procent {
+    position: absolute;
+    right: 15px;
+    top: 13px;
+    padding: 4px 6px;
+    border-radius: 3px;
+    font-size: 12px;
+    color: $white;
+    background: $green2s;
+}
+
+.price-car-swiper__wrapper {
+    // position: absolute;
+    // left: calc(50% - (360px / 2));
+    // padding-left: calc((100% - 360px) / 2);
+
+    height: 100%;
+
+    // swiper-container {
+    //     transform: translateX(calc((100% - 360px) / 2));
+    // }
+
+}
+
+.price-car-swiper__el-value-new-price {
+    .price-car-swiper__el-value-num {
+        color: $gold1;
+        font-weight: 600;
+        font-size: 16px;
+    }
+
+    .price-car-swiper__text-name {
+        color: $gold1;
+        font-size: 14px;
+        font-weight: 600;
+    }
+}
+
+.price-car-swiper__el-value-old-price {
+    text-decoration: line-through;
+    color: $grey1;
+    margin-top: 2px;
+
+    .price-car-swiper__el-value-num {
+        color: $gold1;
+        font-size: 12px;
+        font-weight: 600;
+        color: $grey1;
+    }
+
+    .price-car-swiper__text-name {
+        font-size: 12px;
+        color: $grey1;
+        font-weight: 600;
+    }
+}

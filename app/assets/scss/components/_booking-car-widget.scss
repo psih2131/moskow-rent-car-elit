@@ -214,10 +214,39 @@
     }
 
     .booking-widget__social-row {
-        display: none;
+        // display: none;
     }
 
     .booking-widget .container {
         justify-content: center;
+    }
+
+    .booking-widget__social-row {
+        .social-contact-def {
+            margin-left: 7px;
+
+            &:first-child {
+                margin-left: 0;
+            }
+        }
+
+        .social-contact-def__icon {
+            width: 40px;
+            height: 40px;
+        }
+    }
+
+    .booking-widget {
+        .container {
+            justify-content: space-between;
+        }
+
+        .btnV1 {
+            width: 190px;
+        }
+
+        .btnV1__title {
+            font-size: 14px;
+        }
     }
 }

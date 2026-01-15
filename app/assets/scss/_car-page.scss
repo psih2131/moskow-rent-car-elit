@@ -523,6 +523,9 @@
     }
 }
 
+.price-table-mob-wrapper {
+    display: none;
+}
 
 
 
@@ -987,7 +990,7 @@
     }
 
     .car-char-sec {
-        padding-bottom: 70px;
+        padding-bottom: 50px;
     }
 
     .price-table__el {
@@ -1019,7 +1022,7 @@
 
 
     .car-price-sec {
-        padding-bottom: 90px;
+        padding-bottom: 80px;
     }
 
     .car-about-sec {
@@ -1129,8 +1132,9 @@
     }
 
     .car-hero-sec {
-        padding-top: 120px;
+        padding-top: 100px;
         padding-bottom: 40px;
+
     }
 
     .car-hero-sec__title {
@@ -1141,22 +1145,27 @@
         line-height: normal;
         letter-spacing: 1.3px;
         position: relative;
-        margin-bottom: 22px;
+        margin-bottom: 0px;
+        padding-bottom: 0;
 
         &::before {
             left: calc(50% - 25px);
             bottom: 0;
             top: auto;
+            opacity: 0;
+            width: 0;
+            opacity: 0;
         }
     }
 
     .car-hero-sec__price {
         justify-content: center;
+        display: none;
 
     }
 
     .car-hero-sec__slider-wrapper {
-        margin-top: 35px;
+        margin-top: 25px;
     }
 
     .car-hero-sec__slider-row {
@@ -1217,22 +1226,14 @@
 
     }
 
-    .car-price-sec__switch-row {
-        margin-top: 35px;
-        justify-content: space-between;
-        flex-wrap: wrap;
-    }
+
 
     .price-switch__btn {
         margin-right: 0;
-        width: calc(50% - 3px);
-        font-size: 14px;
+        width: calc(33.33% - 3px);
+        font-size: 12px;
         padding: 10px 0;
 
-        &:last-child {
-            width: 100%;
-            margin-top: 6px;
-        }
     }
 
     .price-table__col {
@@ -1385,4 +1386,49 @@
     .single-car-swiper__slide-zoom {
         display: none;
     }
+
+    .price-table-pc-ipad-wrapper {
+        display: none;
+    }
+
+    .car-price-sec {
+        .header-row-sec {
+            display: none;
+        }
+    }
+
+    .price-table-mob-wrapper {
+        display: block;
+        position: relative;
+
+        height: 110px;
+        width: 100%;
+
+    }
+
+    .car-price-sec__switch-row {
+        padding-bottom: 20px;
+        margin-top: 0px;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .car-page-price-char-wraper {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .car-char-sec {
+        width: 100%;
+        order: 2;
+        padding-bottom: 80px;
+    }
+
+    .car-price-sec {
+        width: 100%;
+        order: 1;
+    }
+
 }
