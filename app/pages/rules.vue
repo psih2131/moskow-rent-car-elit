@@ -30,7 +30,7 @@
                 }'
               class="car-adv-sec__title sec-title sec-title--center-mod" v-html="pageData[0].acf.sekcziya_1_usloviya.zagolovok"></h2>
         </div>
-
+<!-- 
         <div class="car-adv-sec__wrapper adv-row-v2">
           <div class="adv-element-v2" 
            v-gsap.whenVisible.once.from='{
@@ -49,7 +49,68 @@
             <p class="dv-element-v2__subtitle" v-html="item.opisanie"></p>
           </div>
 
+        </div> -->
+
+        <div class="rules-hero-sec__wrapper">
+             <div class="hero-partners-sec__row" v-for="(value, index) in pageData[0].acf.sekcziya_1_usloviya.usloviya">
+                    
+              <div class="seo-sec-type-1__images" v-if="value.izobrazheniya?.length > 0">
+                <template v-for="(item,inx) in value.izobrazheniya">
+                  
+                  <img v-if="item.img"
+                  :src="item.img.sizes.medium_large" :alt="item.img.alt" 
+                  v-gsap.whenVisible.once.from='{
+                  autoAlpha: 0,
+                  y: 50,
+                  duration: 0.5,
+                  delay: 0.1 + ((inx + 1) / 10),
+                  start: "top 90%",
+                  }'
+                  class="seo-sec-type-1__img" >
+
+                </template>
+          
+              </div>
+
+              <div class="seo-sec-type-1__data">
+                  <h3 
+                  class="hero-partners-sec__title sec-title sec-title--left-mod sec-title--capitalize-mod" 
+                  v-if="value.zagolovok" v-html="value.zagolovok"
+                  v-gsap.whenVisible.once.from='{
+                  autoAlpha: 0,
+                  y: 50,
+                  duration: 0.5,
+                  delay: 0.3,
+                  start: "top 90%",
+                  }'></h3>
+
+                  <div class="seo-sec-type-1__text-container">
+                  <div v-if="value.korotkoe_opisanie"
+                      class="seo-sec-type-1__text-wrapper">
+                      <div class="wp-editor seo-sec-type-1__editor" 
+                      ref="editor"
+                      v-gsap.whenVisible.once.from='{
+                      autoAlpha: 0,
+                      y: 50,
+                      duration: 0.5,
+                      delay: 0.4,
+                      start: "top 90%",
+                      }'
+                      >
+                          <p v-html="value.korotkoe_opisanie"></p>
+                      </div>
+                  </div>
+
+                  </div>
+                  
+              </div>
+
+          </div>
         </div>
+       
+
+
+
       </div>
     </section>
 
