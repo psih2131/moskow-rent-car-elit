@@ -830,7 +830,7 @@ const  swiperClients  = useSwiper(ourClientsSlider, {
    spaceBetween: 30,   
    speed: 1100,
    freeMode: "true",  
-   freeMode: true,
+   freeMode: false,
    slidesPerView: "auto",
   
   //  centeredSlides: 'auto',
