@@ -392,7 +392,9 @@
                   }'></h2>
 
                   <button class="home-hero-sec__btn btnV1 btnV1--big btnV1--blick" 
-                  v-if="currentCarData[0].acf?.gibkaya_stoimost_arendy?.length > 3"
+                  v-if="currentCarData[0].acf?.gibkaya_stoimost_arendy?.length > 4 || 
+                  currentCarData[0].acf?.stoimost_arendy_pomesyachno?.length > 4 || 
+                  currentCarData[0].acf?.stoimost_arendy_c_voditelem?.length > 4"
                   @click="openTargetPopup('popup-price-table')"
                   v-gsap.whenVisible.once.from='{
                   autoAlpha: 0,

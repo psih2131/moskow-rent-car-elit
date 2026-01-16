@@ -41,6 +41,23 @@
                         >
                     </div>
 
+                    <div class="form-popup__checkbox-wrapper">
+
+                    <div class="checkbox-item-custom">
+
+                        <label class="checkbox-item-custom__wrapper">
+                            <input type="checkbox" v-model="formPolitCheckbox">
+                            <span class="checkbox-item-custom__box"></span>
+                        </label>
+
+                        <p class="checkbox-item-custom__text">Я согласен на <NuxtLink to="/docs/soglasie-na-obrabotku-personalnyh-dannyh">обработку персональных данных</NuxtLink> ,
+                            <NuxtLink to="/system/soglashenie">пользовательское соглашение</NuxtLink> и <NuxtLink to="/docs/politika-konfidenczialnosti">политику конфиденциальности</NuxtLink> </p> 
+
+                        <p v-if="formPolitCheckbox == false && sendStatus == false" class="form-valid-error">Подтвердите согласие</p>
+                    </div>
+
+                    </div>
+
                     <button class="home-hero-sec__btn btnV1 btnV1--big btnV1--blick" @click="validationForm">
                         <span class="btnV1__circle btnV1__circle-1"></span>
                         <span class="btnV1__circle btnV1__circle-2"></span>
@@ -86,6 +103,10 @@ const date = ref();
 const phone = ref('')
 
 const formPhoneValidStatus = ref(null)
+
+const formPolitCheckbox = ref(false)
+
+const sendStatus = ref(null)
 
 let isDeleting = false
 
@@ -139,10 +160,18 @@ function validationForm(){
 
     validPhone(phone.value)
 
-    if(formPhoneValidStatus.value == true){
+
+
+     if(formPhoneValidStatus.value == true && formPolitCheckbox.value == true){
+        sendStatus.value = true
         
         sendForm()
     }
+    else{
+         sendStatus.value = false
+    }
+
+     
     
 }
 
