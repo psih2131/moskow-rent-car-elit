@@ -79,10 +79,33 @@ let swiperCarPrice = null
 
   
   breakpoints: {
-    100: { slidesPerView: 'auto', spaceBetween: 15 },
-    760: { slidesPerView: 'auto', spaceBetween: 20 },
-    1380: { slidesPerView: 'auto', spaceBetween: 20 },
-    1500: { slidesPerView: 'auto', spaceBetween: 20 },
+    100: { 
+        slidesPerView: 'auto', spaceBetween: 10 ,
+        slidesOffsetBefore: Math.max((window.innerWidth - 310) / 2, 0),
+        slidesOffsetAfter: Math.max((window.innerWidth - 310) / 2, 0),
+    },
+    370: { 
+        slidesPerView: 'auto', spaceBetween: 15 ,
+        slidesOffsetBefore: Math.max((window.innerWidth - 360) / 2, 0),
+        slidesOffsetAfter: Math.max((window.innerWidth - 360) / 2, 0),
+    },
+    760: { 
+        slidesPerView: 'auto', spaceBetween: 20,
+        slidesOffsetBefore: Math.max((window.innerWidth - 680) / 2, 0),
+        slidesOffsetAfter: Math.max((window.innerWidth - 680) / 2, 0), 
+    },
+    800: { 
+        slidesPerView: 'auto', spaceBetween: 20,
+        slidesOffsetBefore: Math.max((window.innerWidth - 750) / 2, 0),
+        slidesOffsetAfter: Math.max((window.innerWidth - 750) / 2, 0), 
+    },
+    1380: { 
+        slidesPerView: 'auto', spaceBetween: 20 
+    },
+    1500: { 
+        slidesPerView: 'auto', spaceBetween: 20 
+
+    },
   },
 })
 

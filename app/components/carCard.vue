@@ -63,7 +63,7 @@
                 <NuxtLink :to="`/autopark/${carData.slug}`"  class="car-card__data">
                     <div class="car-card__header">
                         <div class="car-card__header-text">
-                            <p class="car-card__category">{{ getCurrentCategory(carData['categories-cars']) }}</p>
+                            <p class="car-card__category" v-if="allCats?.length > 0">{{ getCurrentCategory(carData['categories-cars']) }}</p>
                             <div class="car-card__title" >{{ carData.acf.nazvanie_avto }}</div>
                             
                         </div>
@@ -213,12 +213,12 @@ const props = defineProps({
 
 //recomend gallery
 const  swiperCarCard  = useSwiper(carCardRefSlider, {
-   loop: true,
+   loop: false,
    slidesPerView: 1,
    spaceBetween: 0,   
    speed: 1100,
-   freeMode: "true",  
-   freeMode: true,
+
+   freeMode: false,
    slidesPerView: "auto",
    pagination: true,
   //  centeredSlides: 'auto',

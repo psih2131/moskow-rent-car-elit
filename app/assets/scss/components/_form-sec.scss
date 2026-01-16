@@ -169,3 +169,13 @@
         justify-content: flex-start;
     }
 }
+
+@media only screen and (max-width: 370px) {
+    .form-sec__subtitle {
+        font-size: 14px;
+    }
+
+    .home-form-sec {
+        padding-bottom: 60px;
+    }
+}

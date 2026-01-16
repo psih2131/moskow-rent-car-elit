@@ -232,3 +232,23 @@
         width: 100%;
     }
 }
+
+@media only screen and (max-width: 370px) {
+    .contacts-sec__form-inp-wrapper input {
+        padding: 20px 0;
+        font-size: 12px;
+    }
+
+    .btnV2__wrapper {
+        font-size: 12px;
+        padding: 12px 0;
+    }
+
+    .form-valid-error {
+        font-size: 10px;
+    }
+
+    .form-valid-error-main {
+        font-size: 10px;
+    }
+}

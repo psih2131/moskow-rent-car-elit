@@ -596,3 +596,16 @@
 //         width: 345px;
 //     }
 // }
+
+@media only screen and (max-width: 370px) {
+    .header__container {
+
+        width: 310px;
+    }
+
+    .mob-menu {
+        right: calc(50% - 155px);
+        top: 10px;
+        width: 310px;
+    }
+}

@@ -136,7 +136,7 @@
               autoAlpha: 0,
               y: 100,
               duration: 0.5,
-              start: "top 70%",
+              start: "top 99%",
             }' 
             class="home-category-sec__title sec-title sec-title--left-mod" 
             v-html="pageData[0].acf.sekcziya_2_kategorii.zagolovok"></h2>
@@ -147,7 +147,7 @@
               y: 100,
               duration: 0.5,
               delay: 0.2,
-              start: "top 70%",
+              start: "top 99%",
             }' 
             to="/autopark" 
             class="home-hero-sec__btn btnV1 btnV1--big btnV1--blick">
@@ -162,24 +162,22 @@
             </NuxtLink>
           </div>
 
-          <div class="home-news-sec__slider-row" v-if="carsCategoryes?.length > 0">
+          <div class="home-news-sec__slider-row" 
+          v-if="carsCategoryes?.length > 0"
+          v-gsap.whenVisible.once.from='{
+              autoAlpha: 0,
+              y: 100,
+              duration: 0.5,
+              delay: 0.2,
+              start: "top 99%",
+            }' 
+            >
            <ClientOnly>
               <swiper-container 
               ref="catRefSlider" 
-              class="home-cat-slider-swiper"
-             
-          
-              >
+              class="home-cat-slider-swiper">
                   <swiper-slide 
-                  class="swipe-home-cat" v-for="(item, index) in carsCategoryes"
-                  v-gsap.whenVisible.once.from='{
-                    autoAlpha: 0,
-                    y: 200,
-                    duration: 0.5,
-                    delay: (0.1 * (+index + 1)),
-                    start: "top 70%",
-                  }' 
-                  >
+                  class="swipe-home-cat" v-for="(item, index) in carsCategoryes">
                      <NuxtLink 
                      :to="`/autopark?id=${item.id}`" 
                      class="swipe-home-cat__wrapper" >
@@ -807,15 +805,18 @@ const  catRefSliderGallery  = useSwiper(catRefSlider, {
     100: {
       slidesPerView: 2,
       spaceBetween: 20,
+      loop: false,
       
     },
     760: {
       slidesPerView: 3,
       spaceBetween: 20,
+      loop: true,
     },
     1380: {
        slidesPerView: 4,
       spaceBetween: 30,
+      loop: true,
     },
   },
 

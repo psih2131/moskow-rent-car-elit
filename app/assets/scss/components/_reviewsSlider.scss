@@ -314,3 +314,14 @@
         align-items: flex-start;
     }
 }
+
+@media only screen and (max-width: 370px) {
+    .clients-about-us-slider__slide-client-data-resources-text {
+        margin-right: 7px;
+        font-size: 11px;
+    }
+
+    .clients-about-us-slider__slide-text {
+        font-size: 13px;
+    }
+}

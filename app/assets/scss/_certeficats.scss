@@ -297,6 +297,14 @@
     }
 }
 
+@media only screen and (max-width: 800px) {
+    .certeficat-card {
+        width: calc(50% - 30px);
+        margin: 30px 15px 0 15px;
+        height: 235px;
+    }
+}
+
 @media only screen and (max-width: 760px) {
     .certificates-hero-sec {
         padding-top: 120px;
@@ -364,5 +372,27 @@
 
     .certificates-about-sec__row {
         margin-top: 35px;
+    }
+}
+
+@media only screen and (max-width: 370px) {
+    .certificates-hero-sec .hero-partners-sec__title {
+        font-size: 22px;
+    }
+
+    .certificates-hero-sec {
+        padding-bottom: 70px;
+    }
+
+    .certeficat-card {
+        height: 220px;
+    }
+
+    .certeficat-card__value {
+        font-size: 22px;
+    }
+
+    .certeficat-card__title {
+        font-size: 14px;
     }
 }

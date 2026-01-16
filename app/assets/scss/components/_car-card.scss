@@ -1439,7 +1439,7 @@
     border-radius: 4px;
     right: -60px;
     top: 5px;
-    background: $green2s;
+    background: $green3;
 }
 
 .car-simmilar-sec__cars-wrapper {
@@ -1588,6 +1588,21 @@
     }
 }
 
+@media only screen and (max-width: 800px) {
+    .car-card-slider__slide-img-picture {
+        height: 210px;
+    }
+
+    .car-card__title {
+        font-size: 18px;
+    }
+
+    .car-card__body {
+        padding-left: 0;
+    }
+}
+
+
 @media only screen and (max-width: 760px) {
     .car-hero-sec__price {
 
@@ -1613,5 +1628,56 @@
         top: 0px;
         font-size: 12px;
     }
+
+    .table-mod .car-card-slider-wrapper swiper-container[data-v-dc738fdc]::part(pagination) {
+        opacity: 0;
+    }
+}
+
+@media only screen and (max-width: 370px) {
+    .car-card__description {
+        font-size: 13px;
+    }
+
+    .car-card__characteristic-icon-wrapper svg {
+        height: 18px;
+    }
+
+    .car-card__title {
+        font-size: 16px;
+    }
+
+    .car-card .car-card__price-sale-price {
+        .car-card__price-value {
+            font-size: 18px;
+        }
+    }
+
+    .table-mod {
+        .car-card-slider-wrapper {
+            width: 110px;
+        }
+
+        .car-card-slider {
+            width: 100%;
+        }
+
+        .car-card-slider__slide-img-picture {
+            height: 110px;
+        }
+
+        .car-card .car-card__data {
+            width: calc(100% - 110px);
+        }
+
+        .car-card__price-sale-price .car-card__price-value {
+            font-size: 14px;
+        }
+
+        .car-card__characteristic-value {
+            font-size: 9px;
+        }
+    }
+
 
 }

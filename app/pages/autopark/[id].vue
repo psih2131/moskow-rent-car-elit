@@ -231,7 +231,7 @@
           y: 50,
           duration: 0.5,
           delay: 0.1,
-          start: "top 70%",
+          start: "top 90%",
           }'>
             <div class="char-full__icon-wrapper">
               <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -250,7 +250,7 @@
           y: 50,
           duration: 0.5,
           delay: 0.2,
-          start: "top 70%",
+          start: "top 90%",
           }'>
             <div class="char-full__icon-wrapper">
               <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -270,7 +270,7 @@
           y: 50,
           duration: 0.5,
           delay: 0.3,
-          start: "top 70%",
+          start: "top 90%",
           }'>
             <div class="char-full__icon-wrapper">
               <svg width="30" height="27" viewBox="0 0 30 27" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -290,7 +290,7 @@
           y: 50,
           duration: 0.5,
           delay: 0.4,
-          start: "top 70%",
+          start: "top 90%",
           }'>
             <div class="char-full__icon-wrapper">
                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="29" viewBox="0 0 30 29" fill="none">
@@ -309,7 +309,7 @@
           y: 50,
           duration: 0.5,
           delay: 0.5,
-          start: "top 70%",
+          start: "top 90%",
           }'>
             <div class="char-full__icon-wrapper">
               <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1102,22 +1102,6 @@ const swiperCarSingle = useSwiper(singleCarSlider, {
     1500: { slidesPerView: 3, spaceBetween: 50 },
   },
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 let onse = false

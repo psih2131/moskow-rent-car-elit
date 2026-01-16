@@ -208,6 +208,12 @@
 
 @media only screen and (max-width: 990px) {}
 
+@media only screen and (max-width: 800px) {
+    .booking-widget__social-row-text {
+        display: none;
+    }
+}
+
 @media only screen and (max-width: 760px) {
     .booking-widget__social-row-text {
         display: none;
@@ -248,5 +254,19 @@
         .btnV1__title {
             font-size: 14px;
         }
+    }
+}
+
+@media only screen and (max-width: 370px) {
+    .booking-widget .btnV1 {
+        width: 150px;
+    }
+
+    .booking-widget__date input {
+        font-size: 14px;
+    }
+
+    .booking-widget__input input {
+        font-size: 14px;
     }
 }

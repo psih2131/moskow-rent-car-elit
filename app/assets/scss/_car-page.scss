@@ -303,7 +303,7 @@
     top: 0;
     font-size: 14px;
     color: $white;
-    background: $green2s;
+    background: $green3;
 }
 
 .price-table__el-header {
@@ -947,7 +947,7 @@
         width: 100%;
         text-align: center;
         padding-left: 0;
-        margin-bottom: 50px;
+        margin-bottom: 0px;
         font-size: 30px;
         display: flex;
         position: relative;
@@ -957,12 +957,13 @@
             left: auto;
             bottom: -20px;
             top: auto;
+            opacity: 0;
         }
     }
 
     .car-hero-sec__slider-row {
         width: 2200px;
-        transform: translateX(-15px);
+        transform: translateX(0px);
     }
 
     .single-car-swiper__slide-img-picture {
@@ -971,7 +972,7 @@
 
     .car-hero-sec__slider-wrapper {
         height: 480px;
-        margin-top: 40px;
+        margin-top: 30px;
     }
 
     .car-char-sec .container {
@@ -981,6 +982,7 @@
 
     .car-hero-sec {
         padding-bottom: 30px;
+        padding-top: 120px;
     }
 
     .char-full {
@@ -1022,7 +1024,7 @@
 
 
     .car-price-sec {
-        padding-bottom: 80px;
+        padding-bottom: 50px;
     }
 
     .car-about-sec {
@@ -1101,6 +1103,69 @@
         left: calc(50% - 380px);
     }
 
+    .car-hero-sec__price {
+        display: none;
+    }
+
+    .car-page-price-char-wraper {
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .car-char-sec {
+        width: 100%;
+        order: 2;
+    }
+
+    .car-price-sec {
+        width: 100%;
+        order: 1;
+
+        .header-row-sec {
+            display: none;
+        }
+    }
+
+    .price-table-pc-ipad-wrapper {
+        display: none;
+    }
+
+    .price-table-mob-wrapper {
+        display: block;
+    }
+
+    .car-price-sec__switch-row {
+        margin-top: 0;
+        padding-bottom: 20px;
+
+    }
+
+    .price-switch__btn {
+        font-size: 14px;
+    }
+
+    .single-car-swiper__slide-zoom {
+        display: none;
+    }
+
+}
+
+@media only screen and (max-width: 800px) {
+    .car-hero-sec__slider-row {
+        width: 2080px;
+    }
+
+    .single-car-swiper-button-next {
+        left: calc(50% + 310px);
+    }
+
+    .single-car-swiper-button-prev {
+        left: calc(50% - 360px);
+    }
+
+
+
 
 }
 
@@ -1132,7 +1197,7 @@
     }
 
     .car-hero-sec {
-        padding-top: 100px;
+        padding-top: 90px;
         padding-bottom: 40px;
 
     }
@@ -1165,7 +1230,7 @@
     }
 
     .car-hero-sec__slider-wrapper {
-        margin-top: 25px;
+        margin-top: 15px;
     }
 
     .car-hero-sec__slider-row {
@@ -1431,4 +1496,105 @@
         order: 1;
     }
 
+}
+
+@media only screen and (max-width: 370px) {
+    .price-switch__btn {
+        font-size: 11px;
+    }
+
+    .car-hero-sec__title {
+        font-size: 22px;
+    }
+
+    .car-hero-sec__slider-row {
+        width: 960px;
+        transform: translateX(0px);
+    }
+
+    .single-car-swiper-button {
+        width: 30px;
+        top: calc(50% - 15px);
+        height: 30px;
+
+        svg {
+            width: 20px;
+        }
+    }
+
+    .single-car-swiper-button-prev {
+        left: calc(50% - 150px);
+    }
+
+    .car-hero-sec {
+        padding-bottom: 20px;
+    }
+
+    .car-price-sec__switch-row {
+        padding-bottom: 10px;
+    }
+
+    .dop-services-price__name {
+        font-size: 11px;
+    }
+
+    .dop-services-price__value {
+        font-size: 12px;
+    }
+
+    .char-full__icon-wrapper {
+        width: 32px;
+        height: 32px;
+
+        &::before {
+            width: 30px;
+            height: 30px;
+        }
+
+        svg {
+            width: 18px;
+        }
+    }
+
+    .char-full__data {
+        width: calc(100% - 32px);
+        padding-left: 10px;
+    }
+
+    .char-full__title {
+        font-size: 10px;
+        display: none;
+    }
+
+    .char-full__value {
+        font-size: 12px;
+    }
+
+    .car-price-sec {
+        padding-bottom: 40px;
+    }
+
+    .car-char-sec {
+        padding-bottom: 40px;
+    }
+
+    .car-char-full-sec__value {
+        font-size: 14px;
+    }
+
+    .car-char-full-sec__row-name-text {
+        font-size: 12px;
+    }
+
+    .car-simmilar-sec__bob-btn {
+        margin-top: 20px;
+    }
+
+    .car-char-full-sec {
+        padding-bottom: 60px;
+    }
+
+    .car-adv-sec {
+        padding-bottom: 80px;
+    }
 }

@@ -26,6 +26,8 @@
     width: 100%;
     transition: all ease 0.3s;
 
+
+
 }
 
 .btnV1__circle {
@@ -65,7 +67,7 @@
 
 .btnV1__line-2 {
     width: calc(100% - 15px);
-    height: 2px;
+    height: 1px;
     right: 0;
     bottom: 0;
 
@@ -80,7 +82,7 @@
 }
 
 .btnV1__line-4 {
-    width: 2px;
+    width: 1px;
     height: calc(100% - 15px);
     right: 0;
     bottom: 0;
@@ -227,6 +229,19 @@
 
     .btnV1 {
         width: 280px;
+    }
+}
+
+
+@media only screen and (max-width: 800px) {
+    .btnV1 {
+        width: 240px;
+
+    }
+
+    .btnV1__title {
+        font-size: 16px;
+        padding: 16px 0;
     }
 }
 

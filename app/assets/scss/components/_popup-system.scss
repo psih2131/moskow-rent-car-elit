@@ -948,13 +948,54 @@
     }
 }
 
-// @media only screen and (max-width: 375px) {
 
-//     .popup-video,
-//     .popup-booking,
-//     .popup-done,
-//     .form-popup-price-table,
-//     .popup-form {
-//         width: 345px;
-//     }
-// }
+
+@media only screen and (max-width: 370px) {
+
+    .popup-video,
+    .popup-booking,
+    .popup-done,
+    .form-popup-price-table,
+    .popup-form {
+        width: calc(100% - 20px);
+    }
+
+    .popup-done__wrapper .sec-title {
+        font-size: 22px;
+    }
+
+    .popup-review .contacts-sec__form-subtitle {
+        margin-top: 20px;
+        font-size: 13px;
+    }
+
+    .popup-form__wrapper .home-our-client-sec__title {
+        font-size: 22px;
+    }
+
+    .popup-form__wrapper .contacts-sec__form-subtitle {
+        font-size: 12px;
+    }
+
+    .popup-form__contacts-wrapper-title {
+        font-size: 16px;
+    }
+
+    .popup-form__contacts-wrapper {
+        margin-top: 40px;
+    }
+
+    .popup-done__wrapper .contacts-sec__form-subtitle {
+        font-size: 12px;
+    }
+
+    .popup-booking__title {
+        font-size: 22px;
+    }
+
+    .popup-booking__subtitle {
+        font-size: 12px;
+    }
+
+
+}

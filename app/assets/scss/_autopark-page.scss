@@ -890,5 +890,40 @@
         flex-wrap: wrap;
     }
 
+    .autopark-seo-sec .sec-title {
+        font-size: 24px;
+    }
 
+}
+
+@media only screen and (max-width: 370px) {
+    .autopark-cars-sec__view-btn {
+        width: 40px;
+        height: 40px;
+    }
+
+    .autopark-cars-sec__filtrs-mob-btn {
+        font-size: 12px;
+        justify-content: space-between;
+        padding: 10px 13px;
+
+        svg {
+            margin-left: 0;
+        }
+    }
+
+    .autopark-cars-sec__filtr-clear {
+        width: 40px;
+        height: 40px;
+        right: -59px;
+        top: 18px;
+    }
+
+    .autopark-seo-sec .sec-title {
+        font-size: 22px;
+    }
+
+    .autopark-seo-sec {
+        padding-bottom: 60px;
+    }
 }

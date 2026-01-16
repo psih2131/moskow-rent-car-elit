@@ -681,7 +681,21 @@
     }
 }
 
+@media only screen and (max-width: 800px) {
+    .partners-exm-sec {
+        .sec-title {
+            padding-right: 10px;
+        }
+    }
+}
+
 @media only screen and (max-width: 760px) {
+    .partners-exm-sec {
+        .sec-title {
+            padding-right: 0px;
+        }
+    }
+
     .hero-partners-sec {
         padding-top: 120px;
         padding-bottom: 90px;
@@ -827,5 +841,89 @@
         display: flex;
         margin: 0 auto;
         margin-top: 40px;
+    }
+
+    .hero-partners-sec__title {
+        font-size: 24px;
+    }
+}
+
+@media only screen and (max-width: 370px) {
+    .hero-partners-sec__title {
+        font-size: 22px;
+    }
+
+    .hero-partners-sec__row .seo-sec-type-1__images {
+        margin-top: 30px;
+    }
+
+    .seo-sec-type-1__img {
+        height: 150px;
+    }
+
+    .hero-partners-sec__row {
+        margin-bottom: 60px;
+    }
+
+    .hero-partners-sec {
+        padding-bottom: 70px;
+    }
+
+    .partners-exm-sec__row-slider {
+        margin-top: 25px;
+    }
+
+    .partners-exm-sec__element-img {
+        height: 220px;
+    }
+
+    .partners-exm-sec__element-subtitle {
+        font-size: 12px;
+    }
+
+    .partners-exm-sec__element-title {
+        font-size: 16px;
+    }
+
+    .partners-exm-sec__element-list {
+        padding-left: 0;
+    }
+
+    .partners-exm-sec__element-list-element-value {
+        font-size: 12px;
+    }
+
+    .partners-how-it-work-sec__element-title {
+        font-size: 18px;
+        margin-top: 15px;
+    }
+
+    .partners-how-it-work-sec__element-description {
+        font-size: 12px;
+        margin-top: 10px;
+    }
+
+    .partners-how-it-work-sec__element-counter {
+        font-size: 20px;
+    }
+
+    .partners-how-start-sec__element-header-title {
+        font-size: 18px;
+        width: calc(100% - 40px);
+        padding-left: 15px;
+    }
+
+    .partners-how-start-sec__element-header-counter {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+
+    .partners-how-start-sec__element-body {
+        font-size: 12px;
+    }
+
+    .partners-faq-sec {
+        padding-bottom: 70px;
     }
 }

@@ -181,7 +181,7 @@ const lastScrollY = ref(null)
 
 //METHODS
 function handleScroll() {
-  isActive.value = window.scrollY > 200
+  isActive.value = window.scrollY > 50
   fixedStatus.value = window.scrollY > 50
 }
 
