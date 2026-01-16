@@ -1632,6 +1632,17 @@
     .table-mod .car-card-slider-wrapper swiper-container[data-v-dc738fdc]::part(pagination) {
         opacity: 0;
     }
+
+    .car-card-slider-wrapper {
+        .single-car-swiper-button-next {
+            right: 2px;
+        }
+
+        .single-car-swiper-button-prev {
+            left: 2px;
+        }
+    }
+
 }
 
 @media only screen and (max-width: 370px) {

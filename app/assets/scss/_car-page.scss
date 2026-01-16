@@ -1441,11 +1441,11 @@
     }
 
     .single-car-swiper-button-next {
-        left: calc(50% + 120px);
+        left: calc(50% + 145px);
     }
 
     .single-car-swiper-button-prev {
-        left: calc(50% - 160px);
+        left: calc(50% - 185px);
     }
 
     .single-car-swiper__slide-zoom {
@@ -1496,6 +1496,7 @@
         order: 1;
     }
 
+
 }
 
 @media only screen and (max-width: 370px) {
@@ -1522,8 +1523,13 @@
         }
     }
 
+    .single-car-swiper-button-next {
+        right: calc(50% - 165px);
+        left: auto;
+    }
+
     .single-car-swiper-button-prev {
-        left: calc(50% - 150px);
+        left: calc(50% - 165px);
     }
 
     .car-hero-sec {
