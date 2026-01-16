@@ -294,15 +294,12 @@
             
             <template v-if="recomendCars?.length > 0" >
 
-                <!-- <carCard v-for="(item, index) in recomendCars" :key="index" :carData="item" :allCats="carsCategoryes" v-gsap.preset="'stagger-up-800'" /> -->
+                <carCard v-for="(item, index) in recomendCars" :key="index" :carData="item" :allCats="carsCategoryes" v-gsap.preset="'stagger-up-800'" />
 
-                <template v-for="(item, index) in recomendCars" :key="index">
+                <!-- <template v-for="(item, index) in recomendCars" :key="index">
                   <carCard  v-if="index % 2 === 0" :carData="item" :allCats="carsCategoryes" v-gsap.preset="'stagger-left-800'" />
                   <carCard  v-else :carData="item" :allCats="carsCategoryes" v-gsap.preset="'stagger-right-800'" />
-                </template>
-
-
-                
+                </template> -->
 
             </template>
 

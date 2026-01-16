@@ -611,6 +611,9 @@
       </section>
     </div>
 
+    <template v-if="currentCarData[0].acf?.nashi_uslugi?.zagolovok">
+      <servicesSec  :sectionData="currentCarData[0].acf.nashi_uslugi" />
+    </template>
     
 
      <section class="car-adv-sec" v-if="currentCarData[0].acf.zagolovok_preimushhestva">
@@ -986,7 +989,7 @@
 //IMPORT
 import { ref, onMounted } from 'vue';
 
-import Scrollbar from 'smooth-scrollbar';
+// import Scrollbar from 'smooth-scrollbar';
 
 import bookingCarWidget from '@/components/widgets/bookingCarWidget.vue'
 
@@ -999,6 +1002,8 @@ import formSec from '@/components/sections/formSec.vue'
 import reviewSlider from '@/components/sections/reviewsSlider.vue'
 
 import priceSecMobCar from '@/components/sections/priceSecMobCar.vue'
+
+import servicesSec from '@/components/sections/servicesSec.vue'
 
 import { useCounterStore } from '@/stores/counter'
 
