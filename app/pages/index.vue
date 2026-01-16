@@ -833,7 +833,7 @@ const  catRefSliderGallery  = useSwiper(catRefSlider, {
    loop: false,
    slidesPerView: 4,
    spaceBetween: 30,   
-   speed: 800,
+   speed: 600,
    freeMode: {
     enabled: true,
     sticky: true,
@@ -846,17 +846,20 @@ const  catRefSliderGallery  = useSwiper(catRefSlider, {
       slidesPerView: 2,
       spaceBetween: 20,
       loop: false,
+      speed: 300,
       
     },
     760: {
       slidesPerView: 3,
       spaceBetween: 20,
       loop: false,
+      speed: 600,
     },
     1380: {
        slidesPerView: 4,
       spaceBetween: 30,
       loop: false,
+      speed: 600,
     },
   },
 
