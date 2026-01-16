@@ -525,12 +525,14 @@ console.log('optionsData', optionsData)
 
 //example  gallery
 const  catRefSliderGallery  = useSwiper(exampleRefSlider, {
-   loop: true,
+   loop: false,
    slidesPerView: 4,
    spaceBetween: 30,   
    speed: 1100,
-   freeMode: "true",  
-   freeMode: true,
+   freeMode: {
+    enabled: true,
+    sticky: true,
+  },
    slidesPerView: "auto",
    scrollbar:{ draggable: true },
   //  centeredSlides: 'auto',

@@ -355,6 +355,25 @@
     transition: all ease 0.3s;
 }
 
+.swiper-def-ar--prev {
+    justify-content: flex-end;
+
+    svg {
+        transform: rotate(180deg);
+    }
+
+    .swiper-def-ar__circle {
+        left: 0;
+    }
+
+    &:hover {
+        svg {
+            transform: translateX(-5px) rotate(180deg);
+            transition: all ease 0.3s;
+        }
+    }
+}
+
 .swiper-def-ar--next {
     .swiper-def-ar__circle {
         right: 0;

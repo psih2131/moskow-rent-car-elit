@@ -67,7 +67,7 @@ let swiperCarPrice = null
  swiperCarPrice = useSwiper(priceCarSlider, {
   loop: false,
   spaceBetween: 0,   
-  speed: 1100,
+  speed: 600,
   freeMode: true,  
   slidesPerView: "auto",
   pagination: true,

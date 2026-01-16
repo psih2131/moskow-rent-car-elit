@@ -403,12 +403,14 @@
 
     //categoryes gallery
     const  catRefSliderGallery  = useSwiper(catRefSlider, {
-    loop: true,
+    loop: false,
     slidesPerView: 4,
     spaceBetween: 30,   
     speed: 800,
-    freeMode: "true",  
-    freeMode: true,
+    freeMode: {
+        enabled: true,
+        sticky: true,
+    },
     slidesPerView: "auto",
     scrollbar:{ draggable: true },
     //  centeredSlides: 'auto',

@@ -203,7 +203,25 @@
 
               <div class="home-news-sec__slider-row-control-wrapper">
 
-                <div class="slider-counter"
+                <div 
+                class="home-cat-slider-swiper-button-prev swiper-def-ar swiper-def-ar--prev swiper-button" 
+                @click="catRefSliderGallery.prev()"
+                v-gsap.whenVisible.once.from='{
+                  autoAlpha: 0,
+                  y: 100,
+                  duration: 0.5,
+                  delay: 0.3,
+                  start: "top 70%",
+                }'
+                >
+                    <svg width="153" height="15" viewBox="0 0 153 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M152.71 8.07039C153.101 7.67986 153.101 7.0467 152.71 6.65617L146.346 0.292213C145.956 -0.0983109 145.323 -0.0983109 144.932 0.292213C144.542 0.682738 144.542 1.3159 144.932 1.70643L150.589 7.36328L144.932 13.0201C144.542 13.4107 144.542 14.0438 144.932 14.4343C145.323 14.8249 145.956 14.8249 146.346 14.4343L152.71 8.07039ZM0 7.36328V8.36328H152.003V7.36328V6.36328H0V7.36328Z" fill="#F1BD81"/>
+                    </svg>
+
+                    <div class="swiper-def-ar__circle"></div>
+                </div>
+
+                <!-- <div class="slider-counter"
                   v-gsap.whenVisible.once.from='{
                   autoAlpha: 0,
                   y: 100,
@@ -213,7 +231,7 @@
                   <span class="slider-counter__current">{{ getRealIndex(catRefSliderGallery.realIndex) }}</span>
                   <span class="slider-counter__total">/{{ getTotalSlides(catRefSliderGallery.slides) }}</span>
           
-                </div>
+                </div> -->
                
                 <div 
                 class="home-cat-slider-swiper-button-next swiper-def-ar swiper-def-ar--next swiper-button" 
@@ -368,7 +386,27 @@
               </div> -->
               <div class="home-news-sec__slider-row-control-wrapper">
 
-                <div class="slider-counter" 
+                
+
+                <div 
+                class="home-cat-slider-swiper-button-prev swiper-def-ar swiper-def-ar--prev swiper-button" 
+                @click="swiperClients.prev()"
+                v-gsap.whenVisible.once.from='{
+                  autoAlpha: 0,
+                  y: 100,
+                  duration: 0.5,
+                  delay: 0.3,
+                  start: "top 70%",
+                }'
+                >
+                    <svg width="153" height="15" viewBox="0 0 153 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M152.71 8.07039C153.101 7.67986 153.101 7.0467 152.71 6.65617L146.346 0.292213C145.956 -0.0983109 145.323 -0.0983109 144.932 0.292213C144.542 0.682738 144.542 1.3159 144.932 1.70643L150.589 7.36328L144.932 13.0201C144.542 13.4107 144.542 14.0438 144.932 14.4343C145.323 14.8249 145.956 14.8249 146.346 14.4343L152.71 8.07039ZM0 7.36328V8.36328H152.003V7.36328V6.36328H0V7.36328Z" fill="#F1BD81"/>
+                    </svg>
+
+                    <div class="swiper-def-ar__circle"></div>
+                </div>
+
+                <!-- <div class="slider-counter" 
                 v-gsap.whenVisible.once.from='{
                   autoAlpha: 0,
                   y: 100,
@@ -379,7 +417,7 @@
                   <span class="slider-counter__current">{{ getRealIndex(swiperClients.realIndex) }}</span>
                   <span class="slider-counter__total">/{{ getTotalSlides(swiperClients.slides) }}</span>
           
-                </div>
+                </div> -->
                
                 <div 
                 class="home-cat-slider-swiper-button-next swiper-def-ar swiper-def-ar--next swiper-button" 
@@ -792,12 +830,14 @@ const textHeight = ref(0)
 
 //categoryes gallery
 const  catRefSliderGallery  = useSwiper(catRefSlider, {
-   loop: true,
+   loop: false,
    slidesPerView: 4,
    spaceBetween: 30,   
-   speed: 1100,
-   freeMode: "true",  
-   freeMode: true,
+   speed: 800,
+   freeMode: {
+    enabled: true,
+    sticky: true,
+  },
    slidesPerView: "auto",
    scrollbar:{ draggable: true },
   //  centeredSlides: 'auto',
@@ -811,12 +851,12 @@ const  catRefSliderGallery  = useSwiper(catRefSlider, {
     760: {
       slidesPerView: 3,
       spaceBetween: 20,
-      loop: true,
+      loop: false,
     },
     1380: {
        slidesPerView: 4,
       spaceBetween: 30,
-      loop: true,
+      loop: false,
     },
   },
 
@@ -825,13 +865,15 @@ const  catRefSliderGallery  = useSwiper(catRefSlider, {
 
 //clients gallery
 const  swiperClients  = useSwiper(ourClientsSlider, {
-   loop: true,
+   loop: false,
    slidesPerView: 4,
    spaceBetween: 30,   
-   speed: 1100,
-   freeMode: "true",  
-   freeMode: false,
-   slidesPerView: "auto",
+   speed: 800,
+   freeMode: {
+    enabled: true,
+    sticky: true,
+  },
+
   
   //  centeredSlides: 'auto',
    breakpoints: {

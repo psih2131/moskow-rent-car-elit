@@ -139,21 +139,39 @@
                 
               >
                 <div class="single-car-swiper__slide-wrapper">
-                 <picture class="single-car-swiper__slide-img-picture">
-  <img
-    :src="item.izobrazhenie.sizes.large"
-    :srcset="`
-      ${item.izobrazhenie.sizes.medium_large} 768w,
-      ${item.izobrazhenie.sizes.large} 1024w,
-      ${item.izobrazhenie.sizes['1536x1536']} 1536w
-    `"
-    sizes="(max-width: 760px) 100vw, (max-width: 990px) 90vw, 800px"
-    :alt="item.izobrazhenie.alt"
-    class="single-car-swiper__slide-img"
-    loading="lazy"
-    decoding="async"
-  />
-</picture>
+                  <picture class="single-car-swiper__slide-img-picture">
+                    <source
+                      v-if="item.izobrazhenie?.sizes?.medium_large"
+                      media="(max-width: 760px)"
+                      :srcset="item.izobrazhenie.sizes.medium_large"
+                    />
+                    <source
+                      v-if="item.izobrazhenie?.sizes?.large"
+                      media="(max-width: 990px)"
+                      :srcset="item.izobrazhenie.sizes.large"
+                    />
+                    <img
+                      :src="item.izobrazhenie.sizes['1536x1536']"
+                      :alt="item.izobrazhenie.alt"
+                      class="single-car-swiper__slide-img"
+                    />
+                  </picture>
+
+                  <!-- <picture class="single-car-swiper__slide-img-picture">
+                  <img
+                  :src="item.izobrazhenie.sizes.large"
+                  :srcset="`
+                  ${item.izobrazhenie.sizes.medium_large} 768w,
+                  ${item.izobrazhenie.sizes.large} 1024w,
+                  ${item.izobrazhenie.sizes['1536x1536']} 1536w
+                  `"
+                  sizes="(max-width: 760px) 100vw, (max-width: 990px) 90vw, 800px"
+                  :alt="item.izobrazhenie.alt"
+                  class="single-car-swiper__slide-img"
+                  loading="lazy"
+                  decoding="async"
+                  />
+                  </picture> -->
 
                   <!-- кнопка видео -->
                   <div
@@ -1082,8 +1100,8 @@ const swiperCarSingle = useSwiper(singleCarSlider, {
   loop: false,
   slidesPerView: 1,
   spaceBetween: 0,   
-  speed: 1100,
-  freeMode: "true",  
+  speed: 600,
+
   slidesPerView: "auto",
   pagination: true,
   

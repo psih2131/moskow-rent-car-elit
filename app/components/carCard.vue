@@ -216,7 +216,7 @@ const  swiperCarCard  = useSwiper(carCardRefSlider, {
    loop: false,
    slidesPerView: 1,
    spaceBetween: 0,   
-   speed: 1100,
+   speed: 600,
 
    freeMode: false,
    slidesPerView: "auto",
