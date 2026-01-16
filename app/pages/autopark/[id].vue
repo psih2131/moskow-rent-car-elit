@@ -220,6 +220,10 @@
           
 
           </div>
+          
+
+          </div>
+
           <VueEasyLightbox
           v-if="currentCarData[0].acf?.slajder_izobrazhenij?.length > 0"
           :visible="visibleRef"
@@ -232,8 +236,6 @@
           :loop="true"
           @hide="onHide"
           />
-
-          </div>
           
     </section>
 

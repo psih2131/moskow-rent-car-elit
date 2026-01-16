@@ -99,6 +99,32 @@ export default defineNuxtConfig({
       },
 
       {
+        name: 'stagger-left-800',
+        modifiers: 'whenVisible.stagger.once.from',
+        value: {
+          autoAlpha: 0,
+          x: -200,
+          duration: 0.6,
+          delay: 0,
+          opacity: 0,
+          start: "top 80%",
+        }
+      },
+
+      {
+        name: 'stagger-right-800',
+        modifiers: 'whenVisible.stagger.once.from',
+        value: {
+          autoAlpha: 0,
+          x: 200,
+          duration: 0.6,
+          delay: 0,
+          opacity: 0,
+          start: "top 80%",
+        }
+      },
+
+      {
         name: 'stagger-up',
         modifiers: 'whenVisible.stagger.once.from',
         value: {

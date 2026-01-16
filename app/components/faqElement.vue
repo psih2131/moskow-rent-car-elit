@@ -11,7 +11,7 @@
         </div>
 
          <Vue3SlideUpDown v-model="show">
-            <div class="faq-element__body">
+            <div class="faq-element__body" @click="show = false">
                 <p class="faq-element__text" v-if="description" v-html="description"></p>
             </div>
         </Vue3SlideUpDown>
