@@ -2,6 +2,21 @@
     
     <div class="booking-widget">
         <div class="container">
+
+          <div class="checkbox-item-custom">
+
+                <label class="checkbox-item-custom__wrapper">
+                    <input type="checkbox" v-model="formPolitCheckbox">
+                    <span class="checkbox-item-custom__box"></span>
+                </label>
+
+                  <p class="checkbox-item-custom__text">Я согласен на <NuxtLink to="/docs/obrabotka-personalnyh-dannyh">обработку персональных данных</NuxtLink> 
+                    и <NuxtLink to="/docs/politika-konfidenczialnosti">политику конфиденциальности</NuxtLink>   
+                    <span v-if="formPolitCheckbox == false && sendStatus == false" class="form-valid-error">Подтвердите согласие</span></p>  
+
+                
+            </div>
+
             <div class="booking-widget__form">
                 <div class="booking-widget__date">
 
@@ -43,6 +58,8 @@
                     <div class="btnV1__line btnV1__line-3"></div>
                     <div class="btnV1__line btnV1__line-4"></div>
                 </button>
+
+                
             </div>
 
             <button class="home-hero-sec__btn btnV1 btnV1--big booking-widget__ipad btnV1--blick" @click="openPopupBooking">
@@ -108,7 +125,11 @@ const date = ref();
 
 const phone = ref('')
 
+const formPolitCheckbox = ref(false)
+
 const formPhoneValidStatus = ref(null)
+
+const sendStatus = ref(null)
 
 let isDeleting = false
 
@@ -152,10 +173,16 @@ function validationForm(){
 
     validPhone(phone.value)
 
-    if(formPhoneValidStatus.value == true){
-        
-        sendForm()
-    }
+         if(formPhoneValidStatus.value == true && formPolitCheckbox.value == true){
+            sendStatus.value = true
+            
+            sendForm()
+        }
+        else{
+            sendStatus.value = false
+        }
+
+     
     
 }
 

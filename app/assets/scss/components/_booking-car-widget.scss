@@ -6,11 +6,14 @@
     width: 100%;
     background: $bgColor2;
     padding: 25px 0;
+    padding-top: 15px;
+    padding-bottom: 35px;
     box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.30);
 
     .container {
         display: flex;
         justify-content: space-between;
+        position: relative;
     }
 
     &::before {
@@ -31,11 +34,15 @@
             opacity: 1;
         }
     }
+
+
 }
 
 .booking-widget__form {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
+    position: relative;
 
     .btnV1__title {
         font-size: 18px;
@@ -45,6 +52,8 @@
     .btnV1 {
         width: 280px;
     }
+
+
 }
 
 .booking-widget__input {
@@ -174,13 +183,117 @@
     --dp-range-between-border-color: var(--dp-hover-color);
 }
 
+
+.booking-widget {
+    .checkbox-item-custom__wrapper {
+        // width: 20px;
+        // height: 20px;
+        // border: solid 1px $darkBlueV2;
+        // display: block;
+        // border-radius: 4px;
+    }
+
+    /* Скрываем стандартный чекбокс */
+    .checkbox-item-custom__wrapper input[type="checkbox"] {
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    /* Стиль коробки */
+    .checkbox-item-custom__box {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border: 2px solid #888;
+        border-radius: 4px;
+        /* для скругления */
+        transition: all 0.3s ease;
+        position: relative;
+        cursor: pointer;
+
+    }
+
+    /* Состояние checked */
+    .checkbox-item-custom__wrapper input[type="checkbox"]:checked+.checkbox-item-custom__box {
+        background-color: $bgColor2;
+        /* фон при активном чекбоксе */
+        border-color: $bgColor2;
+    }
+
+    /* Галочка */
+    .checkbox-item-custom__wrapper input[type="checkbox"]:checked+.checkbox-item-custom__box::after {
+        content: "";
+        position: absolute;
+        left: 5px;
+        top: 0px;
+        width: 5px;
+        height: 10px;
+        border: solid white;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+    }
+
+    .form-popup__checkbox-wrapper {
+        margin-top: 30px;
+
+    }
+
+    .checkbox-item-custom {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 0;
+        width: 100%;
+        flex-wrap: wrap;
+        left: 0;
+        bottom: -30px;
+        position: absolute;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        .form-valid-error {
+            position: relative;
+            top: auto;
+            left: auto;
+            bottom: auto;
+            width: auto;
+            padding-left: 5px;
+            margin-top: 0px;
+            text-align: left;
+            color: $red1;
+            font-size: 12px;
+            display: inline-block;
+        }
+    }
+
+    .checkbox-item-custom__text {
+        width: calc(100% - 20px);
+        padding-left: 10px;
+        font-size: 12px;
+        padding-top: 2px;
+        color: $green2s;
+
+        a {
+            text-decoration: underline;
+            color: $green2s;
+        }
+    }
+
+}
+
+
+
+
 @media only screen and (max-width: 1500px) {
     .booking-widget__social-row-text {
         display: none;
     }
 
     .booking-widget {
-        padding: 20px 0;
+        padding-top: 15px;
+        padding-bottom: 35px;
     }
 }
 
@@ -198,11 +311,17 @@
     }
 
     .booking-widget {
+        padding: 20px 0;
+
         &:hover {
             &::before {
                 opacity: 0;
             }
         }
+    }
+
+    .booking-widget .checkbox-item-custom {
+        display: none;
     }
 }
 

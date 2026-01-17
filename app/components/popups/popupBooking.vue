@@ -50,8 +50,8 @@
                             <span class="checkbox-item-custom__box"></span>
                         </label>
 
-                        <p class="checkbox-item-custom__text">Я согласен на <NuxtLink to="/docs/soglasie-na-obrabotku-personalnyh-dannyh">обработку персональных данных</NuxtLink> ,
-                            <NuxtLink to="/system/soglashenie">пользовательское соглашение</NuxtLink> и <NuxtLink to="/docs/politika-konfidenczialnosti">политику конфиденциальности</NuxtLink> </p> 
+                         <p class="checkbox-item-custom__text">Я согласен на <NuxtLink to="/docs/obrabotka-personalnyh-dannyh">обработку персональных данных</NuxtLink> 
+                            и <NuxtLink to="/docs/politika-konfidenczialnosti">политику конфиденциальности</NuxtLink> </p>  
 
                         <p v-if="formPolitCheckbox == false && sendStatus == false" class="form-valid-error">Подтвердите согласие</p>
                     </div>
