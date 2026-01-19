@@ -1,7 +1,7 @@
 <template>
     <main class="main" v-if="pageData && pageData.length > 0">
 
-      <section class="home-hero-sec"v-if="pageData[0].acf.sekcziya_1_hero.zagolovok">
+      <section class="home-hero-sec" v-if="pageData[0].acf.sekcziya_1_hero.zagolovok">
         <div class="home-hero-sec__header-shadow"></div>
 
         <picture class="home-hero-sec__bg-img-picture">
@@ -182,8 +182,8 @@
                      :to="`/autopark?id=${item.id}`" 
                      class="swipe-home-cat__wrapper" >
                       <div  class="swipe-home-cat__img-wprapper">
-                        <img v-if="item.acf.izobrazhenie_kategorii.sizes?.medium"
-                        :src="item.acf.izobrazhenie_kategorii.sizes.medium" 
+                        <img v-if="item.acf.izobrazhenie_kategorii.sizes?.medium_large"
+                        :src="item.acf.izobrazhenie_kategorii.sizes.medium_large" 
                         :alt="item.acf.izobrazhenie_kategorii.alt" 
                         class="swipe-home-cat__img">
 
