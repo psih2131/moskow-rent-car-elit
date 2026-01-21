@@ -27,19 +27,19 @@ start: "top 80%",
     <template v-if="item.skidka && item.skidka != ' '">
         <p class="price-car-swiper__el-value-new-price">
             <span class="price-car-swiper__el-value-num" v-html="item.skidka"></span> 
-            <span class="price-car-swiper__text-name"> руб./сутки</span>
+            <span class="price-car-swiper__text-name"> руб.<span v-if="noDayText != true">/сутки</span></span>
         </p>
 
     <p class="price-car-swiper__el-value-old-price">
         <span class="price-car-swiper__el-value-num" v-html="item.czena"></span> 
-        <span class="price-car-swiper__text-name"> руб./сутки</span>
+        <span class="price-car-swiper__text-name"> руб.<span v-if="noDayText != true">/сутки</span></span>
     </p>
     </template>
 
     <template v-else>
         <span class="price-car-swiper__el-value-new-price">
         <span class="price-car-swiper__el-value-num" v-html="item.czena"></span> 
-        <span class="price-car-swiper__text-name"> руб./сутки</span>
+        <span class="price-car-swiper__text-name"> руб.<span v-if="noDayText != true">/сутки</span></span>
     </span>
     </template>
     
@@ -57,7 +57,8 @@ start: "top 80%",
 import { ref, onMounted } from 'vue';
 
 defineProps({
-    dataSlider: Array
+    dataSlider: Array,
+    noDayText: Boolean
 })
 
 const priceCarSlider = ref(null)

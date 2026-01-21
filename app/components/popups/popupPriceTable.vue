@@ -16,6 +16,7 @@
             <div class="form-popup-price-table__table popup-table-price">
 
                 <template v-if="tableData?.list?.length > 0">
+                    <p class="popup-table-price__row-title">Посуточно</p>
                     <div class="popup-table-price__row" v-for="item in tableData.list">
                         <div class="popup-table-price__col">
                             <p class="popup-table-price__name"><span v-html="item.period"></span></p>
@@ -47,6 +48,7 @@
 
 
                 <template v-if="tableData?.list2?.length > 0">
+                    <p class="popup-table-price__row-title">Помесячно</p>
                     <div class="popup-table-price__row" v-for="item in tableData.list2">
                         <div class="popup-table-price__col">
                             <p class="popup-table-price__name"><span v-html="item.period"></span></p>
@@ -75,6 +77,7 @@
                         </div>
                     </div>
                 </template>
+                
 
 
                 <template v-if="tableData?.list3?.length > 0">

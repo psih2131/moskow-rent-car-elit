@@ -520,19 +520,19 @@
                     <template v-if="item.skidka && item.skidka != ' '">
                       <div class="sale-wrapper">
                       <span class="price-table__el-value-new-price">
-                        <span class="price-table__el-value-num" v-html="item.skidka"></span> руб./сутки
+                        <span class="price-table__el-value-num" v-html="item.skidka"></span> руб.
 
                         <div class="price-table__el-value-new-price-sale-procent">-{{item.skidka_v_proczentah}}%</div>
                       </span>
                       <span class="price-table__el-value-old-price">
-                        <span class="price-table__el-value-num" v-html="item.czena"></span> руб./сутки
+                        <span class="price-table__el-value-num" v-html="item.czena"></span> руб.
                       </span>
                       </div>
                       
                     </template>
 
                     <template v-else>
-                      <span class="price-table__el-value-num" v-html="item.czena"></span> руб./сутки
+                      <span class="price-table__el-value-num" v-html="item.czena"></span> руб.
                     </template>
                   </div>
                 </div>
@@ -561,7 +561,7 @@
 
               <template v-else-if="switchPrice == 3">
 
-                <priceSecMobCar v-if="loadClient == true" :dataSlider="currentCarData[0].acf.stoimost_arendy_c_voditelem" />
+                <priceSecMobCar v-if="loadClient == true" :dataSlider="currentCarData[0].acf.stoimost_arendy_c_voditelem" :noDayText="true" />
 
               </template>
 
@@ -611,7 +611,7 @@
       </section>
     </div>
 
-    <template v-if="currentCarData[0].acf?.nashi_uslugi?.zagolovok">
+    <template v-if="currentCarData[0].acf?.nashi_uslugi?.zagolovok && currentCarData[0]?.acf?.nashi_uslugi?.length > 0">
       <servicesSec  :sectionData="currentCarData[0].acf.nashi_uslugi" />
     </template>
     

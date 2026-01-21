@@ -60,16 +60,31 @@
                         <p class="footer__col-title">Контакты</p>
 
                         <div class="footer__contacts-list">
-                            <a :href="value.ssylka" aria-label="Ссылка на контакт" class="footer__contacts-element" v-for="value in store.optionsData.footer_kontakty">
-                                <div class="contact-link">
-                                    <div class="contact-link__wrapper">
-                                        <img :src="value.ikonka.url" :alt="value.ikonka.alt">
+
+                            <template v-for="value in store.optionsData.footer_kontakty">
+                                <a v-if="value.ssylka && value.ssylka != ''" :href="value.ssylka" aria-label="Ссылка на контакт" class="footer__contacts-element" >
+                                    <div class="contact-link">
+                                        <div class="contact-link__wrapper">
+                                            <img :src="value.ikonka.url" :alt="value.ikonka.alt">
+                                        </div>
+                                    </div>
+                                    <div class="footer__contacts-element-value">
+                                        <span class="footer__contacts-element-value-main" v-html="value.znachenie"></span>
+                                    </div>
+                                </a>
+
+                                <div v-else class="footer__contacts-element" >
+                                    <div class="contact-link">
+                                        <div class="contact-link__wrapper">
+                                            <img :src="value.ikonka.url" :alt="value.ikonka.alt">
+                                        </div>
+                                    </div>
+                                    <div class="footer__contacts-element-value">
+                                        <span class="footer__contacts-element-value-main" v-html="value.znachenie"></span>
                                     </div>
                                 </div>
-                                <div class="footer__contacts-element-value">
-                                    <span class="footer__contacts-element-value-main" v-html="value.znachenie"></span>
-                                </div>
-                            </a>
+                            </template>
+                            
                         </div>
                     </div>
 
@@ -78,19 +93,38 @@
                         <p class="footer__col-title">Нужна помощь?</p>
 
                         <div class="footer__contacts-list" v-if="store.optionsData.footer_svyaz">
-                         
-                            <a :href="value.ssylka" aria-label="Ссылка на социальную сеть" class="footer__contacts-element" v-for="value in store.optionsData.footer_svyaz">
-                                <div class="contact-link">
-                                    <div class="contact-link__wrapper">
-                                        <img :src="value.ikonka.url" :alt="value.ikonka.alt">
+                            
+
+                            <template v-for="value in store.optionsData.footer_svyaz">
+
+                                <a v-if="value.ssylka && value.ssylka != ''" :href="value.ssylka" aria-label="Ссылка на социальную сеть" class="footer__contacts-element" >
+                                    <div class="contact-link">
+                                        <div class="contact-link__wrapper">
+                                            <img :src="value.ikonka.url" :alt="value.ikonka.alt">
+                                        </div>
+                                    </div>
+                                    <div class="footer__contacts-element-value">
+                                        <span class="footer__contacts-element-value-main" v-html="value.zagolovok"></span>
+                                        <span class="footer__contacts-element-value-main-dop" v-if="value.podzagolovok" v-html="value.podzagolovok"></span>
+                                        
+                                    </div>
+                                </a>
+
+                                <div v-else  class="footer__contacts-element" >
+                                    <div class="contact-link">
+                                        <div class="contact-link__wrapper">
+                                            <img :src="value.ikonka.url" :alt="value.ikonka.alt">
+                                        </div>
+                                    </div>
+                                    <div class="footer__contacts-element-value">
+                                        <span class="footer__contacts-element-value-main" v-html="value.zagolovok"></span>
+                                        <span class="footer__contacts-element-value-main-dop" v-if="value.podzagolovok" v-html="value.podzagolovok"></span>
+                                        
                                     </div>
                                 </div>
-                                <div class="footer__contacts-element-value">
-                                    <span class="footer__contacts-element-value-main" v-html="value.zagolovok"></span>
-                                    <span class="footer__contacts-element-value-main-dop" v-if="value.podzagolovok" v-html="value.podzagolovok"></span>
-                                    
-                                </div>
-                            </a>
+
+                            </template>
+                            
                           
                         </div>
 
