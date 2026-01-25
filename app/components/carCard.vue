@@ -36,6 +36,7 @@
                                 media="(max-width: 990px)" 
                                 :srcset="item.izobrazhenie.sizes.large">
                                 <img 
+                                 v-if="item.izobrazhenie?.sizes?.large"
                                 :src="item.izobrazhenie.sizes.large" 
                                 :alt="item.izobrazhenie.alt" 
                                 class="car-card-slider__slide-img"

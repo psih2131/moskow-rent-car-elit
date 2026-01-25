@@ -717,18 +717,21 @@
             
           </div>
           <div class="seo-sec-type-1__images">
-            <img v-for="(item,index) in pageData[0].acf.sekcziya_10_seo_blok.izobrazheniya"
-            :src="item.kartirka.sizes.medium_large" 
-            :alt="item.kartirka.alt" 
-            v-gsap.whenVisible.once.from='{
-              autoAlpha: 0,
-              y: 200,
-              duration: 1,
-              delay: (0.2 * (+index + 1)),
-              start: "top 70%",
-            }'
-            
-            class="seo-sec-type-1__img">
+            <template v-for="(item,index) in pageData[0].acf.sekcziya_10_seo_blok.izobrazheniya">
+                 <img v-if="item.kartirka?.sizes?.medium_large"
+                  :src="item.kartirka.sizes.medium_large" 
+                  :alt="item.kartirka.alt" 
+                  v-gsap.whenVisible.once.from='{
+                    autoAlpha: 0,
+                    y: 200,
+                    duration: 1,
+                    delay: (0.2 * (+index + 1)),
+                    start: "top 70%",
+                  }'
+                  
+                  class="seo-sec-type-1__img">
+            </template>
+         
           </div>
         </div>
       </section>
