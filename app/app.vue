@@ -12,7 +12,13 @@
 
 
 <script setup>
+import { ref, onMounted  } from 'vue';
 
+onMounted(() => {
+  document.addEventListener('contextmenu', (e) => {
+    e.preventDefault()
+  })
+})
 
 
 useHead({
