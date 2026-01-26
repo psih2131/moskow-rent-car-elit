@@ -799,7 +799,7 @@ try {
     const slugs = chitatTakzhe.map(obj => obj.post_name)
 
     const promises = slugs.map(slug =>
-      fetch(`${store.serverUrlDomainRequest}/wp-json/wp/v2/cars?slug=${slug}&_fields=id,name,acf,slug`)
+      fetch(`${store.serverUrlDomainRequest}/wp-json/wp/v2/cars?slug=${slug}&_fields=id,name,acf,slug,categories-cars`)
         .then(res => res.json())
         .then(data => data?.[0] || null)
     )

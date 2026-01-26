@@ -101,7 +101,7 @@
                         </template>
 
                         <template v-else>
-                            <div class="car-card__price" v-if="carData.acf.gibkaya_stoimost_arend?.length > 0" >
+                            <div class="car-card__price" v-if="carData.acf.gibkaya_stoimost_arendy?.length > 0" >
                                 <span class="car-card__price-value"><span v-html="carData.acf.gibkaya_stoimost_arendy[0].czena"></span>₽</span>
                                 / день
                             </div>
