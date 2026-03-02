@@ -485,19 +485,19 @@
                     <template v-if="item.skidka && item.skidka != ' '">
                       <div class="sale-wrapper">
                       <span class="price-table__el-value-new-price">
-                        <span class="price-table__el-value-num" v-html="item.skidka"></span> руб./сутки
+                        <span class="price-table__el-value-num" v-html="item.skidka"></span> руб./месяц
 
                         <div class="price-table__el-value-new-price-sale-procent">-{{item.skidka_v_proczentah}}%</div>
                       </span>
                       <span class="price-table__el-value-old-price">
-                        <span class="price-table__el-value-num" v-html="item.czena"></span> руб./сутки
+                        <span class="price-table__el-value-num" v-html="item.czena"></span> руб./месяц
                       </span>
                       </div>
                       
                     </template>
 
                     <template v-else>
-                      <span class="price-table__el-value-num" v-html="item.czena"></span> руб./сутки
+                      <span class="price-table__el-value-num" v-html="item.czena"></span> руб./месяц
                     </template>
                   </div>
                 </div>
@@ -539,7 +539,7 @@
               </div>
             </div>
 
-            </div>
+        </div>
 
 
             <div class="price-table-mob-wrapper" >
@@ -572,51 +572,31 @@
 
             <div class="container">
 
-            <div class="car-price-sec__dop-services dop-services-price" v-if="currentCarData[0].acf.dopolnitelnye_uslugi">
-              <div class="dop-services-price__row" v-for="item in currentCarData[0].acf.dopolnitelnye_uslugi"
-              v-gsap.whenVisible.once.from='{
-              autoAlpha: 0,
-              y: 50,
-              duration: 0.5,
-              delay: 0.1,
-              start: "top 90%",
-              }'>
-                <p class="dop-services-price__name"><span v-html="item.nazvanie_uslugi"></span></p>
-                <p class="dop-services-price__value" v-html="item.stoimost"></p>
+              <div class="car-price-sec__dop-services dop-services-price" v-if="currentCarData[0].acf.dopolnitelnye_uslugi">
+                <div class="dop-services-price__row" v-for="item in currentCarData[0].acf.dopolnitelnye_uslugi"
+                v-gsap.whenVisible.once.from='{
+                autoAlpha: 0,
+                y: 50,
+                duration: 0.5,
+                delay: 0.1,
+                start: "top 90%",
+                }'>
+                  <p class="dop-services-price__name"><span v-html="item.nazvanie_uslugi"></span></p>
+                  <p class="dop-services-price__value" v-html="item.stoimost"></p>
+                </div>
               </div>
+
             </div>
-
-  <!-- 
-            <button class="home-hero-sec__btn btnV1 btnV1--big car-price-sec__btn-mob btnV1--blick" 
-                  v-if="currentCarData[0].acf?.gibkaya_stoimost_arendy?.length > 3"
-                  @click="openTargetPopup('popup-price-table')"
-                  v-gsap.whenVisible.once.from='{
-                  autoAlpha: 0,
-                  y: 50,
-                  duration: 0.5,
-                  delay: 0.2,
-                  start: "top 70%",
-                  }'>
-                      <span class="btnV1__circle btnV1__circle-1"></span>
-                      <span class="btnV1__circle btnV1__circle-2"></span>
-                      <span class="btnV1__title">ПОСМОТРЕТЬ ВСЕ ЦЕНЫ</span>
-
-                      <div class="btnV1__line btnV1__line-1"></div>
-                      <div class="btnV1__line btnV1__line-2"></div>
-                      <div class="btnV1__line btnV1__line-3"></div>
-                      <div class="btnV1__line btnV1__line-4"></div>
-              </button> -->
-        </div>
       
       </section>
     </div>
 
-    <template v-if="currentCarData[0].acf?.nashi_uslugi?.zagolovok && currentCarData[0]?.acf?.nashi_uslugi?.length > 0">
+    <template v-if="currentCarData[0].acf?.nashi_uslugi?.zagolovok && currentCarData[0].acf?.nashi_uslugi?.usluga?.length > 0">
       <servicesSec  :sectionData="currentCarData[0].acf.nashi_uslugi" />
     </template>
     
 
-     <section class="car-adv-sec" v-if="currentCarData[0].acf.zagolovok_preimushhestva">
+    <section class="car-adv-sec" v-if="currentCarData[0].acf.zagolovok_preimushhestva">
       <div class="container">
         <div class="header-row-sec-v2">
 
@@ -628,7 +608,7 @@
             delay: 0.1,
             start: "top 70%",
             }'>
-              <img src="@/assets/images/img/decor.png" alt="" class="header-row-sec-v2__decor"></img>
+              <img src="@/assets/images/img/decor.png" alt="" class="header-row-sec-v2__decor" />
             </div>
             
             <h2 class="car-adv-sec__title sec-title sec-title--center-mod" 
@@ -768,6 +748,8 @@
         </div>
     </section> 
 
+    <ourClientsSection :sectionData="optionsData?.sekcziya_4_nashi_klienty" />
+
     <section class="clients-about-us" v-if="currentCarData[0].acf.zagolovok_otzyvy_klientov && currentCarData[0].acf?.otzyvy_klientov?.otzyvy?.length > 0">
         <div class="container">
           <div class="header-row-sec-v2">
@@ -781,7 +763,7 @@
               delay: 0,
               start: "top 70%",
             }'>
-              <img src="@/assets/images/img/decor.png" alt="" class="header-row-sec-v2__decor"></img>
+              <img src="@/assets/images/img/decor.png" alt="" class="header-row-sec-v2__decor" />
             </div>
             
             <h2 
@@ -824,7 +806,7 @@
               y: 50,
               duration: 0.5,
               delay: 0.4,
-              start: "top 70%",
+              start: "top 80%",
               }'></div>
             </div>
             <div class="info-data-row__img-wrapper">
@@ -837,7 +819,7 @@
               y: 50,
               duration: 0.5,
               delay: 0.1,
-              start: "top 70%",
+              start: "top 80%",
               }'>
               <img 
               :src="item.izobrazhenie_2.sizes.medium_large" 
@@ -849,7 +831,7 @@
               y: 50,
               duration: 0.5,
               delay: 0.2,
-              start: "top 70%",
+              start: "top 80%",
               }'>
             </div>
           </div>
@@ -871,7 +853,7 @@
             delay: 0.1,
             start: "top 70%",
             }'>
-              <img src="@/assets/images/img/decor.png" alt="" class="header-row-sec-v2__decor"></img>
+              <img src="@/assets/images/img/decor.png" alt="" class="header-row-sec-v2__decor" />
             </div>
             
             <h2 class="car-char-full-sec__title sec-title sec-title--center-mod" 
@@ -900,14 +882,25 @@
                 <span class="car-char-full-sec__row-counter">{{'0'+(index + 1)}}</span>
                 <span class="car-char-full-sec__row-name-text" v-html="item.nazvanie_harakteristiki"></span>
               </div>
-              <div class="car-char-full-sec__value" v-html="item.znachenie"></div>
+              <div class="car-char-full-sec__value">
+                <template v-if="item.znachenie">
+                  <div v-html="item.znachenie"></div>
+                </template>
+                <template v-else-if="item.tekstovyj_blok || item.izobrazhenie_1">
+                  <div class="wp-editor" v-if="item.tekstovyj_blok" v-html="item.tekstovyj_blok"></div>
+                  <div class="info-data-row__img-wrapper" v-if="item.izobrazhenie_1 || item.izobrazhenie_2">
+                    <img v-if="item.izobrazhenie_1" :src="item.izobrazhenie_1.sizes?.medium_large" :alt="item.izobrazhenie_1?.alt" class="info-data-row__img" loading="lazy">
+                    <img v-if="item.izobrazhenie_2" :src="item.izobrazhenie_2.sizes?.medium_large" :alt="item.izobrazhenie_2?.alt" class="info-data-row__img" loading="lazy">
+                  </div>
+                </template>
+              </div>
             </div>
 
           </div>
       </div>
     </section>
 
-   <formSec :formSecData="optionsData" />
+    <formSec :formSecData="optionsData" />
 
     <section class="car-simmilar-sec" v-if="currentCarData[0].acf.zagolovok_pohozhie_avto && recomendCars?.length > 0">
       <div class="container">
@@ -998,6 +991,8 @@ import carCard from '@/components/carCard.vue'
 import faqElement from '@/components/faqElement.vue'
 
 import formSec from '@/components/sections/formSec.vue'
+
+import ourClientsSection from '@/components/sections/ourClientsSection.vue'
 
 import reviewSlider from '@/components/sections/reviewsSlider.vue'
 

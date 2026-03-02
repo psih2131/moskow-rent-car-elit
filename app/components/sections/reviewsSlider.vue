@@ -1,6 +1,6 @@
 <template>
 
-    <div class="clients-about-us__slider-wrapper" v-if="sliderData?.length > 0">
+    <div class="clients-about-us__slider-wrapper" ref="sliderWrapperEl" v-if="sliderData?.length > 0">
             <ClientOnly>
               <swiper-container 
               ref="clientsAboutUsSlider" 
@@ -13,7 +13,7 @@
                     y: 200,
                     duration: 0.8,
                     delay: (0.1 * (+index + 1)),
-                    start: "top 70%",
+                    start: "top 80%",
                   }'>
                     <div class="clients-about-us-slider__slide-wrapper">
                       <img :src="item.foto_klienta.url" :alt="item.foto_klienta.alt" class="clients-about-us-slider__slide-photo">
@@ -67,8 +67,8 @@
                   autoAlpha: 0,
                   y: 100,
                   duration: 0.5,
-                  delay: 0.3,
-                  start: "top 70%",
+                  delay: 0.1,
+                  start: "top 96%",
                 }'
                 >
                     <svg width="153" height="15" viewBox="0 0 153 15" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -99,8 +99,8 @@
                   autoAlpha: 0,
                   y: 100,
                   duration: 0.5,
-                  delay: 0.3,
-                  start: "top 70%",
+                  delay: 0.1,
+                  start: "top 96%",
                 }'>
                     <svg width="153" height="15" viewBox="0 0 153 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M152.71 8.07039C153.101 7.67986 153.101 7.0467 152.71 6.65617L146.346 0.292213C145.956 -0.0983109 145.323 -0.0983109 144.932 0.292213C144.542 0.682738 144.542 1.3159 144.932 1.70643L150.589 7.36328L144.932 13.0201C144.542 13.4107 144.542 14.0438 144.932 14.4343C145.323 14.8249 145.956 14.8249 146.346 14.4343L152.71 8.07039ZM0 7.36328V8.36328H152.003V7.36328V6.36328H0V7.36328Z" fill="#F1BD81"/>
@@ -116,7 +116,7 @@
 
 <script setup>
 
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, onBeforeUnmount, nextTick } from 'vue';
 
 import { useCounterStore } from '@/stores/counter'
 
@@ -130,9 +130,38 @@ const route = useRoute()
 
 const clientsAboutUsSlider = ref(null)
 
+const sliderWrapperEl = ref(null)
 
 defineProps({
     sliderData: Array,
+})
+
+function equalizeSlideHeights() {
+  const wrapper = sliderWrapperEl.value
+  if (!wrapper) return
+  const slides = wrapper.querySelectorAll('.clients-about-us-slider__slide-wrapper')
+  if (!slides.length) return
+  slides.forEach(s => s.style.height = '')
+  const heights = Array.from(slides).map(s => s.offsetHeight)
+  const maxHeight = Math.max(...heights)
+  slides.forEach(s => { s.style.height = maxHeight + 'px' })
+}
+
+let resizeObserver = null
+
+onMounted(async () => {
+  const run = () => setTimeout(equalizeSlideHeights, 150)
+  await nextTick()
+  run()
+  const wrapper = sliderWrapperEl.value
+  if (wrapper) {
+    resizeObserver = new ResizeObserver(run)
+    resizeObserver.observe(wrapper)
+  }
+})
+
+onBeforeUnmount(() => {
+  resizeObserver?.disconnect()
 })
 
 

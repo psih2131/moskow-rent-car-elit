@@ -37,7 +37,7 @@
                     delay: 0.3,
                 
                     }'
-                    :href="pageData[0].acf.telefon.ssylka" class="contacts-sec__contact social-contact-def" v-if="pageData[0].acf?.telefon?.znachenie">
+                    :href="pageData[0].acf.telefon.ssylka" class="contacts-sec__contact social-contact-def social-contact-def--phone" v-if="pageData[0].acf?.telefon?.znachenie">
                         <div class="social-contact-def__icon">
                             <div class="social-contact-def__icon-wrapper">
                                 <img :src="pageData[0].acf.telefon.ikonka.url" :alt="pageData[0].acf.telefon.ikonka.alt">
@@ -93,6 +93,7 @@
 
                         <div class="social-contact-def__info">
                             <p class="social-contact-def__value" v-html="pageData[0].acf.adres.znachenie"></p>
+                            <p class="social-contact-def__worktime">Работаем круглосуточно</p>
                         </div>
                         
                     </div>

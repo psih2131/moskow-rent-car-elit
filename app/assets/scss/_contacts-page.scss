@@ -28,6 +28,16 @@
         margin-bottom: 0;
         line-height: 1.4;
     }
+
+    .social-contact-def__worktime {
+        margin-top: 10px;
+        padding: 4px 10px;
+        display: inline-block;
+        font-size: 12px;
+        color: $grey2;
+        background: rgba($green2s, 0.25);
+        border-radius: 6px;
+    }
 }
 
 .contacts-sec__social-row {
@@ -91,18 +101,15 @@
 
 
 .y-map__marker-wrapper {
-    position: relative;
-    width: 1px;
-    height: 1px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: block;
+    line-height: 0;
 
-    svg {
-        position: absolute;
-        bottom: 0;
+    .y-map__marker-icon,
+    img {
         display: block;
-
+        width: 61px;
+        height: 76px;
+        object-fit: contain;
     }
 }
 
