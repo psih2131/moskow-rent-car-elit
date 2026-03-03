@@ -51,7 +51,7 @@
                 <button class="home-hero-sec__btn btnV1 btnV1--big btnV1--blick" @click="validationForm">
                     <span class="btnV1__circle btnV1__circle-1"></span>
                     <span class="btnV1__circle btnV1__circle-2"></span>
-                    <span class="btnV1__title">ЗАБРОНИРЫВАТЬ</span>
+                    <span class="btnV1__title">ЗАБРОНИРОВАТЬ</span>
 
                     <div class="btnV1__line btnV1__line-1"></div>
                     <div class="btnV1__line btnV1__line-2"></div>
@@ -65,7 +65,7 @@
             <button class="home-hero-sec__btn btnV1 btnV1--big booking-widget__ipad btnV1--blick" @click="openPopupBooking">
                 <span class="btnV1__circle btnV1__circle-1"></span>
                 <span class="btnV1__circle btnV1__circle-2"></span>
-                <span class="btnV1__title">ЗАБРОНИРЫВАТЬ</span>
+                <span class="btnV1__title">ЗАБРОНИРОВАТЬ</span>
 
                 <div class="btnV1__line btnV1__line-1"></div>
                 <div class="btnV1__line btnV1__line-2"></div>
