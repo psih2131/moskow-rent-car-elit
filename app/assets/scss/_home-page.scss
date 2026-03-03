@@ -139,6 +139,7 @@
 .home-hero-sec__text-wrapper {
     width: 100%;
     margin-top: 350px;
+   
 }
 
 .home-hero-sec__text {
@@ -152,7 +153,11 @@
     letter-spacing: 1.2px;
     font-family: $subFont;
     max-width: 680px;
-    margin: 0 auto;
+    margin: 0 auto; padding: 20px;
+    border-radius: 15px;
+    background: rgba(0, 0, 0, 0.40);
+    backdrop-filter: blur(4px);
+    border: solid 1px rgba(255, 255, 255, 0.10);
 }
 
 .home-hero-sec__btn-row {
@@ -1243,7 +1248,7 @@ swiper-container::part(bullet-active) {
     }
 
     .home-hero-sec__text {
-        font-size: 20px;
+        font-size: 18px;
     }
 
 
@@ -1941,6 +1946,7 @@ swiper-container::part(bullet-active) {
         left: 0;
         letter-spacing: 0.7px;
         position: absolute;
+        background: rgba(0, 0, 0, 0.20);
     }
 
     .home-category-sec {
