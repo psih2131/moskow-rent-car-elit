@@ -141,7 +141,7 @@
                             <div class="autopark-cars-sec__filtrs">
                                 
                                 <div class="autopark-cars-sec__filtr-wrapper autopark-cars-sec__filtr-wrapper--power">
-                                    <customSelect :placeholder="'Мощьность'" :dopPlaceholder="'л.с'" :typeSelect="'two'" @sendData="getFiltrPover"/>
+                                    <customSelect :placeholder="'Мощность'" :dopPlaceholder="'л.с'" :typeSelect="'two'" @sendData="getFiltrPover"/>
                                 </div>
 
                                 <div class="autopark-cars-sec__filtr-wrapper autopark-cars-sec__filtr-wrapper--power">
@@ -350,7 +350,7 @@
 
     const { data: allCars } = await useFetch(`${store.serverUrlDomainRequest}/wp-json/wp/v2/cars`)
 
-    const { data: carsCategoryes } = await useFetch(`${store.serverUrlDomainRequest}/wp-json/wp/v2/categories-cars`)
+    const { data: carsCategoryes } = await useFetch(`${store.serverUrlDomainRequest}/wp-json/wp/v2/categories-cars?orderby=count&order=desc`)
 
     const { data: pageData } = await useFetch(`${store.serverUrlDomainRequest}/wp-json/wp/v2/pages?slug=avtopark`)
 
@@ -530,25 +530,23 @@ function applyFiltrs(){
 
     let newArray = allCars.value
 
-    let carsAfterFiltrs = newArray.filter(car => {
+    let carsAfterFiltrs = (newArray || []).filter(car => {
     const f = filtrsObject.value
-    const char = car.acf.harakteristiki
+    const char = car?.acf?.harakteristiki
 
     // Фильтр по мощности
-    if (f.power.min !== null && +char.moshhnost_ls < +f.power.min) return false
-    if (f.power.max !== null && +char.moshhnost_ls > +f.power.max) return false
+    if (f.power.min !== null && (+char?.moshhnost_ls ?? 0) < +f.power.min) return false
+    if (f.power.max !== null && (+char?.moshhnost_ls ?? 0) > +f.power.max) return false
 
-    // Коробка передач
-    if (f.privod !== null && char.tip_privoda !== f.privod) return false
+    // Тип привода
+    if (f.privod !== null && char?.tip_privoda !== f.privod) return false
 
     // Кол-во пассажиров
-    if (f.passengers !== null && +char.kolichestvo_mest < +f.passengers){
-        return false
-    } 
+    if (f.passengers !== null && (+char?.kolichestvo_mest ?? 0) < +f.passengers) return false
 
     // Цена
-    if (f.cost.min !== null && +car.acf.stoimost_avto_v_sutki < +f.cost.min) return false
-    if (f.cost.max !== null && +car.acf.stoimost_avto_v_sutki > +f.cost.max) return false
+    if (f.cost.min !== null && (+car?.acf?.stoimost_avto_v_sutki ?? 0) < +f.cost.min) return false
+    if (f.cost.max !== null && (+car?.acf?.stoimost_avto_v_sutki ?? 0) > +f.cost.max) return false
 
     return true
   })
@@ -568,7 +566,7 @@ const clearFiltr = () =>{
             'min':null,
             'max':null
         },
-        'transmission': null,
+        'privod': null,
         'passengers': null,
         'cost': {
             'min':null,
