@@ -18,6 +18,9 @@ export default defineNuxtConfig({
         { rel: 'icon', type: 'image/png', href: '/favicon.png' },
         { rel: 'icon', type: 'image/x-icon', href: '/favicon_current.ico' },
       ],
+      noscript: [
+        { innerHTML: '<div><img src="https://mc.yandex.ru/watch/107256938" style="position:absolute;left:-9999px;" alt="" /></div>' }
+      ],
     }
   },
 
@@ -179,8 +182,20 @@ export default defineNuxtConfig({
     'nuxt-locomotive-scroll',
     '@nuxtjs/sitemap',
     '@nuxtjs/robots',
-    'nuxt-vitalizer'
+    'nuxt-vitalizer',
+    'nuxt-yandex-metrika'
   ],
+
+  yandexMetrika: {
+    id: '107256938',
+    options: {
+      webvisor: true,
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true,
+      ecommerce: 'dataLayer'
+    }
+  },
 
 
   vitalizer: {
