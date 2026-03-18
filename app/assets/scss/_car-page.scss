@@ -931,6 +931,20 @@
 
 }
 
+@media only screen and (max-width: 1380px) and (max-height: 760px) {
+    .car-hero-sec__slider-row {
+        width: 1800px;
+    }
+
+    .single-car-swiper-button-next {
+        left: calc(50% + 250px);
+    }
+
+    .single-car-swiper-button-prev {
+        left: calc(50% - 320px);
+    }   
+}
+
 @media only screen and (max-width: 990px) {
     .car-card__price-sale-price {
         text-align: center;

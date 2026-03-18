@@ -5,15 +5,21 @@
     :settings="{
       location: {
         center: [mapData.karta_dolgota, mapData.karta_shirota],
-        zoom: 11,
+        zoom: 13,
       },
     }"
     width="100%"
     height="100%"
   >
     <yandex-map-default-scheme-layer :settings="{ customization }" />
-
     <yandex-map-default-features-layer />
+
+    <ClientOnly>
+      <yandex-map-controls :settings="{ position: 'right' }">
+        <yandex-map-zoom-control />
+      </yandex-map-controls>
+      <template #fallback></template>
+    </ClientOnly>
 
     <yandex-map-clusterer
       v-model="clusterer"
@@ -58,6 +64,8 @@ import {
   YandexMapMarker,
   YandexMapClusterer,
   YandexMapListener,
+  YandexMapControls,
+  YandexMapZoomControl,
 } from "vue-yandex-maps";
 
 const props = defineProps({
