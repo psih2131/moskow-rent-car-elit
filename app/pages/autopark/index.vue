@@ -542,8 +542,8 @@ function applyFiltrs(){
     // Тип привода
     if (f.privod !== null && char?.tip_privoda !== f.privod) return false
 
-    // Кол-во пассажиров
-    if (f.passengers !== null && (+char?.kolichestvo_mest ?? 0) < +f.passengers) return false
+    // Кол-во мест (строгое совпадение — только авто с выбранным числом мест)
+    if (f.passengers !== null && +char?.kolichestvo_mest !== +f.passengers) return false
 
     // Цена
     if (f.cost.min !== null && (+car?.acf?.stoimost_avto_v_sutki ?? 0) < +f.cost.min) return false
