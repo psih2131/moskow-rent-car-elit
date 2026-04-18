@@ -67,7 +67,7 @@
                 </div>
 
                 <div class="popup-form__contacts-wrapper">
-                    <p class="popup-form__contacts-wrapper-title">Или свяжитесь нам сами</p>
+                    <p class="popup-form__contacts-wrapper-title">Или свяжитесь с нами сами</p>
 
                     <div class="popup-form__contacts-wrapper-row">
 
